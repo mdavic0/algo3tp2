@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Claudio Alberto Giménez** - [claudiogimenez26](https://github.com/claudiogimenez26)
 * **Andrés Jonathan Claros** - [andyclaros](https://github.com/andyclaros)
 * **Mauricio Davico** - [mdavic0](https://github.com/mdavic0)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **María Fernanda Pont Tovar** - [Maferep](https://github.com/Maferep)
 
 Corrector: **{Corrector}**
 
