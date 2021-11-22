@@ -1,5 +1,4 @@
 package edu.fiuba.algo3.modelo;
-import java.io.*;
 
 public class Policia {
 
