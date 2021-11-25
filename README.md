@@ -10,6 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Andrés Jonathan Claros** - [andyclaros](https://github.com/andyclaros)
 * **Mauricio Davico** - [mdavic0](https://github.com/mdavic0)
 * **María Fernanda Pont Tovar** - [Maferep](https://github.com/Maferep)
+* **Franco Pomi** - [FPomi](https://github.com/FPomi)
 
 Corrector: **{Corrector}**
 
