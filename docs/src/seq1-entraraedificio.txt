@@ -1,0 +1,24 @@
+title  El detective entra por primera vez al edificio (no cuenta tiempo)
+autoactivation on
+actor Usuario
+participant ":Policia" as Policia
+participant ":FueraDeEdificio" as Fuera
+participant ":EnEdificio" as En
+participant ":Edificio" as Edificio
+Usuario->Policia: entrarA(unEdificio)
+note over Policia:lugarActual = lugarActual.entrarA(unEdificio)
+Policia->Fuera: entrarA(unEdificio)
+Fuera->*En: <<create>>
+space
+deactivate En
+Fuera->Edificio: entrar()
+Edificio->Edificio:incrementarContador()
+space
+deactivate Edificio
+space
+deactivate Edificio
+space 
+Fuera-->>Policia:<<EnEdificio>>
+space
+deactivate Policia
+space
