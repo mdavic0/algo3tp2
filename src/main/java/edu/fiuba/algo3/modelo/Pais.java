@@ -32,4 +32,8 @@ public class Pais {
     public boolean sos(Pais pais){
         return equals(pais); // asume que solo hay una instancia de cada pais
     }
+    
+    public String toString(){
+        return this.nombre;
+    }
 }
