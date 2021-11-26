@@ -24,4 +24,8 @@ public class Pais {
     public void conectarA(Pais otro) {
         adyacentes.add(otro);
     }
+    
+    public String toString(){
+        return this.nombre;
+    }
 }
