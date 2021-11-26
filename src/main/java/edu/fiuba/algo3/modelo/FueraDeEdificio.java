@@ -14,4 +14,17 @@ public class FueraDeEdificio extends LugarActual {
     public Testigo obtenerTestigo() throws Exception {
         throw new Exception("No estás en un edificio!");
     }
+
+    @Override
+    public FueraDeEdificio viajarA(Pais pais) throws Exception {
+        if(this.pais.sePuedeViajarA(pais)) return new FueraDeEdificio(pais);
+
+        throw new Exception("No puedo viajar a ese pais!");
+    }
+
+    @Override
+    public Pais obtenerPais() {
+        return this.pais;
+    }
+
 }

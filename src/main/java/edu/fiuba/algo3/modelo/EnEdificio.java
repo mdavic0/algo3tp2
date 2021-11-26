@@ -12,4 +12,14 @@ public class EnEdificio extends LugarActual {
     public Testigo obtenerTestigo() {
         return this.edificio.obtenerTestigo();
     }
+
+    public EnEdificio viajarA(Pais pais) throws Exception{
+        throw new Exception("No puedo viajar estando adentro de un edificio!");
+    }
+
+    @Override
+    public Pais obtenerPais() {
+        return edificio.obtenerPais();
+    }
+
 }
