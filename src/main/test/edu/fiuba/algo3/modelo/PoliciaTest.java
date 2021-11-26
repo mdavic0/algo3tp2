@@ -55,11 +55,11 @@ public class PoliciaTest {
         Pais montreal = new Pais("Montreal");
         Pais mexico = new Pais("México");
         montreal.conectarA(mexico);
-
         Policia paco = new Policia(montreal);
-        paco.viajarA(mexico);
 
-        assertEquals(paco.paisActual().toString(), montreal.nombre);
+        assertEquals(montreal.nombre, paco.paisActual().toString());
+        paco.viajarA(mexico);
+        assertEquals(mexico.nombre, paco.paisActual().toString());
     }
 }
 
