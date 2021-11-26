@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 3
 
 * **Claudio Alberto Giménez** - [claudiogimenez26](https://github.com/claudiogimenez26)
 * **Andrés Jonathan Claros** - [andyclaros](https://github.com/andyclaros)
@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **María Fernanda Pont Tovar** - [Maferep](https://github.com/Maferep)
 * **Franco Pomi** - [FPomi](https://github.com/FPomi)
 
-Corrector: **{Corrector}**
+Corrector: **Santiago Valdez** - [corrector](https://github.com/corrector)
 
 ## Aplicación
 
