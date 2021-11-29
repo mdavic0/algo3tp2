@@ -20,16 +20,15 @@ public class RoboTest {
     @Test
     public void testInicializarRoboSinGenerador() throws Exception { 
         Dificultad d = new Dificultad();
-        Robo robo = new Robo(d);
+        Robo robo = new Robo(d, new GeneradorMockDeRobo());
         
-        //Queda por implementar el generador default
-        assertThrows(Exception.class, () -> robo.reportarRobo("Detective"));
+        robo.reportarRobo("Detective");
             
     }
 
     @Test
     public void crearLadron() throws Exception {
-        Ladron ladron = new Ladron("M", "", "", "tieneTatuaje", "Feo");
+        Ladron ladron = new Ladron("Roberto", "M", "", "", "tieneTatuaje", "Feo");
         assertEquals(ladron.genero().getClass(), GeneroMasculino.class);
         assertEquals(ladron.vehiculo(), "");
         assertEquals(ladron.cabello(), "");
