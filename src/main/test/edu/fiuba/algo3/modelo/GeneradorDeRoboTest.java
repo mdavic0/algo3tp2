@@ -11,7 +11,7 @@ public class GeneradorDeRoboTest {
     @Test
     public void testCrearViaDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
-        List<Pais> via = gen.viaDePaises(new Facil());
+        List<Pais> via = gen.viaDePaises(null);
         assertEquals(via.size(), 7);  
     }
     
