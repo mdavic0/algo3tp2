@@ -7,11 +7,12 @@ public class Edificio {
     Pais pais;
     Testigo testigo = new Testigo();
     String nombre;
-    //TipoDeEdicio tipoDeEdificio = new TipoDeEdificio();
+    TipoDeEdificio tipoDeEdificio;
 
-    public Edificio(String nombre, Pais pais){
+    public Edificio(String nombre, Pais pais, TipoDeEdificio unTipo){
         this.pais = pais;
         this.nombre = nombre;
+        this.tipoDeEdificio = unTipo;
     }
     
     public Testigo obtenerTestigo() {
@@ -28,5 +29,9 @@ public class Edificio {
 
     public void nuevaVisita(){
         cantidadDeVisitas ++;
+    }
+
+    public String seleccionarPista (){
+        return tipoDeEdificio.seleccionarPista();
     }
 }

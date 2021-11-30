@@ -9,7 +9,7 @@ public class PoliciaTest {
     @Test
     public void testCuestionarTestigo() throws Exception {
         Pais colombia = new Pais("Colombia");
-        Edificio banco = new Edificio("El banco", colombia);
+        Edificio banco = new Edificio("El banco", colombia, new EdificioEconomico()); //CAMBIAR TIPO EDF.
         colombia.agregarEdificio(banco);
 
         Policia paco = new Policia(colombia);
@@ -21,7 +21,7 @@ public class PoliciaTest {
     @Test
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
         Pais colombia = new Pais("Colombia");
-        Edificio e =  new Edificio("La ferretería", colombia);
+        Edificio e =  new Edificio("La ferretería", colombia, new EdificioEconomico());
         Policia paco = new Policia(colombia);
         
         assertThrows(Exception.class, () -> paco.entrarA(e));
@@ -30,13 +30,13 @@ public class PoliciaTest {
     @Test
     public void entrarAEdificio() throws Exception {
         Pais colombia = new Pais("Colombia");
-        Edificio e =  new Edificio("La ferretería", colombia);
+        Edificio e =  new Edificio("La ferretería", colombia, new EdificioEconomico());
         colombia.agregarEdificio(e);
 
         Policia paco = new Policia(colombia);
         
         paco.entrarA(e);
-        assertThrows(Exception.class, () -> paco.entrarA(new Edificio("Migraciones", colombia)));
+        assertThrows(Exception.class, () -> paco.entrarA(new Edificio("Migraciones", colombia, new EdificioEconomico())));
     }
 
     @Test

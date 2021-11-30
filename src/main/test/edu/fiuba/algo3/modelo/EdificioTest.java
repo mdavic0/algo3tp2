@@ -23,8 +23,8 @@ public class EdificioTest {
         Pais Argentina = new Pais ("Argentina");
         Policia paco = new Policia(Argentina);
 
-        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina, tipoDeEdificio);
-        Edificio puerto = new Edificio ("puerto", Argentina, tipoDeEdificio);
+        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina,new EdificioEconomico()); // CAMBIAR
+        Edificio puerto = new Edificio ("puerto", Argentina, new EdificioEconomico());        // TIPO DE EDIFICIO
 
         Argentina.agregarEdificio(puerto);
         Argentina.agregarEdificio(aeropuerto);
@@ -46,15 +46,19 @@ public class EdificioTest {
     @Test
     public void corroborarPista(){
 
-        String pistaDeseada = "Pista banco 1";
+        String pistaDeseada = "pista economica 01";
+        String pistaObtenida;
 
         Pais Argentina = new Pais ("Argentina");
         Policia paco = new Policia(Argentina);
 
-        Edificio banco = new Edificio ("banco", Argentina, tipoDeEdificio);
+        Edificio banco = new Edificio ("banco", Argentina, new EdificioEconomico());
 
+        Argentina.agregarEdificio(banco);
 
+        pistaObtenida = banco.seleccionarPista();
 
+        assertEquals(pistaDeseada, pistaObtenida);
 
     }
 }
