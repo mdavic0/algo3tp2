@@ -8,5 +8,7 @@ public abstract class LugarActual {
 
     public abstract LugarActual viajarA(Pais pais) throws Exception;
 
+    public abstract LugarActual salirDelEdificio() throws Exception;
+
     public abstract Pais obtenerPais();
 }

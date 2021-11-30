@@ -16,6 +16,10 @@ public class Policia {
         this.cuestionarTestigo(this.lugarActual.obtenerTestigo());
     }
 
+    public void salirDelEdificio() throws Exception{
+        this.lugarActual = this.lugarActual.salirDelEdificio();
+    }
+
     public String cuestionarTestigo() throws Exception {
         return cuestionarTestigo(this.lugarActual.obtenerTestigo());
     }
