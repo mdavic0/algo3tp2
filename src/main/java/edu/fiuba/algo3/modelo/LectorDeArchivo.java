@@ -33,5 +33,21 @@ public class LectorDeArchivo {
         paises.add( new Pais("Francia23"));
         return paises;
     }
+    public List<Artefacto> obtenerArtefactos() {
+        List<Artefacto> artefactos = new ArrayList<>();
+        artefactos.add(new Artefacto("La torre eiffel"));
+        artefactos.add(new Artefacto("La torre eiffel2"));
+        artefactos.add(new Artefacto("La torre eiffel3"));
+        artefactos.add(new Artefacto("La torre eiffel4"));
+        artefactos.add(new Artefacto("La torre eiffel5"));
+        artefactos.add(new Artefacto("La torre eiffel6"));
+        artefactos.add(new Artefacto("La torre eiffel7"));
+        artefactos.add(new Artefacto("La torre eiffel8"));
+        artefactos.add(new Artefacto("La torre eiffel9"));
+        artefactos.add(new Artefacto("La torre eiffel10"));
+        artefactos.add(new Artefacto("La torre eiffel11"));
+        artefactos.add(new Artefacto("La torre eiffel12"));
+        return artefactos;
+    }
 
 }

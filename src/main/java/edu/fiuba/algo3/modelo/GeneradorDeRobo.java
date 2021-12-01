@@ -16,6 +16,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     public GeneradorDeRobo() {
         this.paises = lectorDeArchivo.obtenerPaises();
+        this.artefactos = lectorDeArchivo.obtenerArtefactos();
     }
 
     @Override
