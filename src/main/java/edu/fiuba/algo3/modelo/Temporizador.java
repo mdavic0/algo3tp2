@@ -29,7 +29,7 @@ public class Temporizador {
             //Nota: hacer esto un evento que sea notificado al policia y al UI
             horas_transcurridas += horas_de_sueño;
         }
-        if(horaActual() >= hora_limite) {
+        if(horasTranscurridas() >= hora_limite) {
             //nota: reemplazar con patron de estado y hacer evento
             return "Inactivo";
         }

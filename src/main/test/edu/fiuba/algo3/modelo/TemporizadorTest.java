@@ -29,4 +29,21 @@ public class TemporizadorTest {
         assertEquals(14 + 8, timer.horasTranscurridas());
         assertEquals(((9 + 14 + 8) % 24), timer.horaActual()); //horaActual() provee el horario entre 0 y 23 horas
     }
+
+    @Test
+    public void testEventoQueDura48HorasCausaFinDeJuego() throws Exception { 
+        //Hack hasta implementar el sistema de eventos
+        
+
+        int hora_inicial = 9;
+        int hora_dormir = 23;
+        int hora_limite = 48;
+        Temporizador timer = new Temporizador(hora_inicial, hora_dormir, hora_limite); //hora inicial, hora_dormir, hora_limite
+        assertEquals( "Activo", timer.estado);
+        
+        timer.reportarActividad(new Actividad(48));
+
+        //Hack hasta implementar el sistema de eventos
+        assertEquals( "Inactivo", timer.estado);
+    }
 }
