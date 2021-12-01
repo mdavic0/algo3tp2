@@ -11,6 +11,20 @@ public class Pais {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<Pais>();
         this.edificios = new ArrayList<Edificio>();
+
+        GeneradorDeEdificios g = new GeneradorDeEdificios();
+        this.edificios.addAll(g.crearEdificiosPara(this));
+    }
+    
+    public Pais(String nombre, GeneradorDeEdificios g) {
+        this.nombre = nombre;
+        this.adyacentes = new ArrayList<Pais>();
+        this.edificios = new ArrayList<Edificio>();
+        this.edificios.addAll(g.crearEdificiosPara(this));
+    }
+
+    public List<Edificio> edificios(Edificio edificio) {
+        return edificios;
     }
 
     public void agregarEdificio(Edificio edificio) {
