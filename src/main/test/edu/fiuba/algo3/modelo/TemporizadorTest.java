@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//TODO: Faltan mas tests UNITARIOS!
 public class TemporizadorTest {
     @Test
     public void testCrearTemporizador() throws Exception { 
