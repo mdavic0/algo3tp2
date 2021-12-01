@@ -24,6 +24,14 @@ public class Pais {
     public void conectarA(Pais otro) {
         adyacentes.add(otro);
     }
+
+    public boolean sePuedeViajarA(Pais pais) {
+        return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
+    }
+
+    public boolean sos(Pais pais){
+        return equals(pais); // asume que solo hay una instancia de cada pais
+    }
     
     public String toString(){
         return this.nombre;

@@ -4,9 +4,11 @@ public class Policia {
 
     LugarActual lugarActual;
     String pista; //idealmente una coleccion
+    Rango rango;
 
     public Policia(Pais pais) {
         lugarActual = new FueraDeEdificio(pais);
+        rango = new Novato();
     }
 
     public void entrarA(Edificio unEdificio) throws Exception{
@@ -23,4 +25,11 @@ public class Policia {
         return pista;
     }
 
+    public void viajarA(Pais pais) throws Exception {
+        lugarActual = this.lugarActual.viajarA(pais);
+    }
+
+    public Pais paisActual() {
+        return this.lugarActual.obtenerPais();
+    }
 }
