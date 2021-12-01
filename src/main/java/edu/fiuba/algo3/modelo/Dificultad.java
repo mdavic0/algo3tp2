@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-public class Dificultad {
+public abstract class Dificultad {
 
 }

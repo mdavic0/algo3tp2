@@ -25,5 +25,13 @@ public class Robo {
     public Pais lugarDeRobo() {
         return via.get(0);
     }
+
+    public String nombreDeArtefacto() {
+        return artefacto.nombre;
+    }
+
+    public Ladron obtenerLadron() {
+        return ladron;
+    }
 }
 
