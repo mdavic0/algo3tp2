@@ -49,4 +49,22 @@ public class RoboTest {
         assertNotEquals(null,artefacto);
         assertNotEquals(null, ladron);
     }
+
+    @Test
+    public void generarPistaParaPais() throws Exception {
+        Robo robo = new Robo(new Dificil());
+
+        // hack para obtener pais valido
+        Pais paisActual = robo.via.get(0);
+        assertNotEquals(robo.pistaParaPais(paisActual).contenido(), null);
+    }
+
+    @Test
+    public void generarPistaParaLadron() throws Exception {
+        Robo robo = new Robo(new Dificil());
+
+        // hack para obtener pais valido
+        Pais paisActual = robo.via.get(0);
+        assertNotEquals(robo.pistaParaLadron().contenido(), null);
+    }
 }
