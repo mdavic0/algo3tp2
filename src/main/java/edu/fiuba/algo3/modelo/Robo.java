@@ -12,6 +12,7 @@ public class Robo {
         ladron = generador.generarLadron();
         artefacto = generador.artefacto(dificultad);
     } 
+
     public Robo(Dificultad dificultad, IGeneradorDeRobo generador) throws Exception {
         via = generador.viaDePaises(dificultad);
         ladron = generador.generarLadron();
@@ -22,6 +23,7 @@ public class Robo {
     public String reportarRobo(Object rango) {
         return "Hola, ".concat(rango.toString()).concat(". Hubo un robo de ").concat(artefacto.toString());
     }
+
     public Pais lugarDeRobo() {
         return via.get(0);
     }
@@ -33,5 +35,13 @@ public class Robo {
     public Ladron obtenerLadron() {
         return ladron;
     }
-}
 
+    //TODO: generar distintos tipos de pistas
+    public Pista pistaParaPais(Pais pais) {
+        return new Pista(this.paisDespuesDe(pais).toString());
+    }
+
+    public Pais paisDespuesDe(Pais pais) {
+        return via.get(via.indexOf(pais) + 1);
+    }
+}

@@ -14,7 +14,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
         this.paises = paises;
     }
 
-    public GeneradorDeRobo() {
+    public GeneradorDeRobo() throws Exception {
         this.paises = lectorDeArchivo.obtenerPaises();
         this.artefactos = lectorDeArchivo.obtenerArtefactos();
     }

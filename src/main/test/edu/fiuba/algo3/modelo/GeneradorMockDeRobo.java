@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GeneradorMockDeRobo implements IGeneradorDeRobo {
 
     @Override
-    public List<Pais> viaDePaises(Dificultad dificultad) {
+    public List<Pais> viaDePaises(Dificultad dificultad) throws Exception {
         ArrayList<Pais> list = new ArrayList<Pais>();
         list.add(new Pais("Zimbabwe"));
         list.add(new Pais("Sokovia"));

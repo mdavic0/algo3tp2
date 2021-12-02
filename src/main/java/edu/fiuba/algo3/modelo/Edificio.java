@@ -2,12 +2,15 @@ package edu.fiuba.algo3.modelo;
 
 public class Edificio {
     Pais pais;
-    Testigo testigo = new Testigo();
+    Robo robo;
+    Testigo testigo;
     String nombre;
 
-    public Edificio(String nombre, Pais pais){
+    public Edificio(String nombre, Pais pais, Robo robo){
         this.pais = pais;
         this.nombre = nombre;
+        this.robo = robo;
+        this.testigo = new Testigo(robo, pais);
     }
     
     public Testigo obtenerTestigo() {

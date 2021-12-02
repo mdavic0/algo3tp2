@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IGeneradorDeRobo {
 
-    List<Pais> viaDePaises(Dificultad dificultad);
+    List<Pais> viaDePaises(Dificultad dificultad) throws Exception;
 
     Artefacto artefacto(Dificultad dificultad);
 

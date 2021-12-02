@@ -7,16 +7,22 @@ public class Pais {
     List<Pais> adyacentes;
     List<Edificio> edificios;
 
-    public Pais(String nombre) {
+    public Pais(String nombre) throws Exception{
+        this.nombre = nombre;
+        this.adyacentes = new ArrayList<Pais>();
+        this.edificios = new ArrayList<Edificio>();
+    }
+
+    public Pais(String nombre, Robo robo) throws Exception{
         this.nombre = nombre;
         this.adyacentes = new ArrayList<Pais>();
         this.edificios = new ArrayList<Edificio>();
 
-        GeneradorDeEdificios g = new GeneradorDeEdificios();
+        GeneradorDeEdificios g = new GeneradorDeEdificios(robo);
         this.edificios.addAll(g.crearEdificiosPara(this));
     }
     
-    public Pais(String nombre, GeneradorDeEdificios g) {
+    public Pais(String nombre, GeneradorDeEdificios g) throws Exception {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<Pais>();
         this.edificios = new ArrayList<Edificio>();
