@@ -6,30 +6,24 @@ public class Policia {
     String pista; //idealmente una coleccion
     Rango rango;
 
-    public Policia(Pais pais) {
-        lugarActual = new FueraDeEdificio(pais);
+    public Policia(IPais colombia) {
+        lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
     }
 
-    public void entrarA(Edificio unEdificio) throws Exception{
-        this.lugarActual = this.lugarActual.entrarA(unEdificio);
-        this.cuestionarTestigo(this.lugarActual.obtenerTestigo());
+    public void entrarA(IEdificio banco) throws Exception{
+        this.lugarActual = this.lugarActual.entrarA(banco);
     }
 
     public String cuestionarTestigo() throws Exception {
-        return cuestionarTestigo(this.lugarActual.obtenerTestigo());
+        return this.lugarActual.cuestionarTestigo();
     }
 
-    private String cuestionarTestigo(Testigo testigo) {
-        pista = testigo.cuestionar();
-        return pista;
+    public void viajarA(IPais mexico) throws Exception {
+        lugarActual = this.lugarActual.viajarA(mexico);
     }
 
-    public void viajarA(Pais pais) throws Exception {
-        lugarActual = this.lugarActual.viajarA(pais);
-    }
-
-    public Pais paisActual() {
+    public IPais paisActual() {
         return this.lugarActual.obtenerPais();
     }
 }

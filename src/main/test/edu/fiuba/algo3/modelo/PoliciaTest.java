@@ -8,20 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PoliciaTest {
     @Test
     public void testCuestionarTestigo() throws Exception {
-        Pais colombia = new Pais("Colombia");
-        Edificio banco = new Edificio("El banco", colombia, new Robo(new Dificil()));
+        IPais colombia = new PaisMock("Colombia");
+        IEdificio banco = new EdificioMock("El banco");
         colombia.agregarEdificio(banco);
 
         Policia paco = new Policia(colombia);
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
         paco.entrarA(banco);
-        assertEquals("Francia",paco.cuestionarTestigo());
+        assertEquals("YO NO VI NADA!",paco.cuestionarTestigo());
     }
 
     @Test
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
-        Pais colombia = new Pais("Colombia");
-        Edificio e =  new Edificio("La ferretería", colombia,  new Robo(new Dificil()));
+        IPais colombia = new PaisMock("Colombia");
+        IEdificio e =  new EdificioMock("La ferreteria");
         Policia paco = new Policia(colombia);
         
         assertThrows(Exception.class, () -> paco.entrarA(e));
@@ -29,8 +29,8 @@ public class PoliciaTest {
 
     @Test
     public void entrarAEdificio() throws Exception {
-        Pais colombia = new Pais("Colombia");
-        Edificio e =  new Edificio("La ferretería", colombia,  new Robo(new Dificil()) );
+        IPais colombia = new PaisMock("Colombia");
+        IEdificio e =  new EdificioMock("La ferretería" );
         colombia.agregarEdificio(e);
 
         Policia paco = new Policia(colombia);
@@ -41,25 +41,25 @@ public class PoliciaTest {
 
     @Test
     public void viajarAUnPaisNoAccesibleCausaExcepcion() throws Exception {
-        Pais montreal = new Pais("Montreal");
-        Pais mexico = new Pais("México");
+        IPais montreal = new PaisMock("Montreal");
+        IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
 
         Policia paco = new Policia(montreal);
 
-        assertThrows(Exception.class, () -> paco.viajarA(new Pais("China")));
+        assertThrows(Exception.class, () -> paco.viajarA(new PaisMock("China")));
     }
 
     @Test
     public void viajaDeMontrealAMéxico() throws Exception{
-        Pais montreal = new Pais("Montreal");
-        Pais mexico = new Pais("México");
+        IPais montreal = new PaisMock("Montreal");
+        IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
         Policia paco = new Policia(montreal);
 
-        assertEquals(montreal.nombre, paco.paisActual().toString());
+        assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
-        assertEquals(mexico.nombre, paco.paisActual().toString());
+        assertEquals(mexico.nombre(), paco.paisActual().toString());
     }
 }
 

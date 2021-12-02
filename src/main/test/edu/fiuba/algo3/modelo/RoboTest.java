@@ -16,7 +16,9 @@ public class RoboTest {
         
         assertEquals("Hola, Detective. Hubo un robo de Un artefacto Mock", 
             robo.reportarRobo("Detective"));
-        assertEquals(robo.lugarDeRobo().toString(), "Zimbabwe");
+        
+        assertNotEquals(robo.lugarDeRobo(), null);
+        assertEquals(robo.lugarDeRobo().nombre, "Zimbabwe");
     }
 
     @Test
@@ -41,7 +43,7 @@ public class RoboTest {
     @Test
     public void crearRoboConGenerador() throws Exception {
         Robo robo = new Robo(new Dificil(), new GeneradorDeRobo());
-        Pais lugarRobo = robo.lugarDeRobo();
+        PaisSinPistas lugarRobo = robo.lugarDeRobo();
         String artefacto = robo.nombreDeArtefacto();
         Ladron ladron = robo.obtenerLadron();
 
@@ -55,7 +57,7 @@ public class RoboTest {
         Robo robo = new Robo(new Dificil());
 
         // hack para obtener pais valido
-        Pais paisActual = robo.via.get(0);
+        PaisSinPistas paisActual = robo.primerPais();
         assertNotEquals(robo.pistaParaPais(paisActual).contenido(), null);
     }
 
@@ -64,7 +66,8 @@ public class RoboTest {
         Robo robo = new Robo(new Dificil());
 
         // hack para obtener pais valido
-        Pais paisActual = robo.via.get(0);
+        PaisSinPistas pais = robo.primerPais();
+        assertNotEquals(pais, null);
         assertNotEquals(robo.pistaParaLadron().contenido(), null);
     }
 }

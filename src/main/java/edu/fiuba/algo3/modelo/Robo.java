@@ -1,20 +1,22 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Robo {
-    List<Pais> via;
+    List<PaisSinPistas> viaSinInit;
     Artefacto artefacto;
     Ladron ladron;
     IGeneradorDeRobo generador = new GeneradorDeRobo();
 
     public Robo(Dificultad dificultad) throws Exception{
-        via = generador.viaDePaises(dificultad);
+        viaSinInit = generador.viaDePaises(dificultad);
         ladron = generador.generarLadron();
         artefacto = generador.artefacto(dificultad);
-    } 
+    }        
 
     public Robo(Dificultad dificultad, IGeneradorDeRobo generador) throws Exception {
-        via = generador.viaDePaises(dificultad);
+        viaSinInit = generador.viaDePaises(dificultad);
         ladron = generador.generarLadron();
         artefacto = generador.artefacto(dificultad);
     } 
@@ -24,8 +26,8 @@ public class Robo {
         return "Hola, ".concat(rango.toString()).concat(". Hubo un robo de ").concat(artefacto.toString());
     }
 
-    public Pais lugarDeRobo() {
-        return via.get(0);
+    public PaisSinPistas lugarDeRobo() {
+        return viaSinInit.get(0);
     }
 
     public String nombreDeArtefacto() {
@@ -36,17 +38,31 @@ public class Robo {
         return ladron;
     }
 
+    public PaisSinPistas primerPais() {
+        return viaSinInit.get(0);
+    }
+
     //TODO: generar distintos tipos de pistas
-    public Pista pistaParaPais(Pais pais) {
+    public Pista pistaParaPais(IPais pais) {
+
+        PaisSinPistas pedido = viaSinInit
+            .stream()
+            .filter(p -> pais.nombre() == p.nombre).findFirst().get();
+        return pistaParaPais(pedido);
+    } 
+    
+    
+    //TODO: generar distintos tipos de pistas
+    public Pista pistaParaPais(PaisSinPistas pais) {
         return new Pista(this.paisDespuesDe(pais).toString());
-    }    
+    } 
     
     //TODO: generar distintos tipos de pistas
     public Pista pistaParaLadron(){
         return new Pista("El genero era ".concat(this.ladron.genero().toString()));
     }
 
-    public Pais paisDespuesDe(Pais pais) {
-        return via.get(via.indexOf(pais) + 1);
+    public PaisSinPistas paisDespuesDe(PaisSinPistas pais) {
+        return viaSinInit.get(viaSinInit.indexOf(pais) + 1);
     }
 }
