@@ -26,5 +26,9 @@ public class FueraDeEdificio extends LugarActual {
     public IPais obtenerPais() {
         return this.pais;
     }
+    @Override
+    public LugarActual salirDe(Edificio edificio) throws Exception {
+        throw new Exception("Ya estas afuera");
+    }
 
 }

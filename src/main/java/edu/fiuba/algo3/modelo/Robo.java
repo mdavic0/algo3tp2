@@ -61,7 +61,7 @@ public class Robo {
     
     //TODO: generar distintos tipos de pistas
     public Pista pistaParaPais(PaisSinPistas pais) {
-        return new Pista(this.paisDespuesDe(pais).toString());
+        return new Pista(this.paisDespuesDe(pais).nombre);
     } 
     
     //TODO: generar distintos tipos de pistas

@@ -26,4 +26,8 @@ public class Policia {
     public IPais paisActual() {
         return this.lugarActual.obtenerPais();
     }
+
+    public void salirDe(Edificio banco) throws Exception {
+        this.lugarActual = this.lugarActual.salirDe(banco);
+    }
 }

@@ -21,5 +21,9 @@ public class EnEdificio extends LugarActual {
     public IPais obtenerPais() {
         return edificio.obtenerPais();
     }
+    @Override
+    public LugarActual salirDe(Edificio banco) throws Exception {
+        return new FueraDeEdificio(edificio.obtenerPais());
+    }
 
 }

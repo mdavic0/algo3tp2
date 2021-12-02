@@ -27,6 +27,7 @@ public class EntregaTest {
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal);
         roberta.entrarA(edificio);
+        assertEquals(roberta.cuestionarTestigo(), "Zimbabwe");
     }
     @Test
     public void PoliciaVisitaBancoLuegoBiblioteca() throws Exception { 
@@ -41,7 +42,6 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
 
-
         Edificio banco = new Edificio("El banco", montreal, elRobo);
         Edificio biblio = new Edificio("La biblioteca", montreal, elRobo);
         montreal.agregarEdificio(banco);
@@ -49,9 +49,10 @@ public class EntregaTest {
 
 
         Policia roberta = new Policia(montreal);
+
         roberta.entrarA(banco);
-        //roberta.salirDe(banco);
-        //roberta.entrarA(biblio);
+        roberta.salirDe(banco);
+        roberta.entrarA(biblio);
     }
     
 }
