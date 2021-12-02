@@ -17,4 +17,9 @@ public class Investigador extends Rango{
     public Dificultad obtenerDificultadPistas(){
         return dificultad;
     }
+
+    @Override
+    public Rango subirRango() {
+        return new Sargento();
+    }
 }

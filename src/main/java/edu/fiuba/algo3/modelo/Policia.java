@@ -6,10 +6,12 @@ public class Policia {
     String pista; //idealmente una coleccion
     Rango rango;
     Temporizador t = new Temporizador(9, 20, 36);
+    int cantidadArrestos;
 
     public Policia(IPais colombia) {
         lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
+        cantidadArrestos = 0;
     }
 
     public Policia(IPais colombia, Temporizador t) {
@@ -42,4 +44,12 @@ public class Policia {
         int duracionCuchillo = 3;
         this.t.reportarActividad(new Actividad(duracionCuchillo));
     }
+
+    public void arrestarLadron(){
+        cantidadArrestos++;
+        if(cantidadArrestos %5 == 0){
+            this.rango = rango.subirRango();
+        }
+    }
+
 }

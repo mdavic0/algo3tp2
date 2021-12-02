@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PoliciaTest {
     @Test
@@ -60,6 +59,23 @@ public class PoliciaTest {
         assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
         assertEquals(mexico.nombre(), paco.paisActual().toString());
+    }
+
+    @Test
+    public void policiaHaceNArrestosYSubeDeRango() throws Exception{
+        IPais colombia = new PaisMock("Colombia");
+        Policia paco = new Policia(colombia);
+
+        assertEquals(Novato.class, paco.rango.getClass());
+        for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }
+        assertEquals(Detective.class, paco.rango.getClass());
+
+        for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }
+        assertEquals(Investigador.class, paco.rango.getClass());
+
+        for(int i = 0; i < 10; i++){ paco.arrestarLadron(); }
+        assertEquals(Sargento.class, paco.rango.getClass());
+
     }
 }
 
