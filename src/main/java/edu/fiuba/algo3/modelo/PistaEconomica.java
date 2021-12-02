@@ -1,7 +1,3 @@
 package edu.fiuba.algo3.modelo;
 
-public class PistaEconomica extends TipoDePista {
-
-
-
-}
+public class PistaEconomica extends TipoDePista {}
