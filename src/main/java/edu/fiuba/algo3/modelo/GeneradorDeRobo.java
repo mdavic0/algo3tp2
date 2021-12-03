@@ -6,23 +6,24 @@ import java.util.Collections;
 import java.lang.Math;
 
 public class GeneradorDeRobo implements IGeneradorDeRobo {
-    List<Pais> paises;
+    List<PaisSinPistas> paises;
     List<Artefacto> artefactos;
     LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
 
-    public GeneradorDeRobo(List<Pais> paises, List<Artefacto> artefactos) {
+    public GeneradorDeRobo(List<PaisSinPistas> paises, List<Artefacto> artefactos) {
         this.paises = paises;
     }
 
-    public GeneradorDeRobo() {
+    public GeneradorDeRobo() throws Exception {
         this.paises = lectorDeArchivo.obtenerPaises();
+        this.artefactos = lectorDeArchivo.obtenerArtefactos();
     }
 
     @Override
-    public List<Pais> viaDePaises(Dificultad dificultad) {
-        List<Pais> via = new ArrayList<Pais>(paises);
+    public List<PaisSinPistas> viaDePaises(Dificultad dificultad) {
+        List<PaisSinPistas> via = new ArrayList<PaisSinPistas>(paises);
         Collections.shuffle(via);
-        return paises.subList(0, 7);
+        return via.subList(0, 7);
     }
 
     @Override

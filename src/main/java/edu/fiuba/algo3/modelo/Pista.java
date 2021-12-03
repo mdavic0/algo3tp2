@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 public class Pista {
 
-    String contenido = null;
     TipoDePista tipoDePista;
+    String contenido;
 
     public Pista(String unaPista, TipoDePista untipo) {
         this.contenido = unaPista;
@@ -14,4 +14,11 @@ public class Pista {
         return this.contenido;
     }
 
+    public Pista(String contenido){
+        this.contenido = contenido;
+        this.tipoDePista = new PistaEconomica();
+    }
+    public String contenido() {
+        return contenido;
+    }
 }

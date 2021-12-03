@@ -5,35 +5,55 @@ public class Policia {
     LugarActual lugarActual;
     String pista; //idealmente una coleccion
     Rango rango;
+    Temporizador t = new Temporizador(9, 20, 36);
+    int cantidadArrestos;
 
-    public Policia(Pais pais) {
-        lugarActual = new FueraDeEdificio(pais);
+    public Policia(IPais colombia) {
+        lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
+        cantidadArrestos = 0;
     }
 
-    public void entrarA(Edificio unEdificio) throws Exception{
-        this.lugarActual = this.lugarActual.entrarA(unEdificio);
-        this.cuestionarTestigo(this.lugarActual.obtenerTestigo());
+    public Policia(IPais colombia, Temporizador t) {
+        lugarActual = new FueraDeEdificio(colombia);
+        rango = new Novato();
+        this.t = t;
     }
 
     public void salirDelEdificio() throws Exception{
         this.lugarActual = this.lugarActual.salirDelEdificio();
     }
 
+    public void entrarA(IEdificio banco) throws Exception{
+        this.lugarActual = this.lugarActual.entrarA(banco);
+    }
+
     public String cuestionarTestigo() throws Exception {
-        return cuestionarTestigo(this.lugarActual.obtenerTestigo());
+        return this.lugarActual.cuestionarTestigo();
     }
 
-    private String cuestionarTestigo(Testigo testigo) {
-        pista = testigo.cuestionar();
-        return pista;
-    }
-
-    public void viajarA(Pais pais) throws Exception {
+    public void viajarA(IPais pais) throws Exception {
         lugarActual = this.lugarActual.viajarA(pais);
     }
 
-    public Pais paisActual() {
+    public IPais paisActual() {
         return this.lugarActual.obtenerPais();
     }
+
+    public void salirDe(Edificio banco) throws Exception {
+        this.lugarActual = this.lugarActual.salirDe(banco);
+    }
+
+    public void recibirHeridaConCuchillo() throws Exception {
+        int duracionCuchillo = 3;
+        this.t.reportarActividad(new Actividad(duracionCuchillo));
+    }
+
+    public void arrestarLadron(){
+        cantidadArrestos++;
+        if(cantidadArrestos %5 == 0){
+            this.rango = rango.subirRango();
+        }
+    }
+
 }

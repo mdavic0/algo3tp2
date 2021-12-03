@@ -1,29 +1,31 @@
 package edu.fiuba.algo3.modelo;
 
-public class Edificio {
+public class Edificio implements IEdificio{
 
     int cantidadDeVisitas = 0;
-
-    Pais pais;
-    Testigo testigo = new Testigo();
+    IPais pais;
+    Robo robo;
+    Testigo testigo;
     String nombre;
     TipoDeEdificio tipoDeEdificio;
 
-    public Edificio(String nombre, Pais pais, TipoDeEdificio unTipo){
-        this.pais = pais;
+    public Edificio(String nombre, IPais pais2, Robo robo, TipoDeEdificio unTipo){
+        this.pais = pais2;
         this.nombre = nombre;
         this.tipoDeEdificio = unTipo;
-    }
-    
-    public Testigo obtenerTestigo() {
-        return this.testigo;
+        this.robo = robo;
+        this.testigo = new Testigo(robo, pais2);
     }
 
-    public Pais obtenerPais() {
+    public String obtenerTestimonio() {
+        return this.testigo.cuestionar();
+    }
+
+    public IPais obtenerPais() {
         return this.pais;
     }
 
-    public int cantidadDeVisitas(){
+    public Integer cantidadDeVisitas(){
         return this.cantidadDeVisitas;
     }
 
@@ -33,5 +35,9 @@ public class Edificio {
 
     public String seleccionarPista (){
         return tipoDeEdificio.seleccionarPista();
+    }
+
+    public String nombre(){
+        return nombre;
     }
 }

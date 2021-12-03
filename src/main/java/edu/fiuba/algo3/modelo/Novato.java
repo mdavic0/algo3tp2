@@ -18,4 +18,9 @@ public class Novato extends Rango{
     public Dificultad obtenerDificultadPistas(){
         return dificultad;
     }
+
+    @Override
+    public Rango subirRango() {
+        return new Detective();
+    }
 }

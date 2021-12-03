@@ -1,22 +1,22 @@
 package edu.fiuba.algo3.modelo;
 
 public class EnEdificio extends LugarActual {
-    Edificio edificio;
+    IEdificio edificio;
 
-    public EnEdificio(Edificio unEdificio) {
+    public EnEdificio(IEdificio unEdificio) {
         this.edificio = unEdificio;
     }
-
+    
     public LugarActual entrarA(Edificio unEdificio) throws Exception {
         throw new Exception("No se puede entrar de un edificio a otro!");
     }
 
     @Override
-    public Testigo obtenerTestigo() {
-        return this.edificio.obtenerTestigo();
+    public String cuestionarTestigo() {
+        return edificio.obtenerTestimonio();
     }
 
-    public EnEdificio viajarA(Pais pais) throws Exception{
+    public EnEdificio viajarA(IPais pais) throws Exception{
         throw new Exception("No puedo viajar estando adentro de un edificio!");
     }
 
@@ -26,8 +26,18 @@ public class EnEdificio extends LugarActual {
     }
 
     @Override
-    public Pais obtenerPais() {
+    public IPais obtenerPais() {
         return edificio.obtenerPais();
+    }
+    @Override
+    public LugarActual salirDe(Edificio banco) throws Exception {
+        return new FueraDeEdificio(edificio.obtenerPais());
+    }
+
+    @Override
+    public LugarActual entrarA(IEdificio banco) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

@@ -2,13 +2,14 @@ package edu.fiuba.algo3.modelo;
 
 public abstract class LugarActual {
 
-    public abstract LugarActual entrarA(Edificio unEdificio) throws Exception;
+    public abstract LugarActual entrarA(IEdificio banco) throws Exception;
 
-    public abstract Testigo obtenerTestigo() throws Exception;
+    public abstract LugarActual viajarA(IPais pais) throws Exception;
 
-    public abstract LugarActual viajarA(Pais pais) throws Exception;
+    public abstract IPais obtenerPais();
 
     public abstract LugarActual salirDelEdificio() throws Exception;
+    public abstract String cuestionarTestigo() throws Exception ;
 
-    public abstract Pais obtenerPais();
+    public abstract LugarActual salirDe(Edificio banco)throws Exception ;
 }

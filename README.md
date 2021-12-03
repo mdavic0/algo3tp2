@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **María Fernanda Pont Tovar** - [Maferep](https://github.com/Maferep)
 * **Franco Pomi** - [FPomi](https://github.com/FPomi)
 
-Corrector: **Santiago Valdez** - [corrector](https://github.com/corrector)
+Corrector: **Santiago Valdez** - [SantiValdezUlzurrun](https://github.com/SantiValdezUlzurrun)
 
 ## Aplicación
 

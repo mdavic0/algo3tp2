@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class GeneradorMockDeRobo implements IGeneradorDeRobo {
 
     @Override
-    public List<Pais> viaDePaises(Dificultad dificultad) {
-        ArrayList<Pais> list = new ArrayList<Pais>();
-        list.add(new Pais("Zimbabwe"));
-        list.add(new Pais("Sokovia"));
+    public List<PaisSinPistas> viaDePaises(Dificultad dificultad) throws Exception {
+        ArrayList<PaisSinPistas> list = new ArrayList<PaisSinPistas>();
+        list.add(new PaisSinPistas("Zimbabwe"));
+        list.add(new PaisSinPistas("Sokovia"));
         return list;
     }
 
@@ -21,7 +21,6 @@ public class GeneradorMockDeRobo implements IGeneradorDeRobo {
     @Override
     public Ladron generarLadron() throws Exception{
         return new Ladron("Pablo","F", "Motocicleta", "Rubio", "Feo", "Anillo", "Tatuaje en el brazo", "Trepar montañas");
-        
     }
     
 }
