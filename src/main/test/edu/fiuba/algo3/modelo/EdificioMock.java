@@ -27,4 +27,13 @@ public class EdificioMock implements IEdificio{
     public Object nombre() {
         return nombre;
     }
+
+    @Override
+    public void nuevaVisita() {}
+
+    @Override
+    public Integer cantidadDeVisitas() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

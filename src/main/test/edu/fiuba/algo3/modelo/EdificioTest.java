@@ -12,10 +12,10 @@ public class EdificioTest {
 
         int cantidadDeVisitasAlAeropuerto = 3;
 
-        Pais Argentina = new Pais ("Argentina");
+        IPais Argentina = new PaisMock ("Argentina");
         Policia paco = new Policia(Argentina);
 
-        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina,new EdificioEconomico()); // CAMBIAR
+        IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new Robo(new Dificil()), new EdificioEconomico()); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -29,19 +29,19 @@ public class EdificioTest {
     }
 
     @Test
-    public void corroborarPista(){
+    public void corroborarPista() throws Exception{
 
         String pistaDeseada = "pista economica 01";
         String pistaObtenida;
 
-        Pais Argentina = new Pais ("Argentina");
+        IPais Argentina = new PaisMock ("Argentina");
         Policia paco = new Policia(Argentina);
 
-        Edificio banco = new Edificio ("banco", Argentina, new EdificioEconomico());
+        IEdificio banco = new Edificio ("banco", Argentina, new Robo(new Dificil()), new EdificioEconomico());
 
         Argentina.agregarEdificio(banco);
 
-        pistaObtenida = banco.seleccionarPista();
+        pistaObtenida = banco.obtenerTestimonio();
 
         assertEquals(pistaDeseada, pistaObtenida);
 
@@ -65,11 +65,11 @@ public class EdificioTest {
         String pistaObtenidaPuerto = " ";
         String pistaObtenidaAeroPuerto = " ";
 
-        Pais Argentina = new Pais ("Argentina");
+        IPais Argentina = new PaisMock ("Argentina");
         Policia paco = new Policia(Argentina);
 
-        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina,new EdificioDeViaje());
-        Edificio puerto = new Edificio ("puerto", Argentina, new EdificioDeViaje());
+        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina,null, new EdificioDeViaje());
+        Edificio puerto = new Edificio ("puerto", Argentina, null, new EdificioDeViaje());
 
         Argentina.agregarEdificio(puerto);
         Argentina.agregarEdificio(aeropuerto);

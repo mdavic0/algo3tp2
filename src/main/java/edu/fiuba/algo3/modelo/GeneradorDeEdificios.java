@@ -10,11 +10,11 @@ public class GeneradorDeEdificios {
     }
 
     //TODO: generar distintos tipos de edificios
-    List<Edificio> crearEdificiosPara(Pais pais) throws Exception{
-        List<Edificio> edificios = new ArrayList<Edificio>();
+    List<IEdificio> crearEdificiosPara(IPais pais) throws Exception{
+        List<IEdificio> edificios = new ArrayList<IEdificio>();
         for(int i = 0; i < 3; i++){
             String nombre = "Edificio".concat(Integer.toString(i));
-            edificios.add(new Edificio(nombre, pais, robo));
+            edificios.add(new Edificio(nombre, pais, robo, new EdificioEconomico()));
         }
         return edificios;
     }

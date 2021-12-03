@@ -51,7 +51,7 @@ public class Robo {
 
     //TODO: generar distintos tipos de pistas
     public Pista pistaParaPais(IPais pais) {
-
+        
         PaisSinPistas pedido = viaSinInit
             .stream()
             .filter(p -> pais.nombre() == p.nombre).findFirst().get();
