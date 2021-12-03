@@ -7,17 +7,20 @@ public class Policia {
     Rango rango;
     Temporizador t = new Temporizador(9, 20, 36);
     int cantidadArrestos;
-
+    int heridasPorCuchillo;
     public Policia(IPais colombia) {
         lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
         cantidadArrestos = 0;
+        heridasPorCuchillo = 0;
     }
 
     public Policia(IPais colombia, Temporizador t) {
         lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
         this.t = t;
+        cantidadArrestos = 0;
+        heridasPorCuchillo = 0;
     }
 
     public void entrarA(IEdificio banco) throws Exception{
@@ -41,8 +44,7 @@ public class Policia {
     }
 
     public void recibirHeridaConCuchillo() throws Exception {
-        int duracionCuchillo = 3;
-        this.t.reportarActividad(new Actividad(duracionCuchillo));
+        this.t.reportarActividad(new HeridaConCuchillo(heridasPorCuchillo++));
     }
 
     public void arrestarLadron(){

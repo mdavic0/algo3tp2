@@ -22,7 +22,7 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
         Edificio edificio = new Edificio("El banco", montreal, elRobo);
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal);
@@ -41,7 +41,7 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
         Edificio banco = new Edificio("El banco", montreal, elRobo);
         Edificio biblio = new Edificio("La biblioteca", montreal, elRobo);
@@ -84,7 +84,7 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
         Edificio banco = new Edificio("El banco", montreal, elRobo);
         Edificio biblio = new Edificio("La biblioteca", montreal, elRobo);
@@ -114,14 +114,13 @@ public class EntregaTest {
         Policia undyne = new Policia(montreal, t);
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 3);
+        assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
+
 
         //hacer que pasen 12 horas para que duerma el policia
-        undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 6);
-        undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 9);
-        undyne.recibirHeridaConCuchillo();
+        for(int i = 0; i < 10; i++)
+            undyne.recibirHeridaConCuchillo();
+
         assertEquals(t.horasTranscurridas(), 12 + 8);
     }
 }

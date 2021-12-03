@@ -36,7 +36,7 @@ public class Temporizador {
         return "Activo";
     }
 
-    public void reportarActividad(Actividad actividad) {
-        estado = aumentarHoraActual(actividad.duracion()) ;
+    public void reportarActividad(IActividad IActividad) {
+        estado = aumentarHoraActual(IActividad.duracion()) ;
     }
 }

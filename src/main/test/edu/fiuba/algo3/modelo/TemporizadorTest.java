@@ -13,7 +13,7 @@ public class TemporizadorTest {
         int hora_dormir = 20;
         int hora_limite = 48;
         Temporizador timer = new Temporizador(hora_inicial, hora_dormir, hora_limite); //hora inicial, hora_dormir, hora_limite
-        timer.reportarActividad(new Actividad(5));
+        timer.reportarActividad(new ActividadMock(5));
         assertEquals(timer.horaActual(), hora_inicial + 5);
         assertEquals(timer.horasTranscurridas(), 5);
     }
@@ -24,7 +24,7 @@ public class TemporizadorTest {
         int hora_dormir = 23;
         int hora_limite = 48;
         Temporizador timer = new Temporizador(hora_inicial, hora_dormir, hora_limite); //hora inicial, hora_dormir, hora_limite
-        timer.reportarActividad(new Actividad(14));
+        timer.reportarActividad(new ActividadMock(14));
 
         assertEquals(23, 9 + 14); //actividad termina a las 23:00 
         assertEquals(14 + 8, timer.horasTranscurridas());
@@ -42,7 +42,7 @@ public class TemporizadorTest {
         Temporizador timer = new Temporizador(hora_inicial, hora_dormir, hora_limite); //hora inicial, hora_dormir, hora_limite
         assertEquals( "Activo", timer.estado);
         
-        timer.reportarActividad(new Actividad(48));
+        timer.reportarActividad(new ActividadMock(48));
 
         //Hack hasta implementar el sistema de eventos
         assertEquals( "Inactivo", timer.estado);

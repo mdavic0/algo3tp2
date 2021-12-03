@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class FueraDeEdificio extends LugarActual {
     IPais pais;
+
     public FueraDeEdificio(IPais colombia) {// Pais pais
         this.pais = colombia;
     }
