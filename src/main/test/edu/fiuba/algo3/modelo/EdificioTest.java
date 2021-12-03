@@ -29,14 +29,28 @@ public class EdificioTest {
 
     }
 
+    /*
+    Los tests fallan porque no estamos creando un robo mock sino uno real que obtiene un pais
+    aleatoriamente. Entonces para que el test funcione, debemos crear un robo Mock.
+    El robo mock debe implementar pistaParaPais y pistaParaLadron que nos permita inyectar
+    la pista que queremos.
+
+    Ademas, para que los tipos de edificios funcionen, podemos generar los Testigos con una pista
+    generada por el tipo de edificio:
+
+    class EdificioEconomico
+        crearTestigo(robo):
+            return new Testigo(new PistaEconomica(robo))
+    
+    */
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "pista economica 01";
+        String pistaDeseada = "Francia";
         String pistaObtenida;
 
         Robo robo = new Robo(new Dificil());
-        IPais pais = new PaisMock (robo.lugarDeRobo().nombre);
+        IPais pais = new PaisMock ("Francia");
         Policia paco = new Policia(pais);
 
         IEdificio banco = new Edificio ("banco", pais, robo, new EdificioEconomico());

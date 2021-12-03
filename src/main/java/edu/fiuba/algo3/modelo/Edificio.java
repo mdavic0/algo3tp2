@@ -14,6 +14,7 @@ public class Edificio implements IEdificio{
         this.nombre = nombre;
         this.tipoDeEdificio = unTipo;
         this.robo = robo;
+        //posible implementacion: this.testigo = tipoDeEdificio.crearTestigo(robo, pais)
         this.testigo = new Testigo(robo, pais2);
     }
 
