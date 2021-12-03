@@ -12,7 +12,8 @@ public class EdificioTest {
 
         int cantidadDeVisitasAlAeropuerto = 3;
 
-        IPais Argentina = new PaisMock ("Argentina");
+        Robo robo = new Robo(new Dificil());
+        IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
         Policia paco = new Policia(Argentina);
 
         IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new Robo(new Dificil()), new EdificioEconomico()); // CAMBIAR
@@ -34,12 +35,13 @@ public class EdificioTest {
         String pistaDeseada = "pista economica 01";
         String pistaObtenida;
 
-        IPais Argentina = new PaisMock ("Argentina");
-        Policia paco = new Policia(Argentina);
+        Robo robo = new Robo(new Dificil());
+        IPais pais = new PaisMock (robo.lugarDeRobo().nombre);
+        Policia paco = new Policia(pais);
 
-        IEdificio banco = new Edificio ("banco", Argentina, new Robo(new Dificil()), new EdificioEconomico());
+        IEdificio banco = new Edificio ("banco", pais, robo, new EdificioEconomico());
 
-        Argentina.agregarEdificio(banco);
+        pais.agregarEdificio(banco);
 
         pistaObtenida = banco.obtenerTestimonio();
 
@@ -54,42 +56,5 @@ public class EdificioTest {
     Vista un Puerto (55 veces):
         Se despliega una pista.
     */
-
-    @Test
-    public void visitarVariasVecesElPuertoYAeropuerto() throws Exception {
-
-        int cantidadDeVisitasAlAeropuerto = 3;
-        int cantidadDeVisitasAlPuerto = 55;
-
-        String pistaDeseada = "pista de viaje 01";
-        String pistaObtenidaPuerto = " ";
-        String pistaObtenidaAeroPuerto = " ";
-
-        IPais Argentina = new PaisMock ("Argentina");
-        Policia paco = new Policia(Argentina);
-
-        Edificio aeropuerto = new Edificio ("aeropuerto", Argentina,null, new EdificioDeViaje());
-        Edificio puerto = new Edificio ("puerto", Argentina, null, new EdificioDeViaje());
-
-        Argentina.agregarEdificio(puerto);
-        Argentina.agregarEdificio(aeropuerto);
-
-        for (int x = 0; x < cantidadDeVisitasAlAeropuerto; x++){
-            paco.entrarA(aeropuerto);
-            paco.salirDelEdificio();
-            pistaObtenidaPuerto = puerto.seleccionarPista();
-        }
-
-        for (int x = 0; x < cantidadDeVisitasAlPuerto; x++){
-            paco.entrarA(puerto);
-            paco.salirDelEdificio();
-            pistaObtenidaAeroPuerto = aeropuerto.seleccionarPista();
-        }
-
-        assertEquals(cantidadDeVisitasAlAeropuerto, aeropuerto.cantidadDeVisitas());
-        assertEquals(cantidadDeVisitasAlPuerto, puerto.cantidadDeVisitas());
-        assertEquals(pistaDeseada, pistaObtenidaPuerto);
-        assertEquals(pistaDeseada, pistaObtenidaAeroPuerto);
-    }
 }
 
