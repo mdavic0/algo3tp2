@@ -17,7 +17,6 @@ public class Policia {
         heridasPorCuchillo = 0;
     }
 
-<<<<<<< HEAD
     public Policia(IPais colombia, Temporizador t) {
         lugarActual = new FueraDeEdificio(colombia);
         rango = new Novato();
@@ -30,10 +29,8 @@ public class Policia {
 
     public void entrarA(IEdificio banco) throws Exception{
         this.lugarActual = this.lugarActual.entrarA(banco);
-=======
     public void entrarA(IEdificio edificio) throws Exception{
         this.lugarActual = this.lugarActual.entrarA(edificio);
->>>>>>> experimental
     }
 
     public String cuestionarTestigo() throws Exception {
