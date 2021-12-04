@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Novato extends Rango{
+public class Novato implements IRango {
     double velocidadKmh;
     Dificultad dificultad;
 
@@ -20,7 +20,7 @@ public class Novato extends Rango{
     }
 
     @Override
-    public Rango subirRango() {
+    public IRango subirRango() {
         return new Detective();
     }
 }

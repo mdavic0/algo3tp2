@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RangoTest {
     @Test
     public void NovatoCalculaSuVelocidadKmh() throws Exception {
-        Rango novato = new Novato();
+        IRango novato = new Novato();
         double valorEsperado = 900;
 
         assertEquals(valorEsperado, novato.velocidadKmh());
@@ -15,7 +15,7 @@ public class RangoTest {
 
     @Test
     public void DetectiveCalculaSuVelocidadKmh() throws Exception {
-        Rango detective = new Detective();
+        IRango detective = new Detective();
         double valorEsperado = 1100;
 
         assertEquals(valorEsperado, detective.velocidadKmh());
@@ -23,7 +23,7 @@ public class RangoTest {
 
     @Test
     public void InvestigadorCalculaSuVelocidadKmh() throws Exception {
-        Rango investigador = new Investigador();
+        IRango investigador = new Investigador();
         double valorEsperado = 1300;
 
         assertEquals(valorEsperado, investigador.velocidadKmh());
@@ -31,7 +31,7 @@ public class RangoTest {
 
     @Test
     public void SargentoCalculaSuVelocidadKmh() throws Exception {
-        Rango sargento = new Sargento();
+        IRango sargento = new Sargento();
         double valorEsperado = 1500;
 
         assertEquals(valorEsperado, sargento.velocidadKmh());
