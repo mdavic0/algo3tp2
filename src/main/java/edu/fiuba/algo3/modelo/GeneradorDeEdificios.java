@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.lang.Integer;
 
 public class GeneradorDeEdificios {
-    Robo robo;
-    public GeneradorDeEdificios(Robo robo) {
+    IRobo robo;
+    public GeneradorDeEdificios(IRobo robo) {
         this.robo = robo;
     }
 

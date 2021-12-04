@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo;
 
 public class Edificio implements IEdificio{
     IPais pais;
-    Robo robo;
+    IRobo robo;
     Testigo testigo;
     String nombre;
 
-    public Edificio(String nombre, IPais pais, Robo robo){
+    public Edificio(String nombre, IPais pais, IRobo robo){
         this.pais = pais;
         this.nombre = nombre;
         this.robo = robo;

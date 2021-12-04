@@ -9,7 +9,7 @@ public class Pais implements IPais {
     int coordenadaX;
     int coordenadaY;
 
-    public Pais(String nombre, Robo robo, int coordenadaX, int coordenadaY) throws Exception{
+    public Pais(String nombre, IRobo robo, int coordenadaX, int coordenadaY) throws Exception{
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
