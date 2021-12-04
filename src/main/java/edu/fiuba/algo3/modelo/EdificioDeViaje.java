@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EdificioDeViaje extends TipoDeEdificio {
+public class EdificioDeViaje implements ITipoDeEdificio {
 
     List<Pista> pistasDeViaje = null;
 
@@ -16,5 +16,10 @@ public class EdificioDeViaje extends TipoDeEdificio {
         Pista pistaSeleccionada;
         pistaSeleccionada = pistasDeViaje.get(0); //cambiar a random para cuando tengamos las pistas
         return pistaSeleccionada.obtenerContenido();
+    }
+
+    @Override
+    public Testigo crearTestigo(IRobo robo, IPais pais) {
+        return new Testigo(robo, pais);
     }
 }

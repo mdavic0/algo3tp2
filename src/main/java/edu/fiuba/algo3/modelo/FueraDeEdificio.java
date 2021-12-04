@@ -8,10 +8,10 @@ public class FueraDeEdificio extends LugarActual {
         this.pais = pais;
     }
 
-    public LugarActual entrarA(IEdificio unEdificio) throws Exception {
+    public LugarActual entrarA(IEdificio unEdificio, Policia policia) throws Exception {
         if(!pais.contieneEdificio(unEdificio))
             throw new Exception("Ese edificio no existe.");
-        unEdificio.entrar();
+        unEdificio.entrar(policia);
         return new EnEdificio(unEdificio);
     }
 

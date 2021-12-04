@@ -32,13 +32,8 @@ public class EdificioMock implements IEdificio{
         // TODO Auto-generated method stub
         return null;
     }
-    public void entrar() {
+    public void entrar(Policia policia) {
 
     }
 
-    @Override
-    public void nuevaVisita() {
-        // TODO Auto-generated method stub
-        
-    }
 }

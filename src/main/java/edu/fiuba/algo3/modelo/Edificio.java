@@ -7,16 +7,18 @@ public class Edificio implements IEdificio{
     IRobo robo;
     Testigo testigo;
     String nombre;
-    TipoDeEdificio tipoDeEdificio;
+    ITipoDeEdificio tipoDeEdificio;
+    IRelacionConLadron relacionConLadron;
+
     Temporizador temporizador;
 
-    public Edificio(String nombre, IPais pais, IRobo robo, Temporizador temporizador, TipoDeEdificio edificio){
+    public Edificio(String nombre, IPais pais, IRobo robo, Temporizador temporizador, ITipoDeEdificio tipoDeEdificio, IRelacionConLadron relacionConLadron){
         this.pais = pais;
         this.nombre = nombre;
-        this.tipoDeEdificio = new EdificioEconomico();
+        this.tipoDeEdificio = tipoDeEdificio;
+        this.relacionConLadron = relacionConLadron;
         this.robo = robo;
-        //posible implementacion: this.testigo = tipoDeEdificio.crearTestigo(robo, pais)
-        this.testigo = new Testigo(robo, pais);
+        this.testigo = tipoDeEdificio.crearTestigo(robo, pais);
         this.temporizador = temporizador;
     }
 
@@ -41,10 +43,12 @@ public class Edificio implements IEdificio{
     }
 
     @Override
-    public void entrar() { //TODO recibir como parametro al policia
-        //if(me da la gana())
-        //    paco.heridaDeCuchillo
+    public void entrar(Policia policia) throws Exception {
+        this.relacionConLadron.herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
+        this.relacionConLadron.herirConArmaDeFuego(policia); // ladron estuvo en el edificio
+
         cantidadDeVisitas ++;
+
         this.temporizador.reportarActividad(new EntrarAEdificio(cantidadDeVisitas));
     }
 }

@@ -22,7 +22,7 @@ public class Policia {
     }
 
     public void entrarA(IEdificio edificio) throws Exception{
-        this.lugarActual = this.lugarActual.entrarA(edificio);
+        this.lugarActual = this.lugarActual.entrarA(edificio, this);
     }
 
     public String cuestionarTestigo() throws Exception {

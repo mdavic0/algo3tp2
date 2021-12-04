@@ -7,7 +7,7 @@ public class EnEdificio extends LugarActual {
         this.edificio = unEdificio;
     }
     
-    public LugarActual entrarA(IEdificio unEdificio) throws Exception {
+    public LugarActual entrarA(IEdificio unEdificio, Policia policia) throws Exception {
         throw new Exception("No se puede entrar de un edificio a otro!");
     }
 
