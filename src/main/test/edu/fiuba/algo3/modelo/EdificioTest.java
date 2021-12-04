@@ -46,14 +46,14 @@ public class EdificioTest {
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "Francia";
+        String pistaDeseada = "Holapais";
         String pistaObtenida;
 
         IRobo robo = new RoboMock("Holapais", "Holaladron");
         IPais pais = new PaisMock ("Francia");
         Policia paco = new Policia(pais, new Temporizador(0,0,0));
 
-        IEdificio banco = new Edificio ("banco", pais, robo, null, new EdificioEconomico());
+        IEdificio banco = new Edificio ("banco", pais, robo, new Temporizador(0,0,0), new EdificioEconomico());
 
         pais.agregarEdificio(banco);
 
