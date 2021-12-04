@@ -18,7 +18,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     private List<PaisSinPistas> generarEscapeParaArtefacto(LectorDeArchivo lector, Artefacto artefacto) throws Exception {
         for(int i = 0; i < valores.length; i++){
-            if(artefacto.valor() == valores[i])
+            if(artefacto.valor().getClass() == valores[i].getClass())
                 return generarViaDeEscape(lector.obtenerPaises(), artefacto.valor().cantidadDePaises());
         }
         throw new Exception("No se reconoce el valor del artefacto.");

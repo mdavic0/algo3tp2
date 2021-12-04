@@ -14,7 +14,7 @@ public class GeneradorDeRoboTest {
                 new Dificil(), new Novato(), new LectorDeArchivo());
                 
         assertNotEquals(null, robo);
-        assertEquals(robo.nombreDeArtefacto(), "Torre eiffel" );
+        assertEquals(robo.nombreDeArtefacto(), "La torre eiffel" );
         
     }
 }
