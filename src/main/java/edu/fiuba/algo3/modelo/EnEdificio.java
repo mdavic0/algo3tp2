@@ -7,7 +7,7 @@ public class EnEdificio extends LugarActual {
         this.edificio = unEdificio;
     }
     
-    public LugarActual entrarA(Edificio unEdificio) throws Exception {
+    public LugarActual entrarA(IEdificio unEdificio) throws Exception {
         throw new Exception("No se puede entrar de un edificio a otro!");
     }
 
@@ -32,12 +32,6 @@ public class EnEdificio extends LugarActual {
     @Override
     public LugarActual salirDe(Edificio banco) throws Exception {
         return new FueraDeEdificio(edificio.obtenerPais());
-    }
-
-    @Override
-    public LugarActual entrarA(IEdificio banco) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
     }
 
 }

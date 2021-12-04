@@ -17,18 +17,10 @@ public class Policia {
         heridasPorCuchillo = 0;
     }
 
-    public Policia(IPais colombia, Temporizador t) {
-        lugarActual = new FueraDeEdificio(colombia);
-        rango = new Novato();
-        this.t = t;
-    }
-
     public void salirDelEdificio() throws Exception{
         this.lugarActual = this.lugarActual.salirDelEdificio();
     }
 
-    public void entrarA(IEdificio banco) throws Exception{
-        this.lugarActual = this.lugarActual.entrarA(banco);
     public void entrarA(IEdificio edificio) throws Exception{
         this.lugarActual = this.lugarActual.entrarA(edificio);
     }

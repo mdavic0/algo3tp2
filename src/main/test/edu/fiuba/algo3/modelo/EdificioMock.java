@@ -31,7 +31,14 @@ public class EdificioMock implements IEdificio{
     public Integer cantidadDeVisitas() {
         // TODO Auto-generated method stub
         return null;
+    }
     public void entrar() {
 
+    }
+
+    @Override
+    public void nuevaVisita() {
+        // TODO Auto-generated method stub
+        
     }
 }

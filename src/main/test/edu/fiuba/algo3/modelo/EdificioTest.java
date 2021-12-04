@@ -14,9 +14,9 @@ public class EdificioTest {
 
         Robo robo = new Robo(new Dificil());
         IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
-        Policia paco = new Policia(Argentina);
+        Policia paco = new Policia(Argentina, new Temporizador(0,0,0));
 
-        IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new Robo(new Dificil()), new EdificioEconomico()); // CAMBIAR
+        IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new RoboMock("pista1", "pista2"), new Temporizador(0,0,0), new EdificioEconomico()); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -51,9 +51,9 @@ public class EdificioTest {
 
         Robo robo = new Robo(new Dificil());
         IPais pais = new PaisMock ("Francia");
-        Policia paco = new Policia(pais);
+        Policia paco = new Policia(pais, new Temporizador(0,0,0));
 
-        IEdificio banco = new Edificio ("banco", pais, robo, new EdificioEconomico());
+        IEdificio banco = new Edificio ("banco", pais, robo, null, new EdificioEconomico());
 
         pais.agregarEdificio(banco);
 

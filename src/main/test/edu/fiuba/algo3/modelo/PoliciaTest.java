@@ -39,6 +39,7 @@ public class PoliciaTest {
         Policia paco = new Policia(colombia, t);
         
         paco.entrarA(e);
+        
         assertThrows(Exception.class, () -> paco.entrarA(new EdificioMock("Migraciones")));
     }
 

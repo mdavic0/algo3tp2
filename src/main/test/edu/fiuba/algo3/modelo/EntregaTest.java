@@ -24,7 +24,7 @@ public class EntregaTest {
         Robo elRobo = new Robo(paises, carmen, arte);
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
-        Edificio edificio = new Edificio("El banco", montreal, elRobo, t);
+        Edificio edificio = new Edificio("El banco", montreal, elRobo, t, null);
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
@@ -44,8 +44,9 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t, null);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t, null);
+        
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
@@ -87,8 +88,8 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t, null);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t, null);
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 

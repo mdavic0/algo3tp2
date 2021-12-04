@@ -7,28 +7,17 @@ public class Edificio implements IEdificio{
     IRobo robo;
     Testigo testigo;
     String nombre;
-<<<<<<< HEAD
     TipoDeEdificio tipoDeEdificio;
-
-    public Edificio(String nombre, IPais pais2, Robo robo, TipoDeEdificio unTipo){
-        this.pais = pais2;
-=======
     Temporizador temporizador;
-    int cantidadDeVisitas;
 
-    public Edificio(String nombre, IPais pais, IRobo robo, Temporizador temporizador){
+    public Edificio(String nombre, IPais pais, IRobo robo, Temporizador temporizador, TipoDeEdificio edificio){
         this.pais = pais;
->>>>>>> experimental
         this.nombre = nombre;
-        this.tipoDeEdificio = unTipo;
+        this.tipoDeEdificio = new EdificioEconomico();
         this.robo = robo;
-<<<<<<< HEAD
         //posible implementacion: this.testigo = tipoDeEdificio.crearTestigo(robo, pais)
-        this.testigo = new Testigo(robo, pais2);
-=======
         this.testigo = new Testigo(robo, pais);
         this.temporizador = temporizador;
->>>>>>> experimental
     }
 
     public String obtenerTestimonio() {
@@ -43,10 +32,6 @@ public class Edificio implements IEdificio{
         return this.cantidadDeVisitas;
     }
 
-    public void nuevaVisita(){
-        cantidadDeVisitas ++;
-    }
-
     public String seleccionarPista (){
         return tipoDeEdificio.seleccionarPista();
     }
@@ -56,7 +41,10 @@ public class Edificio implements IEdificio{
     }
 
     @Override
-    public void entrar() {
+    public void entrar() { //TODO recibir como parametro al policia
+        //if(me da la gana())
+        //    paco.heridaDeCuchillo
+        cantidadDeVisitas ++;
         this.temporizador.reportarActividad(new EntrarAEdificio(cantidadDeVisitas));
     }
 }
