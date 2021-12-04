@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Sargento extends Rango{
+public class Sargento implements IRango {
     double velocidadKmh;
     Dificultad dificultad;
 
@@ -19,7 +19,7 @@ public class Sargento extends Rango{
     }
 
     @Override
-    public Rango subirRango() {
+    public IRango subirRango() {
         return this;
     }
 }

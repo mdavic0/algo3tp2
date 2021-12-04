@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Detective extends Rango{
+public class Detective implements IRango {
     double velocidadKmh;
     Dificultad dificultad;
 
@@ -19,7 +19,7 @@ public class Detective extends Rango{
     }
 
     @Override
-    public Rango subirRango() {
+    public IRango subirRango() {
         return new Investigador();
     }
 }

@@ -4,11 +4,11 @@ public class Viajar implements IActividad {
     int duracion;
 
     public Viajar(IPais paisOrigen, IPais paisDestino , double velocidadKmh){
-        int distancia = calcularDistancia(paisOrigen, paisDestino);
+        double distancia = calcularDistancia(paisOrigen, paisDestino);
         this.duracion = (int) (distancia / velocidadKmh);
     }
 
-    private int calcularDistancia(IPais paisOrigen, IPais paisDestino) {
+    private double calcularDistancia(IPais paisOrigen, IPais paisDestino) {
         return paisOrigen.distanciaA(paisDestino);
     }
 

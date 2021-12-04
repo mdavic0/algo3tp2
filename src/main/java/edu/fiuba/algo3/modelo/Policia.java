@@ -4,7 +4,7 @@ public class Policia {
 
     LugarActual lugarActual;
     //String pista; //idealmente una coleccion
-    Rango rango;
+    IRango rango;
     Temporizador temporizador;
     int cantidadArrestos;
     int heridasPorCuchillo;
