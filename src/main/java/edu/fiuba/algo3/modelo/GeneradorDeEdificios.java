@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.lang.Integer;
 
 public class GeneradorDeEdificios {
-    Robo robo;
-    public GeneradorDeEdificios(Robo robo) {
+    IRobo robo;
+    public GeneradorDeEdificios(IRobo robo) {
         this.robo = robo;
     }
 
@@ -14,7 +14,11 @@ public class GeneradorDeEdificios {
         List<IEdificio> edificios = new ArrayList<IEdificio>();
         for(int i = 0; i < 3; i++){
             String nombre = "Edificio".concat(Integer.toString(i));
+<<<<<<< HEAD
             edificios.add(new Edificio(nombre, pais, robo, new EdificioEconomico()));
+=======
+            edificios.add(new Edificio(nombre, pais, robo, null));
+>>>>>>> experimental
         }
         return edificios;
     }

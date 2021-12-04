@@ -1,11 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-public class Actividad {
+public class ActividadMock implements IActividad {
     int duracion;
-    Actividad(int duracion){
+    public ActividadMock(int duracion){
         this.duracion = duracion;
     }
-    int duracion(){
+
+    public int duracion() {
         return duracion;
     }
 }

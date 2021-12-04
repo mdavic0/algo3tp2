@@ -6,21 +6,27 @@ public class Pais implements IPais {
     String nombre;
     List<IPais> adyacentes;
     List<IEdificio> edificios;
+    int coordenadaX;
+    int coordenadaY;
 
-    public Pais(String nombre, Robo robo) throws Exception{
+    public Pais(String nombre, IRobo robo, int coordenadaX, int coordenadaY) throws Exception{
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
+        this.coordenadaX = coordenadaX;
+        this.coordenadaY = coordenadaY;
 
         GeneradorDeEdificios g = new GeneradorDeEdificios(robo);
         this.edificios.addAll(g.crearEdificiosPara(this));
     }
     
-    public Pais(String nombre, GeneradorDeEdificios g) throws Exception {
+    public Pais(String nombre, GeneradorDeEdificios g, int coordenadaX, int coordenadaY) throws Exception {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
         this.edificios.addAll(g.crearEdificiosPara(this));
+        this.coordenadaX = coordenadaX;
+        this.coordenadaY = coordenadaY;
     }
 
     public List<IEdificio> edificios(IEdificio edificio) {
@@ -50,5 +56,19 @@ public class Pais implements IPais {
     @Override
     public Object nombre() {
         return nombre;
+    }
+
+    @Override
+    public int obtenerCoordenadaX() {
+        return this.coordenadaX;
+    }
+
+    @Override
+    public int obtenerCoordenadaY() {
+        return this.coordenadaY;
+    }
+
+    public int distanciaA(IPais paisDestino) {
+        return this.coordenadaX + paisDestino.obtenerCoordenadaX(); //geoCalc
     }
 }

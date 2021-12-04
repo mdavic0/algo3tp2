@@ -41,4 +41,19 @@ public class PaisMock implements IPais {
     public Object nombre() {
         return nombre;
     }
+
+    @Override
+    public int obtenerCoordenadaX() {
+        return 0;
+    }
+
+    @Override
+    public int obtenerCoordenadaY() {
+        return 0;
+    }
+
+    @Override
+    public int distanciaA(IPais paisDestino) {
+        return 0;
+    }
 }

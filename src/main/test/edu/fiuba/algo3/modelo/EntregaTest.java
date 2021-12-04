@@ -11,6 +11,7 @@ import java.util.List;
 
 //TODO: artefactos, etc dependen de la dificultad
 public class EntregaTest {
+    Temporizador t = new Temporizador(0, 20, 48);
     @Test
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
@@ -22,10 +23,10 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
-        Edificio edificio = new Edificio("El banco", montreal, elRobo, new EdificioEconomico());
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
+        Edificio edificio = new Edificio("El banco", montreal, elRobo, t);
         montreal.agregarEdificio(edificio);
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Zimbabwe");
     }
@@ -41,15 +42,15 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, new EdificioEconomico());
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, new EdificioEconomico());
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
 
         roberta.entrarA(banco);
 
@@ -65,7 +66,7 @@ public class EntregaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal);
+        Policia paco = new Policia(montreal, t);
 
         assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
@@ -84,15 +85,15 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa");
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, new EdificioEconomico());
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo ,new EdificioEconomico());
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Lima");
@@ -114,14 +115,13 @@ public class EntregaTest {
         Policia undyne = new Policia(montreal, t);
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 3);
+        assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
+
 
         //hacer que pasen 12 horas para que duerma el policia
-        undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 6);
-        undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 9);
-        undyne.recibirHeridaConCuchillo();
+        for(int i = 0; i < 10; i++)
+            undyne.recibirHeridaConCuchillo();
+
         assertEquals(t.horasTranscurridas(), 12 + 8);
     }
 }

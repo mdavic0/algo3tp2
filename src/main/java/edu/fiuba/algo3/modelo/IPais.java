@@ -15,4 +15,8 @@ public interface IPais {
     public boolean sePuedeViajarA(IPais pais) ;
 
     public Object nombre();
+
+    int obtenerCoordenadaX();
+    int obtenerCoordenadaY();
+    int distanciaA(IPais paisDestino);
 }

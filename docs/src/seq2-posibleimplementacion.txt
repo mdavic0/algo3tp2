@@ -5,7 +5,7 @@ participant ":Policia" as Policia
 participant ":FueraDeEdificio" as Fuera
 participant ":EnEdificio" as En
 participant ":Edificio" as Edificio
-participant "actividad:EntrarAEdificio" as EntrarAEdificio
+participant "IActividad:EntrarAEdificio" as EntrarAEdificio
 Usuario->Policia: entrarA(unEdificio)
 note over Policia:lugarActual = lugarActual.entrarA(unEdificio)
 Policia->Fuera: entrarA(unEdificio)
@@ -20,7 +20,7 @@ space
 Edificio->*EntrarAEdificio:EntrarAEdificio(contador)
 space
 deactivate EntrarAEdificio
-Edificio->Temporizador:reportarActividad(actividad)
+Edificio->Temporizador:reportarActividad(IActividad)
 space
 deactivate Temporizador
 deactivate Edificio

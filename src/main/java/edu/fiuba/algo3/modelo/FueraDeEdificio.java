@@ -4,15 +4,25 @@ public class FueraDeEdificio extends LugarActual {
 
     IPais pais;
 
+<<<<<<< HEAD
     public FueraDeEdificio(IPais pais) {// Pais pais
         this.pais = pais;
+=======
+    public FueraDeEdificio(IPais colombia) {// Pais pais
+        this.pais = colombia;
+>>>>>>> experimental
     }
+
     public LugarActual entrarA(IEdificio unEdificio) throws Exception {
         if(!pais.contieneEdificio(unEdificio))
             throw new Exception("Ese edificio no existe.");
+<<<<<<< HEAD
 
         unEdificio.nuevaVisita();
 
+=======
+        unEdificio.entrar();
+>>>>>>> experimental
         return new EnEdificio(unEdificio);
     }
 
@@ -38,7 +48,10 @@ public class FueraDeEdificio extends LugarActual {
         return this.pais;
     }
 
+<<<<<<< HEAD
     //TODO quitar argumento
+=======
+>>>>>>> experimental
     @Override
     public LugarActual salirDe(Edificio edificio) throws Exception {
         throw new Exception("Ya estas afuera");

@@ -7,4 +7,5 @@ public interface IEdificio {
     public void nuevaVisita();
     public Integer cantidadDeVisitas();
 
+    void entrar();
 }
