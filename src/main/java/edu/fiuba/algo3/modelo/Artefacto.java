@@ -10,4 +10,8 @@ public class Artefacto {
         return nombre;
     }
 
+    public Valor valor() {
+        return new MuyValioso();
+    }
+
 }

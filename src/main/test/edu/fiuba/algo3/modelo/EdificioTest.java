@@ -12,7 +12,7 @@ public class EdificioTest {
 
         int cantidadDeVisitasAlAeropuerto = 3;
 
-        Robo robo = new Robo(new Dificil());
+        IRobo robo = new RoboMock("holapais", "holaladron");
         IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
         Policia paco = new Policia(Argentina, new Temporizador(0,0,0));
 
@@ -49,7 +49,7 @@ public class EdificioTest {
         String pistaDeseada = "Francia";
         String pistaObtenida;
 
-        Robo robo = new Robo(new Dificil());
+        IRobo robo = new RoboMock("Holapais", "Holaladron");
         IPais pais = new PaisMock ("Francia");
         Policia paco = new Policia(pais, new Temporizador(0,0,0));
 

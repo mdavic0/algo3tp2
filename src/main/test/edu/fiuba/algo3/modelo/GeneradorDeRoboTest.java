@@ -8,16 +8,13 @@ import java.util.List;
 
 public class GeneradorDeRoboTest {
     @Test
-    public void testCrearViaDeViaje() throws Exception {
+    public void testCrearRobo() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
-        List<PaisSinPistas> via = gen.viaDePaises(null);
-        assertEquals(via.size(), 7);  
-    }
-
-    @Test
-    public void testArtefacto() throws Exception {
-        GeneradorDeRobo gen = new GeneradorDeRobo();
-        Artefacto artefacto = gen.artefacto(null);
-        assertNotEquals(artefacto, null);  
+        Robo robo = gen.generarRobo(
+                new Dificil(), new Novato(), new LectorDeArchivo());
+                
+        assertNotEquals(null, robo);
+        assertEquals(robo.nombreDeArtefacto(), "Torre eiffel" );
+        
     }
 }

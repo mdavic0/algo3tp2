@@ -7,20 +7,6 @@ public class Robo implements IRobo {
     List<PaisSinPistas> viaSinInit;
     Artefacto artefacto;
     Ladron ladron;
-    IGeneradorDeRobo generador = new GeneradorDeRobo();
-
-    public Robo(Dificultad dificultad) throws Exception{
-        viaSinInit = generador.viaDePaises(dificultad);
-        ladron = generador.generarLadron();
-        artefacto = generador.artefacto(dificultad);
-    }        
-
-        //TODO: reemplazar uso de 'generador de robo' por uno que genere una instancia de Robo()
-    public Robo(Dificultad dificultad, IGeneradorDeRobo generador) throws Exception {
-        viaSinInit = generador.viaDePaises(dificultad);
-        ladron = generador.generarLadron();
-        artefacto = generador.artefacto(dificultad);
-    } 
 
     public Robo(List<PaisSinPistas> via, Ladron ladron, Artefacto artefacto) throws Exception {
         viaSinInit = via;

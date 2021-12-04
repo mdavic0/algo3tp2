@@ -8,23 +8,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //TODO: artefactos, etc dependen de la dificultad
 public class RoboTest {
+    LectorDeArchivo lector = new LectorDeArchivo();
+
     @Test
     public void testInicializarRoboConGenerador() throws Exception { 
-        Dificultad d = new Dificil();
-        GeneradorMockDeRobo generador = new GeneradorMockDeRobo();
-        Robo robo = new Robo(d, generador);
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 3), 
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            lector.obtenerArtefactos().get(0));
         
-        assertEquals("Hola, Detective. Hubo un robo de Un artefacto Mock", 
+        assertEquals("Hola, Detective. Hubo un robo de La torre eiffel", 
             robo.reportarRobo("Detective"));
         
         assertNotEquals(robo.lugarDeRobo(), null);
-        assertEquals(robo.lugarDeRobo().nombre, "Zimbabwe");
+        assertEquals(robo.lugarDeRobo().nombre, "Francia");
     }
 
     @Test
     public void testInicializarRoboSinGenerador() throws Exception { 
         Dificultad d = new Dificil();
-        Robo robo = new Robo(d, new GeneradorMockDeRobo());
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 3), 
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            lector.obtenerArtefactos().get(0));
         
         robo.reportarRobo("Detective");
             
@@ -42,7 +48,11 @@ public class RoboTest {
 
     @Test
     public void crearRoboConGenerador() throws Exception {
-        Robo robo = new Robo(new Dificil(), new GeneradorDeRobo());
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 3), 
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            lector.obtenerArtefactos().get(0));
+
         PaisSinPistas lugarRobo = robo.lugarDeRobo();
         String artefacto = robo.nombreDeArtefacto();
         Ladron ladron = robo.obtenerLadron();
@@ -54,7 +64,10 @@ public class RoboTest {
 
     @Test
     public void generarPistaParaPais() throws Exception {
-        Robo robo = new Robo(new Dificil());
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 3), 
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
         PaisSinPistas paisActual = robo.primerPais();
@@ -63,7 +76,10 @@ public class RoboTest {
 
     @Test
     public void generarPistaParaLadron() throws Exception {
-        Robo robo = new Robo(new Dificil());
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 3), 
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
         PaisSinPistas pais = robo.primerPais();

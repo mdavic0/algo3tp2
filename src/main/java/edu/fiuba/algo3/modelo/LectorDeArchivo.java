@@ -28,5 +28,15 @@ public class LectorDeArchivo {
         artefactos.add(new Artefacto("La torre eiffel12"));
         return artefactos;
     }
+    public List<Ladron> obtenerLadrones() throws Exception{
+        List<Ladron> ladrones = new ArrayList<Ladron>();
+        ladrones.add(new Ladron("Pedro", "M", "Scooter", "Rubio", "Flaco"));
+        ladrones.add(new Ladron("Pedro2", "M", "Scooter", "Rubio", "Flaco"));
+        ladrones.add(new Ladron("Pedro3", "M", "Scooter", "Rubio", "Flaco"));
+        ladrones.add(new Ladron("Pedro4", "M", "Scooter", "Rubio", "Flaco"));
+        ladrones.add(new Ladron("Pedro5", "M", "Scooter", "Rubio", "Flaco"));
+        ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"));
+        return ladrones;
+    }
 
 }

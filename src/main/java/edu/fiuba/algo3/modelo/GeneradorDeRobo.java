@@ -2,38 +2,39 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.lang.Math;
 
 public class GeneradorDeRobo implements IGeneradorDeRobo {
-    List<PaisSinPistas> paises;
-    List<Artefacto> artefactos;
-    LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
+    Valor[] valores = {new MuyValioso()};
 
-    public GeneradorDeRobo(List<PaisSinPistas> paises, List<Artefacto> artefactos) {
-        this.paises = paises;
+    public Robo generarRobo(Dificultad d, IRango rango, LectorDeArchivo lector) throws Exception {
+        Artefacto artefacto = generarArtefacto(d, lector.obtenerArtefactos());
+        List<PaisSinPistas> via = generarEscapeParaArtefacto(lector, artefacto);
+        Ladron ladron = generarLadron(lector.obtenerLadrones());
+        return new Robo(via, ladron, artefacto);
     }
 
-    public GeneradorDeRobo() throws Exception {
-        this.paises = lectorDeArchivo.obtenerPaises();
-        this.artefactos = lectorDeArchivo.obtenerArtefactos();
+    private List<PaisSinPistas> generarEscapeParaArtefacto(LectorDeArchivo lector, Artefacto artefacto) throws Exception {
+        for(int i = 0; i < valores.length; i++){
+            if(artefacto.valor() == valores[i])
+                return generarViaDeEscape(lector.obtenerPaises(), artefacto.valor().cantidadDePaises());
+        }
+        throw new Exception("No se reconoce el valor del artefacto.");
     }
 
-    @Override
-    public List<PaisSinPistas> viaDePaises(Dificultad dificultad) {
-        List<PaisSinPistas> via = new ArrayList<PaisSinPistas>(paises);
-        Collections.shuffle(via);
-        return via.subList(0, 7);
+    private Artefacto generarArtefacto(Dificultad d, List<Artefacto> artefactos) {
+        return artefactos.get(0);
     }
 
-    @Override
-    public Artefacto artefacto(Dificultad dificultad) {
-        return artefactos.get( (int) (Math.random() * artefactos.size()) );
+    private Ladron generarLadron(List<Ladron> ladrones) {
+        Collections.shuffle(ladrones);
+        return ladrones.get(0);
     }
 
-    @Override
-    public Ladron generarLadron() throws Exception{
-        return new Ladron("Roberta Rigoberta", "F", "Negro", "Bien pero bien feo");
-        
+    private List<PaisSinPistas> generarViaDeEscape(List<PaisSinPistas> paises, int cantidad) {
+        Collections.shuffle(paises);
+        return paises.subList(0, cantidad);
     }
 }
