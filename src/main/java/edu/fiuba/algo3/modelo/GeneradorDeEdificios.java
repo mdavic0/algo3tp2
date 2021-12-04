@@ -14,7 +14,7 @@ public class GeneradorDeEdificios {
         List<Edificio> edificios = new ArrayList<Edificio>();
         for(int i = 0; i < 3; i++){
             String nombre = "Edificio".concat(Integer.toString(i));
-            edificios.add(new Edificio(nombre, pais, robo));
+            edificios.add(new Edificio(nombre, pais, robo, null));
         }
         return edificios;
     }

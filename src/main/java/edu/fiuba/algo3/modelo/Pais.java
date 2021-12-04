@@ -58,7 +58,17 @@ public class Pais implements IPais {
         return nombre;
     }
 
-    public int distanciaA(Pais paisDestino) {
-        return this.coordenadaX + paisDestino.coordenadaX; //geoCalc
+    @Override
+    public int obtenerCoordenadaX() {
+        return this.coordenadaX;
+    }
+
+    @Override
+    public int obtenerCoordenadaY() {
+        return this.coordenadaY;
+    }
+
+    public int distanciaA(IPais paisDestino) {
+        return this.coordenadaX + paisDestino.obtenerCoordenadaX(); //geoCalc
     }
 }

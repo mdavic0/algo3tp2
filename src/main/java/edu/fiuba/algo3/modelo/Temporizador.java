@@ -6,6 +6,7 @@ public class Temporizador {
     int hora_dormir;
     int horas_de_sueño = 8;
     int hora_limite;
+
     //TODO: reemplazar con patron de estado
     String estado = "Activo";
 

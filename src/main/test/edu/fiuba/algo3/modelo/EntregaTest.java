@@ -11,6 +11,7 @@ import java.util.List;
 
 //TODO: artefactos, etc dependen de la dificultad
 public class EntregaTest {
+    Temporizador t = new Temporizador(0, 20, 48);
     @Test
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
@@ -23,9 +24,9 @@ public class EntregaTest {
         Robo elRobo = new Robo(paises, carmen, arte);
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
-        Edificio edificio = new Edificio("El banco", montreal, elRobo);
+        Edificio edificio = new Edificio("El banco", montreal, elRobo, t);
         montreal.agregarEdificio(edificio);
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Zimbabwe");
     }
@@ -43,13 +44,13 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo);
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
 
         roberta.entrarA(banco);
 
@@ -65,7 +66,7 @@ public class EntregaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal);
+        Policia paco = new Policia(montreal, t);
 
         assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
@@ -86,13 +87,13 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo);
+        Edificio banco = new Edificio("El banco", montreal, elRobo, t);
+        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t);
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal);
+        Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Lima");

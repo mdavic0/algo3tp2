@@ -27,4 +27,9 @@ public class EdificioMock implements IEdificio{
     public Object nombre() {
         return nombre;
     }
+
+    @Override
+    public void entrar() {
+
+    }
 }

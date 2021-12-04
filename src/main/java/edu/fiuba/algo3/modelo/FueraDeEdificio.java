@@ -6,9 +6,11 @@ public class FueraDeEdificio extends LugarActual {
     public FueraDeEdificio(IPais colombia) {// Pais pais
         this.pais = colombia;
     }
+
     public LugarActual entrarA(IEdificio unEdificio) throws Exception {
         if(!pais.contieneEdificio(unEdificio))
             throw new Exception("Ese edificio no existe.");
+        unEdificio.entrar();
         return new EnEdificio(unEdificio);
     }
     @Override
@@ -27,6 +29,7 @@ public class FueraDeEdificio extends LugarActual {
     public IPais obtenerPais() {
         return this.pais;
     }
+
     @Override
     public LugarActual salirDe(Edificio edificio) throws Exception {
         throw new Exception("Ya estas afuera");

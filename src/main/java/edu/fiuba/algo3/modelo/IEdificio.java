@@ -5,4 +5,5 @@ public interface IEdificio {
     public IPais obtenerPais() ;
     public Object nombre();
 
+    void entrar();
 }
