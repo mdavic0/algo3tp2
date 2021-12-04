@@ -14,11 +14,7 @@ public class GeneradorDeEdificios {
         List<IEdificio> edificios = new ArrayList<IEdificio>();
         for(int i = 0; i < 3; i++){
             String nombre = "Edificio".concat(Integer.toString(i));
-<<<<<<< HEAD
             edificios.add(new Edificio(nombre, pais, robo, new EdificioEconomico()));
-=======
-            edificios.add(new Edificio(nombre, pais, robo, null));
->>>>>>> experimental
         }
         return edificios;
     }
