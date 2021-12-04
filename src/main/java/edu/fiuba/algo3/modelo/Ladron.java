@@ -7,15 +7,15 @@ public class Ladron {
     private Genero genero;
     private String vehiculo;
     private String cabello;
-    private String[] atributos;
+    private String senia;
+    private String hobby;
+    //private String[] atributos;
     
     public String nombre() {
         return nombre;
     }
 
-    public Genero genero() {
-        return genero;
-    }
+    public Genero genero() { return genero; }
 
     public String vehiculo() {
         return vehiculo;
@@ -25,16 +25,26 @@ public class Ladron {
         return cabello;
     }
 
-    public Boolean tieneAtributos(String ... atributos) {
-        return Arrays.asList(this.atributos).containsAll(Arrays.asList(atributos));
+    public String senia() {
+        return cabello;
     }
 
-    public Ladron(String nombre, String genero, String vehiculo, String cabello, String ... atributosFisicos) throws Exception {
+    public String hobby() {
+        return cabello;
+    }
+
+    /*public Boolean tieneAtributos(String ... atributos) {
+        return Arrays.asList(this.atributos).containsAll(Arrays.asList(atributos));
+    }*/
+
+    public Ladron(String nombre, String genero, String vehiculo, String cabello, String senia, String hobby) throws Exception {
         this.nombre = nombre;
         this.genero = Genero.aPartirDe(genero);
         this.vehiculo =  vehiculo;
         this.cabello = cabello;
-        this.atributos = atributosFisicos;
+        this.senia = senia;
+        this.hobby = hobby;
+
     }
     
 }

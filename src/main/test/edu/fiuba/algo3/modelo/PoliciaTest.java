@@ -72,13 +72,13 @@ public class PoliciaTest {
         Policia paco = new Policia(colombia, t);
 
         assertEquals(Novato.class, paco.rango.getClass());
-        for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }
+        for(int i = 0; i < 5; i++){ paco.intentarArrestarLadron(); }
         assertEquals(Detective.class, paco.rango.getClass());
 
-        for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }
+        for(int i = 0; i < 5; i++){ paco.intentarArrestarLadron(); }
         assertEquals(Investigador.class, paco.rango.getClass());
 
-        for(int i = 0; i < 10; i++){ paco.arrestarLadron(); }
+        for(int i = 0; i < 10; i++){ paco.intentarArrestarLadron(); }
         assertEquals(Sargento.class, paco.rango.getClass());
 
     }

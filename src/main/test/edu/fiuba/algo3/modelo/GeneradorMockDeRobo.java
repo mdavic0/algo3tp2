@@ -20,7 +20,7 @@ public class GeneradorMockDeRobo implements IGeneradorDeRobo {
 
     @Override
     public Ladron generarLadron() throws Exception{
-        return new Ladron("Pablo","F", "Motocicleta", "Rubio", "Feo", "Anillo", "Tatuaje en el brazo", "Trepar montañas");
+        return new Ladron("Pablo","F", "Motocicleta", "Rubio", "Anillo", "Trepar montañas");
     }
     
 }
