@@ -3,17 +3,17 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//mover tests en policia test sobre paisesacá
+//mover tests en policia test sobre paises acá
 public class PaisTest {
-    //TODO: restaurar test usando un RoboMock
 
     @Test
     public void PaisCalculaDistanciaAOtroPais() throws Exception {
         IRobo robo = new RoboMock("Tiene una bandera roja", "Tiene una moto");
-        Pais colombia = new Pais("Colombia", robo, 5, 5);
-        Pais argentina = new Pais("Colombia", robo, 5, 5);
-        int distanciaEsperada = 10;
+        Pais colombia = new Pais("Colombia", robo, 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia", robo, -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
-        assertEquals(distanciaEsperada, colombia.distanciaA(argentina) );
+        double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
+
+        assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
     }
 }

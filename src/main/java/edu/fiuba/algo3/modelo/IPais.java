@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
-import java.util.ArrayList;
 
 public interface IPais { 
 
@@ -16,7 +15,7 @@ public interface IPais {
 
     public Object nombre();
 
-    int obtenerCoordenadaX();
-    int obtenerCoordenadaY();
-    int distanciaA(IPais paisDestino);
+    double obtenerLatitud();
+    double obtenerLongitud();
+    double distanciaA(IPais paisDestino);
 }
