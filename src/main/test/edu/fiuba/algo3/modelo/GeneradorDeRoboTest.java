@@ -17,4 +17,13 @@ public class GeneradorDeRoboTest {
         assertEquals(robo.nombreDeArtefacto(), "La torre eiffel" );
         
     }
+    @Test
+    public void testCrearRoboDeObjetoValorMedio() throws Exception {
+        GeneradorDeRobo gen = new GeneradorDeRobo();
+        Robo robo = gen.generarRobo(
+                new DificultadMock(new ValorMedio()), new Novato(), new LectorDeArchivo());
+                
+        assertEquals(ValorMedio.class , robo.artefacto.valor().getClass());
+        
+    }
 }

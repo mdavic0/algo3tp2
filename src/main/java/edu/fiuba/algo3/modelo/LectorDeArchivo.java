@@ -14,18 +14,14 @@ public class LectorDeArchivo {
     }
     public List<Artefacto> obtenerArtefactos() {
         List<Artefacto> artefactos = new ArrayList<>();
-        artefactos.add(new Artefacto("La torre eiffel"));
-        artefactos.add(new Artefacto("La torre eiffel2"));
-        artefactos.add(new Artefacto("La torre eiffel3"));
-        artefactos.add(new Artefacto("La torre eiffel4"));
-        artefactos.add(new Artefacto("La torre eiffel5"));
-        artefactos.add(new Artefacto("La torre eiffel6"));
-        artefactos.add(new Artefacto("La torre eiffel7"));
-        artefactos.add(new Artefacto("La torre eiffel8"));
-        artefactos.add(new Artefacto("La torre eiffel9"));
-        artefactos.add(new Artefacto("La torre eiffel10"));
-        artefactos.add(new Artefacto("La torre eiffel11"));
-        artefactos.add(new Artefacto("La torre eiffel12"));
+        Valor[] valores = {new ValorMedio(), new Valioso(), new MuyValioso()};
+
+        for(int j = 0; j < 3; j++) {
+            Valor actual = valores[j];
+            for(int i = 0; i < 20; i++) {
+                artefactos.add(new Artefacto("La torre eiffel", actual));
+            }
+        }
         return artefactos;
     }
     public List<Ladron> obtenerLadrones() throws Exception{

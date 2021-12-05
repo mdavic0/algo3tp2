@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Valor {
-    public int cantidadDePaises(){
-        return 5;
-    }
+public interface Valor {
+    public int cantidadDePaises();
 }

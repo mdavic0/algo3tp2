@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Dificultad {
-
+public interface Dificultad {
+    Valor generarValorDeArtefacto() ;
 }

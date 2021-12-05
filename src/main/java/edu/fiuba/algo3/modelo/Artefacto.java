@@ -2,8 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 public class Artefacto {
     String nombre;
-    public Artefacto(String string) {
+    Valor valor;
+    public Artefacto(String string, Valor valor) {
         this.nombre = string;
+        this.valor = valor;
     }
 
     public String toString(){
@@ -11,7 +13,7 @@ public class Artefacto {
     }
 
     public Valor valor() {
-        return new MuyValioso();
+        return valor;
     }
 
 }

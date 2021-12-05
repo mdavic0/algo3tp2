@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class MuyValioso implements Valor{
+public class Valioso implements Valor{
 
     @Override
     public int cantidadDePaises() {

@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.lang.Math;
 
 public class GeneradorDeRobo implements IGeneradorDeRobo {
-    Valor[] valores = {new MuyValioso()};
+    Valor[] valores = {new MuyValioso(),  new Valioso(),new ValorMedio()};
 
     public Robo generarRobo(Dificultad d, IRango rango, LectorDeArchivo lector) throws Exception {
         Artefacto artefacto = generarArtefacto(d, lector.obtenerArtefactos());
@@ -25,7 +28,17 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
     }
 
     private Artefacto generarArtefacto(Dificultad d, List<Artefacto> artefactos) {
-        return artefactos.get(0);
+        Valor v = d.generarValorDeArtefacto();
+        List<Artefacto> candidatos =  artefactos
+            .stream()
+            //obtener artefacto del calor requerido
+            .filter(artef -> 
+                artef.valor().getClass() == v.getClass() 
+            )
+            .collect(Collectors.toList());
+
+        Collections.shuffle(candidatos);
+        return candidatos.get(0);
     }
 
     private Ladron generarLadron(List<Ladron> ladrones) {
