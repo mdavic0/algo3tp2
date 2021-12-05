@@ -35,4 +35,22 @@ public class GeneradorDeRoboTest {
         assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
     }
+    @Test
+    public void testObjetoMuyValiosoImplica7PaisesDeViaje() throws Exception {
+        GeneradorDeRobo gen = new GeneradorDeRobo();
+        Robo robo = gen.generarRobo(
+                new Facil(), new RangoMock(new MuyValioso()), new LectorDeArchivo());
+                
+        assertEquals(7 , robo.viaSinInit.size());
+        
+    }
+    @Test
+    public void testObjetoValorMedioImplica4PaisesDeViaje() throws Exception {
+        GeneradorDeRobo gen = new GeneradorDeRobo();
+        Robo robo = gen.generarRobo(
+                new Facil(), new RangoMock(new ValorMedio()), new LectorDeArchivo());
+                
+        assertEquals(4 , robo.viaSinInit.size());
+        
+    }
 }
