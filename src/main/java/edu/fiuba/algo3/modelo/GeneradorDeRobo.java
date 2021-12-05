@@ -13,7 +13,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
     Valor[] valores = {new MuyValioso(),  new Valioso(),new ValorMedio()};
 
     public Robo generarRobo(Dificultad d, IRango rango, LectorDeArchivo lector) throws Exception {
-        Artefacto artefacto = generarArtefacto(d, lector.obtenerArtefactos());
+        Artefacto artefacto = generarArtefacto(rango, lector.obtenerArtefactos());
         List<PaisSinPistas> via = generarEscapeParaArtefacto(lector, artefacto);
         Ladron ladron = generarLadron(lector.obtenerLadrones());
         return new Robo(via, ladron, artefacto);
@@ -27,8 +27,8 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
         throw new Exception("No se reconoce el valor del artefacto.");
     }
 
-    private Artefacto generarArtefacto(Dificultad d, List<Artefacto> artefactos) {
-        Valor v = d.generarValorDeArtefacto();
+    private Artefacto generarArtefacto(IRango rango, List<Artefacto> artefactos) {
+        Valor v = rango.generarValorDeArtefacto();
         List<Artefacto> candidatos =  artefactos
             .stream()
             //obtener artefacto del calor requerido

@@ -23,4 +23,9 @@ public class Novato implements IRango {
     public IRango subirRango() {
         return new Detective();
     }
+
+    @Override
+    public Valor generarValorDeArtefacto() {
+        return new ValorMedio();
+    }
 }

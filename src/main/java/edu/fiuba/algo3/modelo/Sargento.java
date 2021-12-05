@@ -22,4 +22,8 @@ public class Sargento implements IRango {
     public IRango subirRango() {
         return this;
     }
+    @Override
+    public Valor generarValorDeArtefacto() {
+        return new MuyValioso();
+    }
 }

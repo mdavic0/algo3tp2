@@ -21,9 +21,18 @@ public class GeneradorDeRoboTest {
     public void testCrearRoboDeObjetoValorMedio() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new DificultadMock(new ValorMedio()), new Novato(), new LectorDeArchivo());
+                new Facil(), new Novato(), new LectorDeArchivo());
                 
         assertEquals(ValorMedio.class , robo.artefacto.valor().getClass());
+        
+    }
+    @Test
+    public void testCrearRoboDeObjetoMuyValioso() throws Exception {
+        GeneradorDeRobo gen = new GeneradorDeRobo();
+        Robo robo = gen.generarRobo(
+                new Facil(), new Sargento(), new LectorDeArchivo());
+                
+        assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
     }
 }

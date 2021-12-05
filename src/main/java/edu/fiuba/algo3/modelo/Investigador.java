@@ -22,4 +22,8 @@ public class Investigador implements IRango {
     public IRango subirRango() {
         return new Sargento();
     }
+    @Override
+    public Valor generarValorDeArtefacto() {
+        return new Valioso();
+    }
 }

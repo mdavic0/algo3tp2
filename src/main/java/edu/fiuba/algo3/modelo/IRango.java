@@ -6,4 +6,6 @@ public interface IRango {
     Dificultad obtenerDificultadPistas();
 
     IRango subirRango();
+
+    Valor generarValorDeArtefacto() ;
 }
