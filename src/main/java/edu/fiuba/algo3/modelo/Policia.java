@@ -5,11 +5,11 @@ public class Policia {
     LugarActual lugarActual;
     //String pista; //idealmente una coleccion
     IRango rango;
-    Temporizador temporizador;
+    ITemporizador temporizador;
     int cantidadArrestos;
     int heridasPorCuchillo;
 
-    public Policia(IPais pais, Temporizador temporizador) {
+    public Policia(IPais pais, ITemporizador temporizador) {
         lugarActual = new FueraDeEdificio(pais);
         rango = new Novato();
         this.temporizador = temporizador;

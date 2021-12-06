@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Temporizador {
+public class Temporizador implements ITemporizador {
     int hora_inicial;
     int horas_transcurridas;
     int hora_dormir;
@@ -17,10 +17,10 @@ public class Temporizador {
         this.hora_limite = hora_limite;
     }
 
-    int horaActual(){
+    public int horaActual(){
         return (hora_inicial + horas_transcurridas) % 24;
     }
-    int horasTranscurridas(){
+    public int horasTranscurridas(){
         return horas_transcurridas;
     }
 

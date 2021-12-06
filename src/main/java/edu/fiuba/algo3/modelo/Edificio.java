@@ -6,13 +6,13 @@ public class Edificio implements IEdificio{
     IPais pais;
     String nombre;
     IPista pista;
-    Temporizador temporizador;
+    ITemporizador temporizador;
 
     public Edificio(
             String nombre,
             IPais pais,
             Dificultad dificultad,
-            Temporizador temporizador,
+            ITemporizador temporizador,
             IPista pista) {
         this.pais = pais;
         this.nombre = nombre;
