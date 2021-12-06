@@ -36,9 +36,8 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) {
-        // TODO Auto-generated method stub
-        return null;
+    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) throws Exception{
+        return new PaisSinPistas("PaisMock","MonedaMock", 0, 0);
     }
 
 }

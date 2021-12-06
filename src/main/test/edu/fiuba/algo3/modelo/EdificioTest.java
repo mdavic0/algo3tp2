@@ -50,7 +50,7 @@ public class EdificioTest {
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "Quería cambiar su dinero por";
+        String pistaDeseada = "Quería cambiar su dinero por MonedaMock.";
         String pistaObtenida;
 
         IRobo robo = new RoboMock("Holapais", "Holaladron");
@@ -62,9 +62,6 @@ public class EdificioTest {
             new DificultadMock(), 
             new Temporizador(0,0,0), 
             new EdificioEconomico(new FabricaDePistas(robo), pais));
-
-        pais.agregarEdificio(banco);
-
         pistaObtenida = banco.obtenerTestimonio();
 
         assertEquals(pistaDeseada, pistaObtenida);

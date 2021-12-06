@@ -16,7 +16,7 @@ public class EntregaTest {
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
         //TODO: capitales aun no implementadas. digamos que montreal es un pais
-        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
+        paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
         //TODO: lanzar error si se inicializa robo con <2 paises
         paises.add(new PaisSinPistas("Zimbabwe", "Euro", 0, 0));
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
@@ -32,13 +32,13 @@ public class EntregaTest {
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
-        assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por");
+        assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
     }
 
     @Test
     public void PoliciaVisitaBancoLuegoBiblioteca() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
+        paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
         paises.add(new PaisSinPistas("Lima", "Euro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
@@ -69,10 +69,10 @@ public class EntregaTest {
 
         roberta.entrarA(banco);
 
-        assertEquals("Quería cambiar su dinero por",roberta.cuestionarTestigo());
+        assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
         roberta.salirDe(banco);
         roberta.entrarA(biblio);
-        assertEquals("Quería cambiar su dinero por",roberta.cuestionarTestigo());
+        assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
     }
     
     //Nota: test redundante en PoliciaTest. Puesto aqui por conveniencia
@@ -92,8 +92,8 @@ public class EntregaTest {
     @Test
     public void Entrar3VecesAlAeropuertoY55VecesAlPuerto() throws Exception{
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
-        paises.add(new PaisSinPistas("Lima", "Euro",0,0));
+        paises.add(new PaisSinPistas("Montreal", "Euros", 0, 0));
+        paises.add(new PaisSinPistas("Lima", "Dólares",0,0));
 
         //TODO: usar robo mock en esta seccion
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
@@ -121,13 +121,13 @@ public class EntregaTest {
         Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por");
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dólares.");
             roberta.salirDe(banco);
         }
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por"); 
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dólares."); 
             roberta.salirDe(biblio); 
         }
     }

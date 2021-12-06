@@ -7,7 +7,7 @@ public class EdificioDeViaje extends TipoDeEdificio {
     private Testigo testigo;
 
     public EdificioDeViaje(FabricaDePistas fabrica, IPais pais) throws Exception{
-        this.testigo = new Testigo(fabrica.crearPistaEconomica(pais.sinPistas()));
+        this.testigo = new Testigo(fabrica.crearPistaEconomica(pais));
     }
 
     @Override

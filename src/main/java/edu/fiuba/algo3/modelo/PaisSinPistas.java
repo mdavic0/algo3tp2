@@ -10,4 +10,8 @@ public class PaisSinPistas {
         this.nombre = nombre;
         this.moneda = moneda;
     }
+
+    public String moneda(){
+        return moneda;
+    }
 }

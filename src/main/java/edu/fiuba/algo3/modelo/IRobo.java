@@ -12,5 +12,5 @@ public interface IRobo {
 
     PaisSinPistas primerPais();
 
-    PaisSinPistas paisDespuesDe(IPais paisDelTestigo);
+    PaisSinPistas paisDespuesDe(IPais paisDelTestigo) throws Exception;
 }
