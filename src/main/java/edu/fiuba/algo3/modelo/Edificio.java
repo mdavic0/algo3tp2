@@ -5,7 +5,7 @@ public class Edificio implements IEdificio{
     int cantidadDeVisitas = 0;
     IPais pais;
     String nombre;
-    TipoDeEdificio tipoDeEdificio;
+    IPista pista;
     Temporizador temporizador;
 
     public Edificio(
@@ -13,15 +13,15 @@ public class Edificio implements IEdificio{
             IPais pais,
             Dificultad dificultad,
             Temporizador temporizador,
-            TipoDeEdificio edificio) {
+            IPista pista) {
         this.pais = pais;
         this.nombre = nombre;
-        this.tipoDeEdificio = edificio; //necesita el pais siguiente si es una pista de pais
+        this.pista = pista;
         this.temporizador = temporizador;
     }
 
     public String obtenerTestimonio() {
-        return this.tipoDeEdificio.obtenerTestimonio();
+        return pista.contenido();
     }
 
     public IPais obtenerPais() {

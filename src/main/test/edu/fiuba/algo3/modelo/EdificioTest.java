@@ -20,7 +20,7 @@ public class EdificioTest {
             "aeropuerto", Argentina, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(robo), Argentina)); // CAMBIAR
+            new PistaDeMoneda("Euro")); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -50,7 +50,7 @@ public class EdificioTest {
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "Quería cambiar su dinero por MonedaMock.";
+        String pistaDeseada = "Quería cambiar su dinero por Euro.";
         String pistaObtenida;
 
         IRobo robo = new RoboMock("Holapais", "Holaladron");
@@ -61,7 +61,7 @@ public class EdificioTest {
             pais, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(robo), pais));
+            new PistaDeMoneda("Euro"));
         pistaObtenida = banco.obtenerTestimonio();
 
         assertEquals(pistaDeseada, pistaObtenida);

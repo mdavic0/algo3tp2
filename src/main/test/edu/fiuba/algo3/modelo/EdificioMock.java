@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 public class EdificioMock implements IEdificio{
-    Testigo testigo;
     String nombre;
 
     public EdificioMock(String nombre){

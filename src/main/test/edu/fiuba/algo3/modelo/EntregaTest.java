@@ -28,7 +28,7 @@ public class EntregaTest {
             "aeropuerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+            new PistaDeMoneda("Euro")); 
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
@@ -54,12 +54,12 @@ public class EntregaTest {
             "banco", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+            new PistaDeMoneda("Euro")); 
         Edificio biblio = new Edificio (
             "biblioteca", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+            new PistaDeMoneda("Euro")); 
         
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -108,12 +108,12 @@ public class EntregaTest {
             "aeropuerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+            new PistaDeMoneda("Euro")); 
         Edificio biblio = new Edificio (
             "puerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+            new PistaDeMoneda("Dólares")); 
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
@@ -121,7 +121,7 @@ public class EntregaTest {
         Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dólares.");
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
             roberta.salirDe(banco);
         }
 

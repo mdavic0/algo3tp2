@@ -9,11 +9,19 @@ public class FabricaDePistas{
         this.robo = robo;
     }
 
-    public Pista crearPistaEconomica(IPais pais) throws Exception{
+    public Pista crearPistaEconomica(IPais pais, Dificultad dificultad) throws Exception{
         return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
     }
 
-    public Pista crearPistaDeLadron(){
+    public Pista crearPistaDeLectura(IPais pais, Dificultad dificultad)  throws Exception{
+        return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
+    }
+
+    public Pista crearPistaDeViaje(IPais pais, Dificultad dificultad)  throws Exception{
+        return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
+    }
+
+    public Pista crearPistaDeLadron(Dificultad dificultad){
         return new PistaDeLadron("Pista de ladrón");
     }
 }
