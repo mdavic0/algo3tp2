@@ -12,14 +12,5 @@ public interface IRobo {
 
     PaisSinPistas primerPais();
 
-    //TODO: generar distintos tipos de pistas
-    Pista pistaParaPais(IPais pais);
-
-    //TODO: generar distintos tipos de pistas
-    Pista pistaParaPais(PaisSinPistas pais);
-
-    //TODO: generar distintos tipos de pistas
-    Pista pistaParaLadron();
-
-    PaisSinPistas paisDespuesDe(PaisSinPistas pais);
+    PaisSinPistas paisDespuesDe(IPais paisDelTestigo);
 }

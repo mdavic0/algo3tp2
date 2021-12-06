@@ -9,8 +9,8 @@ public class PaisTest {
     @Test
     public void PaisCalculaDistanciaAOtroPais() throws Exception {
         IRobo robo = new RoboMock("Tiene una bandera roja", "Tiene una moto");
-        Pais colombia = new Pais("Colombia", robo, 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", robo, -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 

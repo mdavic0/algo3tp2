@@ -16,7 +16,11 @@ public class EdificioTest {
         IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
         Policia paco = new Policia(Argentina, new Temporizador(0,0,0));
 
-        IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new RoboMock("pista1", "pista2"), new Temporizador(0,0,0), new EdificioEconomico()); // CAMBIAR
+        IEdificio aeropuerto = new Edificio (
+            "aeropuerto", Argentina, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(robo), Argentina)); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -46,14 +50,18 @@ public class EdificioTest {
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "Holapais";
+        String pistaDeseada = "Quería cambiar su dinero por";
         String pistaObtenida;
 
         IRobo robo = new RoboMock("Holapais", "Holaladron");
         IPais pais = new PaisMock ("Francia");
-        Policia paco = new Policia(pais, new Temporizador(0,0,0));
 
-        IEdificio banco = new Edificio ("banco", pais, robo, new Temporizador(0,0,0), new EdificioEconomico());
+        IEdificio banco = new Edificio (
+            "banco", 
+            pais, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(robo), pais));
 
         pais.agregarEdificio(banco);
 

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class PaisSinPistas { 
     String nombre;
+    String moneda;
 
-    public PaisSinPistas(String nombre) throws Exception{
+    public PaisSinPistas(String nombre, String moneda, double latitud, double longitud) throws Exception{
         this.nombre = nombre;
+        this.moneda = moneda;
     }
 }

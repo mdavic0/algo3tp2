@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EdificioDeLectura extends TipoDeEdificio {
+    private Testigo testigo;
 
-    List<Pista> pistasDeLectura = null;
-
-    public EdificioDeLectura(){
-        pistasDeLectura = new ArrayList<Pista>();
-        pistasDeLectura.add( new Pista ("pista de lectura 01", new PistaDeViaje()));
+    public EdificioDeLectura(FabricaDePistas fabrica, IPais pais) throws Exception{
+        this.testigo = new Testigo(fabrica.crearPistaEconomica(pais.sinPistas()));
     }
 
-    public String seleccionarPista() {
-        Pista pistaSeleccionada;
-        pistaSeleccionada = pistasDeLectura.get(0); //cambiar a random para cuando tengamos las pistas
-        return pistaSeleccionada.obtenerContenido();
+    @Override
+    public String obtenerTestimonio() {
+        return testigo.cuestionar();
     }
 }

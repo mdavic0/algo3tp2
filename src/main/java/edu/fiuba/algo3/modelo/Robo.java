@@ -39,32 +39,13 @@ public class Robo implements IRobo {
     public PaisSinPistas primerPais() {
         return viaSinInit.get(0);
     }
-
-    //TODO: generar distintos tipos de pistas
+    
     @Override
-    public Pista pistaParaPais(IPais pais) {
-        
+    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) {
         PaisSinPistas pedido = viaSinInit
             .stream()
-            .filter(p -> pais.nombre() == p.nombre).findFirst().get();
-        return pistaParaPais(pedido);
-    } 
-    
-    
-    //TODO: generar distintos tipos de pistas
-    @Override
-    public Pista pistaParaPais(PaisSinPistas pais) {
-        return new Pista(this.paisDespuesDe(pais).nombre);
-    } 
-    
-    //TODO: generar distintos tipos de pistas
-    @Override
-    public Pista pistaParaLadron(){
-        return new Pista("El genero era ".concat(this.ladron.genero().toString()));
-    }
-
-    @Override
-    public PaisSinPistas paisDespuesDe(PaisSinPistas pais) {
-        return viaSinInit.get(viaSinInit.indexOf(pais) + 1);
+            .filter(p -> paisDelTestigo.nombre() == p.nombre).findFirst().get();
+       
+        return viaSinInit.get(viaSinInit.indexOf(pedido) + 1);
     }
 }

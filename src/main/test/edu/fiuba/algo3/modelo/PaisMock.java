@@ -56,4 +56,9 @@ public class PaisMock implements IPais {
     public double distanciaA(IPais paisDestino) {
         return 0;
     }
+
+    @Override
+    public PaisSinPistas sinPistas() throws Exception {
+        return new PaisSinPistas(nombre, "Euro", 0, 0);
+    }
 }

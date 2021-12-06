@@ -16,36 +16,50 @@ public class EntregaTest {
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
         //TODO: capitales aun no implementadas. digamos que montreal es un pais
-        paises.add(new PaisSinPistas("Montreal"));
+        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
         //TODO: lanzar error si se inicializa robo con <2 paises
-        paises.add(new PaisSinPistas("Zimbabwe"));
+        paises.add(new PaisSinPistas("Zimbabwe", "Euro", 0, 0));
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
-        Edificio edificio = new Edificio("El banco", montreal, elRobo, t, null);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(), 0, 0);
+        Edificio edificio = new Edificio (
+            "aeropuerto", montreal, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
-        assertEquals(roberta.cuestionarTestigo(), "Zimbabwe");
+        assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por");
     }
 
     @Test
     public void PoliciaVisitaBancoLuegoBiblioteca() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal"));
-        paises.add(new PaisSinPistas("Lima"));
+        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
+        paises.add(new PaisSinPistas("Lima", "Euro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron(
+            "Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, 
+            new GeneradorMockDeEdificios(), 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, t, null);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t, null);
+        Edificio banco = new Edificio (
+            "banco", montreal, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+        Edificio biblio = new Edificio (
+            "biblioteca", montreal, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
         
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -55,10 +69,10 @@ public class EntregaTest {
 
         roberta.entrarA(banco);
 
-        assertEquals(roberta.cuestionarTestigo(), "Lima");
+        assertEquals("Quería cambiar su dinero por",roberta.cuestionarTestigo());
         roberta.salirDe(banco);
         roberta.entrarA(biblio);
-        assertEquals(roberta.cuestionarTestigo(), "Lima");
+        assertEquals("Quería cambiar su dinero por",roberta.cuestionarTestigo());
     }
     
     //Nota: test redundante en PoliciaTest. Puesto aqui por conveniencia
@@ -78,18 +92,28 @@ public class EntregaTest {
     @Test
     public void Entrar3VecesAlAeropuertoY55VecesAlPuerto() throws Exception{
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal"));
-        paises.add(new PaisSinPistas("Lima"));
+        paises.add(new PaisSinPistas("Montreal", "Euro", 0, 0));
+        paises.add(new PaisSinPistas("Lima", "Euro",0,0));
 
         //TODO: usar robo mock en esta seccion
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, elRobo, 0, 0);
+        Pais montreal = new Pais(
+            elRobo.lugarDeRobo().nombre, 
+            new GeneradorMockDeEdificios(), 0, 0);
 
-        Edificio banco = new Edificio("El banco", montreal, elRobo, t, null);
-        Edificio biblio = new Edificio("La biblioteca", montreal, elRobo, t, null);
+        Edificio banco = new Edificio (
+            "aeropuerto", montreal, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
+        Edificio biblio = new Edificio (
+            "puerto", montreal, 
+            new DificultadMock(), 
+            new Temporizador(0,0,0), 
+            new EdificioEconomico(new FabricaDePistas(elRobo), montreal)); 
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 
@@ -97,13 +121,13 @@ public class EntregaTest {
         Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
-            assertEquals(roberta.cuestionarTestigo(), "Lima");
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por");
             roberta.salirDe(banco);
         }
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
-            assertEquals(roberta.cuestionarTestigo(), "Lima"); 
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por"); 
             roberta.salirDe(biblio); 
         }
     }

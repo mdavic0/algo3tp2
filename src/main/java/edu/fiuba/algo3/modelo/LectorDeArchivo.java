@@ -9,7 +9,7 @@ public class LectorDeArchivo {
     public List<PaisSinPistas> obtenerPaises() throws Exception {
         List<PaisSinPistas> paises = new ArrayList<>();
         for(int i = 0; i < 23; i++)
-            paises.add( new PaisSinPistas("Francia"));
+            paises.add( new PaisSinPistas("Francia", "Euro", 0, 0));
         return paises;
     }
     public List<Artefacto> obtenerArtefactos() {

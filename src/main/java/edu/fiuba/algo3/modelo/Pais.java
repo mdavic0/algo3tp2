@@ -8,19 +8,17 @@ public class Pais implements IPais {
     List<IEdificio> edificios;
     double latitud;
     double longitud;
-
-    public Pais(String nombre, IRobo robo, double latitud, double longitud) throws Exception{
+    
+    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud, IRango r) throws Exception {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
+        this.edificios.addAll(g.crearEdificiosPara(this, r.obtenerDificultadPistas()));
         this.latitud = latitud;
         this.longitud = longitud;
-
-        GeneradorDeEdificios g = new GeneradorDeEdificios(robo);
-        this.edificios.addAll(g.crearEdificiosPara(this));
     }
     
-    public Pais(String nombre, GeneradorDeEdificios g, double latitud, double longitud) throws Exception {
+    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud) throws Exception {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
@@ -54,7 +52,7 @@ public class Pais implements IPais {
     }
 
     @Override
-    public Object nombre() {
+    public String nombre() {
         return nombre;
     }
 
@@ -80,5 +78,10 @@ public class Pais implements IPais {
         double dist = radioTerrestre * c;
 
         return dist;
+    }
+
+    @Override
+    public PaisSinPistas sinPistas() throws Exception {
+        return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);
     }
 }

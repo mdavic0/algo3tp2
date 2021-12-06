@@ -17,7 +17,7 @@ public class RoboMock implements IRobo{
 
     @Override
     public PaisSinPistas lugarDeRobo() throws Exception {
-        return new PaisSinPistas("Chile");
+        return new PaisSinPistas("Chile", "Euro", 0, 0);
     }
 
     @Override
@@ -36,32 +36,9 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public Pista pistaParaPais(IPais pais) {
-        return new Pista(pistaParaPais);
-    }
-
-    @Override
-    public Pista pistaParaPais(PaisSinPistas pais) {
-        return new Pista(pistaParaPais);
-    }
-
-    @Override
-    public Pista pistaParaLadron() {
-        return new Pista(pistaParaLadron);
-    }
-
-
-    public String obtenerPistaParaPais() {
-        return this.pistaParaPais;
-    }
-
-
-    public String obtenerPistaParaLadron() {
-        return this.pistaParaLadron;
-    }
-
-    @Override
-    public PaisSinPistas paisDespuesDe(PaisSinPistas pais) {
+    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) {
+        // TODO Auto-generated method stub
         return null;
     }
+
 }

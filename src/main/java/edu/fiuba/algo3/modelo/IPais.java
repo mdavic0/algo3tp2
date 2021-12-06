@@ -18,4 +18,6 @@ public interface IPais {
     double obtenerLatitud();
     double obtenerLongitud();
     double distanciaA(IPais paisDestino);
+
+    public PaisSinPistas sinPistas() throws Exception;
 }
