@@ -20,4 +20,8 @@ public interface IPais {
     double distanciaA(IPais paisDestino);
 
     public PaisSinPistas sinPistas() throws Exception;
+
+    public String moneda();
+
+    public Object hechoHistorico();
 }

@@ -61,4 +61,14 @@ public class PaisMock implements IPais {
     public PaisSinPistas sinPistas() throws Exception {
         return new PaisSinPistas(nombre, "Euro", 0, 0);
     }
+
+    @Override
+    public String moneda() {
+        return "Euro";
+    }
+
+    @Override
+    public Object hechoHistorico() {
+        return "Este pais fue invadido por Inglaterra";
+    }
 }

@@ -2,14 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 public class RoboMock implements IRobo{
 
-    String pistaParaPais;
-    String pistaParaLadron;
-
-    public RoboMock(String pistaParaPais, String pistaParaLadron){
-        this.pistaParaPais = pistaParaPais;
-        this.pistaParaLadron = pistaParaLadron;
-    }
-
     @Override
     public String reportarRobo(Object rango) {
         return null;

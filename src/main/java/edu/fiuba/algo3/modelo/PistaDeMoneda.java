@@ -5,4 +5,9 @@ public class PistaDeMoneda extends Pista {
         this.contenido = "Quería cambiar su dinero por ".concat(moneda).concat(".");
     }
 
+    @Override
+    public Object dificultad() {
+        return new Facil();
+    }
+
 }

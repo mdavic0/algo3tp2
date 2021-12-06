@@ -6,25 +6,26 @@ import java.lang.Integer;
 public class GeneradorDeEdificios implements IGeneradorDeEdificios{
     private FabricaDePistas fabrica;
     private Temporizador temporizador;
+    private IRango rango;
 
-    public GeneradorDeEdificios(IRobo robo, Temporizador temporizador) {
+    public GeneradorDeEdificios(IRobo robo, Temporizador temporizador, IRango rango) {
         this.fabrica = new FabricaDePistas(robo);
         this.temporizador = temporizador;
-        
+        this.rango = rango;
     }
 
     //TODO: generar distintos tipos de edificios
     public List<IEdificio> crearEdificiosPara(IPais pais, Dificultad dificultad) throws Exception{
         
         IPista[] pistasDeCadaEdificio =  {
-            fabrica.crearPistaEconomica(pais, dificultad), 
-            fabrica.crearPistaDeLectura(pais, dificultad), 
-            fabrica.crearPistaDeViaje(pais, dificultad),
+            fabrica.crearPistaEconomica(pais, rango), 
+            fabrica.crearPistaDeLectura(pais, rango), 
+            fabrica.crearPistaDeViaje(pais, rango),
         };
         
         List<IEdificio> edificios = new ArrayList<IEdificio>();
-        for(int i = 1; i <= 3; i++){
-            String nombre = "Edificio".concat(Integer.toString(i));
+        for(int i = 0; i < 3; i++){
+            String nombre = "Edificio".concat(Integer.toString(i+1));
             edificios.add(new Edificio(
                 nombre, pais, 
                 dificultad, 

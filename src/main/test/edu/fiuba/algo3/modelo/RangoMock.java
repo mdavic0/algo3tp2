@@ -2,8 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 public class RangoMock implements IRango{
     Valor valor;
+    Dificultad dificultad = new Facil();
     public RangoMock(Valor valor) {
         this.valor = valor;
+    }
+    public RangoMock(Dificultad dificultad) {
+        this.dificultad = dificultad;
     }
     @Override
     public double velocidadKmh() {
@@ -11,7 +15,7 @@ public class RangoMock implements IRango{
     }
     @Override
     public Dificultad obtenerDificultadPistas() {
-        return new Facil();
+        return dificultad;
     }
     @Override
     public IRango subirRango() {

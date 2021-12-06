@@ -10,4 +10,20 @@ public class DificultadMock implements Dificultad {
     public Valor generarValorDeArtefacto() {
         return v;
     }
+    @Override
+    public IPista crearPistaEconomica(IPais pais) {
+        return new PistaMock("Pista!");
+    }
+    @Override
+    public IPista crearPistaDeLectura(IPais pais) {
+        return new PistaMock("Pista!");
+    }
+    @Override
+    public IPista crearPistaDeViaje(IPais pais) {
+        return new PistaMock("Pista!");
+    }
+    @Override
+    public IPista crearPistaDeLadron(IRobo robo) {
+        return new PistaMock("Pista!");
+    }
 }

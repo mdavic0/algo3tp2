@@ -9,19 +9,31 @@ public class FabricaDePistas{
         this.robo = robo;
     }
 
-    public Pista crearPistaEconomica(IPais pais, Dificultad dificultad) throws Exception{
-        return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
+    private IPista crearPistaEconomica(IPais pais, Dificultad dificultad) throws Exception{
+        return dificultad.crearPistaEconomica(pais);
     }
 
-    public Pista crearPistaDeLectura(IPais pais, Dificultad dificultad)  throws Exception{
-        return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
+    private IPista crearPistaDeLectura(IPais pais, Dificultad dificultad)  throws Exception{
+        return dificultad.crearPistaDeLectura(pais);
     }
 
-    public Pista crearPistaDeViaje(IPais pais, Dificultad dificultad)  throws Exception{
-        return new PistaDeMoneda(robo.paisDespuesDe(pais).moneda());
+    private IPista crearPistaDeViaje(IPais pais, Dificultad dificultad)  throws Exception{
+        return dificultad.crearPistaDeViaje(pais);
     }
 
-    public Pista crearPistaDeLadron(Dificultad dificultad){
-        return new PistaDeLadron("Pista de ladrón");
+    public IPista crearPistaDeLadron(Dificultad dificultad) throws Exception{
+        return dificultad.crearPistaDeLadron(robo);
+    }
+
+    public IPista crearPistaEconomica(IPais pais, IRango rango) throws Exception {
+        return crearPistaEconomica(pais, rango.obtenerDificultadPistas());
+    }
+
+    public IPista crearPistaDeLectura(IPais pais, IRango rango) throws Exception{
+        return crearPistaDeLectura(pais, rango.obtenerDificultadPistas());
+    }
+
+    public IPista crearPistaDeViaje(IPais pais, IRango rango) throws Exception {
+        return crearPistaDeViaje(pais, rango.obtenerDificultadPistas());
     }
 }

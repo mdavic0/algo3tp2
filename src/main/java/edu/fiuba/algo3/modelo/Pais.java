@@ -84,4 +84,14 @@ public class Pais implements IPais {
     public PaisSinPistas sinPistas() throws Exception {
         return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);
     }
+
+    @Override
+    public String moneda() {
+        return "Euro";
+    }
+
+    @Override
+    public Object hechoHistorico() {
+        return "Este pais fue invadido por Inglaterra!";
+    }
 }
