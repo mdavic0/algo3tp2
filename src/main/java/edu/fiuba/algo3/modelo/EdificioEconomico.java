@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 public class EdificioEconomico extends TipoDeEdificio {
     
-    private Testigo testigo;
+    private Pista pista;
 
     public EdificioEconomico(FabricaDePistas fabrica, IPais pais) throws Exception{
-        this.testigo = new Testigo(fabrica.crearPistaEconomica(pais));
+        pista = fabrica.crearPistaEconomica(pais);
     }
 
     @Override
     public String obtenerTestimonio() {
-        return testigo.cuestionar();
+        return pista.contenido();
     }
 
 }

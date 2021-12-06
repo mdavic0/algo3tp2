@@ -8,7 +8,12 @@ public class Edificio implements IEdificio{
     TipoDeEdificio tipoDeEdificio;
     Temporizador temporizador;
 
-    public Edificio(String nombre, IPais pais, Dificultad dificultad, Temporizador temporizador, TipoDeEdificio edificio){
+    public Edificio(
+            String nombre,
+            IPais pais,
+            Dificultad dificultad,
+            Temporizador temporizador,
+            TipoDeEdificio edificio) {
         this.pais = pais;
         this.nombre = nombre;
         this.tipoDeEdificio = edificio; //necesita el pais siguiente si es una pista de pais
