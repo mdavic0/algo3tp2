@@ -57,9 +57,9 @@ public class Policia {
         this.ordenDeArresto = new OrdenDeArresto(unLadron);
     }*/
 
-    public IEstadoDeJuego intentarArrestarLadron(){
+    public void /*IEstadoDeJuego*/ intentarArrestarLadron(){
 
-        if (this.ordenDeArresto.sospechoso == "robo.ladron"){ // falta relacionar al ladron
+        /*if (this.ordenDeArresto.sospechoso == robo.ladron){ // falta relacionar al ladron
 
             cantidadArrestos++;
             if(cantidadArrestos %5 == 0){
@@ -68,7 +68,7 @@ public class Policia {
             }
         }else{
             return Perder;
-        }
+        }*/
     }
 
     public void emitirOrdenDeArresto() throws Exception {

@@ -33,7 +33,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     @Override
     public Ladron generarLadron() throws Exception{
-        return new Ladron("Roberta Rigoberta", "F", "Negro", "Cicatriz","Musica");
+        return new Ladron("Roberta Rigoberta", "F", "Deportivo","Negro", "Cicatriz","Musica");
         
     }
 }

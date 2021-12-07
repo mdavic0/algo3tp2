@@ -30,7 +30,7 @@ public class RoboTest {
             
     }
 
-    @Test
+    /*@Test
     public void crearLadron() throws Exception {
         Ladron ladron = new Ladron("Roberto", "M", "", "", "tieneTatuaje", "Feo");
         assertEquals(ladron.genero().getClass(), GeneroMasculino.class);
@@ -38,7 +38,7 @@ public class RoboTest {
         assertEquals(ladron.cabello(), "");
         assertTrue(ladron.tieneAtributos("tieneTatuaje"));
         assertTrue(ladron.tieneAtributos("Feo"));
-    }
+    }*/
 
     @Test
     public void crearRoboConGenerador() throws Exception {

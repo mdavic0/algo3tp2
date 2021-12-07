@@ -26,11 +26,11 @@ public class Ladron {
     }
 
     public String senia() {
-        return cabello;
+        return senia;
     }
 
     public String hobby() {
-        return cabello;
+        return hobby;
     }
 
     /*public Boolean tieneAtributos(String ... atributos) {
