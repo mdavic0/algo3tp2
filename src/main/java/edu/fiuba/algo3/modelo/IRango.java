@@ -8,4 +8,6 @@ public interface IRango {
     IRango subirRango();
 
     Valor generarValorDeArtefacto() ;
+
+    void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador);
 }

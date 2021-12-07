@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 public class RangoMock implements IRango{
     Valor valor;
     Dificultad dificultad = new Facil();
+
     public RangoMock(Valor valor) {
         this.valor = valor;
     }
@@ -26,6 +27,9 @@ public class RangoMock implements IRango{
         return valor;
     }
 
-    
-   
+    @Override
+    public void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador) {
+    }
+
+
 }

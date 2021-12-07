@@ -12,5 +12,10 @@ public class HeridaConCuchillo implements IActividad {
         return duracion;
     }
 
+    @Override
+    public void reportar(ITemporizador temporizador) {
+        temporizador.reportarActividad(this.duracion);
+    }
+
 
 }

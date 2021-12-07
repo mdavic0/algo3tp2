@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 public interface IActividad {
-    public abstract int duracion();
+    public  int duracion();
+    public void reportar(ITemporizador temporizador);
 }

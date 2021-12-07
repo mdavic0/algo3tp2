@@ -46,7 +46,8 @@ public class Edificio implements IEdificio{
 
         cantidadDeVisitas ++;
 
-        this.temporizador.reportarActividad(new EntrarAEdificio(cantidadDeVisitas));
+        EntrarAEdificio e = new EntrarAEdificio(cantidadDeVisitas);
+        e.reportar(this.temporizador);
     }
 }
 

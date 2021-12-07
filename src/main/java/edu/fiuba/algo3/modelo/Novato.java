@@ -28,4 +28,10 @@ public class Novato implements IRango {
     public Valor generarValorDeArtefacto() {
         return new ValorMedio();
     }
+
+    @Override
+    public void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador) {
+        Viajar actividad = new Viajar(paisActual, paisDestino, this.velocidadKmh);
+        actividad.reportar(temporizador);
+    }
 }

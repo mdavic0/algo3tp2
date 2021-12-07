@@ -16,10 +16,12 @@ public class Temporizador implements ITemporizador {
         this.hora_dormir = hora_dormir;
         this.hora_limite = hora_limite;
     }
-
+    @Override
     public int horaActual(){
         return (hora_inicial + horas_transcurridas) % 24;
     }
+
+    @Override
     public int horasTranscurridas(){
         return horas_transcurridas;
     }
@@ -37,7 +39,8 @@ public class Temporizador implements ITemporizador {
         return "Activo";
     }
 
-    public void reportarActividad(IActividad IActividad) {
-        estado = aumentarHoraActual(IActividad.duracion()) ;
+    @Override
+    public void reportarActividad(int duracion) {
+        estado = aumentarHoraActual(duracion);
     }
 }

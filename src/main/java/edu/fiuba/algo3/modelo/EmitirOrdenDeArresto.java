@@ -12,4 +12,8 @@ public class EmitirOrdenDeArresto implements IActividad {
         return duracion;
     }
 
+    @Override
+    public void reportar(ITemporizador temporizador) {
+        temporizador.reportarActividad(this.duracion);
+    }
 }

@@ -31,7 +31,7 @@ public class Policia {
 
     public void viajarA(IPais paisDestino) throws Exception {
         lugarActual = this.lugarActual.viajarA(paisDestino);
-        this.temporizador.reportarActividad(new Viajar(this.paisActual(), paisDestino, this.rango.velocidadKmh()));
+        this.rango.reportarViaje(this.paisActual(), paisDestino, this.temporizador);
     }
 
     public IPais paisActual() {
@@ -43,11 +43,13 @@ public class Policia {
     }
 
     public void recibirHeridaConCuchillo() throws Exception {
-        this.temporizador.reportarActividad(new HeridaConCuchillo(heridasPorCuchillo++));
+        HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo++);
+        actividad.reportar(this.temporizador);
     }
 
     public void recibirHeridaConArmaDeFuego() throws Exception {
-        this.temporizador.reportarActividad(new HeridaConArmaDeFuego());
+        HeridaConArmaDeFuego actividad = new HeridaConArmaDeFuego();
+        actividad.reportar(this.temporizador);
     }
 
     public void arrestarLadron(){
@@ -58,7 +60,8 @@ public class Policia {
     }
 
     public void emitirOrdenDeArresto() throws Exception {
-        this.temporizador.reportarActividad(new EmitirOrdenDeArresto());
+        EmitirOrdenDeArresto actividad = new EmitirOrdenDeArresto();
+        actividad.reportar(this.temporizador);
     }
 
 }

@@ -26,4 +26,10 @@ public class Investigador implements IRango {
     public Valor generarValorDeArtefacto() {
         return new Valioso();
     }
+
+    @Override
+    public void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador) {
+        Viajar actividad = new Viajar(paisActual, paisDestino, this.velocidadKmh);
+        actividad.reportar(temporizador);
+    }
 }
