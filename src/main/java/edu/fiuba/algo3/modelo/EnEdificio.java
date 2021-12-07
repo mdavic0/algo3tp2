@@ -6,14 +6,15 @@ public class EnEdificio extends LugarActual {
     public EnEdificio(IEdificio unEdificio) {
         this.edificio = unEdificio;
     }
-    
-    public LugarActual entrarA(IEdificio unEdificio) throws Exception {
-        throw new Exception("No se puede entrar de un edificio a otro!");
-    }
 
     @Override
     public String cuestionarTestigo() {
         return edificio.obtenerTestimonio();
+    }
+
+    @Override
+    public LugarActual entrarA(IEdificio banco, Policia policia) throws Exception {
+        throw new Exception("No se puede entrar de un edificio a otro!");
     }
 
     public EnEdificio viajarA(IPais pais) throws Exception{

@@ -20,7 +20,8 @@ public class EdificioTest {
             "aeropuerto", Argentina, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro")); // CAMBIAR
+            new PistaDeMoneda("Euro"),
+            new NoEstuvoEnEdificio()); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -61,7 +62,7 @@ public class EdificioTest {
             pais, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro"));
+            new PistaDeMoneda("Euro"), new EstuvoEnEdificio());
         pistaObtenida = banco.obtenerTestimonio();
 
         assertEquals(pistaDeseada, pistaObtenida);

@@ -28,7 +28,8 @@ public class EntregaTest {
             "aeropuerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro")); 
+            new PistaDeMoneda("Euro"),
+                new EstuvoEnEdificio());
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
@@ -54,12 +55,15 @@ public class EntregaTest {
             "banco", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro")); 
+            new PistaDeMoneda("Euro"),
+            new EstuvoEnEdificio());
+
         Edificio biblio = new Edificio (
             "biblioteca", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro")); 
+            new PistaDeMoneda("Euro"),
+            new EstuvoEnEdificio());
         
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -108,12 +112,15 @@ public class EntregaTest {
             "aeropuerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Euro")); 
+            new PistaDeMoneda("Euro"),
+            new EstuvoEnEdificio());
         Edificio biblio = new Edificio (
             "puerto", montreal, 
             new DificultadMock(), 
             new Temporizador(0,0,0), 
-            new PistaDeMoneda("Dólares")); 
+            new PistaDeMoneda("Dólares"),
+            new EstuvoEnEdificio());
+
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
 

@@ -30,7 +30,8 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
                 nombre, pais, 
                 dificultad, 
                 temporizador, 
-                pistasDeCadaEdificio[i]));
+                pistasDeCadaEdificio[i],
+                new NoEstuvoEnEdificio())); //TODO: Que las pistas dependan de la relacion del edificio con el ladron(?
         }
         return edificios;
     }
