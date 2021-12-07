@@ -46,5 +46,6 @@ public class Ladron {
         this.hobby = hobby;
 
     }
-    
+
+    //public boolean coincideConPropiedades (){}
 }

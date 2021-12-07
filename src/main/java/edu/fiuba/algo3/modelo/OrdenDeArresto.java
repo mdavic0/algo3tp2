@@ -8,4 +8,8 @@ public class OrdenDeArresto {
         this.sospechoso = unLadron;
     }
 
+    public boolean PuedeArrestarA (Ladron elLadron){
+        return (this.sospechoso.nombre() == elLadron.nombre())? true: false;
+    }
+
 }

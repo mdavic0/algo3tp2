@@ -39,6 +39,7 @@ public class Computadora {
         this.hobby = hobby;
 
         for (int i = 0; i < ladrones.size(); i++) {
+            //ladrones.get(i).consultarPropiedades("datos ingresados"){};
             if (genero.equals("") || this.genero.getClass().equals(ladrones.get(i).genero().getClass())) {
                 if(this.vehiculo.equals(ladrones.get(i).vehiculo()) || this.vehiculo.equals("")) {
                     if(this.cabello.equals(ladrones.get(i).cabello()) || this.cabello.equals("")) {
@@ -51,6 +52,8 @@ public class Computadora {
                 }
             }
         }
+
+        //TODO ladrones.stream().filter((ladron) -> ladron.coincideConPropiedades("caracteristicas"));
 
         return posiblesLadrones;
 
