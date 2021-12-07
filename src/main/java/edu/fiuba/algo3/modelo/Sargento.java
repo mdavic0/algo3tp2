@@ -19,7 +19,7 @@ public class Sargento implements IRango {
     }
 
     @Override
-    public IRango subirRango() {
+    public IRango subirRango(int cantidadDeArrestos) {
         return this;
     }
     @Override

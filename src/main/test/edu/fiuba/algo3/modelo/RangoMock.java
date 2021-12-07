@@ -19,7 +19,7 @@ public class RangoMock implements IRango{
         return dificultad;
     }
     @Override
-    public IRango subirRango() {
+    public IRango subirRango(int cantidadDeArrestos) {
         return this;
     }
     @Override

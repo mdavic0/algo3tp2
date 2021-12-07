@@ -19,8 +19,11 @@ public class Investigador implements IRango {
     }
 
     @Override
-    public IRango subirRango() {
-        return new Sargento();
+    public IRango subirRango(int cantidadDeArrestos) {
+        if(cantidadDeArrestos %5 == 0){
+            return new Sargento();
+        }
+        return this;
     }
     @Override
     public Valor generarValorDeArtefacto() {

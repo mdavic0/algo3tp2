@@ -54,9 +54,7 @@ public class Policia {
 
     public void arrestarLadron(){
         cantidadArrestos++;
-        if(cantidadArrestos %5 == 0){
-            this.rango = rango.subirRango();
-        }
+        rango = this.rango.subirRango(this.cantidadArrestos);
     }
 
     public void emitirOrdenDeArresto() throws Exception {

@@ -5,7 +5,7 @@ public interface IRango {
 
     Dificultad obtenerDificultadPistas();
 
-    IRango subirRango();
+    IRango subirRango(int cantidadDeArrestos);
 
     Valor generarValorDeArtefacto() ;
 
