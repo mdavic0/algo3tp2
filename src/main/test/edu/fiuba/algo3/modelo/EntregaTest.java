@@ -43,8 +43,7 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Lima", "Euro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron(
-            "Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
