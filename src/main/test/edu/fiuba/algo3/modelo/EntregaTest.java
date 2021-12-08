@@ -31,7 +31,7 @@ public class EntregaTest {
             new PistaDeMoneda("Euro"),
                 new EstuvoEnEdificio());
         montreal.agregarEdificio(edificio);
-        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
+        Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
     }
@@ -69,7 +69,7 @@ public class EntregaTest {
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
+        Policia roberta = new Policia(montreal, t);
 
         roberta.entrarA(banco);
 
@@ -85,7 +85,7 @@ public class EntregaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal, t,null);
+        Policia paco = new Policia(montreal, t);
 
         assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
@@ -125,7 +125,7 @@ public class EntregaTest {
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
+        Policia roberta = new Policia(montreal, t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
@@ -144,7 +144,7 @@ public class EntregaTest {
     public void PoliciaEsHeridoConCuchilloYDuerme() throws Exception{
         IPais montreal = new PaisMock("Montreal");
         Temporizador t = new Temporizador(9, 20, 36);
-        Policia undyne = new Policia(montreal, t,null);
+        Policia undyne = new Policia(montreal, t);
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.

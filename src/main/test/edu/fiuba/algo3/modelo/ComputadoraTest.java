@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,6 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ComputadoraTest {
 
     Temporizador t = new Temporizador(0, 20, 48);
+    Policia paco = new Policia(new PaisMock("Argentina"), t);
+
+    public ComputadoraTest() throws Exception {
+    }
 
     @Test
     public void CargarDatosYReducirLista() throws Exception {
@@ -23,7 +28,7 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        ArrayList<Ladron> ladronesObtenidos = computadora.consultarDatos("", "", "Negro", "Cicatriz","Musica");
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -39,13 +44,11 @@ public class ComputadoraTest {
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t, juan);
+        Policia paco = new Policia(colombia, t);
 
         Computadora computadora = new Computadora();
 
-        ArrayList<Ladron> ladronesObtenidos = computadora.consultarDatos("M", "Deportivo", "Negro", "Cicatriz","Musica");
-
-        paco.emitirOrdenDeArrestoPara(ladronesObtenidos.get(0));
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -54,21 +57,18 @@ public class ComputadoraTest {
     }
 
     @Test
-    public void ArrestarAlLadronExitosamente() throws Exception {
+    public void SeEmiteUnaOrdenDeArrestoParaUnLadronExitosamente() throws Exception {
 
         int tamanioEsperado = 1;
 
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t, juan);
+        Policia paco = new Policia(colombia, t);
 
         Computadora computadora = new Computadora();
 
-        ArrayList<Ladron> ladronesObtenidos = computadora.consultarDatos("M", "Deportivo", "Negro", "Cicatriz","Musica");
-
-        paco.emitirOrdenDeArrestoPara(ladronesObtenidos.get(0));
-        paco.intentarArrestarLadron();
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -77,7 +77,7 @@ public class ComputadoraTest {
     }
 
     @Test
-    public void NoLograrArrestarAlLadron() throws Exception {
+    public void SeObtieneUnaListaReducidaDeSospechososExitosamente() throws Exception {
 
         int tamanioEsperado = 2;
 
@@ -86,20 +86,16 @@ public class ComputadoraTest {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Policia paco = new Policia(colombia, t, juan);
+        Policia paco = new Policia(colombia, t);
 
         Computadora computadora = new Computadora();
 
-        ArrayList<Ladron> ladronesObtenidos = computadora.consultarDatos("", "", "Negro", "Cicatriz","Musica");
-
-        paco.emitirOrdenDeArrestoPara(ladronesObtenidos.get(1));
-        paco.intentarArrestarLadron();
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
         assertEquals(roberta.nombre(), ladronesObtenidos.get(1).nombre());
-        assertEquals(roberta.nombre(), paco.ordenDeArresto.sospechoso().nombre());
-
+        assertEquals(null, paco.ordenDeArresto);
     }
 
 }
