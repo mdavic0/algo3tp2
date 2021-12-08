@@ -11,7 +11,7 @@ public class GeneradorMockDeRobo implements IGeneradorDeRobo {
             throws Exception {
         return new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
     }
     

@@ -19,7 +19,7 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
         //TODO: lanzar error si se inicializa robo con <2 paises
         paises.add(new PaisSinPistas("Zimbabwe", "Euro", 0, 0));
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
@@ -43,7 +43,9 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Lima", "Euro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
+
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
@@ -99,7 +101,7 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Lima", "Dólares",0,0));
 
         //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
