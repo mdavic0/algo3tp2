@@ -31,7 +31,7 @@ public class Entrega2Test {
         paises.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
 
 
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
