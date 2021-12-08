@@ -6,12 +6,16 @@ public class Policia {
     //String pista; //idealmente una coleccion
     IRango rango;
     ITemporizador temporizador;
+    OrdenDeArresto ordenDeArresto;
+    Ladron ladron;
     int cantidadArrestos;
     int heridasPorCuchillo;
 
-    public Policia(IPais pais, ITemporizador temporizador) {
+    public Policia(IPais pais, ITemporizador temporizador, Ladron unLadron) {
         lugarActual = new FueraDeEdificio(pais);
         rango = new Novato();
+        ordenDeArresto = null;
+        this.ladron = unLadron;
         this.temporizador = temporizador;
         cantidadArrestos = 0;
         heridasPorCuchillo = 0;
@@ -52,14 +56,22 @@ public class Policia {
         actividad.reportar(this.temporizador);
     }
 
-    public void arrestarLadron(){
-        cantidadArrestos++;
-        rango = this.rango.subirRango(this.cantidadArrestos);
-    }
+    public void emitirOrdenDeArrestoPara(Ladron unLadron) throws Exception {
 
-    public void emitirOrdenDeArresto() throws Exception {
+        ordenDeArresto = new OrdenDeArresto(unLadron);
+
         EmitirOrdenDeArresto actividad = new EmitirOrdenDeArresto();
         actividad.reportar(this.temporizador);
+    }
+
+    public void intentarArrestarLadron(){
+        if (ordenDeArresto.puedeArrestarA(ladron)){
+            cantidadArrestos++;
+            rango = this.rango.subirRango(this.cantidadArrestos);
+                /*Ganar();
+        }else{
+            Perder();*/
+        }
     }
 
 }

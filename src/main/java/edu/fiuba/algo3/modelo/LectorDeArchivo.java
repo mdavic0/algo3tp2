@@ -26,12 +26,12 @@ public class LectorDeArchivo {
     }
     public List<Ladron> obtenerLadrones() throws Exception{
         List<Ladron> ladrones = new ArrayList<Ladron>();
-        ladrones.add(new Ladron("Pedro", "M", "Scooter", "Rubio", "Flaco"));
-        ladrones.add(new Ladron("Pedro2", "M", "Scooter", "Rubio", "Flaco"));
-        ladrones.add(new Ladron("Pedro3", "M", "Scooter", "Rubio", "Flaco"));
-        ladrones.add(new Ladron("Pedro4", "M", "Scooter", "Rubio", "Flaco"));
-        ladrones.add(new Ladron("Pedro5", "M", "Scooter", "Rubio", "Flaco"));
-        ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"));
+        ladrones.add(new Ladron("Pedro", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
+        ladrones.add(new Ladron("Pedro2", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
+        ladrones.add(new Ladron("Pedro3", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
+        ladrones.add(new Ladron("Pedro4", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
+        ladrones.add(new Ladron("Pedro5", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
+        ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Tatuaje", "Alpinismo"));
         return ladrones;
     }
 

@@ -14,7 +14,7 @@ public class RoboTest {
     public void testInicializarRoboConGenerador() throws Exception { 
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
         
         assertEquals("Hola, Detective. Hubo un robo de La torre eiffel", 
@@ -29,7 +29,7 @@ public class RoboTest {
         Dificultad d = new Dificil();
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
         
         robo.reportarRobo("Detective");
@@ -38,19 +38,19 @@ public class RoboTest {
 
     @Test
     public void crearLadron() throws Exception {
-        Ladron ladron = new Ladron("Roberto", "M", "", "", "tieneTatuaje", "Feo");
+        Ladron ladron = new Ladron("Roberto", "M", "", "", "Anillo", "Tenis");
         assertEquals(ladron.genero().getClass(), GeneroMasculino.class);
         assertEquals(ladron.vehiculo(), "");
         assertEquals(ladron.cabello(), "");
-        assertTrue(ladron.tieneAtributos("tieneTatuaje"));
-        assertTrue(ladron.tieneAtributos("Feo"));
+        assertEquals(ladron.senia(), "Anillo");
+        assertEquals(ladron.hobby(), "Tenis");
     }
 
     @Test
     public void crearRoboConGenerador() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
         PaisSinPistas lugarRobo = robo.lugarDeRobo();
@@ -66,7 +66,7 @@ public class RoboTest {
     public void generarPistaParaPais() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
@@ -78,7 +78,7 @@ public class RoboTest {
     public void generarPistaParaLadron() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita"),
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido

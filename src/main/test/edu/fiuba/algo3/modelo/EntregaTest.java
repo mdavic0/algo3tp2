@@ -19,7 +19,7 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
         //TODO: lanzar error si se inicializa robo con <2 paises
         paises.add(new PaisSinPistas("Zimbabwe", "Euro", 0, 0));
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
@@ -31,7 +31,7 @@ public class EntregaTest {
             new PistaDeMoneda("Euro"),
                 new EstuvoEnEdificio());
         montreal.agregarEdificio(edificio);
-        Policia roberta = new Policia(montreal, t);
+        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
     }
@@ -44,7 +44,7 @@ public class EntregaTest {
 
         //TODO: usar robo mock en esta seccion
         Ladron carmen = new Ladron(
-            "Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+            "Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
@@ -69,7 +69,7 @@ public class EntregaTest {
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal, t);
+        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
 
         roberta.entrarA(banco);
 
@@ -85,7 +85,7 @@ public class EntregaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal, t);
+        Policia paco = new Policia(montreal, t,null);
 
         assertEquals(montreal.nombre(), paco.paisActual().toString());
         paco.viajarA(mexico);
@@ -100,7 +100,7 @@ public class EntregaTest {
         paises.add(new PaisSinPistas("Lima", "Dólares",0,0));
 
         //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
@@ -125,7 +125,7 @@ public class EntregaTest {
         montreal.agregarEdificio(biblio);
 
 
-        Policia roberta = new Policia(montreal, t);
+        Policia roberta = new Policia(montreal, t, elRobo.obtenerLadron());
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
@@ -144,7 +144,7 @@ public class EntregaTest {
     public void PoliciaEsHeridoConCuchilloYDuerme() throws Exception{
         IPais montreal = new PaisMock("Montreal");
         Temporizador t = new Temporizador(9, 20, 36);
-        Policia undyne = new Policia(montreal, t);
+        Policia undyne = new Policia(montreal, t,null);
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
