@@ -12,4 +12,8 @@ public class OrdenDeArresto {
         return (this.sospechoso.nombre() == elLadron.nombre())? true: false; //sacar el .nombre() cuando tengamos los JSON's
     }
 
+    public Ladron sospechoso(){
+        return sospechoso;
+    }
+
 }

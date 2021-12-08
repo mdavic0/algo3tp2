@@ -8,12 +8,15 @@ public class Policia {
     ITemporizador temporizador;
     OrdenDeArresto ordenDeArresto;
     Ladron ladron;
+    EstadoDelJuego estadoDelJuego;
+
     int cantidadArrestos;
     int heridasPorCuchillo;
 
     public Policia(IPais pais, ITemporizador temporizador, Ladron unLadron) {
         lugarActual = new FueraDeEdificio(pais);
         rango = new Novato();
+        estadoDelJuego = new EstadoDelJuego();
         ordenDeArresto = null;
         this.ladron = unLadron;
         this.temporizador = temporizador;
@@ -68,9 +71,9 @@ public class Policia {
         if (ordenDeArresto.puedeArrestarA(ladron)){
             cantidadArrestos++;
             rango = this.rango.subirRango(this.cantidadArrestos);
-                /*Ganar();
+            estadoDelJuego.Ganar();
         }else{
-            Perder();*/
+            estadoDelJuego.Perder();
         }
     }
 
