@@ -6,10 +6,6 @@ public class HeridaConArmaDeFuego implements IActividad {
         this.duracion = 4; //4hs cada vez.
     }
 
-    @Override
-    public int duracion() {
-        return duracion;
-    }
 
     @Override
     public void reportar(ITemporizador temporizador) {

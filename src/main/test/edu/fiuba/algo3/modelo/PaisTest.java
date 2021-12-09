@@ -8,7 +8,6 @@ public class PaisTest {
 
     @Test
     public void PaisCalculaDistanciaAOtroPais() throws Exception {
-        IRobo robo = new RoboMock();
         Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
         Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 

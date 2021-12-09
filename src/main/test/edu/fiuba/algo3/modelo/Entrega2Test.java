@@ -149,7 +149,7 @@ public class Entrega2Test {
         paco.salirDelEdificio();
 
         paco.entrarA(banco);
-        assertEquals("Compro una banda de pesos Mexicanos, tenia pelo Oscuro",paco.cuestionarTestigo());
+        assertEquals("Compro una banda de pesos Mexicanos, tenia pelo Oscuro", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
         paco.entrarA(puerto);

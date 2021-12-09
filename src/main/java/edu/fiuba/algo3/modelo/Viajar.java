@@ -13,11 +13,6 @@ public class Viajar implements IActividad {
     }
 
     @Override
-    public int duracion() {
-        return duracion;
-    }
-
-    @Override
     public void reportar(ITemporizador temporizador) {
         temporizador.reportarActividad(this.duracion);
     }

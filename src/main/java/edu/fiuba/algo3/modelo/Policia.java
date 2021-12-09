@@ -50,7 +50,8 @@ public class Policia {
     }
 
     public void recibirHeridaConCuchillo() throws Exception {
-        HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo++);
+        heridasPorCuchillo++;
+        HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo);
         actividad.reportar(this.temporizador);
     }
 
