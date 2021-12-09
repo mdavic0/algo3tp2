@@ -46,14 +46,11 @@ public class Pais implements IPais {
     public boolean sePuedeViajarA(IPais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
-    
-    public String toString(){
-        return this.nombre;
-    }
+
 
     @Override
     public String nombre() {
-        return nombre;
+        return this.nombre;
     }
 
     @Override

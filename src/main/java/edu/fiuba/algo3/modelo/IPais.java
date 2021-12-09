@@ -13,7 +13,7 @@ public interface IPais {
 
     public boolean sePuedeViajarA(IPais pais) ;
 
-    public Object nombre();
+    public String nombre();
 
     double obtenerLatitud();
     double obtenerLongitud();

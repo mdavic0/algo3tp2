@@ -88,9 +88,9 @@ public class EntregaTest {
         montreal.conectarA(mexico);
         Policia paco = new Policia(montreal, t);
 
-        assertEquals(montreal.nombre(), paco.paisActual().toString());
+        assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);
-        assertEquals(mexico.nombre(), paco.paisActual().toString());
+        assertEquals(mexico.nombre(), paco.paisActual().nombre());
     }
     
     //Nota: test redundante en PoliciaTest. Puesto aqui por conveniencia

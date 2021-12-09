@@ -53,7 +53,7 @@ public class Entrega2Test {
 
         //Viaja de Montreal a Mexico
         paco.viajarA(mexico);
-        assertEquals(mexico.nombre(), paco.paisActual().toString());
+        assertEquals(mexico.nombre(), paco.paisActual().nombre());
 
     }
 
@@ -99,20 +99,25 @@ public class Entrega2Test {
     @Test
     public void PartidaCompleta() throws Exception {
         //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Peru", "Soles", 0, 0));
-        paises.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
+        List<PaisSinPistas> viaDelLadron = new ArrayList<PaisSinPistas>();
+        viaDelLadron.add(new PaisSinPistas("Peru", "Soles", 0, 0));
+        viaDelLadron.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
-        Robo elRobo = new Robo(paises, carmen, mascara);
+        Robo elRobo = new Robo(viaDelLadron, carmen, mascara);
 
         EdificioMock banco = new EdificioMock("Banco", "Compro una banda de pesos Mexicanos, tenia pelo Oscuro");
         EdificioMock museo = new EdificioMock("Museo", "Esta interesada en cuadros sobre Mariachis, llego en una Moto");
         EdificioMock puerto = new EdificioMock("Puerto", "Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis");
 
         IPais paisOrigen = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(banco, museo, puerto), 0,0);
+        //OBS: de momento "tomar el caso de un robo" significa que el
+        // policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia(paisOrigen, t);
+
+        //VERIFICAR ESTADO DE JUEGO //TODO: Reemplazar por sistema de eventos...
+        assertEquals("Estoy investigando...", paco.estadoDeJuego());
 
         banco.setPais(paisOrigen);
         museo.setPais(paisOrigen);
@@ -141,22 +146,44 @@ public class Entrega2Test {
         //Realiza la investigación
         paco.entrarA(museo);
         assertEquals("Esta interesada en cuadros sobre Mariachis, llego en una Moto", paco.cuestionarTestigo());
-        paco.salirDe(museo);
+        paco.salirDelEdificio();
 
         paco.entrarA(banco);
         assertEquals("Compro una banda de pesos Mexicanos, tenia pelo Oscuro",paco.cuestionarTestigo());
-        paco.salirDe(banco);
+        paco.salirDelEdificio();
 
         paco.entrarA(puerto);
         assertEquals("Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis", paco.cuestionarTestigo());
-        paco.salirDe(puerto);
+        paco.salirDelEdificio();
 
+        //CON ESTAS PISTAS TENEMOS DATOS SUFICIENTES PARA PODER EMITIR UNA ORDEN DE ARRESTO
 
-        //TODO: HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS (?
+        Computadora computadora = new Computadora();
+        computadora.consultarDatos(paco, "F", "Moto", "Oscuro", "", "tenis");
 
+        assertTrue(paco.puedeArrestar(carmen));
 
+        //HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS
 
+        paco.viajarA(mexico);
+        assertEquals(mexico.nombre(), paco.paisActual().nombre());
+
+        paco.entrarA(biblioteca);
+        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        paco.salirDelEdificio();
+
+        paco.entrarA(bolsa);
+        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        paco.salirDelEdificio();
+
+        // DE MOMENTO SABEMOS QUE ESTA CERCA, VERIFICAMOS ESTADO DE JUEGO
+        assertEquals("Estoy investigando...", paco.estadoDeJuego());
+
+        paco.entrarA(aeropuerto);
+        assertEquals("El sospechoso esta en el edificio!!!", paco.cuestionarTestigo());
+
+        // PACO TENIA LA ORDEN DE ARRESTO PARA DETENER A CARMEN ==> GANA
+        assertEquals("Gane loco", paco.estadoDeJuego());
     }
-
 
 }

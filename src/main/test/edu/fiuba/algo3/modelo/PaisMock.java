@@ -32,13 +32,9 @@ public class PaisMock implements IPais {
     public boolean sePuedeViajarA(IPais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
-    
-    public String toString(){
-        return this.nombre;
-    }
 
     @Override
-    public Object nombre() {
+    public String nombre() {
         return nombre;
     }
 
