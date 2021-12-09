@@ -36,15 +36,6 @@ public class RoboTest {
             
     }
 
-    @Test
-    public void crearLadron() throws Exception {
-        Ladron ladron = new Ladron("Roberto", "M", "", "", "Anillo", "Tenis");
-        assertEquals(ladron.genero(), "M");
-        assertEquals(ladron.vehiculo(), "");
-        assertEquals(ladron.cabello(), "");
-        assertEquals(ladron.senia(), "Anillo");
-        assertEquals(ladron.hobby(), "Tenis");
-    }
 
     @Test
     public void crearRoboConGenerador() throws Exception {

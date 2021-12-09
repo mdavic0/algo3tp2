@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Arrays;
-
 public class Ladron {
 
     private String nombre;
@@ -42,26 +40,6 @@ public class Ladron {
 
     public String nombre() {
         return nombre;
-    }
-
-    public String genero() {
-        return genero;
-    }
-
-    public String vehiculo() {
-        return vehiculo;
-    }
-
-    public String cabello() {
-        return cabello;
-    }
-
-    public String senia() {
-        return senia;
-    }
-
-    public String hobby() {
-        return hobby;
     }
     
 }
