@@ -8,7 +8,7 @@ public class Pais implements IPais {
     List<IEdificio> edificios;
     double latitud;
     double longitud;
-    
+    /*
     public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud, IRango r) throws Exception {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
@@ -16,7 +16,7 @@ public class Pais implements IPais {
         this.edificios.addAll(g.crearEdificiosPara(this, r.obtenerDificultadPistas()));
         this.latitud = latitud;
         this.longitud = longitud;
-    }
+    }*/
     
     public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud) throws Exception {
         this.nombre = nombre;
@@ -77,18 +77,13 @@ public class Pais implements IPais {
         return dist;
     }
 
-    @Override
-    public PaisSinPistas sinPistas() throws Exception {
-        return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);
-    }
+
+    //public PaisSinPistas sinPistas() throws Exception {return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);}
 
     @Override
     public String moneda() {
         return "Euro";
     }
 
-    @Override
-    public Object hechoHistorico() {
-        return "Este pais fue invadido por Inglaterra!";
-    }
+    //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra!";}
 }

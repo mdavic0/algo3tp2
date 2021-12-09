@@ -19,9 +19,9 @@ public interface IPais {
     double obtenerLongitud();
     double distanciaA(IPais paisDestino);
 
-    public PaisSinPistas sinPistas() throws Exception;
+    //public PaisSinPistas sinPistas() throws Exception;
 
     public String moneda();
 
-    public Object hechoHistorico();
+    //public Object hechoHistorico();
 }
