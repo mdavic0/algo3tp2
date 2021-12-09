@@ -12,6 +12,7 @@ public class Policia {
 
     int cantidadArrestos;
     int heridasPorCuchillo;
+    private String estadoDeJuego; //TODO: Reemplazar por sistema de eventos...
 
     public Policia(IPais pais, ITemporizador temporizador) {
         lugarActual = new FueraDeEdificio(pais);
@@ -20,6 +21,7 @@ public class Policia {
         this.temporizador = temporizador;
         cantidadArrestos = 0;
         heridasPorCuchillo = 0;
+        this.estadoDeJuego = "Estoy investigando...";
     }
 
     public void salirDelEdificio() throws Exception{
@@ -66,5 +68,23 @@ public class Policia {
     public void arrestarLadron(){
         cantidadArrestos++;
         rango = this.rango.subirRango(this.cantidadArrestos);
+    }
+
+    public boolean puedeArrestar(Ladron ladron) {
+        if(this.ordenDeArresto != null)
+            return this.ordenDeArresto.puedeArrestarA(ladron);
+        return false;
+    }
+
+    public void ganaste() {
+        this.estadoDeJuego = "Gane loco";
+    }
+
+    public String estadoDeJuego() { //GETTER HASTA QUE ESTE HECHO EL SISTEMA DE EVENTOS...
+        return this.estadoDeJuego;
+    }
+
+    public void perdiste() {
+        this.estadoDeJuego = "Perdi :(";
     }
 }

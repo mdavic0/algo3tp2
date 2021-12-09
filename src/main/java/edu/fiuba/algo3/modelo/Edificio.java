@@ -41,8 +41,7 @@ public class Edificio implements IEdificio{
 
     @Override
     public void entrar(Policia policia) throws Exception {
-        this.relacionConLadron.herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
-        this.relacionConLadron.herirConArmaDeFuego(policia); // ladron estuvo en el edificio
+        this.relacionConLadron.entrar(policia);
 
         cantidadDeVisitas ++;
 

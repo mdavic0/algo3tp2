@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega2Test {
+
     Temporizador t = new Temporizador(16, 20, 36);
+
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
         IPais montreal = new PaisMock("Montreal");
@@ -23,6 +25,8 @@ public class Entrega2Test {
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 4 + 8);
     }
+
+
     @Test
     public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMéxico() throws Exception {
         //TODO: Eliminar PaisSinPistas
@@ -55,12 +59,41 @@ public class Entrega2Test {
 
     @Test
     public void CargarEnLaComputadoraLosDatosRecopiladosYBuscarSospechosos() throws Exception {
+        int tamanioEsperado = 2;
 
+        IPais colombia = new PaisMock("Colombia");
+
+        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
+
+        Policia paco = new Policia(colombia, t);
+
+        Computadora computadora = new Computadora();
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+
+        assertEquals(tamanioEsperado, ladronesObtenidos.size());
+        assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
+        assertEquals(roberta.nombre(), ladronesObtenidos.get(1).nombre());
+        assertNull(paco.ordenDeArresto); // Como hay 2 sospechosos NO se emite la orden de arresto
     }
 
     @Test
-    public void IntentasAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
+    public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
+        IPais colombia = new PaisMock("Colombia");
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        IEdificio e =  new Edificio("El Bar", colombia, new DificultadMock(), t, new PistaMock("EL ladron esta aca!"), new EstaEnElEdificio(carmen) );
 
+        colombia.agregarEdificio(e);
+
+        Policia paco = new Policia(colombia, t);
+
+        Computadora computadora = new Computadora();
+
+        assertEquals("Estoy investigando...", paco.estadoDeJuego());
+
+        paco.entrarA(e);
+        assertEquals("Perdi :(", paco.estadoDeJuego());
     }
 
     @Test

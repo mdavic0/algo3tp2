@@ -16,4 +16,10 @@ public class EstaEnElEdificioDeAlLado implements IRelacionConLadron {
         if(aleatorio.nextInt(1, 101) <= 80) //probabilidad 80% de que reciba un ataque con arma de fuego
             policia.recibirHeridaConArmaDeFuego();
     }
+
+    @Override
+    public void entrar(Policia policia) throws Exception {
+        herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
+        herirConArmaDeFuego(policia); // ladron estuvo en el edificio
+    }
 }

@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ComputadoraTest {
@@ -95,7 +94,8 @@ public class ComputadoraTest {
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
         assertEquals(roberta.nombre(), ladronesObtenidos.get(1).nombre());
-        assertEquals(null, paco.ordenDeArresto);
+        assertNull(paco.ordenDeArresto); // Como hay 2 sospechosos NO se emite la orden de arresto
+        //TODO: Que el policia tenga un metodo boolean tieneOrdenDeArresto(); para evitar chequear esto ^^^
     }
 
 }
