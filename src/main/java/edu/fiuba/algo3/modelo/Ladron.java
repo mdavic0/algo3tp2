@@ -28,16 +28,12 @@ public class Ladron {
 
         boolean respuesta = false;
 
-        if (this.genero.equals(unGenero) || unGenero.equals("")) {
-            if(this.vehiculo.equals(unVehiculo) || unVehiculo.equals("")) {
-                if(this.cabello.equals(unCabello) || unCabello.equals("")) {
-                    if(this.senia.equals(unaSenia) || unaSenia.equals("")) {
-                        if(this.hobby.equals(unHobby) || unHobby.equals("")) {
+        if ((this.genero.equals(unGenero) || unGenero.equals("")) &&
+                (this.vehiculo.equals(unVehiculo) || unVehiculo.equals("")) &&
+                (this.cabello.equals(unCabello) || unCabello.equals("")) &&
+                (this.senia.equals(unaSenia) || unaSenia.equals("")) &&
+                (this.hobby.equals(unHobby) || unHobby.equals(""))) {
                             respuesta = true;
-                        }
-                    }
-                }
-            }
         }
 
         return respuesta;
