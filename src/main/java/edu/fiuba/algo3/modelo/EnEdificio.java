@@ -31,7 +31,7 @@ public class EnEdificio extends LugarActual {
         return edificio.obtenerPais();
     }
     @Override
-    public LugarActual salirDe(Edificio banco) throws Exception {
+    public LugarActual salirDe(IEdificio banco) throws Exception {
         return new FueraDeEdificio(edificio.obtenerPais());
     }
 

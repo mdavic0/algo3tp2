@@ -98,18 +98,63 @@ public class Entrega2Test {
 
     @Test
     public void PartidaCompleta() throws Exception {
-        //Un Policia hace 6 Arrestos.  ==> RECIBE PROMOCION de Novato a Detective.
-        IPais peru = new PaisMock("Peru");
-        Temporizador t = new Temporizador(0, 20, 48);
-        Policia paco = new Policia(peru, t);
+        //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
+        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
+        paises.add(new PaisSinPistas("Peru", "Soles", 0, 0));
+        paises.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
 
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
+        Robo elRobo = new Robo(paises, carmen, mascara);
+
+        EdificioMock banco = new EdificioMock("Banco", "Compro una banda de pesos Mexicanos, tenia pelo Oscuro");
+        EdificioMock museo = new EdificioMock("Museo", "Esta interesada en cuadros sobre Mariachis, llego en una Moto");
+        EdificioMock puerto = new EdificioMock("Puerto", "Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis");
+
+        IPais paisOrigen = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(banco, museo, puerto), 0,0);
+        Policia paco = new Policia(paisOrigen, t);
+
+        banco.setPais(paisOrigen);
+        museo.setPais(paisOrigen);
+        puerto.setPais(paisOrigen);
+
+        IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0,0);
+        IPista estaCerca = new PistaMock("Cuidado, el sospechoso que buscas esta cerca!!");
+        IPista estaAca = new PistaMock("El sospechoso esta en el edificio!!!");
+
+        IEdificio biblioteca = new Edificio("Biblioteca", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
+        IEdificio  bolsa = new Edificio("Bolsa", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
+        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, paco.rango.obtenerDificultadPistas(), t, estaAca, new EstaEnElEdificio(carmen));
+
+        mexico.agregarEdificio(biblioteca);
+        mexico.agregarEdificio(bolsa);
+        mexico.agregarEdificio(aeropuerto);
+
+        paisOrigen.conectarA(mexico);
+
+        //Un Policia hace 6 Arrestos.  ==> RECIBE PROMOCION de Novato a Detective.
         assertEquals(Novato.class, paco.rango.getClass());
         for(int i = 0; i < 6; i++){ paco.arrestarLadron(); }
         assertEquals(Detective.class, paco.rango.getClass());
 
-        //TODO: Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
 
-        //RoboMock robo = new RoboMock();
+        //Realiza la investigación
+        paco.entrarA(museo);
+        assertEquals("Esta interesada en cuadros sobre Mariachis, llego en una Moto", paco.cuestionarTestigo());
+        paco.salirDe(museo);
+
+        paco.entrarA(banco);
+        assertEquals("Compro una banda de pesos Mexicanos, tenia pelo Oscuro",paco.cuestionarTestigo());
+        paco.salirDe(banco);
+
+        paco.entrarA(puerto);
+        assertEquals("Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis", paco.cuestionarTestigo());
+        paco.salirDe(puerto);
+
+
+        //TODO: HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS (?
+
+
 
     }
 

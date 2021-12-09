@@ -11,5 +11,5 @@ public abstract class LugarActual {
     public abstract LugarActual salirDelEdificio() throws Exception;
     public abstract String cuestionarTestigo() throws Exception ;
 
-    public abstract LugarActual salirDe(Edificio banco)throws Exception ;
+    public abstract LugarActual salirDe(IEdificio banco)throws Exception ;
 }

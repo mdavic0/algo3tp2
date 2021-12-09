@@ -39,7 +39,7 @@ public class FueraDeEdificio extends LugarActual {
 
     //TODO quitar argumento
     @Override
-    public LugarActual salirDe(Edificio edificio) throws Exception {
+    public LugarActual salirDe(IEdificio edificio) throws Exception {
         throw new Exception("Ya estas afuera");
     }
 
