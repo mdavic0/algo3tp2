@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //TODO: artefactos, etc dependen de la dificultad
 public class RoboTest {
@@ -26,7 +24,6 @@ public class RoboTest {
 
     @Test
     public void testInicializarRoboSinGenerador() throws Exception { 
-        Dificultad d = new Dificil();
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 3), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
@@ -62,7 +59,7 @@ public class RoboTest {
 
         // hack para obtener pais valido
         Pais paisActual = robo.primerPais();
-        //assertNotEquals(robo.pistaParaPais(paisActual).contenido(), null);
+        assertNotEquals(null, paisActual);
     }
 
     @Test
@@ -75,6 +72,6 @@ public class RoboTest {
         // hack para obtener pais valido
         Pais pais = robo.primerPais();
         assertNotEquals(pais, null);
-        //assertNotEquals(robo.pistaParaLadron().contenido(), null);
+        assertNotEquals(null, pais);
     }
 }

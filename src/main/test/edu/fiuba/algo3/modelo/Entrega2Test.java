@@ -14,7 +14,7 @@ public class Entrega2Test {
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
         IPais montreal = new PaisMock("Montreal");
-        Policia undyne = new Policia(montreal, t);
+        Policia undyne = new Policia(montreal, t, new EstadoDeJuego());
 
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
@@ -44,7 +44,7 @@ public class Entrega2Test {
         IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0, 0);
         paisOrigen.conectarA(mexico); // TODO: esto deberia hacerse automagicamente cuando se crea la ruta del ladron
 
-        Policia paco = new Policia(paisOrigen, t);
+        Policia paco = new Policia(paisOrigen, t, new EstadoDeJuego());
 
         //Se verifica la promocion de rango
         assertEquals(Novato.class, paco.rango.getClass());
@@ -66,11 +66,10 @@ public class Entrega2Test {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
 
-        Computadora computadora = new Computadora();
-
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+        Computadora compu = new Computadora();
+        List<Ladron> ladronesObtenidos = compu.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -86,14 +85,14 @@ public class Entrega2Test {
 
         colombia.agregarEdificio(e);
 
-        Policia paco = new Policia(colombia, t);
+        EstadoDeJuego estado = new EstadoDeJuego();
+        Policia paco = new Policia(colombia, t, estado);
 
-        Computadora computadora = new Computadora();
-
-        //assertEquals("Estoy investigando...", paco.estadoDeJuego());
+        assertTrue(estado.juegoEnProgreso());
 
         paco.entrarA(e);
-        //assertEquals("Perdi :(", paco.estadoDeJuego());
+        assertFalse(estado.juegoEnProgreso());
+        assertTrue(estado.juegoPerdido());
     }
 
     @Test
@@ -183,8 +182,6 @@ public class Entrega2Test {
         paco.entrarA(aeropuerto);
         assertEquals(estado.juegoGanado(), true);
         assertEquals(estado.juegoEnProgreso(), false);
-
-        
     }
 
 }

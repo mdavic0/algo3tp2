@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GeneradorMockDeEdificios implements IGeneradorDeEdificios {
