@@ -91,4 +91,8 @@ public class Policia implements PropertyChangeListener {
             && (int)evt.getNewValue() >= hora_dormir)
             this.dormir();
     }
+
+    public void reportarIngresoAEdificio(EntrarAEdificio entrarAEdificio) {
+        entrarAEdificio.reportar(this.temporizador);
+    }
 }

@@ -25,10 +25,7 @@ public class EntregaTest {
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(), 0, 0);
         Edificio edificio = new Edificio (
-            "aeropuerto", montreal, 
-            new DificultadMock(), 
-            t, 
-            new PistaDeMoneda("Euro"),
+            "aeropuerto", montreal,
                 new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
@@ -53,17 +50,11 @@ public class EntregaTest {
             new GeneradorMockDeEdificios(), 0, 0);
 
         Edificio banco = new Edificio (
-            "banco", montreal, 
-            new DificultadMock(), 
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Euro"),
+            "banco", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
 
         Edificio biblio = new Edificio (
-            "biblioteca", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(),  
-            new PistaDeMoneda("Euro"),
+            "biblioteca", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         
         montreal.agregarEdificio(banco);
@@ -110,16 +101,10 @@ public class EntregaTest {
             new GeneradorMockDeEdificios(), 0, 0);
 
         Edificio banco = new Edificio (
-            "aeropuerto", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Euro"),
+            "aeropuerto", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         Edificio biblio = new Edificio (
-            "puerto", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Dolares"),
+            "puerto", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Dolares")));
 
         montreal.agregarEdificio(banco);

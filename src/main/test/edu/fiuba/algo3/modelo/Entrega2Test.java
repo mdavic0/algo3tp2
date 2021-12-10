@@ -82,7 +82,7 @@ public class Entrega2Test {
     public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
         IPais colombia = new PaisMock("Colombia");
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
-        IEdificio e =  new Edificio("El Bar", colombia, new DificultadMock(), t, new PistaMock("EL ladron esta aca!"), new EstaEnElEdificio(carmen) );
+        IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
         colombia.agregarEdificio(e);
 
@@ -124,12 +124,10 @@ public class Entrega2Test {
         puerto.setPais(paisOrigen);
 
         IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0,0);
-        IPista estaCerca = new PistaMock("Cuidado, el sospechoso que buscas esta cerca!!");
-        IPista estaAca = new PistaMock("El sospechoso esta en el edificio!!!");
 
-        IEdificio biblioteca = new Edificio("Biblioteca", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
-        IEdificio  bolsa = new Edificio("Bolsa", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
-        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, paco.rango.obtenerDificultadPistas(), t, estaAca, new EstaEnElEdificio(carmen));
+        IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
 
         mexico.agregarEdificio(biblioteca);
         mexico.agregarEdificio(bolsa);
