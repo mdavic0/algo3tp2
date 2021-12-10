@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Policia implements PropertyChangeListener {
@@ -15,7 +16,8 @@ public class Policia implements PropertyChangeListener {
     int cantidadArrestos;
     int heridasPorCuchillo;
     int hora_dormir = 20;
-    private String estadoDeJuego; //TODO: Reemplazar por sistema de eventos...
+    
+    List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
 
     public Policia(IPais pais, ITemporizador temporizador) {
         lugarActual = new FueraDeEdificio(pais);
@@ -25,7 +27,6 @@ public class Policia implements PropertyChangeListener {
         temporizador.agregarSuscriptor(this);
         cantidadArrestos = 0;
         heridasPorCuchillo = 0;
-        this.estadoDeJuego = "Estoy investigando...";
     }
 
     public void salirDelEdificio() throws Exception{
@@ -75,7 +76,7 @@ public class Policia implements PropertyChangeListener {
         rango = this.rango.subirRango(this.cantidadArrestos);
     }
 
-    public boolean puedeArrestar(Ladron ladron) {
+    private boolean puedeArrestar(Ladron ladron) {
         if(this.ordenDeArresto != null)
             return this.ordenDeArresto.puedeArrestarA(ladron);
         return false;
@@ -90,5 +91,23 @@ public class Policia implements PropertyChangeListener {
         if(evt.getPropertyName() == "horaActual" 
             && (int)evt.getNewValue() >= hora_dormir)
             this.dormir();
+    }
+
+    public void intentarArrestar(Ladron ladron) {
+        if(this.puedeArrestar(ladron))
+            notificarSuscriptores(
+                new PropertyChangeEvent(this, "Arresto", cantidadArrestos, ++cantidadArrestos));
+        else notificarSuscriptores(
+            new PropertyChangeEvent(this, "FalloArresto", cantidadArrestos, cantidadArrestos));
+    }
+
+    private void notificarSuscriptores(PropertyChangeEvent propertyChangeEvent) {
+        for(PropertyChangeListener suscriptor : suscriptores) {
+            suscriptor.propertyChange(propertyChangeEvent);
+        }
+    }
+
+    public void agregarSuscriptor(PropertyChangeListener suscriptor){
+        suscriptores.add(suscriptor);
     }
 }

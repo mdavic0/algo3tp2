@@ -98,6 +98,9 @@ public class Entrega2Test {
 
     @Test
     public void PartidaCompleta() throws Exception {
+        //inicializamos un EstadoDeJuego que se suscribe a entidades que causan fin de juego
+        EstadoDeJuego estado = new EstadoDeJuego();
+
         //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
         List<PaisSinPistas> viaDelLadron = new ArrayList<PaisSinPistas>();
         viaDelLadron.add(new PaisSinPistas("Peru", "Soles", 0, 0));
@@ -115,6 +118,11 @@ public class Entrega2Test {
         //OBS: de momento "tomar el caso de un robo" significa que el
         // policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia(paisOrigen, t);
+
+        //El estado de juego se debe suscribir al Policia para ser notificado
+        //de una victoria o pérdida.
+        //TODO: agregar estado de juego al constructor
+        paco.agregarSuscriptor(estado);
 
         //VERIFICAR ESTADO DE JUEGO //TODO: Reemplazar por sistema de eventos...
         //assertEquals("Estoy investigando...", paco.estadoDeJuego());
@@ -161,8 +169,6 @@ public class Entrega2Test {
         Computadora computadora = new Computadora();
         computadora.consultarDatos(paco, "F", "Moto", "Oscuro", "", "tenis");
 
-        assertTrue(paco.puedeArrestar(carmen));
-
         //HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS
 
         paco.viajarA(mexico);
@@ -176,14 +182,16 @@ public class Entrega2Test {
         assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
         paco.salirDelEdificio();
 
-        // DE MOMENTO SABEMOS QUE ESTA CERCA, VERIFICAMOS ESTADO DE JUEGO
-        //assertEquals("Estoy investigando...", paco.estadoDeJuego());
+        assertEquals(estado.juegoGanado(), false);
+        assertEquals(estado.juegoEnProgreso(), true);
 
         paco.entrarA(aeropuerto);
         assertEquals("El sospechoso esta en el edificio!!!", paco.cuestionarTestigo());
 
-        // PACO TENIA LA ORDEN DE ARRESTO PARA DETENER A CARMEN ==> GANA
-        //assertEquals("Gane loco", paco.estadoDeJuego());
+        assertEquals(estado.juegoGanado(), true);
+        assertEquals(estado.juegoEnProgreso(), false);
+
+        
     }
 
 }

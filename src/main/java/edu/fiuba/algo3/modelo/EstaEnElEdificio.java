@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.beans.PropertyChangeListener;
+import java.util.List;
 import java.util.SplittableRandom;
 
 public class EstaEnElEdificio implements IRelacionConLadron {
@@ -26,11 +28,7 @@ public class EstaEnElEdificio implements IRelacionConLadron {
     public void entrar(Policia policia) throws Exception {
         herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
         herirConArmaDeFuego(policia); // ladron estuvo en el edificio
-        if(policia.puedeArrestar(this.ladron)){
-            //policia.ganaste(); //TODO: Reemplazar por sistema de eventos...
-        }else{
-            //policia.perdiste();
-        }
+        policia.intentarArrestar(ladron);
     }
 
 
