@@ -169,18 +169,18 @@ public class Entrega2Test {
         assertEquals(mexico.nombre(), paco.paisActual().nombre());
 
         paco.entrarA(biblioteca);
-        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        assertEquals("Cuidado, la persona que buscas esta MUY cerca!!", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
         paco.entrarA(bolsa);
-        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        assertEquals("Cuidado, la persona que buscas esta MUY cerca!!", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
         // DE MOMENTO SABEMOS QUE ESTA CERCA, VERIFICAMOS ESTADO DE JUEGO
         //assertEquals("Estoy investigando...", paco.estadoDeJuego());
 
         paco.entrarA(aeropuerto);
-        assertEquals("El sospechoso esta en el edificio!!!", paco.cuestionarTestigo());
+        assertEquals("La persona que buscas esta en el edificio!!!", paco.cuestionarTestigo());
 
         // PACO TENIA LA ORDEN DE ARRESTO PARA DETENER A CARMEN ==> GANA
         //assertEquals("Gane loco", paco.estadoDeJuego());

@@ -7,4 +7,6 @@ public interface IRelacionConLadron {
     void herirConArmaDeFuego(Policia policia) throws Exception;
 
     void entrar(Policia policia) throws Exception;
+
+    IPista crearPista();
 }

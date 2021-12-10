@@ -29,7 +29,7 @@ public class EntregaTest {
             new DificultadMock(), 
             t, 
             new PistaDeMoneda("Euro"),
-                new EstuvoEnEdificio());
+                new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
@@ -57,14 +57,14 @@ public class EntregaTest {
             new DificultadMock(), 
             new TemporizadorMock(), 
             new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
 
         Edificio biblio = new Edificio (
             "biblioteca", montreal, 
             new DificultadMock(),  
             new TemporizadorMock(),  
             new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -114,13 +114,13 @@ public class EntregaTest {
             new DificultadMock(),  
             new TemporizadorMock(), 
             new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         Edificio biblio = new Edificio (
             "puerto", montreal, 
             new DificultadMock(),  
             new TemporizadorMock(), 
-            new PistaDeMoneda("Dólares"),
-            new EstuvoEnEdificio());
+            new PistaDeMoneda("Dolares"),
+            new EstuvoEnEdificio(new PistaDeMoneda("Dolares")));
 
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -135,7 +135,7 @@ public class EntregaTest {
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dólares."); 
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dolares.");
             roberta.salirDe(biblio); 
         }
     }

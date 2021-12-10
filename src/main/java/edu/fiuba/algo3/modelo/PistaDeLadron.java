@@ -6,9 +6,4 @@ public class PistaDeLadron extends Pista {
         this.contenido = descripcion;
     }
 
-    @Override
-    public Object dificultad() {
-        return new Media(); //TODO pistas de ladron de distinto tipo y dificultad;
-    }
-
 }

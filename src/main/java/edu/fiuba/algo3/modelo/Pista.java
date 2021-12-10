@@ -7,4 +7,4 @@ public abstract class Pista implements IPista {
         return this.contenido;
     }
 }
-//TODO: Tipo de pista PistaDeArresto (Ladron EstaEnEdificio)...
+

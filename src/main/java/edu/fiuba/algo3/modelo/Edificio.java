@@ -18,7 +18,7 @@ public class Edificio implements IEdificio{
             IRelacionConLadron relacionConLadron) {
         this.pais = pais;
         this.nombre = nombre;
-        this.pista = pista;
+        this.pista = relacionConLadron.crearPista();
         this.temporizador = temporizador;
         this.relacionConLadron = relacionConLadron;
     }

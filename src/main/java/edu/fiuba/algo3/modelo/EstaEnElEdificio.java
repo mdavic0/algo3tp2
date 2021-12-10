@@ -33,5 +33,10 @@ public class EstaEnElEdificio implements IRelacionConLadron {
         }
     }
 
+    @Override
+    public IPista crearPista() {
+        return new PistaLadronEnEdificio();
+    }
+
 
 }

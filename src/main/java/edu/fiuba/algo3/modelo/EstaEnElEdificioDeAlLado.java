@@ -22,4 +22,9 @@ public class EstaEnElEdificioDeAlLado implements IRelacionConLadron {
         herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
         herirConArmaDeFuego(policia); // ladron estuvo en el edificio
     }
+
+    @Override
+    public IPista crearPista() {
+        return new PistaLadronEstaCerca();
+    }
 }
