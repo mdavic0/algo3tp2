@@ -30,9 +30,9 @@ public class Entrega2Test {
     @Test
     public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMéxico() throws Exception {
         //TODO: Eliminar PaisSinPistas
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Dolar", 0, 0));
-        paises.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
+        List<Pais> paises = new ArrayList<Pais>();
+        paises.add(new Pais("Montreal", 0, 0));
+        paises.add(new Pais("Mexico", 0, 0));
 
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
@@ -99,9 +99,9 @@ public class Entrega2Test {
     @Test
     public void PartidaCompleta() throws Exception {
         //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
-        List<PaisSinPistas> viaDelLadron = new ArrayList<PaisSinPistas>();
-        viaDelLadron.add(new PaisSinPistas("Peru", "Soles", 0, 0));
-        viaDelLadron.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
+        List<Pais> viaDelLadron = new ArrayList<Pais>();
+        viaDelLadron.add(new Pais("Peru", 0, 0));
+        viaDelLadron.add(new Pais("Mexico", 0, 0));
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());

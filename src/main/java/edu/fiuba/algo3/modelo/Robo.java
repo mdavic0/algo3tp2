@@ -4,11 +4,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Robo implements IRobo {
-    List<PaisSinPistas> viaSinInit;
+    List<Pais> viaSinInit;
     Artefacto artefacto;
     Ladron ladron;
 
-    public Robo(List<PaisSinPistas> via, Ladron ladron, Artefacto artefacto) throws Exception {
+    public Robo(List<Pais> via, Ladron ladron, Artefacto artefacto) throws Exception {
         viaSinInit = via;
         this.ladron = ladron;
         this.artefacto = artefacto;
@@ -21,7 +21,7 @@ public class Robo implements IRobo {
     }
 
     @Override
-    public PaisSinPistas lugarDeRobo() {
+    public Pais lugarDeRobo() {
         return viaSinInit.get(0);
     }
 
@@ -36,13 +36,13 @@ public class Robo implements IRobo {
     }
 
     @Override
-    public PaisSinPistas primerPais() {
+    public Pais primerPais() {
         return viaSinInit.get(0);
     }
     
     @Override
-    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) {
-        PaisSinPistas pedido = viaSinInit
+    public Pais paisDespuesDe(IPais paisDelTestigo) {
+        Pais pedido = viaSinInit
             .stream()
             .filter(p -> paisDelTestigo.nombre() == p.nombre).findFirst().get();
        

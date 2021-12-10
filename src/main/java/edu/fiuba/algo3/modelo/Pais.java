@@ -27,6 +27,14 @@ public class Pais implements IPais {
         this.longitud = longitud;
     }
 
+    public Pais(String nombre, double latitud, double longitud) throws Exception{
+        this.nombre = nombre;
+        this.adyacentes = new ArrayList<IPais>();
+        this.edificios = new ArrayList<IEdificio>();
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
+
     public List<IEdificio> edificios(IEdificio edificio) {
         return edificios;
     }
