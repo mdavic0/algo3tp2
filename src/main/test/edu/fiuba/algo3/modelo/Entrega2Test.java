@@ -181,8 +181,6 @@ public class Entrega2Test {
         assertEquals(estado.juegoEnProgreso(), true);
 
         paco.entrarA(aeropuerto);
-        assertEquals("La persona que buscas esta en el edificio!!!", paco.cuestionarTestigo());
-
         assertEquals(estado.juegoGanado(), true);
         assertEquals(estado.juegoEnProgreso(), false);
 
