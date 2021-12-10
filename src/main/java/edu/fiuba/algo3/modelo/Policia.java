@@ -19,7 +19,7 @@ public class Policia implements PropertyChangeListener {
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
 
-    public Policia(IPais pais, ITemporizador temporizador) {
+    private void inicializar(IPais pais, ITemporizador temporizador){
         lugarActual = new FueraDeEdificio(pais);
         rango = new Novato();
         ordenDeArresto = null;
@@ -27,6 +27,16 @@ public class Policia implements PropertyChangeListener {
         temporizador.agregarSuscriptor(this);
         cantidadArrestos = 0;
         heridasPorCuchillo = 0;
+    }
+
+    @Deprecated
+    public Policia(IPais pais, ITemporizador temporizador) {
+        inicializar(pais, temporizador);
+    }
+
+    public Policia(IPais pais, ITemporizador temporizador, EstadoDeJuego estado) {
+        inicializar(pais, temporizador);
+        this.agregarSuscriptor(estado);
     }
 
     public void salirDelEdificio() throws Exception{

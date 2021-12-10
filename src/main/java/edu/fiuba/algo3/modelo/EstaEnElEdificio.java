@@ -1,7 +1,4 @@
 package edu.fiuba.algo3.modelo;
-
-import java.beans.PropertyChangeListener;
-import java.util.List;
 import java.util.SplittableRandom;
 
 public class EstaEnElEdificio implements IRelacionConLadron {
@@ -33,7 +30,7 @@ public class EstaEnElEdificio implements IRelacionConLadron {
 
     @Override
     public IPista crearPista() {
-        return new PistaLadronEnEdificio();
+        return null;
     }
 
 

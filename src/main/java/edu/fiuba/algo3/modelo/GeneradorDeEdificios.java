@@ -5,12 +5,10 @@ import java.lang.Integer;
 
 public class GeneradorDeEdificios implements IGeneradorDeEdificios{
     private FabricaDePistas fabrica;
-    private Temporizador temporizador;
     private IRango rango;
 
     public GeneradorDeEdificios(IRobo robo, Temporizador temporizador, IRango rango) {
         this.fabrica = new FabricaDePistas(robo);
-        this.temporizador = temporizador;
         this.rango = rango;
     }
 

@@ -117,15 +117,12 @@ public class Entrega2Test {
         IPais paisOrigen = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(banco, museo, puerto), 0,0);
         //OBS: de momento "tomar el caso de un robo" significa que el
         // policia respawnea en el pais en el que ocurre el robo
-        Policia paco = new Policia(paisOrigen, t);
+        Policia paco = new Policia(paisOrigen, t, estado);
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.
         //TODO: agregar estado de juego al constructor
         paco.agregarSuscriptor(estado);
-
-        //VERIFICAR ESTADO DE JUEGO //TODO: Reemplazar por sistema de eventos...
-        //assertEquals("Estoy investigando...", paco.estadoDeJuego());
 
         banco.setPais(paisOrigen);
         museo.setPais(paisOrigen);

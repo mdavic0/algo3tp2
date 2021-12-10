@@ -1,13 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.lang.Math;
 
 public class GeneradorDeRobo implements IGeneradorDeRobo {
     Valor[] valores = {new MuyValioso(),  new Valioso(),new ValorMedio()};
