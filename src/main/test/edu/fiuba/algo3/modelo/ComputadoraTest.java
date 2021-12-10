@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ComputadoraTest {
 
-    Temporizador t = new Temporizador(0, 20, 48);
+    ITemporizador t = new TemporizadorMock();
     Policia paco = new Policia(new PaisMock("Argentina"), t);
 
     public ComputadoraTest() throws Exception {

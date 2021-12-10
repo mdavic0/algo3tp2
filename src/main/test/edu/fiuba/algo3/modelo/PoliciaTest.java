@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class PoliciaTest {
-    Temporizador t = new Temporizador(0, 20, 48);
+    ITemporizador t = new TemporizadorMock();
     @Test
     public void testCuestionarTestigo() throws Exception {
 

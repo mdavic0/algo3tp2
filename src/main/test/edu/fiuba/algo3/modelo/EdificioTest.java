@@ -14,12 +14,12 @@ public class EdificioTest {
 
         IRobo robo = new RoboMock();
         IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
-        Policia paco = new Policia(Argentina, new Temporizador(0,0,0));
+        Policia paco = new Policia(Argentina, new Temporizador(0));
 
         IEdificio aeropuerto = new Edificio (
             "aeropuerto", Argentina, 
             new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new Temporizador(0), 
             new PistaDeMoneda("Euro"),
             new NoEstuvoEnEdificio()); // CAMBIAR
                                                                                                 // TIPO DE EDIFICIO
@@ -61,7 +61,7 @@ public class EdificioTest {
             "banco", 
             pais, 
             new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new Temporizador(0), 
             new PistaDeMoneda("Euro"), new EstuvoEnEdificio());
         pistaObtenida = banco.obtenerTestimonio();
 

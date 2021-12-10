@@ -16,7 +16,7 @@ public class RangoTest {
 
         assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
 
-        Temporizador temporizador = new Temporizador(0,20,48);
+        Temporizador temporizador = new Temporizador(0);
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
@@ -35,7 +35,7 @@ public class RangoTest {
 
         assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
 
-        Temporizador temporizador = new Temporizador(0,20,48);
+        Temporizador temporizador = new Temporizador(0);
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
@@ -54,7 +54,7 @@ public class RangoTest {
 
         assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
 
-        Temporizador temporizador = new Temporizador(0,20,48);
+        Temporizador temporizador = new Temporizador(0);
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
@@ -73,7 +73,7 @@ public class RangoTest {
 
         assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
 
-        Temporizador temporizador = new Temporizador(0,20,48);
+        Temporizador temporizador = new Temporizador(0);
 
         rango.reportarViaje(colombia, argentina, temporizador);
 

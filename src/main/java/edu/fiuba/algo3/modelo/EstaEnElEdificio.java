@@ -27,9 +27,9 @@ public class EstaEnElEdificio implements IRelacionConLadron {
         herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
         herirConArmaDeFuego(policia); // ladron estuvo en el edificio
         if(policia.puedeArrestar(this.ladron)){
-            policia.ganaste(); //TODO: Reemplazar por sistema de eventos...
+            //policia.ganaste(); //TODO: Reemplazar por sistema de eventos...
         }else{
-            policia.perdiste();
+            //policia.perdiste();
         }
     }
 

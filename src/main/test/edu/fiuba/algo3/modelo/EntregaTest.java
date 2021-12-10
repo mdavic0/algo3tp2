@@ -11,7 +11,7 @@ import java.util.List;
 
 //TODO: artefactos, etc dependen de la dificultad
 public class EntregaTest {
-    Temporizador t = new Temporizador(0, 20, 48);
+    ITemporizador t = new TemporizadorMock();
     @Test
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
         List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
@@ -27,7 +27,7 @@ public class EntregaTest {
         Edificio edificio = new Edificio (
             "aeropuerto", montreal, 
             new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            t, 
             new PistaDeMoneda("Euro"),
                 new EstuvoEnEdificio());
         montreal.agregarEdificio(edificio);
@@ -55,14 +55,14 @@ public class EntregaTest {
         Edificio banco = new Edificio (
             "banco", montreal, 
             new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new TemporizadorMock(), 
             new PistaDeMoneda("Euro"),
             new EstuvoEnEdificio());
 
         Edificio biblio = new Edificio (
             "biblioteca", montreal, 
-            new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new DificultadMock(),  
+            new TemporizadorMock(),  
             new PistaDeMoneda("Euro"),
             new EstuvoEnEdificio());
         
@@ -111,14 +111,14 @@ public class EntregaTest {
 
         Edificio banco = new Edificio (
             "aeropuerto", montreal, 
-            new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new DificultadMock(),  
+            new TemporizadorMock(), 
             new PistaDeMoneda("Euro"),
             new EstuvoEnEdificio());
         Edificio biblio = new Edificio (
             "puerto", montreal, 
-            new DificultadMock(), 
-            new Temporizador(0,0,0), 
+            new DificultadMock(),  
+            new TemporizadorMock(), 
             new PistaDeMoneda("Dólares"),
             new EstuvoEnEdificio());
 
@@ -144,7 +144,7 @@ public class EntregaTest {
     @Test
     public void PoliciaEsHeridoConCuchilloYDuerme() throws Exception{
         IPais montreal = new PaisMock("Montreal");
-        Temporizador t = new Temporizador(9, 20, 36);
+        Temporizador t = new Temporizador(9);
         Policia undyne = new Policia(montreal, t);
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();

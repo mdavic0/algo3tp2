@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 
-public class Policia {
+public class Policia implements PropertyChangeListener {
 
     LugarActual lugarActual;
     //String pista; //idealmente una coleccion
@@ -77,15 +79,13 @@ public class Policia {
         return false;
     }
 
-    public void ganaste() {
-        this.estadoDeJuego = "Gane loco";
+    private void dormir(){
+        temporizador.reportarActividad(8);
     }
 
-    public String estadoDeJuego() { //GETTER HASTA QUE ESTE HECHO EL SISTEMA DE EVENTOS...
-        return this.estadoDeJuego;
-    }
-
-    public void perdiste() {
-        this.estadoDeJuego = "Perdi :(";
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if(evt.getPropertyName() == "horaActual" && (int)evt.getNewValue() >= 22)
+            this.dormir();
     }
 }
