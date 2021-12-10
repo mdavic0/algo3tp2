@@ -23,7 +23,7 @@ public class Entrega2Test {
         assertEquals(t.horasTranscurridas(), 3);
 
         undyne.recibirHeridaConCuchillo();
-        assertEquals(t.horasTranscurridas(), 4 + 8);
+        assertEquals(4 + 8, t.horasTranscurridas());
     }
 
 

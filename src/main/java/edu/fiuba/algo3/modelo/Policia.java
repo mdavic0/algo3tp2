@@ -14,6 +14,7 @@ public class Policia implements PropertyChangeListener {
 
     int cantidadArrestos;
     int heridasPorCuchillo;
+    int hora_dormir = 20;
     private String estadoDeJuego; //TODO: Reemplazar por sistema de eventos...
 
     public Policia(IPais pais, ITemporizador temporizador) {
@@ -21,6 +22,7 @@ public class Policia implements PropertyChangeListener {
         rango = new Novato();
         ordenDeArresto = null;
         this.temporizador = temporizador;
+        temporizador.agregarSuscriptor(this);
         cantidadArrestos = 0;
         heridasPorCuchillo = 0;
         this.estadoDeJuego = "Estoy investigando...";
@@ -85,7 +87,8 @@ public class Policia implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if(evt.getPropertyName() == "horaActual" && (int)evt.getNewValue() >= 22)
+        if(evt.getPropertyName() == "horaActual" 
+            && (int)evt.getNewValue() >= hora_dormir)
             this.dormir();
     }
 }
