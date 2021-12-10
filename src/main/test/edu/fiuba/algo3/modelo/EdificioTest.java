@@ -17,11 +17,8 @@ public class EdificioTest {
         Policia paco = new Policia(Argentina, new Temporizador(0));
 
         IEdificio aeropuerto = new Edificio (
-            "aeropuerto", Argentina, 
-            new DificultadMock(), 
-            new Temporizador(0), 
-            new PistaDeMoneda("Euro"),
-            new NoEstuvoEnEdificio()); // CAMBIAR
+            "aeropuerto", Argentina,
+            new NoEstuvoEnEdificio());
                                                                                                 // TIPO DE EDIFICIO
         Argentina.agregarEdificio(aeropuerto);
 
@@ -51,7 +48,7 @@ public class EdificioTest {
     @Test
     public void corroborarPista() throws Exception{
 
-        String pistaDeseada = "Quería cambiar su dinero por Euro.";
+        String pistaDeseada = "Lo siento, no he visto a nadie parecido por esta zona...";
         String pistaObtenida;
 
         IRobo robo = new RoboMock();
@@ -59,22 +56,14 @@ public class EdificioTest {
 
         IEdificio banco = new Edificio (
             "banco", 
-            pais, 
-            new DificultadMock(), 
-            new Temporizador(0), 
-            new PistaDeMoneda("Euro"), new EstuvoEnEdificio());
+            pais,
+            new NoEstuvoEnEdificio());
+
         pistaObtenida = banco.obtenerTestimonio();
 
         assertEquals(pistaDeseada, pistaObtenida);
 
     }
 
-
-    /*
-    Vista un Aeropuerto (3 veces):
-        Se despliega una pista.
-    Vista un Puerto (55 veces):
-        Se despliega una pista.
-    */
 }
 

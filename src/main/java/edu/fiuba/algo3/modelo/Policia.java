@@ -110,4 +110,7 @@ public class Policia implements PropertyChangeListener {
     public void agregarSuscriptor(PropertyChangeListener suscriptor){
         suscriptores.add(suscriptor);
     }
+    public void reportarIngresoAEdificio(EntrarAEdificio entrarAEdificio) {
+        entrarAEdificio.reportar(this.temporizador);
+    }
 }

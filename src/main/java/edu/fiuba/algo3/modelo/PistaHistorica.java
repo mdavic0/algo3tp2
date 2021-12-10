@@ -6,9 +6,4 @@ public class PistaHistorica extends Pista {
         this.contenido = "Me contó algo muy interesante de ese pais. ".concat(hechoHistorico);
     }
 
-    @Override
-    public Object dificultad() {
-        return new Media(); //TODO pistas de ladron de distinto tipo y dificultad;
-    }
-
 }

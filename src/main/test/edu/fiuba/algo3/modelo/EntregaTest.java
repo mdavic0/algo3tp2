@@ -14,22 +14,19 @@ public class EntregaTest {
     ITemporizador t = new TemporizadorMock();
     @Test
     public void robaronTesoroNacionalEnMontreal() throws Exception { 
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
+        List<Pais> paises = new ArrayList<Pais>();
         //TODO: capitales aun no implementadas. digamos que montreal es un pais
-        paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
+        paises.add(new Pais("Montreal", 0, 0));
         //TODO: lanzar error si se inicializa robo con <2 paises
-        paises.add(new PaisSinPistas("Zimbabwe", "Euro", 0, 0));
+        paises.add(new Pais("Zimbabwe", 0, 0));
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(), 0, 0);
         Edificio edificio = new Edificio (
-            "aeropuerto", montreal, 
-            new DificultadMock(), 
-            t, 
-            new PistaDeMoneda("Euro"),
-                new EstuvoEnEdificio());
+            "aeropuerto", montreal,
+                new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         montreal.agregarEdificio(edificio);
         Policia roberta = new Policia(montreal, t);
         roberta.entrarA(edificio);
@@ -38,9 +35,9 @@ public class EntregaTest {
 
     @Test
     public void PoliciaVisitaBancoLuegoBiblioteca() throws Exception { 
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Dólares", 0, 0));
-        paises.add(new PaisSinPistas("Lima", "Euro", 0, 0));
+        List<Pais> paises = new ArrayList<Pais>();
+        paises.add(new Pais("Montreal", 0, 0));
+        paises.add(new Pais("Lima", 0, 0));
 
         //TODO: usar robo mock en esta seccion
 
@@ -53,18 +50,12 @@ public class EntregaTest {
             new GeneradorMockDeEdificios(), 0, 0);
 
         Edificio banco = new Edificio (
-            "banco", montreal, 
-            new DificultadMock(), 
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            "banco", montreal,
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
 
         Edificio biblio = new Edificio (
-            "biblioteca", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(),  
-            new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            "biblioteca", montreal,
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -96,9 +87,9 @@ public class EntregaTest {
     //Nota: test redundante en PoliciaTest. Puesto aqui por conveniencia
     @Test
     public void Entrar3VecesAlAeropuertoY55VecesAlPuerto() throws Exception{
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Euros", 0, 0));
-        paises.add(new PaisSinPistas("Lima", "Dólares",0,0));
+        List<Pais> paises = new ArrayList<Pais>();
+        paises.add(new Pais("Montreal", 0, 0));
+        paises.add(new Pais("Lima",0,0));
 
         //TODO: usar robo mock en esta seccion
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
@@ -110,17 +101,11 @@ public class EntregaTest {
             new GeneradorMockDeEdificios(), 0, 0);
 
         Edificio banco = new Edificio (
-            "aeropuerto", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Euro"),
-            new EstuvoEnEdificio());
+            "aeropuerto", montreal,
+            new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         Edificio biblio = new Edificio (
-            "puerto", montreal, 
-            new DificultadMock(),  
-            new TemporizadorMock(), 
-            new PistaDeMoneda("Dólares"),
-            new EstuvoEnEdificio());
+            "puerto", montreal,
+            new EstuvoEnEdificio(new PistaDeMoneda("Dolares")));
 
         montreal.agregarEdificio(banco);
         montreal.agregarEdificio(biblio);
@@ -135,7 +120,7 @@ public class EntregaTest {
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dólares."); 
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dolares.");
             roberta.salirDe(biblio); 
         }
     }

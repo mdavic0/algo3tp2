@@ -14,12 +14,12 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     public Robo generarRobo(Dificultad d, IRango rango, LectorDeArchivo lector) throws Exception {
         Artefacto artefacto = generarArtefacto(rango, lector.obtenerArtefactos());
-        List<PaisSinPistas> via = generarEscapeParaArtefacto(lector, artefacto);
+        List<Pais> via = generarEscapeParaArtefacto(lector, artefacto);
         Ladron ladron = generarLadron(lector.obtenerLadrones());
         return new Robo(via, ladron, artefacto);
     }
 
-    private List<PaisSinPistas> generarEscapeParaArtefacto(LectorDeArchivo lector, Artefacto artefacto) throws Exception {
+    private List<Pais> generarEscapeParaArtefacto(LectorDeArchivo lector, Artefacto artefacto) throws Exception {
         for(int i = 0; i < valores.length; i++){
             if(artefacto.valor().getClass() == valores[i].getClass())
                 return generarViaDeEscape(lector.obtenerPaises(), artefacto.valor().cantidadDePaises());
@@ -46,7 +46,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
         return ladrones.get(0);
     }
 
-    private List<PaisSinPistas> generarViaDeEscape(List<PaisSinPistas> paises, int cantidad) {
+    private List<Pais> generarViaDeEscape(List<Pais> paises, int cantidad) {
         Collections.shuffle(paises);
         return paises.subList(0, cantidad);
     }

@@ -30,9 +30,9 @@ public class Entrega2Test {
     @Test
     public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMéxico() throws Exception {
         //TODO: Eliminar PaisSinPistas
-        List<PaisSinPistas> paises = new ArrayList<PaisSinPistas>();
-        paises.add(new PaisSinPistas("Montreal", "Dolar", 0, 0));
-        paises.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
+        List<Pais> paises = new ArrayList<Pais>();
+        paises.add(new Pais("Montreal", 0, 0));
+        paises.add(new Pais("Mexico", 0, 0));
 
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
@@ -82,7 +82,7 @@ public class Entrega2Test {
     public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
         IPais colombia = new PaisMock("Colombia");
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
-        IEdificio e =  new Edificio("El Bar", colombia, new DificultadMock(), t, new PistaMock("EL ladron esta aca!"), new EstaEnElEdificio(carmen) );
+        IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
         colombia.agregarEdificio(e);
 
@@ -102,9 +102,9 @@ public class Entrega2Test {
         EstadoDeJuego estado = new EstadoDeJuego();
 
         //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
-        List<PaisSinPistas> viaDelLadron = new ArrayList<PaisSinPistas>();
-        viaDelLadron.add(new PaisSinPistas("Peru", "Soles", 0, 0));
-        viaDelLadron.add(new PaisSinPistas("Mexico", "Peso Mexicano", 0, 0));
+        List<Pais> viaDelLadron = new ArrayList<Pais>();
+        viaDelLadron.add(new Pais("Peru", 0, 0));
+        viaDelLadron.add(new Pais("Mexico", 0, 0));
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
@@ -132,12 +132,10 @@ public class Entrega2Test {
         puerto.setPais(paisOrigen);
 
         IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0,0);
-        IPista estaCerca = new PistaMock("Cuidado, el sospechoso que buscas esta cerca!!");
-        IPista estaAca = new PistaMock("El sospechoso esta en el edificio!!!");
 
-        IEdificio biblioteca = new Edificio("Biblioteca", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
-        IEdificio  bolsa = new Edificio("Bolsa", mexico, paco.rango.obtenerDificultadPistas(), t, estaCerca, new EstaEnElEdificioDeAlLado());
-        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, paco.rango.obtenerDificultadPistas(), t, estaAca, new EstaEnElEdificio(carmen));
+        IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
 
         mexico.agregarEdificio(biblioteca);
         mexico.agregarEdificio(bolsa);
@@ -175,18 +173,18 @@ public class Entrega2Test {
         assertEquals(mexico.nombre(), paco.paisActual().nombre());
 
         paco.entrarA(biblioteca);
-        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        assertEquals("Cuidado, la persona que buscas esta MUY cerca!!", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
         paco.entrarA(bolsa);
-        assertEquals(paco.cuestionarTestigo(), "Cuidado, el sospechoso que buscas esta cerca!!");
+        assertEquals("Cuidado, la persona que buscas esta MUY cerca!!", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
         assertEquals(estado.juegoGanado(), false);
         assertEquals(estado.juegoEnProgreso(), true);
 
         paco.entrarA(aeropuerto);
-        assertEquals("El sospechoso esta en el edificio!!!", paco.cuestionarTestigo());
+        assertEquals("La persona que buscas esta en el edificio!!!", paco.cuestionarTestigo());
 
         assertEquals(estado.juegoGanado(), true);
         assertEquals(estado.juegoEnProgreso(), false);

@@ -6,9 +6,4 @@ public class PistaDeContinente extends Pista {
         this.contenido = "Quería viajar a algún lugar en ".concat(continente).concat(".");
     }
 
-    @Override
-    public Object dificultad() {
-        return new Dificil();
-    }
-
 }

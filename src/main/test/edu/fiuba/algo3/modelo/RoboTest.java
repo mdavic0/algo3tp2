@@ -44,7 +44,7 @@ public class RoboTest {
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
-        PaisSinPistas lugarRobo = robo.lugarDeRobo();
+        Pais lugarRobo = robo.lugarDeRobo();
         String artefacto = robo.nombreDeArtefacto();
         Ladron ladron = robo.obtenerLadron();
 
@@ -61,7 +61,7 @@ public class RoboTest {
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
-        PaisSinPistas paisActual = robo.primerPais();
+        Pais paisActual = robo.primerPais();
         //assertNotEquals(robo.pistaParaPais(paisActual).contenido(), null);
     }
 
@@ -73,7 +73,7 @@ public class RoboTest {
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
-        PaisSinPistas pais = robo.primerPais();
+        Pais pais = robo.primerPais();
         assertNotEquals(pais, null);
         //assertNotEquals(robo.pistaParaLadron().contenido(), null);
     }

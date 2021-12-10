@@ -6,9 +6,4 @@ public class PistaDeLectura extends Pista {
         this.contenido = "Quería leer el libro ".concat(libro).concat(".");
     }
 
-    @Override
-    public Object dificultad() {
-        return new Dificil();
-    }
-
 }

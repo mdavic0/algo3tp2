@@ -6,10 +6,10 @@ import java.util.ArrayList;
 //TODO: aun no lee paises. Estan hardcodeados
 public class LectorDeArchivo {
 
-    public List<PaisSinPistas> obtenerPaises() throws Exception {
-        List<PaisSinPistas> paises = new ArrayList<>();
+    public List<Pais> obtenerPaises() throws Exception {
+        List<Pais> paises = new ArrayList<>();
         for(int i = 0; i < 23; i++)
-            paises.add( new PaisSinPistas("Francia", "Euro", 0, 0));
+            paises.add( new Pais("Francia", 0, 0));
         return paises;
     }
     public List<Artefacto> obtenerArtefactos() {

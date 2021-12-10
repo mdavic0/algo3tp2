@@ -31,5 +31,10 @@ public class EstaEnElEdificio implements IRelacionConLadron {
         policia.intentarArrestar(ladron);
     }
 
+    @Override
+    public IPista crearPista() {
+        return new PistaLadronEnEdificio();
+    }
+
 
 }

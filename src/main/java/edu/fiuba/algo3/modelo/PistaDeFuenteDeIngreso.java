@@ -6,9 +6,4 @@ public class PistaDeFuenteDeIngreso extends Pista {
         this.contenido = "Su fuente de ingreso es/son ".concat(nombreIngresoEconomico).concat(".");
     }
 
-    @Override
-    public Object dificultad() {
-        return new Dificil();
-    }
-
 }

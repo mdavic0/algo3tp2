@@ -27,11 +27,8 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
         for(int i = 0; i < 3; i++){
             String nombre = "Edificio".concat(Integer.toString(i+1));
             edificios.add(new Edificio(
-                nombre, pais, 
-                dificultad, 
-                temporizador, 
-                pistasDeCadaEdificio[i],
-                new NoEstuvoEnEdificio())); //TODO: Que las pistas dependan de la relacion del edificio con el ladron(?
+                nombre, pais,
+                new NoEstuvoEnEdificio()));
         }
         return edificios;
     }

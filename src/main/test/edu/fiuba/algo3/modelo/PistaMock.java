@@ -10,10 +10,5 @@ public class PistaMock implements IPista {
     public String contenido() {
         return pista;
     }
-
-    @Override
-    public Object dificultad() {
-        return new DificultadMock();
-    }
-
+    
 }

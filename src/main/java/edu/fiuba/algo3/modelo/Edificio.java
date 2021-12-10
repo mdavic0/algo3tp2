@@ -6,20 +6,15 @@ public class Edificio implements IEdificio{
     IPais pais;
     String nombre;
     IPista pista;
-    ITemporizador temporizador;
     IRelacionConLadron relacionConLadron;
 
     public Edificio(
             String nombre,
             IPais pais,
-            Dificultad dificultad,
-            ITemporizador temporizador,
-            IPista pista,
             IRelacionConLadron relacionConLadron) {
         this.pais = pais;
         this.nombre = nombre;
-        this.pista = pista;
-        this.temporizador = temporizador;
+        this.pista = relacionConLadron.crearPista();
         this.relacionConLadron = relacionConLadron;
     }
 
@@ -45,8 +40,8 @@ public class Edificio implements IEdificio{
 
         cantidadDeVisitas ++;
 
-        EntrarAEdificio e = new EntrarAEdificio(cantidadDeVisitas);
-        e.reportar(this.temporizador);
+        policia.reportarIngresoAEdificio(new EntrarAEdificio(this.cantidadDeVisitas));
+
     }
 }
 
