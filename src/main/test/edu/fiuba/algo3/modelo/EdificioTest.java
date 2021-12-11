@@ -18,7 +18,7 @@ public class EdificioTest {
 
         IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new NoEstuvoEnEdificio());
 
-        Argentina.agregarEdificio(aeropuerto);
+        Argentina.agregarEdificios(aeropuerto);
 
         for (int x = 0; x < cantidadDeVisitasAlAeropuerto; x++){
             paco.entrarA(aeropuerto);

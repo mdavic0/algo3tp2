@@ -80,7 +80,7 @@ public class Entrega2Test {
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
-        colombia.agregarEdificio(e);
+        colombia.agregarEdificios(e);
 
         EstadoDeJuego estado = new EstadoDeJuego();
         Policia paco = new Policia(colombia, t, estado);
@@ -101,10 +101,9 @@ public class Entrega2Test {
         EdificioMock banco = new EdificioMock("Banco", "Compro una banda de pesos Mexicanos, tenia pelo Oscuro");
         EdificioMock museo = new EdificioMock("Museo", "Esta interesada en cuadros sobre Mariachis, llego en una Moto");
         EdificioMock puerto = new EdificioMock("Puerto", "Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis");
-        Pais peru = new Pais("Peru",new GeneradorMockDeEdificios(banco, museo, puerto), 0, 0);
-        banco.setPais(peru);
-        museo.setPais(peru);
-        puerto.setPais(peru);
+
+        Pais peru = new Pais("Peru",0, 0);
+        peru.agregarEdificios(banco, museo, puerto);
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
 
@@ -112,9 +111,7 @@ public class Entrega2Test {
         IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
         IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
         IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
-        mexico.agregarEdificio(biblioteca);
-        mexico.agregarEdificio(bolsa);
-        mexico.agregarEdificio(aeropuerto);
+        mexico.agregarEdificios(biblioteca, bolsa, aeropuerto);
 
         peru.conectarA(mexico);
 

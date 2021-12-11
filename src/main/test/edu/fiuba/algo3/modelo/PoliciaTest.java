@@ -12,7 +12,7 @@ public class PoliciaTest {
 
         IPais colombia = new PaisMock("Colombia");
         IEdificio banco = new EdificioMock("El banco");
-        colombia.agregarEdificio(banco);
+        colombia.agregarEdificios(banco);
 
         Policia paco = new Policia(colombia, t);
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
@@ -34,7 +34,7 @@ public class PoliciaTest {
         IPais colombia = new PaisMock("Colombia");
         IEdificio e =  new EdificioMock("La ferretería" );
 
-        colombia.agregarEdificio(e);
+        colombia.agregarEdificios(e);
 
         Policia paco = new Policia(colombia, t);
         

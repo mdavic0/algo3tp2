@@ -39,7 +39,9 @@ public class EdificioMock implements IEdificio{
 
     }
 
-    public void setPais(IPais paisOrigen) {
-        this.pais = paisOrigen;
+    @Override
+    public void asignarPais(IPais pais) {
+        this.pais = pais;
     }
+
 }
