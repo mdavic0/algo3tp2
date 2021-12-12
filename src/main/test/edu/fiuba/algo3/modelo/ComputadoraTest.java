@@ -27,7 +27,12 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+        propiedades.add(new Propiedad("Senia", "Cicatriz"));
+        propiedades.add(new Propiedad("Hobby", "Musica"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -47,7 +52,13 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
+
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -67,7 +78,12 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -89,7 +105,11 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+        propiedades.add(new Propiedad("Senia", "Cicatriz"));
+        propiedades.add(new Propiedad("Hobby", "Musica"));
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());

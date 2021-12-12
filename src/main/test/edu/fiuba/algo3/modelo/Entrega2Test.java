@@ -66,7 +66,13 @@ public class Entrega2Test {
         Policia paco = new Policia(colombia, t, new EstadoDeJuego());
 
         Computadora compu = new Computadora();
-        List<Ladron> ladronesObtenidos = compu.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+        propiedades.add(new Propiedad("Senia", "Cicatriz"));
+        propiedades.add(new Propiedad("Hobby", "Musica"));
+
+        List<Ladron> ladronesObtenidos = compu.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -151,7 +157,13 @@ public class Entrega2Test {
         //CON ESTAS PISTAS TENEMOS DATOS SUFICIENTES PARA PODER EMITIR UNA ORDEN DE ARRESTO
 
         Computadora computadora = new Computadora();
-        computadora.consultarDatos(paco, "F", "Moto", "Oscuro", "", "tenis");
+
+        
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Oscuro"));
+        propiedades.add(new Propiedad("Genero", "F"));
+        propiedades.add(new Propiedad("Hobby", "tenis"));
+        computadora.consultarDatos(paco, propiedades);
 
         //HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS
 
