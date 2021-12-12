@@ -14,7 +14,7 @@ public class PoliciaTest {
         IEdificio banco = new EdificioMock("El banco");
         colombia.agregarEdificio(banco);
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
         paco.entrarA(banco);
         assertEquals("YO NO VI NADA!",paco.cuestionarTestigo());
@@ -24,7 +24,7 @@ public class PoliciaTest {
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
         IPais colombia = new PaisMock("Colombia");
         IEdificio e =  new EdificioMock("La ferreteria");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
         
         assertThrows(Exception.class, () -> paco.entrarA(e));
     }
@@ -36,7 +36,7 @@ public class PoliciaTest {
 
         colombia.agregarEdificio(e);
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
         
         paco.entrarA(e);
         
@@ -49,7 +49,7 @@ public class PoliciaTest {
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
 
-        Policia paco = new Policia(montreal, t);
+        Policia paco = new Policia(montreal, t, new EstadoDeJuego());
 
         assertThrows(Exception.class, () -> paco.viajarA(new PaisMock("China")));
     }
@@ -59,7 +59,7 @@ public class PoliciaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal, t);
+        Policia paco = new Policia(montreal, t, new EstadoDeJuego());
 
         assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);
@@ -69,7 +69,7 @@ public class PoliciaTest {
     @Test
     public void policiaHaceNArrestosYSubeDeRango() throws Exception{
         IPais colombia = new PaisMock("Colombia");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
 
         assertEquals(Novato.class, paco.rango.getClass());
         for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }
