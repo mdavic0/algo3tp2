@@ -31,31 +31,7 @@ public class Ladron {
         propiedades.add(new Propiedad("Hobby", hobby));
 
     }
-
-    @Deprecated
-    public boolean coincideConPropiedades (String unGenero, String unVehiculo, String unCabello, String unaSenia, String unHobby){
-
-        //TODO Encontrar forma de hacerlo sin if's ???
-
-        boolean respuesta = false;
-        //TODO: RETURN TODO ESTE CHOCLO
-        if ((this.genero.equals(unGenero) || unGenero.equals("")) &&
-                (this.vehiculo.equals(unVehiculo) || unVehiculo.equals("")) &&
-                (this.cabello.equals(unCabello) || unCabello.equals("")) &&
-                (this.senia.equals(unaSenia) || unaSenia.equals("")) &&
-                (this.hobby.equals(unHobby) || unHobby.equals(""))) {
-                            respuesta = true;
-        }
-        //TODO: QUE SIGNIFICAN TODAS ESAS STRINGS? , RESOLVER CON CRITERIO
-
-        //TODO: INVESTIGAR QUE PATRON PUEDE SERVIR PARA ESTE CASO (?? ==> DECORATOR? || SPECIFICATION (ESTE XD)
-        // CLASE QUE ENCAPSULA UNA PREGUNTA
-        // COMPOSICION DE != PREGUNTAS
-
-        return respuesta;
-
-    }
-
+    
     public boolean coincideConPropiedades (List<Propiedad> propiedades){
         return propiedades.stream().allMatch(p -> this.coincideConPropiedad(p));
     }
