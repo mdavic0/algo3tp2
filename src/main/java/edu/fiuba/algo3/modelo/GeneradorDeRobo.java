@@ -9,15 +9,15 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     public Robo generarRobo(Dificultad d, IRango rango, LectorDeArchivo lector) throws Exception {
         Artefacto artefacto = generarArtefacto(rango, lector.obtenerArtefactos());
-        List<Pais> via = generarEscapeParaArtefacto(lector, artefacto);
+        List<Pais> via = generarEscapeParaArtefacto(lector.obtenerPaises(), artefacto);
         Ladron ladron = generarLadron(lector.obtenerLadrones());
         return new Robo(via, ladron, artefacto);
     }
 
-    private List<Pais> generarEscapeParaArtefacto(LectorDeArchivo lector, Artefacto artefacto) throws Exception {
+    private List<Pais> generarEscapeParaArtefacto(List<Pais> paises, Artefacto artefacto) throws Exception {
         for(int i = 0; i < valores.length; i++){
             if(artefacto.valor().getClass() == valores[i].getClass())
-                return generarViaDeEscape(lector.obtenerPaises(), artefacto.valor().cantidadDePaises());
+                return generarViaDeEscape(paises, artefacto.valor().cantidadDePaises());
         }
         throw new Exception("No se reconoce el valor del artefacto.");
     }
