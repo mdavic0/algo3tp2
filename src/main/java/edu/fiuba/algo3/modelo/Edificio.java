@@ -43,5 +43,10 @@ public class Edificio implements IEdificio{
         policia.reportarIngresoAEdificio(new EntrarAEdificio(this.cantidadDeVisitas));
 
     }
+
+    @Override
+    public void asignarPais(IPais pais) {
+        this.pais = pais;
+    }
 }
 

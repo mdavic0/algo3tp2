@@ -17,8 +17,12 @@ public class PaisMock implements IPais {
         return edificios;
     }
 
-    public void agregarEdificio(IEdificio edificio) {
-        edificios.add(edificio);
+    @Override
+    public void agregarEdificios(IEdificio... edificio) {
+        for (IEdificio e : edificio) {
+            edificios.add(e);
+            e.asignarPais(this);
+        }
     }
     
     public Boolean contieneEdificio(IEdificio edificio) {

@@ -28,23 +28,21 @@ public class Entrega2Test {
 
 
     @Test
-    public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMéxico() throws Exception {
-        //TODO: Eliminar PaisSinPistas
-        List<Pais> paises = new ArrayList<Pais>();
-        paises.add(new Pais("Montreal", 0, 0));
-        paises.add(new Pais("Mexico", 0, 0));
+    public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMexico() throws Exception {
+        Pais montreal = new Pais("Montreal", 0, 0);
+        Pais mexico = new Pais("Mexico", 0, 0);
+        montreal.conectarA(mexico); // TODO: esto deberia hacerse automagicamente cuando se crea la ruta del ladron
 
+        List<Pais> paises = new ArrayList<Pais>();
+        paises.add(montreal);
+        paises.add(mexico);
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises, carmen, arte);
 
-        //TODO: Toma caso de un robo (? , de momento se representa como que el Policia respawnea en el pais en el que ocurre el robo
-        IPais paisOrigen = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(), 0,0);
-        IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0, 0);
-        paisOrigen.conectarA(mexico); // TODO: esto deberia hacerse automagicamente cuando se crea la ruta del ladron
-
-        Policia paco = new Policia(paisOrigen, t, new EstadoDeJuego());
+        //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
+        Policia paco = new Policia(elRobo.lugarDeRobo(), t, new EstadoDeJuego());
 
         //Se verifica la promocion de rango
         assertEquals(Novato.class, paco.rango.getClass());
@@ -54,7 +52,6 @@ public class Entrega2Test {
         //Viaja de Montreal a Mexico
         paco.viajarA(mexico);
         assertEquals(mexico.nombre(), paco.paisActual().nombre());
-
     }
 
     @Test
@@ -83,7 +80,7 @@ public class Entrega2Test {
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
-        colombia.agregarEdificio(e);
+        colombia.agregarEdificios(e);
 
         EstadoDeJuego estado = new EstadoDeJuego();
         Policia paco = new Policia(colombia, t, estado);
@@ -101,49 +98,42 @@ public class Entrega2Test {
         EstadoDeJuego estado = new EstadoDeJuego();
 
         //Polcia Toma un caso de un sospechoso que robó un Incan Gold Mask
-        List<Pais> viaDelLadron = new ArrayList<Pais>();
-        viaDelLadron.add(new Pais("Peru", 0, 0));
-        viaDelLadron.add(new Pais("Mexico", 0, 0));
-
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
-        Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
-        Robo elRobo = new Robo(viaDelLadron, carmen, mascara);
-
         EdificioMock banco = new EdificioMock("Banco", "Compro una banda de pesos Mexicanos, tenia pelo Oscuro");
         EdificioMock museo = new EdificioMock("Museo", "Esta interesada en cuadros sobre Mariachis, llego en una Moto");
         EdificioMock puerto = new EdificioMock("Puerto", "Se dirigia a un lugar cuya bandera tiene un aguila en el medio, le gusta el tenis");
 
-        IPais paisOrigen = new Pais(elRobo.lugarDeRobo().nombre, new GeneradorMockDeEdificios(banco, museo, puerto), 0,0);
-        //OBS: de momento "tomar el caso de un robo" significa que el
-        // policia respawnea en el pais en el que ocurre el robo
-        Policia paco = new Policia(paisOrigen, t, estado);
+        Pais peru = new Pais("Peru",0, 0);
+        peru.agregarEdificios(banco, museo, puerto);
+
+        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+
+        Pais mexico = new Pais("Mexico", 0, 0);
+        IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
+        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
+        mexico.agregarEdificios(biblioteca, bolsa, aeropuerto);
+
+        peru.conectarA(mexico);
+
+        List<Pais> viaDelLadron = new ArrayList<Pais>();
+        viaDelLadron.add(peru);
+        viaDelLadron.add(mexico);
+
+        Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
+        Robo elRobo = new Robo(viaDelLadron, carmen, mascara);
+
+        //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
+        Policia paco = new Policia(elRobo.lugarDeRobo(), t, estado);
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.
         //TODO: agregar estado de juego al constructor
         paco.agregarSuscriptor(estado);
 
-        banco.setPais(paisOrigen);
-        museo.setPais(paisOrigen);
-        puerto.setPais(paisOrigen);
-
-        IPais mexico = new Pais("Mexico", new GeneradorMockDeEdificios(), 0,0);
-
-        IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
-        IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
-        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
-
-        mexico.agregarEdificio(biblioteca);
-        mexico.agregarEdificio(bolsa);
-        mexico.agregarEdificio(aeropuerto);
-
-        paisOrigen.conectarA(mexico);
-
         //Un Policia hace 6 Arrestos.  ==> RECIBE PROMOCION de Novato a Detective.
         assertEquals(Novato.class, paco.rango.getClass());
         for(int i = 0; i < 6; i++){ paco.arrestarLadron(); }
         assertEquals(Detective.class, paco.rango.getClass());
-
 
         //Realiza la investigación
         paco.entrarA(museo);
@@ -176,12 +166,12 @@ public class Entrega2Test {
         assertEquals("Cuidado, la persona que buscas esta MUY cerca!!", paco.cuestionarTestigo());
         paco.salirDelEdificio();
 
-        assertEquals(estado.juegoGanado(), false);
-        assertEquals(estado.juegoEnProgreso(), true);
+        assertFalse(estado.juegoGanado());
+        assertTrue(estado.juegoEnProgreso());
 
         paco.entrarA(aeropuerto);
-        assertEquals(estado.juegoGanado(), true);
-        assertEquals(estado.juegoEnProgreso(), false);
+        assertTrue(estado.juegoGanado());
+        assertFalse(estado.juegoEnProgreso());
     }
 
 }

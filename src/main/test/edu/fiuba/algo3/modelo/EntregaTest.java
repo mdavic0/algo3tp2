@@ -24,7 +24,7 @@ public class EntregaTest {
         Edificio edificio = new Edificio (
             "aeropuerto", montreal,
                 new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
-        montreal.agregarEdificio(edificio);
+        montreal.agregarEdificios(edificio);
         Policia roberta = new Policia(montreal, t, new EstadoDeJuego());
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
@@ -54,9 +54,7 @@ public class EntregaTest {
             "biblioteca", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         
-        montreal.agregarEdificio(banco);
-        montreal.agregarEdificio(biblio);
-
+        montreal.agregarEdificios(banco, biblio);
 
         Policia roberta = new Policia(montreal, t, new EstadoDeJuego());
 
@@ -104,8 +102,8 @@ public class EntregaTest {
             "puerto", montreal,
             new EstuvoEnEdificio(new PistaDeMoneda("Dolares")));
 
-        montreal.agregarEdificio(banco);
-        montreal.agregarEdificio(biblio);
+        montreal.agregarEdificios(banco, biblio);
+
 
 
         Policia roberta = new Policia(montreal, t, new EstadoDeJuego());

@@ -3,25 +3,25 @@ import java.util.List;
 
 public interface IPais { 
 
-    public List<IEdificio> edificios(IEdificio edificio);
+    List<IEdificio> edificios(IEdificio edificio);
 
-    public void agregarEdificio(IEdificio edificio);
+    void agregarEdificios(IEdificio... edificio);
     
-    public Boolean contieneEdificio(IEdificio edificio);
+    Boolean contieneEdificio(IEdificio edificio);
 
-    public void conectarA(IPais otro) ;
+    void conectarA(IPais otro) ;
 
-    public boolean sePuedeViajarA(IPais pais) ;
+    boolean sePuedeViajarA(IPais pais) ;
 
-    public String nombre();
+    String nombre();
 
     double obtenerLatitud();
+
     double obtenerLongitud();
+
     double distanciaA(IPais paisDestino);
 
-    //public PaisSinPistas sinPistas() throws Exception;
+    String moneda();
 
-    public String moneda();
-
-    //public Object hechoHistorico();
+    //Object hechoHistorico();
 }
