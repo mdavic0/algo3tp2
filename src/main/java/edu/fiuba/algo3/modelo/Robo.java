@@ -1,16 +1,41 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Robo implements IRobo {
-    List<Pais> viaSinInit;
+    List<IPais> viaSinInit;
     Artefacto artefacto;
     Ladron ladron;
 
-    public Robo(List<Pais> via, Ladron ladron, Artefacto artefacto) throws Exception {
+    public Robo(List<IPais> via, List<IPais> paisesPosibles, Ladron ladron, Artefacto artefacto) throws Exception {
         viaSinInit = via;
         this.ladron = ladron;
         this.artefacto = artefacto;
+        this.generarConexionesEntrePaises(via, paisesPosibles);
     } 
+
+    private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws Exception {
+        if (via.size() >= paisesPosibles.size()) 
+            throw new Exception("Necesito más paises incorrectos que correctos para generar el juego!");
+
+        //TODO conectar paises bidireccionalmente
+        IntStream.range(0,via.size()-1).forEach(
+            i -> via.get(i).conectarA(via.get(i+1))
+        );
+
+        List<IPais> paisesIncorrectos = paisesPosibles.stream()
+            .filter(p -> !via.contains(p))
+            .collect(Collectors.toList());
+        IntStream
+            .range(0, via.size())
+            .forEach(i -> 
+                via.get(i).conectarA(
+                    paisesIncorrectos.get(i % paisesIncorrectos.size())
+                )
+            );
+    }
 
     //TODO: implementar rango
     @Override
@@ -19,7 +44,7 @@ public class Robo implements IRobo {
     }
 
     @Override
-    public Pais lugarDeRobo() {
+    public IPais lugarDeRobo() {
         return viaSinInit.get(0);
     }
 
@@ -34,16 +59,20 @@ public class Robo implements IRobo {
     }
 
     @Override
-    public Pais primerPais() {
+    public IPais primerPais() {
         return viaSinInit.get(0);
     }
     
     @Override
-    public Pais paisDespuesDe(IPais paisDelTestigo) {
-        Pais pedido = viaSinInit
+    public IPais paisDespuesDe(IPais paisDelTestigo) {
+        IPais pedido = viaSinInit
             .stream()
-            .filter(p -> paisDelTestigo.nombre() == p.nombre).findFirst().get();
+            .filter(p -> paisDelTestigo.nombre() == p.nombre()).findFirst().get();
        
         return viaSinInit.get(viaSinInit.indexOf(pedido) + 1);
+    }
+
+    public Object ubicacionDelLadron() {
+        return viaSinInit.get(viaSinInit.size() - 1);
     }
 }

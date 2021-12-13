@@ -4,13 +4,13 @@ public interface IRobo {
     //TODO: implementar rango
     String reportarRobo(Object rango);
 
-    Pais lugarDeRobo() throws Exception;
+    IPais lugarDeRobo() throws Exception;
 
     String nombreDeArtefacto();
 
     Ladron obtenerLadron();
 
-    Pais primerPais();
+    IPais primerPais();
 
-    Pais paisDespuesDe(IPais paisDelTestigo) throws Exception;
+    IPais paisDespuesDe(IPais paisDelTestigo) throws Exception;
 }

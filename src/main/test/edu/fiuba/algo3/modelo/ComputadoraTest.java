@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ComputadoraTest {
 
     ITemporizador t = new TemporizadorMock();
-    Policia paco = new Policia(new PaisMock("Argentina"), t);
+    Policia paco = new Policia();
 
     public ComputadoraTest() throws Exception {
     }
@@ -48,7 +48,7 @@ public class ComputadoraTest {
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
 
         Computadora computadora = new Computadora();
 
@@ -74,7 +74,7 @@ public class ComputadoraTest {
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
 
         Computadora computadora = new Computadora();
 
@@ -101,7 +101,7 @@ public class ComputadoraTest {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
 
         Computadora computadora = new Computadora();
 

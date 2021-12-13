@@ -13,7 +13,7 @@ public class PaisMock implements IPais {
         this.edificios = new ArrayList<IEdificio>();
     }
 
-    public List<IEdificio> edificios(IEdificio edificio) {
+    public List<IEdificio> edificios() {
         return edificios;
     }
 
@@ -63,6 +63,14 @@ public class PaisMock implements IPais {
     @Override
     public String moneda() {
         return "Euro";
+    }
+
+    @Override
+    public void agregarEdificios(List<IEdificio> edificios) {
+        for (IEdificio e : edificios) {
+            edificios.add(e);
+            e.asignarPais(this);
+        }
     }
 
 

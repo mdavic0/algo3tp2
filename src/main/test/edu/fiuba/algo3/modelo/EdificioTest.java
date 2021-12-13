@@ -13,8 +13,8 @@ public class EdificioTest {
         int cantidadDeVisitasAlAeropuerto = 3;
 
         IRobo robo = new RoboMock();
-        IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre);
-        Policia paco = new Policia(Argentina, new Temporizador(0));
+        IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre());
+        Policia paco = new Policia(); //Argentina, new Temporizador(0)
 
         IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new NoEstuvoEnEdificio());
 

@@ -9,8 +9,8 @@ public class GeneradorDeRoboTest {
     public void testCrearRobo() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Dificil(), new Novato(), new LectorDeArchivo());
-                
+                new Sargento(), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                    
         assertNotEquals(null, robo);
         assertEquals(robo.nombreDeArtefacto(), "La torre eiffel" );
         
@@ -19,8 +19,8 @@ public class GeneradorDeRoboTest {
     public void testCrearRoboDeObjetoValorMedio() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Facil(), new Novato(), new LectorDeArchivo());
-                
+                new Sargento(), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                     
         assertEquals(ValorMedio.class , robo.artefacto.valor().getClass());
         
     }
@@ -28,7 +28,7 @@ public class GeneradorDeRoboTest {
     public void testCrearRoboDeObjetoMuyValioso() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Facil(), new Sargento(), new LectorDeArchivo());
+                new Sargento(), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
                 
         assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
@@ -37,8 +37,8 @@ public class GeneradorDeRoboTest {
     public void testObjetoMuyValiosoImplica7PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Facil(), new RangoMock(new MuyValioso()), new LectorDeArchivo());
-                
+                new RangoMock(new MuyValioso()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+               
         assertEquals(7 , robo.viaSinInit.size());
         
     }
@@ -46,8 +46,8 @@ public class GeneradorDeRoboTest {
     public void testObjetoValorMedioImplica4PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Facil(), new RangoMock(new ValorMedio()), new LectorDeArchivo());
-                
+                new RangoMock(new ValorMedio()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                    
         assertEquals(4 , robo.viaSinInit.size());
         
     }

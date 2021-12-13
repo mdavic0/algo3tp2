@@ -14,7 +14,8 @@ public class Entrega2Test {
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
         IPais montreal = new PaisMock("Montreal");
-        Policia undyne = new Policia(montreal, t, new EstadoDeJuego());
+        Policia undyne = new Policia();
+        undyne.espawnear(montreal, new EstadoDeJuego(),t);
 
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
@@ -31,18 +32,21 @@ public class Entrega2Test {
     public void PoliciaConRangoInvestigadorTomaCasoDeUnRoboViajaDeMontrealaMexico() throws Exception {
         Pais montreal = new Pais("Montreal", 0, 0);
         Pais mexico = new Pais("Mexico", 0, 0);
+        Pais austria = new Pais("Austria", 0, 0);
         montreal.conectarA(mexico); // TODO: esto deberia hacerse automagicamente cuando se crea la ruta del ladron
 
-        List<Pais> paises = new ArrayList<Pais>();
+        List<IPais> paises = new ArrayList<IPais>();
         paises.add(montreal);
         paises.add(mexico);
+        paises.add(austria);
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
-        Robo elRobo = new Robo(paises, carmen, arte);
+        Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
-        Policia paco = new Policia(elRobo.lugarDeRobo(), t, new EstadoDeJuego());
+        Policia paco = new Policia();
+        paco.espawnear(elRobo.lugarDeRobo(), new EstadoDeJuego(), t);
 
         //Se verifica la promocion de rango
         assertEquals(Novato.class, paco.rango.getClass());
@@ -63,7 +67,8 @@ public class Entrega2Test {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Policia paco = new Policia(colombia, t, new EstadoDeJuego());
+        Policia paco = new Policia();
+        paco.espawnear(colombia, new EstadoDeJuego(), t);
 
         Computadora compu = new Computadora();
 
@@ -89,7 +94,8 @@ public class Entrega2Test {
         colombia.agregarEdificios(e);
 
         EstadoDeJuego estado = new EstadoDeJuego();
-        Policia paco = new Policia(colombia, t, estado);
+        Policia paco = new Policia();
+        paco.espawnear(colombia,estado,t);
 
         assertTrue(estado.juegoEnProgreso());
 
@@ -121,15 +127,17 @@ public class Entrega2Test {
 
         peru.conectarA(mexico);
 
-        List<Pais> viaDelLadron = new ArrayList<Pais>();
-        viaDelLadron.add(peru);
-        viaDelLadron.add(mexico);
+        List<IPais> paises = new ArrayList<IPais>();
+        paises.add(peru);
+        paises.add(mexico);
+        paises.add(new PaisMock("Venezuela"));
 
         Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());
-        Robo elRobo = new Robo(viaDelLadron, carmen, mascara);
+        Robo elRobo = new Robo(paises.subList(0, 2), paises,  carmen, mascara);
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
-        Policia paco = new Policia(elRobo.lugarDeRobo(), t, estado);
+        Policia paco = new Policia();
+        paco.espawnear(elRobo.lugarDeRobo(), new EstadoDeJuego(),t);
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.

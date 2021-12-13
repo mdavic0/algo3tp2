@@ -11,6 +11,7 @@ public class RoboTest {
     @Test
     public void testInicializarRoboConGenerador() throws Exception { 
         Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 2), 
             lector.obtenerPaises().subList(0, 3), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
@@ -19,12 +20,13 @@ public class RoboTest {
             robo.reportarRobo("Detective"));
         
         assertNotEquals(robo.lugarDeRobo(), null);
-        assertEquals(robo.lugarDeRobo().nombre, "Francia");
+        assertEquals(robo.lugarDeRobo().nombre(), "Francia");
     }
 
     @Test
     public void testInicializarRoboSinGenerador() throws Exception { 
         Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 2), 
             lector.obtenerPaises().subList(0, 3), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
@@ -37,11 +39,12 @@ public class RoboTest {
     @Test
     public void crearRoboConGenerador() throws Exception {
         Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 2), 
             lector.obtenerPaises().subList(0, 3), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
-        Pais lugarRobo = robo.lugarDeRobo();
+        IPais lugarRobo = robo.lugarDeRobo();
         String artefacto = robo.nombreDeArtefacto();
         Ladron ladron = robo.obtenerLadron();
 
@@ -53,24 +56,26 @@ public class RoboTest {
     @Test
     public void generarPistaParaPais() throws Exception {
         Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 2), 
             lector.obtenerPaises().subList(0, 3), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
-        Pais paisActual = robo.primerPais();
+        IPais paisActual = robo.primerPais();
         assertNotEquals(null, paisActual);
     }
 
     @Test
     public void generarPistaParaLadron() throws Exception {
         Robo robo = new Robo(
-            lector.obtenerPaises().subList(0, 3), 
+            lector.obtenerPaises().subList(0, 2), 
+            lector.obtenerPaises().subList(0, 3),  
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
         // hack para obtener pais valido
-        Pais pais = robo.primerPais();
+        IPais pais = robo.primerPais();
         assertNotEquals(pais, null);
         assertNotEquals(null, pais);
     }

@@ -19,6 +19,6 @@ public class Facil implements Dificultad {
 
     @Override
     public Pista crearPistaDeLadron(IRobo robo) throws Exception{
-        throw new Exception("No hay pistas fáciles para este tipo de edificio");
+        return new PistaDeLadron("Tenía un tatuaje");
     }
 }

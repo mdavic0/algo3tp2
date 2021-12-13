@@ -12,31 +12,29 @@ public class Policia implements PropertyChangeListener {
     IRango rango;
     ITemporizador temporizador;
     OrdenDeArresto ordenDeArresto;
+    int heridasPorCuchillo;
 
     int cantidadArrestos;
-    int heridasPorCuchillo;
     int hora_dormir = 20;
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
-
-    private void inicializar(IPais pais, ITemporizador temporizador){
-        lugarActual = new FueraDeEdificio(pais);
+    public Policia() {
+        lugarActual = new Inactivo();
         rango = new Novato();
         ordenDeArresto = null;
-        this.temporizador = temporizador;
-        temporizador.agregarSuscriptor(this);
         cantidadArrestos = 0;
-        heridasPorCuchillo = 0;
     }
 
-    @Deprecated
-    public Policia(IPais pais, ITemporizador temporizador) {
-        inicializar(pais, temporizador);
-    }
-
-    public Policia(IPais pais, ITemporizador temporizador, EstadoDeJuego estado) {
-        inicializar(pais, temporizador);
+    /*
+    Ubicar al policia en el juego tras generar el robo
+    */
+    public void espawnear(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
+        lugarActual = new FueraDeEdificio(pais);
+        ordenDeArresto = null;
+        temporizador.agregarSuscriptor(this);
         this.agregarSuscriptor(estado);
+        heridasPorCuchillo = 0;
+        this.temporizador = temporizador;
     }
 
     public void salirDelEdificio() throws Exception{

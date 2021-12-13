@@ -35,17 +35,25 @@ public class Pais implements IPais {
         this.longitud = longitud;
     }
 
-    public List<IEdificio> edificios(IEdificio edificio) {
+    public List<IEdificio> edificios() {
         return edificios;
     }
 
     @Override
-    public void agregarEdificios(IEdificio... edificio) {
-        for (IEdificio e : edificio) {
-            edificios.add(e);
+    public void agregarEdificios(IEdificio... edificios) {
+        for (IEdificio e : edificios) {
+            this.edificios.add(e);
             e.asignarPais(this);
         }
+    }
 
+    @Override
+    public void agregarEdificios(List<IEdificio> edificios) {
+        for (IEdificio e : edificios) {
+            this.edificios.add(e);
+            e.asignarPais(this);
+        }
+        
     }
     
     public Boolean contieneEdificio(IEdificio edificio) {

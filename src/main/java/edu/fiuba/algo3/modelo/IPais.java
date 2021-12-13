@@ -3,7 +3,7 @@ import java.util.List;
 
 public interface IPais { 
 
-    List<IEdificio> edificios(IEdificio edificio);
+    List<IEdificio> edificios();
 
     void agregarEdificios(IEdificio... edificio);
     
@@ -22,6 +22,8 @@ public interface IPais {
     double distanciaA(IPais paisDestino);
 
     String moneda();
+
+    void agregarEdificios(List<IEdificio> generarParaPaisDondeNoEstuvoLadron);
 
     //Object hechoHistorico();
 }
