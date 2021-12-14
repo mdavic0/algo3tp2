@@ -49,6 +49,7 @@ public class ComputadoraTest {
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
+        paco.espawnear(colombia, new EstadoDeJuego(), new TemporizadorMock());
 
         Computadora computadora = new Computadora();
 
@@ -75,6 +76,7 @@ public class ComputadoraTest {
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
+        paco.espawnear(colombia, new EstadoDeJuego(), new TemporizadorMock());
 
         Computadora computadora = new Computadora();
 

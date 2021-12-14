@@ -15,6 +15,7 @@ public class PoliciaTest {
         colombia.agregarEdificios(banco);
 
         Policia paco = new Policia();
+        paco.espawnear(colombia, new EstadoDeJuego(), new TemporizadorMock());
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
         paco.entrarA(banco);
         assertEquals("YO NO VI NADA!",paco.cuestionarTestigo());
@@ -37,7 +38,7 @@ public class PoliciaTest {
         colombia.agregarEdificios(e);
 
         Policia paco = new Policia();
-        
+        paco.espawnear(colombia, new EstadoDeJuego(), new TemporizadorMock());
         paco.entrarA(e);
         
         assertThrows(Exception.class, () -> paco.entrarA(new EdificioMock("Migraciones")));
@@ -50,6 +51,7 @@ public class PoliciaTest {
         montreal.conectarA(mexico);
 
         Policia paco = new Policia();
+        paco.espawnear(montreal, new EstadoDeJuego(), new TemporizadorMock());
 
         assertThrows(Exception.class, () -> paco.viajarA(new PaisMock("China")));
     }
@@ -60,6 +62,7 @@ public class PoliciaTest {
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
         Policia paco = new Policia();
+        paco.espawnear(montreal, new EstadoDeJuego(), new TemporizadorMock());
 
         assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);

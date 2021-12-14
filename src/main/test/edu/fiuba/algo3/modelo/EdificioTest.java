@@ -15,6 +15,7 @@ public class EdificioTest {
         IRobo robo = new RoboMock();
         IPais Argentina = new PaisMock(robo.lugarDeRobo().nombre());
         Policia paco = new Policia(); //Argentina, new Temporizador(0)
+        paco.espawnear(Argentina, new EstadoDeJuego(), new TemporizadorMock());
 
         IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new NoEstuvoEnEdificio());
 

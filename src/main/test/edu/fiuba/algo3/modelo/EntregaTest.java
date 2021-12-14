@@ -113,6 +113,7 @@ public class EntregaTest {
 
         //montreal, t, new EstadoDeJuego()
         Policia roberta = new Policia();
+        roberta.espawnear(montreal, new EstadoDeJuego(), t);
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
