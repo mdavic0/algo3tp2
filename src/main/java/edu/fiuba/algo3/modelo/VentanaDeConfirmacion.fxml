@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="80.0" maxWidth="300.0" minHeight="80.0" minWidth="300.0" prefHeight="80.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="80.0" layoutY="40.0" minHeight="15.0" minWidth="50.0" mnemonicParsing="false" text="Si">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="165.0" layoutY="40.0" minHeight="15.0" minWidth="50.0" mnemonicParsing="false" text="No">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="37.0" layoutY="14.0" text="Estas seguro que quiere salir del juego?" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

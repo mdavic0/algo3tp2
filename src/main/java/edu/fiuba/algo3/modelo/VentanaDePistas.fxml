@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.modelo.VentanaDePistas">
+   <children>
+      <Button layoutX="224.0" layoutY="351.0" mnemonicParsing="false" text="Guardar" />
+      <TextArea layoutX="14.0" layoutY="14.0" prefHeight="311.0" prefWidth="269.0" />
+      <TextArea layoutX="14.0" layoutY="337.0" prefHeight="54.0" prefWidth="196.0" />
+   </children>
+</AnchorPane>
