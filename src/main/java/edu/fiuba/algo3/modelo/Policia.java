@@ -28,7 +28,7 @@ public class Policia implements PropertyChangeListener {
     /*
     Ubicar al policia en el juego tras generar el robo
     */
-    public void espawnear(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
+    public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
         lugarActual = new FueraDeEdificio(pais);
         ordenDeArresto = null;
         temporizador.agregarSuscriptor(this);

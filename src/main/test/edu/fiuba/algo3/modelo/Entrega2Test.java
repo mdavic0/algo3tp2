@@ -15,7 +15,7 @@ public class Entrega2Test {
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
         IPais montreal = new PaisMock("Montreal");
         Policia undyne = new Policia();
-        undyne.espawnear(montreal, new EstadoDeJuego(),t);
+        undyne.asignarCaso(montreal, new EstadoDeJuego(),t);
 
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
@@ -46,7 +46,7 @@ public class Entrega2Test {
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia();
-        paco.espawnear(elRobo.lugarDeRobo(), new EstadoDeJuego(), t);
+        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(), t);
 
         //Se verifica la promocion de rango
         assertEquals(Novato.class, paco.rango.getClass());
@@ -68,7 +68,7 @@ public class Entrega2Test {
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Policia paco = new Policia();
-        paco.espawnear(colombia, new EstadoDeJuego(), t);
+        paco.asignarCaso(colombia, new EstadoDeJuego(), t);
 
         Computadora compu = new Computadora();
 
@@ -95,7 +95,7 @@ public class Entrega2Test {
 
         EstadoDeJuego estado = new EstadoDeJuego();
         Policia paco = new Policia();
-        paco.espawnear(colombia,estado,t);
+        paco.asignarCaso(colombia,estado,t);
 
         assertTrue(estado.juegoEnProgreso());
 
@@ -137,7 +137,7 @@ public class Entrega2Test {
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia();
-        paco.espawnear(elRobo.lugarDeRobo(), new EstadoDeJuego(),t);
+        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(),t);
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.
