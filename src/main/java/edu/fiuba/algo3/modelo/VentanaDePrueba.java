@@ -15,10 +15,10 @@ public class VentanaDePrueba extends Application {
     }
 
     @Override
-    public void start (Stage ventana) throws Exception{
-        Parent root = FXMLLoader.load("VentanaDeConfirmacion.fxml");
-        ventana.setTitle("A");
-        ventana.setScene(new Scene (root, 600, 500));
+    public void start (Stage ventana) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(VentanaDePrueba.class.getResource("/" + "VentanaDeConfirmacion" + ".fxml"));
+        ventana.setTitle("");
+        ventana.setScene(new Scene (fxmlLoader.load()));
         ventana.show();
     }
 
