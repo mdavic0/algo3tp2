@@ -9,8 +9,8 @@ public class RangoTest {
     public void NovatoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
         IRango rango = new Novato();
 
-        Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 
@@ -28,8 +28,8 @@ public class RangoTest {
     public void DetectiveReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
         IRango rango = new Detective();
 
-        Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais colombia = new Pais("Colombia", 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 
@@ -47,8 +47,8 @@ public class RangoTest {
     public void InvestigadorReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
         IRango rango = new Investigador();
 
-        Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 
@@ -66,8 +66,8 @@ public class RangoTest {
     public void SargentoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
         IRango rango = new Sargento();
 
-        Pais colombia = new Pais("Colombia", new GeneradorMockDeEdificios(), 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", new GeneradorMockDeEdificios(),  -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 

@@ -21,7 +21,7 @@ public class EntregaTest {
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
 
-        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre(), new GeneradorMockDeEdificios(), 0, 0);
+        Pais montreal = new Pais(elRobo.lugarDeRobo().nombre(), 0, 0);
         Edificio edificio = new Edificio (
             "aeropuerto", montreal,
                 new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
@@ -47,7 +47,7 @@ public class EntregaTest {
         Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre(), 
-            new GeneradorMockDeEdificios(), 0, 0);
+            0, 0);
 
         Edificio banco = new Edificio (
             "banco", montreal,
@@ -99,7 +99,7 @@ public class EntregaTest {
 
         Pais montreal = new Pais(
             elRobo.lugarDeRobo().nombre(), 
-            new GeneradorMockDeEdificios(), 0, 0);
+            0, 0);
 
         Edificio banco = new Edificio (
             "aeropuerto", montreal,

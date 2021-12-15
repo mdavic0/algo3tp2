@@ -14,31 +14,6 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
         this.rango = rango;
     }
 
-    //TODO: generar distintos tipos de edificios
-    @Deprecated
-    public List<IEdificio> crearEdificiosPara(IPais pais, Dificultad dificultad) throws Exception{
-        
-        IPista[] pistasDeCadaEdificio =  {
-            fabrica.crearPistaEconomica(pais, rango), 
-            fabrica.crearPistaDeLectura(pais, rango), 
-            fabrica.crearPistaDeViaje(pais, rango),
-        };
-        
-        List<IEdificio> edificios = new ArrayList<IEdificio>();
-        for(int i = 0; i < 3; i++){
-            String nombre = "Edificio".concat(Integer.toString(i+1));
-            edificios.add(new Edificio(
-                nombre, pais,
-                new NoEstuvoEnEdificio()));
-        }
-        return edificios;
-    }
-
-    @Deprecated
-    public List<IEdificio> crearEdificiosPara(IPais pais) throws Exception {
-        return crearEdificiosPara(pais, new Facil());
-    }
-
     public void crearEdificiosPara(List<IPais> paises, Robo robo, Dificultad d) throws Exception {
         for(IPais p : paises){
                 if(!robo.viaSinInit.contains(p)) {
