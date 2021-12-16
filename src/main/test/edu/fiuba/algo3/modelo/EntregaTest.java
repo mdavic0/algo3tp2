@@ -65,7 +65,7 @@ public class EntregaTest {
         roberta.entrarA(banco);
 
         assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
-        roberta.salirDe(banco);
+        roberta.salirDelEdificio();
         roberta.entrarA(biblio);
         assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
     }
@@ -117,13 +117,13 @@ public class EntregaTest {
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
-            roberta.salirDe(banco);
+            roberta.salirDelEdificio();
         }
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dolares.");
-            roberta.salirDe(biblio); 
+            roberta.salirDelEdificio();
         }
     }
     
