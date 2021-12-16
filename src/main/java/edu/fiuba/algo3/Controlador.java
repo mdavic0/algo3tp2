@@ -9,7 +9,7 @@ public class Controlador {
     @FXML
     public Label labelResultado;
 
-    Temporizador t = new Temporizador(0,0,0);
+    Temporizador t = new Temporizador(0);
 
     public void botonSi (){
         System.out.println(t.horaActual());

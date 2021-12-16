@@ -9,7 +9,7 @@ public class Temporizador implements ITemporizador {
     int horas_transcurridas;
     int hora_inicial;
 
-    Temporizador(int hora_inicial) {
+    public Temporizador(int hora_inicial) {
         this.hora_inicial = hora_inicial;
         horas_transcurridas = 0;
     }
