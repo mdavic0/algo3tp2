@@ -10,12 +10,13 @@ public class Temporizador implements ITemporizador {
     //TODO: reemplazar con patron de estado
     String estado = "Activo";
 
-    Temporizador(int hora_inicial ,int hora_dormir, int hora_limite) {
+    public Temporizador(int hora_inicial ,int hora_dormir, int hora_limite) {
         this.hora_inicial = hora_inicial;
         horas_transcurridas = 0;
         this.hora_dormir = hora_dormir;
         this.hora_limite = hora_limite;
     }
+
     @Override
     public int horaActual(){
         return (hora_inicial + horas_transcurridas) % 24;

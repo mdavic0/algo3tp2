@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="80.0" maxWidth="300.0" minHeight="61.0" minWidth="196.0" prefHeight="72.0" prefWidth="211.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="80.0" maxWidth="300.0" minHeight="61.0" minWidth="196.0" prefHeight="72.0" prefWidth="211.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador">
    <children>
       <Button layoutX="40.0" layoutY="33.0" maxHeight="21.0" minHeight="20.0" minWidth="50.0" mnemonicParsing="false" prefHeight="21.0" text="Si">
          <font>
