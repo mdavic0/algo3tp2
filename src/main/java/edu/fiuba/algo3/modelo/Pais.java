@@ -8,24 +8,6 @@ public class Pais implements IPais {
     List<IEdificio> edificios;
     double latitud;
     double longitud;
-    /*
-    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud, IRango r) throws Exception {
-        this.nombre = nombre;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
-        this.edificios.addAll(g.crearEdificiosPara(this, r.obtenerDificultadPistas()));
-        this.latitud = latitud;
-        this.longitud = longitud;
-    }*/
-    
-    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud) throws Exception {
-        this.nombre = nombre;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
-        this.edificios.addAll(g.crearEdificiosPara(this));
-        this.latitud = latitud;
-        this.longitud = longitud;
-    }
 
     public Pais(String nombre, double latitud, double longitud) throws Exception{
         this.nombre = nombre;

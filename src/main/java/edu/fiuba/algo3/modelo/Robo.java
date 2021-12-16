@@ -67,7 +67,7 @@ public class Robo implements IRobo {
     public IPais paisDespuesDe(IPais paisDelTestigo) {
         IPais pedido = viaSinInit
             .stream()
-            .filter(p -> paisDelTestigo.nombre() == p.nombre()).findFirst().get();
+            .filter(p -> paisDelTestigo==p).findFirst().get();
        
         return viaSinInit.get(viaSinInit.indexOf(pedido) + 1);
     }

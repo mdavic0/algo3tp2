@@ -11,13 +11,8 @@ public class GeneradorMockDeEdificios implements IGeneradorDeEdificios {
     }
 
     @Override
-    public List<IEdificio> crearEdificiosPara(IPais pais, Dificultad dificultad) throws Exception {
-        return this.edificios;
-    }
-
-    @Override
-    public List<IEdificio> crearEdificiosPara(IPais pais) throws Exception {
-        return this.edificios;
+    public void crearEdificiosPara(List<IPais> paises, Robo robo, Dificultad d) throws Exception {
+        
     }
     
 }
