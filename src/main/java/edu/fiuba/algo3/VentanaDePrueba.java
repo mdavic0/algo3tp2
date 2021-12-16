@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class VentanaDePrueba extends Application {
 
     @Override
     public void start (Stage ventana) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(VentanaDePrueba.class.getResource("/" + "VentanaDeConfirmacion" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(VentanaDePrueba.class.getResource("VentanaDeConfirmacion" + ".fxml"));
         ventana.setTitle("");
         ventana.setScene(new Scene (fxmlLoader.load()));
         ventana.show();
