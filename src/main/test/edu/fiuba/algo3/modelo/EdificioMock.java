@@ -1,25 +1,27 @@
 package edu.fiuba.algo3.modelo;
 
 public class EdificioMock implements IEdificio{
+    IPais pais;
+    String pista;
     String nombre;
 
     public EdificioMock(String nombre){
         this.nombre = nombre;
+        this.pista = "YO NO VI NADA!";
+    }
+
+    public EdificioMock(String nombre, String pista){
+        this.nombre = nombre;
+        this.pista = pista;
     }
 
     public IPais obtenerPais() {
-        try {
-            return new PaisMock("California");
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return null;
-        }
+       return this.pais;
     }
 
     @Override
     public String obtenerTestimonio() {
-        return "YO NO VI NADA!";
+        return this.pista;
     }
 
     @Override
@@ -33,8 +35,13 @@ public class EdificioMock implements IEdificio{
     }
 
     @Override
-    public void entrar(Policia policia) throws Exception {
+    public void entrar(Policia policia) {
 
+    }
+
+    @Override
+    public void asignarPais(IPais pais) {
+        this.pais = pais;
     }
 
 }

@@ -13,12 +13,16 @@ public class PaisMock implements IPais {
         this.edificios = new ArrayList<IEdificio>();
     }
 
-    public List<IEdificio> edificios(IEdificio edificio) {
+    public List<IEdificio> edificios() {
         return edificios;
     }
 
-    public void agregarEdificio(IEdificio edificio) {
-        edificios.add(edificio);
+    @Override
+    public void agregarEdificios(IEdificio... edificio) {
+        for (IEdificio e : edificio) {
+            edificios.add(e);
+            e.asignarPais(this);
+        }
     }
     
     public Boolean contieneEdificio(IEdificio edificio) {
@@ -32,13 +36,9 @@ public class PaisMock implements IPais {
     public boolean sePuedeViajarA(IPais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
-    
-    public String toString(){
-        return this.nombre;
-    }
 
     @Override
-    public Object nombre() {
+    public String nombre() {
         return nombre;
     }
 
@@ -57,10 +57,8 @@ public class PaisMock implements IPais {
         return 0;
     }
 
-    @Override
-    public PaisSinPistas sinPistas() throws Exception {
-        return new PaisSinPistas(nombre, "Euro", 0, 0);
-    }
+
+    //public PaisSinPistas sinPistas() throws Exception {return new PaisSinPistas(nombre, "Euro", 0, 0);}
 
     @Override
     public String moneda() {
@@ -68,7 +66,13 @@ public class PaisMock implements IPais {
     }
 
     @Override
-    public Object hechoHistorico() {
-        return "Este pais fue invadido por Inglaterra";
+    public void agregarEdificios(List<IEdificio> edificios) {
+        for (IEdificio e : edificios) {
+            edificios.add(e);
+            e.asignarPais(this);
+        }
     }
+
+
+    //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra";}
 }

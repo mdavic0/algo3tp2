@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class Ladron {
 
@@ -10,6 +12,7 @@ public class Ladron {
     private String cabello;
     private String senia;
     private String hobby;
+    private List<Propiedad> propiedades= new ArrayList<Propiedad>();
 
     public Ladron(String nombre, String genero, String vehiculo, String cabello, String senia, String hobby) throws Exception {
 
@@ -20,52 +23,29 @@ public class Ladron {
         this.senia = senia;
         this.hobby = hobby;
 
-    }
-
-    public boolean coincideConPropiedades (String unGenero, String unVehiculo, String unCabello, String unaSenia, String unHobby){
-
-        //TODO Encontrar forma de hacerlo sin if's
-
-        boolean respuesta = false;
-
-        if (this.genero.equals(unGenero) || unGenero.equals("")) {
-            if(this.vehiculo.equals(unVehiculo) || unVehiculo.equals("")) {
-                if(this.cabello.equals(unCabello) || unCabello.equals("")) {
-                    if(this.senia.equals(unaSenia) || unaSenia.equals("")) {
-                        if(this.hobby.equals(unHobby) || unHobby.equals("")) {
-                            respuesta = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return respuesta;
+        //TODO unico lugar que liste todas las propiedades
+        propiedades.add(new Propiedad("Genero", genero));
+        propiedades.add(new Propiedad("Vehiculo", vehiculo));
+        propiedades.add(new Propiedad("Cabello", cabello));
+        propiedades.add(new Propiedad("Senia", senia));
+        propiedades.add(new Propiedad("Hobby", hobby));
 
     }
+    
+    public boolean coincideConPropiedades (List<Propiedad> propiedades){
+        return propiedades.stream().allMatch(p -> this.coincideConPropiedad(p));
+    }
+
+    private boolean coincideConPropiedad(Propiedad propiedad_conocida){
+        return this.propiedades
+            .stream()
+            .filter(p -> propiedad_conocida.coincidencia(p))
+            .count() > 0;
+    }
+
 
     public String nombre() {
         return nombre;
-    }
-
-    public String genero() {
-        return genero;
-    }
-
-    public String vehiculo() {
-        return vehiculo;
-    }
-
-    public String cabello() {
-        return cabello;
-    }
-
-    public String senia() {
-        return senia;
-    }
-
-    public String hobby() {
-        return hobby;
     }
     
 }

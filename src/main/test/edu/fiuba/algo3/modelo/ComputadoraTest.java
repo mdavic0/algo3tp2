@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ComputadoraTest {
 
-    Temporizador t = new Temporizador(0, 20, 48);
-    Policia paco = new Policia(new PaisMock("Argentina"), t);
+    ITemporizador t = new TemporizadorMock();
+    Policia paco = new Policia();
 
     public ComputadoraTest() throws Exception {
     }
@@ -28,7 +27,12 @@ public class ComputadoraTest {
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+        propiedades.add(new Propiedad("Senia", "Cicatriz"));
+        propiedades.add(new Propiedad("Hobby", "Musica"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -44,11 +48,18 @@ public class ComputadoraTest {
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
+
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -64,11 +75,17 @@ public class ComputadoraTest {
         IPais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,"M", "Deportivo", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco,propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
@@ -86,16 +103,21 @@ public class ComputadoraTest {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
 
         Computadora computadora = new Computadora();
 
-        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, "", "", "Negro", "Cicatriz","Musica");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("Cabello", "Negro"));
+        propiedades.add(new Propiedad("Senia", "Cicatriz"));
+        propiedades.add(new Propiedad("Hobby", "Musica"));
+        List<Ladron> ladronesObtenidos = computadora.consultarDatos(paco, propiedades);
 
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
         assertEquals(roberta.nombre(), ladronesObtenidos.get(1).nombre());
-        assertEquals(null, paco.ordenDeArresto);
+        assertNull(paco.ordenDeArresto); // Como hay 2 sospechosos NO se emite la orden de arresto
+        //TODO: Que el policia tenga un metodo boolean tieneOrdenDeArresto(); para evitar chequear esto ^^^
     }
 
 }

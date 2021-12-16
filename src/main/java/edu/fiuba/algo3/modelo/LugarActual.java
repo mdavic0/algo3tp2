@@ -9,7 +9,7 @@ public abstract class LugarActual {
     public abstract IPais obtenerPais();
 
     public abstract LugarActual salirDelEdificio() throws Exception;
+
     public abstract String cuestionarTestigo() throws Exception ;
 
-    public abstract LugarActual salirDe(Edificio banco)throws Exception ;
 }

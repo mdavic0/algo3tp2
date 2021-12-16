@@ -1,25 +1,40 @@
 package edu.fiuba.algo3.modelo;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Policia {
+public class Policia implements PropertyChangeListener {
 
     LugarActual lugarActual;
     //String pista; //idealmente una coleccion
     IRango rango;
     ITemporizador temporizador;
     OrdenDeArresto ordenDeArresto;
-
-    int cantidadArrestos;
     int heridasPorCuchillo;
 
-    public Policia(IPais pais, ITemporizador temporizador) {
-        lugarActual = new FueraDeEdificio(pais);
+    int cantidadArrestos;
+    int hora_dormir = 20;
+    
+    List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
+    public Policia() {
+        lugarActual = new Inactivo();
         rango = new Novato();
         ordenDeArresto = null;
-        this.temporizador = temporizador;
         cantidadArrestos = 0;
+    }
+
+    /*
+    Ubicar al policia en el juego tras generar el robo
+    */
+    public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
+        lugarActual = new FueraDeEdificio(pais);
+        ordenDeArresto = null;
+        temporizador.agregarSuscriptor(this);
+        this.agregarSuscriptor(estado);
         heridasPorCuchillo = 0;
+        this.temporizador = temporizador;
     }
 
     public void salirDelEdificio() throws Exception{
@@ -43,21 +58,18 @@ public class Policia {
         return this.lugarActual.obtenerPais();
     }
 
-    public void salirDe(Edificio edificio) throws Exception {
-        this.lugarActual = this.lugarActual.salirDe(edificio);
-    }
-
-    public void recibirHeridaConCuchillo() throws Exception {
-        HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo++);
+    public void recibirHeridaConCuchillo() {
+        heridasPorCuchillo++;
+        HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo);
         actividad.reportar(this.temporizador);
     }
 
-    public void recibirHeridaConArmaDeFuego() throws Exception {
+    public void recibirHeridaConArmaDeFuego() {
         HeridaConArmaDeFuego actividad = new HeridaConArmaDeFuego();
         actividad.reportar(this.temporizador);
     }
 
-    public void emitirOrdenDeArresto(OrdenDeArresto ordenDeArresto) throws Exception {
+    public void emitirOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
         EmitirOrdenDeArresto actividad = new EmitirOrdenDeArresto();
         actividad.reportar(this.temporizador);
         this.ordenDeArresto = ordenDeArresto;
@@ -66,5 +78,43 @@ public class Policia {
     public void arrestarLadron(){
         cantidadArrestos++;
         rango = this.rango.subirRango(this.cantidadArrestos);
+    }
+
+    private boolean puedeArrestar(Ladron ladron) {
+        if(this.ordenDeArresto != null)
+            return this.ordenDeArresto.puedeArrestarA(ladron);
+        return false;
+    }
+
+    private void dormir(){
+        temporizador.reportarActividad(8);
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if(evt.getPropertyName() == "horaActual" 
+            && (int)evt.getNewValue() >= hora_dormir)
+            this.dormir();
+    }
+
+    public void intentarArrestar(Ladron ladron) {
+        if(this.puedeArrestar(ladron))
+            notificarSuscriptores(
+                new PropertyChangeEvent(this, "Arresto", cantidadArrestos, ++cantidadArrestos));
+        else notificarSuscriptores(
+            new PropertyChangeEvent(this, "FalloArresto", cantidadArrestos, cantidadArrestos));
+    }
+
+    private void notificarSuscriptores(PropertyChangeEvent propertyChangeEvent) {
+        for(PropertyChangeListener suscriptor : suscriptores) {
+            suscriptor.propertyChange(propertyChangeEvent);
+        }
+    }
+
+    public void agregarSuscriptor(PropertyChangeListener suscriptor){
+        suscriptores.add(suscriptor);
+    }
+    public void reportarIngresoAEdificio(EntrarAEdificio entrarAEdificio) {
+        entrarAEdificio.reportar(this.temporizador);
     }
 }

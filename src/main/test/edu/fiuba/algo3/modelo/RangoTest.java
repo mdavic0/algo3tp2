@@ -6,35 +6,79 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RangoTest {
     @Test
-    public void NovatoCalculaSuVelocidadKmh() throws Exception {
-        IRango novato = new Novato();
-        double valorEsperado = 900;
+    public void NovatoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
+        IRango rango = new Novato();
 
-        assertEquals(valorEsperado, novato.velocidadKmh());
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+
+        double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
+
+        assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
+
+        Temporizador temporizador = new Temporizador(0);
+
+        rango.reportarViaje(colombia, argentina, temporizador);
+
+        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+
     }
 
     @Test
-    public void DetectiveCalculaSuVelocidadKmh() throws Exception {
-        IRango detective = new Detective();
-        double valorEsperado = 1100;
+    public void DetectiveReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
+        IRango rango = new Detective();
 
-        assertEquals(valorEsperado, detective.velocidadKmh());
+        Pais colombia = new Pais("Colombia", 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+
+        double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
+
+        assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
+
+        Temporizador temporizador = new Temporizador(0);
+
+        rango.reportarViaje(colombia, argentina, temporizador);
+
+        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+
     }
 
     @Test
-    public void InvestigadorCalculaSuVelocidadKmh() throws Exception {
-        IRango investigador = new Investigador();
-        double valorEsperado = 1300;
+    public void InvestigadorReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
+        IRango rango = new Investigador();
 
-        assertEquals(valorEsperado, investigador.velocidadKmh());
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+
+        double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
+
+        assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
+
+        Temporizador temporizador = new Temporizador(0);
+
+        rango.reportarViaje(colombia, argentina, temporizador);
+
+        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+
     }
 
     @Test
-    public void SargentoCalculaSuVelocidadKmh() throws Exception {
-        IRango sargento = new Sargento();
-        double valorEsperado = 1500;
+    public void SargentoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
+        IRango rango = new Sargento();
 
-        assertEquals(valorEsperado, sargento.velocidadKmh());
+        Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
+        Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+
+        double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
+
+        assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
+
+        Temporizador temporizador = new Temporizador(0);
+
+        rango.reportarViaje(colombia, argentina, temporizador);
+
+        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+
     }
 
 }

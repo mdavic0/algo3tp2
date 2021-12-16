@@ -5,39 +5,50 @@ import java.lang.Integer;
 
 public class GeneradorDeEdificios implements IGeneradorDeEdificios{
     private FabricaDePistas fabrica;
-    private Temporizador temporizador;
     private IRango rango;
+    private IRobo robo;
 
-    public GeneradorDeEdificios(IRobo robo, Temporizador temporizador, IRango rango) {
+    public GeneradorDeEdificios(IRobo robo, ITemporizador temporizador, IRango rango) {
         this.fabrica = new FabricaDePistas(robo);
-        this.temporizador = temporizador;
+        this.robo = robo;
         this.rango = rango;
     }
 
-    //TODO: generar distintos tipos de edificios
-    public List<IEdificio> crearEdificiosPara(IPais pais, Dificultad dificultad) throws Exception{
-        
-        IPista[] pistasDeCadaEdificio =  {
-            fabrica.crearPistaEconomica(pais, rango), 
-            fabrica.crearPistaDeLectura(pais, rango), 
-            fabrica.crearPistaDeViaje(pais, rango),
+    public void crearEdificiosPara(List<IPais> paises, Robo robo, Dificultad d) throws Exception {
+        for(IPais p : paises){
+                if(!robo.viaSinInit.contains(p)) {
+                    p.agregarEdificios(this.generarParaPaisDondeNoEstuvoLadron(p));
+                }
+                else if (robo.ubicacionDelLadron().equals(p)) {
+                    p.agregarEdificios(this.generarParaPaisDondeEstaLadron(p, robo));
+                }
+                else {
+                    p.agregarEdificios(this.generarParaPaisDondeEstuvoLadron(p, d));
+                }
         };
-        
+    }
+
+    private List<IEdificio> generarParaPaisDondeEstuvoLadron(IPais p, Dificultad d) throws Exception {
         List<IEdificio> edificios = new ArrayList<IEdificio>();
-        for(int i = 0; i < 3; i++){
-            String nombre = "Edificio".concat(Integer.toString(i+1));
-            edificios.add(new Edificio(
-                nombre, pais, 
-                dificultad, 
-                temporizador, 
-                pistasDeCadaEdificio[i],
-                new NoEstuvoEnEdificio())); //TODO: Que las pistas dependan de la relacion del edificio con el ladron(?
-        }
+        edificios.add(new Edificio("Banco", p, new EstuvoEnEdificio(fabrica.crearPistaDeLadron(d))));
+        edificios.add(new Edificio("Aeropuerto", p, new NoEstuvoEnEdificio()));
+        edificios.add(new Edificio("Migraciones", p, new NoEstuvoEnEdificio()));
         return edificios;
     }
 
-    @Override
-    public List<IEdificio> crearEdificiosPara(IPais pais) throws Exception {
-        return crearEdificiosPara(pais, new Facil());
+    private List<IEdificio> generarParaPaisDondeEstaLadron(IPais p, Robo robo) {
+        List<IEdificio> edificios = new ArrayList<IEdificio>();
+        edificios.add(new Edificio("Banco", p, new EstaEnElEdificioDeAlLado()));
+        edificios.add(new Edificio("Aeropuerto", p, new EstaEnElEdificioDeAlLado()));
+        edificios.add(new Edificio("Migraciones", p, new EstaEnElEdificio(robo.obtenerLadron())));
+        return edificios;
+    }
+
+    private List<IEdificio> generarParaPaisDondeNoEstuvoLadron(IPais p) {
+        List<IEdificio> edificios = new ArrayList<IEdificio>();
+        edificios.add(new Edificio("Banco", p, new NoEstuvoEnEdificio()));
+        edificios.add(new Edificio("Aeropuerto", p, new NoEstuvoEnEdificio()));
+        edificios.add(new Edificio("Migraciones", p, new NoEstuvoEnEdificio()));
+        return edificios;
     }
 }

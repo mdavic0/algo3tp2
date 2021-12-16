@@ -8,8 +8,8 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public PaisSinPistas lugarDeRobo() throws Exception {
-        return new PaisSinPistas("Chile", "Euro", 0, 0);
+    public Pais lugarDeRobo() throws Exception {
+        return new Pais("Chile", 0, 0);
     }
 
     @Override
@@ -23,13 +23,13 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public PaisSinPistas primerPais() {
+    public Pais primerPais() {
         return null;
     }
 
     @Override
-    public PaisSinPistas paisDespuesDe(IPais paisDelTestigo) throws Exception{
-        return new PaisSinPistas("PaisMock","MonedaMock", 0, 0);
+    public Pais paisDespuesDe(IPais paisDelTestigo) throws Exception{
+        return new Pais("PaisMock", 0, 0);
     }
 
 }

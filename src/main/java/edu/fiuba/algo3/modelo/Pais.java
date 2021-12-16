@@ -8,31 +8,34 @@ public class Pais implements IPais {
     List<IEdificio> edificios;
     double latitud;
     double longitud;
-    
-    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud, IRango r) throws Exception {
+
+    public Pais(String nombre, double latitud, double longitud) throws Exception{
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
-        this.edificios.addAll(g.crearEdificiosPara(this, r.obtenerDificultadPistas()));
-        this.latitud = latitud;
-        this.longitud = longitud;
-    }
-    
-    public Pais(String nombre, IGeneradorDeEdificios g, double latitud, double longitud) throws Exception {
-        this.nombre = nombre;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
-        this.edificios.addAll(g.crearEdificiosPara(this));
         this.latitud = latitud;
         this.longitud = longitud;
     }
 
-    public List<IEdificio> edificios(IEdificio edificio) {
+    public List<IEdificio> edificios() {
         return edificios;
     }
 
-    public void agregarEdificio(IEdificio edificio) {
-        edificios.add(edificio);
+    @Override
+    public void agregarEdificios(IEdificio... edificios) {
+        for (IEdificio e : edificios) {
+            this.edificios.add(e);
+            e.asignarPais(this);
+        }
+    }
+
+    @Override
+    public void agregarEdificios(List<IEdificio> edificios) {
+        for (IEdificio e : edificios) {
+            this.edificios.add(e);
+            e.asignarPais(this);
+        }
+        
     }
     
     public Boolean contieneEdificio(IEdificio edificio) {
@@ -46,14 +49,11 @@ public class Pais implements IPais {
     public boolean sePuedeViajarA(IPais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
-    
-    public String toString(){
-        return this.nombre;
-    }
+
 
     @Override
     public String nombre() {
-        return nombre;
+        return this.nombre;
     }
 
     @Override
@@ -80,18 +80,13 @@ public class Pais implements IPais {
         return dist;
     }
 
-    @Override
-    public PaisSinPistas sinPistas() throws Exception {
-        return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);
-    }
+
+    //public PaisSinPistas sinPistas() throws Exception {return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);}
 
     @Override
     public String moneda() {
         return "Euro";
     }
 
-    @Override
-    public Object hechoHistorico() {
-        return "Este pais fue invadido por Inglaterra!";
-    }
+    //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra!";}
 }

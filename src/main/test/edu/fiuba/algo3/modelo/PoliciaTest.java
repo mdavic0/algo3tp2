@@ -6,15 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class PoliciaTest {
-    Temporizador t = new Temporizador(0, 20, 48);
+    ITemporizador t = new TemporizadorMock();
     @Test
     public void testCuestionarTestigo() throws Exception {
 
         IPais colombia = new PaisMock("Colombia");
         IEdificio banco = new EdificioMock("El banco");
-        colombia.agregarEdificio(banco);
+        colombia.agregarEdificios(banco);
 
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
         paco.entrarA(banco);
         assertEquals("YO NO VI NADA!",paco.cuestionarTestigo());
@@ -24,7 +25,7 @@ public class PoliciaTest {
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
         IPais colombia = new PaisMock("Colombia");
         IEdificio e =  new EdificioMock("La ferreteria");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
         
         assertThrows(Exception.class, () -> paco.entrarA(e));
     }
@@ -34,10 +35,10 @@ public class PoliciaTest {
         IPais colombia = new PaisMock("Colombia");
         IEdificio e =  new EdificioMock("La ferretería" );
 
-        colombia.agregarEdificio(e);
+        colombia.agregarEdificios(e);
 
-        Policia paco = new Policia(colombia, t);
-        
+        Policia paco = new Policia();
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
         paco.entrarA(e);
         
         assertThrows(Exception.class, () -> paco.entrarA(new EdificioMock("Migraciones")));
@@ -49,7 +50,8 @@ public class PoliciaTest {
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
 
-        Policia paco = new Policia(montreal, t);
+        Policia paco = new Policia();
+        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock());
 
         assertThrows(Exception.class, () -> paco.viajarA(new PaisMock("China")));
     }
@@ -59,17 +61,18 @@ public class PoliciaTest {
         IPais montreal = new PaisMock("Montreal");
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
-        Policia paco = new Policia(montreal, t);
+        Policia paco = new Policia();
+        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock());
 
-        assertEquals(montreal.nombre(), paco.paisActual().toString());
+        assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);
-        assertEquals(mexico.nombre(), paco.paisActual().toString());
+        assertEquals(mexico.nombre(), paco.paisActual().nombre());
     }
 
     @Test
     public void policiaHaceNArrestosYSubeDeRango() throws Exception{
         IPais colombia = new PaisMock("Colombia");
-        Policia paco = new Policia(colombia, t);
+        Policia paco = new Policia();
 
         assertEquals(Novato.class, paco.rango.getClass());
         for(int i = 0; i < 5; i++){ paco.arrestarLadron(); }

@@ -1,25 +1,22 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
+
 public class Edificio implements IEdificio{
 
     int cantidadDeVisitas = 0;
     IPais pais;
     String nombre;
     IPista pista;
-    ITemporizador temporizador;
     IRelacionConLadron relacionConLadron;
 
     public Edificio(
             String nombre,
             IPais pais,
-            Dificultad dificultad,
-            ITemporizador temporizador,
-            IPista pista,
             IRelacionConLadron relacionConLadron) {
         this.pais = pais;
         this.nombre = nombre;
-        this.pista = pista;
-        this.temporizador = temporizador;
+        this.pista = relacionConLadron.crearPista();
         this.relacionConLadron = relacionConLadron;
     }
 
@@ -40,14 +37,18 @@ public class Edificio implements IEdificio{
     }
 
     @Override
-    public void entrar(Policia policia) throws Exception {
-        this.relacionConLadron.herirConCuchillo(policia); //se delega la cuestion probabilistica, que varia segun si el
-        this.relacionConLadron.herirConArmaDeFuego(policia); // ladron estuvo en el edificio
+    public void entrar(Policia policia) {
+        this.relacionConLadron.entrar(policia);
 
         cantidadDeVisitas ++;
 
-        EntrarAEdificio e = new EntrarAEdificio(cantidadDeVisitas);
-        e.reportar(this.temporizador);
+        policia.reportarIngresoAEdificio(new EntrarAEdificio(this.cantidadDeVisitas));
+
+    }
+
+    @Override
+    public void asignarPais(IPais pais) {
+        this.pais = pais;
     }
 }
 

@@ -5,5 +5,6 @@ public interface IEdificio {
     public IPais obtenerPais() ;
     public Object nombre();
     public Integer cantidadDeVisitas();
-    void entrar(Policia policia) throws Exception;
+    void entrar(Policia policia);
+    void asignarPais(IPais pais);
 }
