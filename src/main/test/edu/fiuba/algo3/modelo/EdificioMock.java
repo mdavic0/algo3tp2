@@ -35,7 +35,7 @@ public class EdificioMock implements IEdificio{
     }
 
     @Override
-    public void entrar(Policia policia) throws Exception {
+    public void entrar(Policia policia) {
 
     }
 

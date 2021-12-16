@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
+
 public class Edificio implements IEdificio{
 
     int cantidadDeVisitas = 0;
@@ -35,7 +37,7 @@ public class Edificio implements IEdificio{
     }
 
     @Override
-    public void entrar(Policia policia) throws Exception {
+    public void entrar(Policia policia) {
         this.relacionConLadron.entrar(policia);
 
         cantidadDeVisitas ++;

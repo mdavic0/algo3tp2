@@ -18,7 +18,7 @@ public class Computadora {
 
     }
 
-    public List<Ladron> consultarDatos(Policia policia, List<Propiedad> propiedades) throws Exception {
+    public List<Ladron> consultarDatos(Policia policia, List<Propiedad> propiedades) {
 
         List<Ladron> ladronesSospechosos = new ArrayList<Ladron>();
         ladrones.stream().filter(ladron -> ladron.coincideConPropiedades(propiedades)).forEach(ladron -> ladronesSospechosos.add(ladron));

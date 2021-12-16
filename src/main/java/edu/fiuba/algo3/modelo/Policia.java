@@ -58,22 +58,18 @@ public class Policia implements PropertyChangeListener {
         return this.lugarActual.obtenerPais();
     }
 
-    public void salirDe(IEdificio edificio) throws Exception {
-        this.lugarActual = this.lugarActual.salirDe(edificio);
-    }
-
-    public void recibirHeridaConCuchillo() throws Exception {
+    public void recibirHeridaConCuchillo() {
         heridasPorCuchillo++;
         HeridaConCuchillo actividad = new HeridaConCuchillo(heridasPorCuchillo);
         actividad.reportar(this.temporizador);
     }
 
-    public void recibirHeridaConArmaDeFuego() throws Exception {
+    public void recibirHeridaConArmaDeFuego() {
         HeridaConArmaDeFuego actividad = new HeridaConArmaDeFuego();
         actividad.reportar(this.temporizador);
     }
 
-    public void emitirOrdenDeArresto(OrdenDeArresto ordenDeArresto) throws Exception {
+    public void emitirOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
         EmitirOrdenDeArresto actividad = new EmitirOrdenDeArresto();
         actividad.reportar(this.temporizador);
         this.ordenDeArresto = ordenDeArresto;

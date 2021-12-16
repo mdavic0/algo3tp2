@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
+import edu.fiuba.algo3.modelo.excepciones.PistaException;
+
 public class Media implements Dificultad {
 
     @Override
@@ -13,12 +16,12 @@ public class Media implements Dificultad {
     }
 
     @Override
-    public IPista crearPistaDeViaje(IPais pais) throws Exception {
-        throw new Exception("No hay pistas fáciles para este tipo de edificio");
+    public IPista crearPistaDeViaje(IPais pais) throws AlgoThiefException {
+        throw new PistaException("No hay pistas fáciles para este tipo de edificio");
     }
 
     @Override
-    public IPista crearPistaDeLadron(IRobo robo) throws Exception {
-        throw new Exception("No hay pistas fáciles para este tipo de edificio");
+    public IPista crearPistaDeLadron(IRobo robo) throws AlgoThiefException {
+        throw new PistaException("No hay pistas fáciles para este tipo de edificio");
     }
 }

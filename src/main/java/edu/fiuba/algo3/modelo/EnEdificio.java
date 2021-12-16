@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.AccionInvalidaException;
+import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
+
 public class EnEdificio extends LugarActual {
     IEdificio edificio;
 
@@ -13,26 +16,22 @@ public class EnEdificio extends LugarActual {
     }
 
     @Override
-    public LugarActual entrarA(IEdificio banco, Policia policia) throws Exception {
-        throw new Exception("No se puede entrar de un edificio a otro!");
+    public LugarActual entrarA(IEdificio banco, Policia policia) throws AlgoThiefException {
+        throw new AccionInvalidaException("No se puede entrar de un edificio a otro!");
     }
 
-    public EnEdificio viajarA(IPais pais) throws Exception{
-        throw new Exception("No puedo viajar estando adentro de un edificio!");
+    public EnEdificio viajarA(IPais pais) throws AlgoThiefException {
+        throw new AccionInvalidaException("No puedo viajar estando adentro de un edificio!");
     }
 
     @Override
-    public LugarActual salirDelEdificio() throws Exception {
+    public LugarActual salirDelEdificio() {
         return new FueraDeEdificio(edificio.obtenerPais());
     }
 
     @Override
     public IPais obtenerPais() {
         return edificio.obtenerPais();
-    }
-    @Override
-    public LugarActual salirDe(IEdificio banco) throws Exception {
-        return new FueraDeEdificio(edificio.obtenerPais());
     }
 
 }
