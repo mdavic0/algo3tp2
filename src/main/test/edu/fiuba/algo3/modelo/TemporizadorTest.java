@@ -45,4 +45,34 @@ public class TemporizadorTest {
         //Hack hasta implementar el sistema de eventos
         //assertEquals( "Inactivo", timer.estado);
     }
+
+    @Test
+    public void testTemporizadorDaFechaYHoraCorrecta() throws Exception {
+        //Tiempo: El jugador tendrá desde el lunes a las 7 hs hasta el domingo a las 17hs para atrapar al ladrón.
+
+        Temporizador t = new Temporizador(7);
+
+        assertEquals("Lunes, 7hs", t.fechaActual());
+
+        ActividadMock actividad = new ActividadMock(24);
+        actividad.reportar(t);
+
+        assertEquals("Martes, 7hs", t.fechaActual());
+
+        ActividadMock actividad1 = new ActividadMock(48);
+        actividad1.reportar(t);
+        assertEquals("Jueves, 7hs", t.fechaActual());
+
+
+        actividad.reportar(t);
+        actividad1.reportar(t);
+        assertEquals("Domingo, 7hs", t.fechaActual());
+
+        ActividadMock actividad3 = new ActividadMock(17);
+        actividad3.reportar(t);
+        assertEquals("Lunes, 0hs", t.fechaActual());
+
+        actividad3.reportar(t);
+        assertEquals("Lunes, 17hs", t.fechaActual());
+    }
 }
