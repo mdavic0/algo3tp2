@@ -24,7 +24,9 @@ public class Policia implements PropertyChangeListener {
         ordenDeArresto = null;
         cantidadArrestos = 0;
     }
-
+    public String imprimirRango() {
+        return rango.getClass().getName();
+    }
     /*
     Ubicar al policia en el juego tras generar el robo
     */
