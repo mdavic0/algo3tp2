@@ -11,15 +11,13 @@ public class Propiedad {
 
     boolean coincidencia(Propiedad otraPropiedad) {
         return 
-            otraPropiedad.tipo() == this.tipo 
-            && otraPropiedad.contenido() == this.contenido;
+            otraPropiedad.esDeTipo(this.tipo)
+            && otraPropiedad.contenidoIgualA(this.contenido);
+        }
+    private boolean contenidoIgualA(String contenido2) {
+        return contenido.contentEquals(contenido2);
     }
-
-    public String contenido() {
-        return contenido;
-    }
-
-    public String tipo() {
-        return tipo;
+    private boolean esDeTipo(String tipo2) {
+        return tipo.contentEquals(tipo2);
     }
 }
