@@ -1,9 +1,10 @@
 package edu.fiuba.algo3;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -13,6 +14,8 @@ import javafx.scene.input.KeyEvent;
 
 public class ControladorVentanaInicio  implements Initializable{
     private String ultimoInput;
+    Policia policia;
+    Robo robo;
 
     @FXML
     public Label textoMaquinaDeEscribir;
@@ -21,22 +24,47 @@ public class ControladorVentanaInicio  implements Initializable{
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER){
-            recibeInputJugador();
+            try {
+                if(robo == null)
+                    recibeInputJugador();
+                else abrirVentanaJuego(robo, policia);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
         }
     } 
+
+    private void abrirVentanaJuego(Robo robo, Policia policia) {
+        textoMaquinaDeEscribir.setText("Abriendo.......");
+    }
 
     public void imprimirTextoPolicia (Policia policia){
         textoMaquinaDeEscribir.setText("Hola policia. Tu rango es" + policia.imprimirRango() + ". Ingresá tu nombre!");
     }
 
-    public void recibeInputJugador(){
+    public void recibeInputJugador() throws Exception{
         ultimoInput = inputJugador.getText();
-        textoMaquinaDeEscribir.setText("Hola, "+ ultimoInput);
+        generarRobo();
+        inputJugador.setText("");
+        textoMaquinaDeEscribir.setText(huboUnRobo());
+    } 
+    private String huboUnRobo() {
+        String texto = "Hubo un robo en" + robo.lugarDeRobo().nombre() + ".";
+        return texto;
+    }
+
+    private void generarRobo() throws Exception{
+        ultimoInput = inputJugador.getText();
+        GeneradorDeRobo gRobo = new GeneradorDeRobo();
+        LectorDeArchivo lector = new LectorDeArchivo();
+        List<IPais> paises =  lector.obtenerPaises();
+        robo = gRobo.generarRobo(policia, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
     } 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Policia policia = new Policia();
+        policia = new Policia();
         imprimirTextoPolicia(policia);
         
     }
