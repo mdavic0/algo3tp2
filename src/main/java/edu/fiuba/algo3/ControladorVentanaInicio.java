@@ -1,16 +1,21 @@
 package edu.fiuba.algo3;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import edu.fiuba.algo3.modelo.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 
 public class ControladorVentanaInicio  implements Initializable{
     private String ultimoInput;
@@ -21,13 +26,15 @@ public class ControladorVentanaInicio  implements Initializable{
     public Label textoMaquinaDeEscribir;
     @FXML
     public TextField inputJugador;
+    @FXML
+    public SplitPane raiz;
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER){
             try {
                 if(robo == null)
                     recibeInputJugador();
-                else abrirVentanaJuego(robo, policia);
+                else abrirVentanaJuego(event, robo, policia);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(0);
@@ -35,8 +42,10 @@ public class ControladorVentanaInicio  implements Initializable{
         }
     } 
 
-    private void abrirVentanaJuego(Robo robo, Policia policia) {
-        textoMaquinaDeEscribir.setText("Abriendo.......");
+    private void abrirVentanaJuego(KeyEvent event, Robo robo, Policia policia) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
+        Scene escenaActual = inputJugador.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
     public void imprimirTextoPolicia (Policia policia){

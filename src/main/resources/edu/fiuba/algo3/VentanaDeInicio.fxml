@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaInicio">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaInicio">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -22,9 +22,9 @@
                         <Label layoutX="105.0" layoutY="53.0" text="Lunes, 9 a.m." />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" onKeyPressed="#handleOnKeyPressed" prefHeight="178.0" prefWidth="201.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="178.0" prefWidth="201.0">
                      <children>
-                        <TextField fx:id="inputJugador" layoutX="11.0" layoutY="226.0" onKeyPressed="#handleOnKeyPressed" prefHeight="71.0" prefWidth="273.0" />
+                        <TextField fx:id="inputJugador" layoutX="11.0" layoutY="226.0" prefHeight="71.0" prefWidth="273.0" />
                         <BorderPane layoutX="24.0" layoutY="14.0" prefHeight="212.0" prefWidth="250.0">
                            <center>
                               <Label id="textoMaquinaDeEscribir" fx:id="textoMaquinaDeEscribir" alignment="TOP_LEFT" prefHeight="178.0" prefWidth="207.0" text="&lt;TEXTO&gt;" wrapText="true" BorderPane.alignment="CENTER" />
