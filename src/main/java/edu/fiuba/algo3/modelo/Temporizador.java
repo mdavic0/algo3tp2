@@ -2,37 +2,45 @@ package edu.fiuba.algo3.modelo;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 public class Temporizador implements ITemporizador {
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
-    int horas_transcurridas;
-    int hora_inicial;
+    int horasTranscurridas;
+    int horaInicial;
+    private String fecha;
 
-    public Temporizador(int hora_inicial) {
-        this.hora_inicial = hora_inicial;
-        horas_transcurridas = 0;
+    public Temporizador(int horaInicial) {
+        this.horaInicial = horaInicial;
+        this.horasTranscurridas = 0;
+        this.fecha = DiccionarioDeDias.getById(0).dia().concat(", " + horaInicial + "hs");
     }
+
 
     @Override
     public int horaActual(){
-        return (hora_inicial + horas_transcurridas) % 24;
+        return (horaInicial + horasTranscurridas) % 24;
     }
 
     @Override
     public int horasTranscurridas(){
-        return horas_transcurridas;
+        return horasTranscurridas;
     }
 
-    private void aumentarHoraActual(int hora_a_agregar){
-        int hora_previa = horaActual();
-        int tiempo_transcurrido_previo = horasTranscurridas();
+    private void aumentarHoraActual(int aumento){
+        int horaPrevia = horaActual();
+        int tiempoTranscurridoPrevio = horasTranscurridas();
 
-        horas_transcurridas +=hora_a_agregar;
+        horasTranscurridas += aumento;
+
+        if((horaInicial + horasTranscurridas) > 24) this.actualizarFecha();
 
         PropertyChangeEvent eventoTiempoTranscurrido = new PropertyChangeEvent(this, 
             "horasTranscurridas", 
-            tiempo_transcurrido_previo,
+            tiempoTranscurridoPrevio,
             horasTranscurridas());
 
         for(PropertyChangeListener suscriptor : suscriptores){
@@ -41,7 +49,7 @@ public class Temporizador implements ITemporizador {
 
         PropertyChangeEvent eventoHora = new PropertyChangeEvent(this, 
             "horaActual", 
-            hora_previa, 
+            horaPrevia,
             horaActual());
           
         for(PropertyChangeListener suscriptor : suscriptores){
@@ -57,5 +65,15 @@ public class Temporizador implements ITemporizador {
     @Override
     public void agregarSuscriptor(PropertyChangeListener suscriptor){
         suscriptores.add(suscriptor);
+    }
+
+    public String fechaActual() {
+        return this.fecha;
+    }
+
+    private void actualizarFecha() {
+        int horasTotales = horaInicial + horasTranscurridas;
+        int diaActual = (horasTotales / 24) > 6 ? ((horasTotales / 24) % 7) : (horasTotales / 24);
+        this.fecha = DiccionarioDeDias.getById(diaActual).dia().concat(", " + horaActual() + "hs");
     }
 }
