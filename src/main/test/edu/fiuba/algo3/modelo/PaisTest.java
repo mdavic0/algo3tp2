@@ -26,14 +26,6 @@ public class PaisTest {
         assertTrue(colombia.sePuedeViajarA(argentina));
     }
 
-    @Test
-    public void obtenerMoneda() throws Exception {
-        Pais colombia = new Pais("Colombia", 4.570868, -74.297333); 
-        Pais argentina = new Pais("Argentina",  -38.416097, -63.616672);
-
-        assertEquals(colombia.moneda(), "Euro");
-        assertEquals(argentina.moneda(), "Euro");
-    }
 
     @Test
     public void paisSeCreaSinEdificios() throws Exception {

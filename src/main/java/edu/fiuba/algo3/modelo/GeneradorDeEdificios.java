@@ -3,15 +3,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class GeneradorDeEdificios implements IGeneradorDeEdificios{
-    private IRango rango;
-    private IRobo robo;
+    private final IRobo robo;
+    private final IDificultad dificultad;
 
     public GeneradorDeEdificios(IRobo robo, IRango rango) {
         this.robo = robo;
-        this.rango = rango;
+        this.dificultad = rango.obtenerDificultadPistas();
     }
 
-    public void crearEdificiosPara(List<IPais> paises, Robo robo, IDificultad IDificultad) throws Exception {
+    public void crearEdificiosPara(List<IPais> paises, Robo robo) {
         for(IPais p : paises){
                 if(!robo.viaSinInit.contains(p)) {
                     p.agregarEdificios(this.generarParaPaisDondeNoEstuvoLadron(p));
@@ -20,16 +20,18 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
                     p.agregarEdificios(this.generarParaPaisDondeEstaLadron(p));
                 }
                 else {
-                    p.agregarEdificios(this.generarParaPaisDondeEstuvoLadron(p, IDificultad));
+                    //OBS: ACA EN REALIDAD HAY QUE PASARLE EL PAIS AL QUE VA EL LADRON
+                    // YA QUE SE AGREGAN EDIFICIOS AL PAIS P, PERO LAS PISTAS SON SOBRE EL PAIS (P + 1)
+                    p.agregarEdificios(this.generarParaPaisDondeEstuvoLadron(p, robo.viaSinInit.get(robo.viaSinInit.indexOf(p) + 1)));
                 }
         };
     }
 
-    private List<IEdificio> generarParaPaisDondeEstuvoLadron(IPais pais, IDificultad IDificultad) throws Exception {
+    private List<IEdificio> generarParaPaisDondeEstuvoLadron(IPais paisActual, IPais paisSiguiente) {
         List<IEdificio> edificios = new ArrayList<IEdificio>();
-        edificios.add(new Edificio("Banco", pais, new EstuvoEnEdificio(IDificultad.crearPistaEconomica(pais, robo.obtenerLadron()))));
-        edificios.add(new Edificio("Aeropuerto", pais, new EstuvoEnEdificio(IDificultad.crearPistaDeViaje(pais, robo.obtenerLadron()))));
-        edificios.add(new Edificio("Museo", pais, new EstuvoEnEdificio(IDificultad.crearPistaHistorica(pais, robo.obtenerLadron()))));
+        edificios.add(new Edificio("Banco", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaEconomica(paisSiguiente, robo.obtenerLadron()))));
+        edificios.add(new Edificio("Aeropuerto", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaDeViaje(paisSiguiente, robo.obtenerLadron()))));
+        edificios.add(new Edificio("Museo", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaHistorica(paisSiguiente, robo.obtenerLadron()))));
         return edificios;
     }
 

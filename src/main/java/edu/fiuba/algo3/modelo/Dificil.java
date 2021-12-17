@@ -5,16 +5,17 @@ public class Dificil implements IDificultad {
 
     @Override
     public IPista crearPistaEconomica(IPais pais, Ladron ladron) {
-        return new PistaDeMoneda(pais.moneda());
+        return pais.crearPistaEconomica();
     }
 
     @Override
     public IPista crearPistaHistorica(IPais pais, Ladron ladron) {
-        return new PistaCompuesta(new PistaHistorica(pais.hechoHistorico()), ladron.crearPista());
+        return new PistaCompuesta(pais.crearPistaHistorica(), ladron.crearPista());
     }
 
     @Override
     public IPista crearPistaDeViaje(IPais pais, Ladron ladron) {
-        return new PistaDeContinente(pais.continente());
+        return pais.crearPistaDeViaje();
     }
+
 }

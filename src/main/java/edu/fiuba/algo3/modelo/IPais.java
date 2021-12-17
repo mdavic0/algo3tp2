@@ -21,13 +21,11 @@ public interface IPais {
 
     double distanciaA(IPais paisDestino);
 
-    String moneda();
-
     void agregarEdificios(List<IEdificio> generarParaPaisDondeNoEstuvoLadron);
 
-    String hechoHistorico();
+    Pista crearPistaEconomica();
 
-    String coloresDeBandera();
+    Pista crearPistaHistorica();
 
-    String continente();
+    Pista crearPistaDeViaje();
 }

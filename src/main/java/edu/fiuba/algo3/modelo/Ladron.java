@@ -50,30 +50,28 @@ public class Ladron {
     public Pista crearPista() {
         SplittableRandom aleatorio = new SplittableRandom();
         int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
-        String contenidoPista = "";
 
         //25% de probabilidad de que el contenido de la pista de ladron sea sobre alguna propiedad (Vehiculo, cabello, senia, hobby)
-        if(n <= 25 ) contenidoPista = this.crearPistaDeVehiculo();
-        if(n > 25 && n <= 50) contenidoPista = this.crearPistaDeCabello();
-        if(n > 50 && n <= 75) contenidoPista = this.crearPistaDeSenia();
-        if(n > 75) contenidoPista = this.crearPistaDeHobby();
+        if(n <= 25 ) return this.crearPistaDeVehiculo();
+        if(n <= 50) return this.crearPistaDeCabello();
+        if( n <= 75) return this.crearPistaDeSenia();
 
-        return new PistaDeLadron(contenidoPista);
+        return this.crearPistaDeHobby();
     }
 
-    private String crearPistaDeHobby() {
-        return "Dijo que le gustaba ".concat(this.hobby);
+    private Pista crearPistaDeHobby() {
+        return new PistaDeLadron("Dijo que le gustaba ".concat(this.hobby));
     }
 
-    private String crearPistaDeSenia() {
-        return "Tenia un ".concat(this.senia);
+    private Pista crearPistaDeSenia() {
+        return new PistaDeLadron("Tenia un ".concat(this.senia));
     }
 
-    private String crearPistaDeCabello() {
-        return "Su cabello era".concat(this.cabello);
+    private Pista crearPistaDeCabello() {
+        return new PistaDeLadron("Su cabello era".concat(this.cabello));
     }
 
-    private String crearPistaDeVehiculo() {
-        return "Llego conduciendo un ".concat(this.vehiculo);
+    private Pista crearPistaDeVehiculo() {
+        return new PistaDeLadron("Llego conduciendo un ".concat(this.vehiculo));
     }
 }

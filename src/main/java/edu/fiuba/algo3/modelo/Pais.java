@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.SplittableRandom;
 
 public class Pais implements IPais { 
     String nombre;
@@ -36,22 +37,6 @@ public class Pais implements IPais {
             e.asignarPais(this);
         }
         
-    }
-
-    //TODO: PAIS SE INICIALIZA CON SUS CARACTERISTICAS (BANDERA, HECHO HISTORICO, CONTINENTE, ETC)
-    @Override
-    public String hechoHistorico() {
-        return "";
-    }
-
-    @Override
-    public String coloresDeBandera() {
-        return "";
-    }
-
-    @Override
-    public String continente() {
-        return "";
     }
 
     public Boolean contieneEdificio(IEdificio edificio) {
@@ -96,13 +81,48 @@ public class Pais implements IPais {
         return dist;
     }
 
+    //TODO: PAIS SE INICIALIZA CON SUS CARACTERISTICAS (BANDERA, HECHO HISTORICO, CONTINENTE, MONEDA, ETC...) {SE LEE DE LOS JSON}
 
-    //public PaisSinPistas sinPistas() throws Exception {return new PaisSinPistas(this.nombre(), "Euro", latitud, longitud);}
-
-    @Override
-    public String moneda() {
-        return "Euro";
+    private String moneda() {
+        return "";
     }
 
-    //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra!";}
+    private String hechoHistorico() {
+        return "";
+    }
+
+    private String coloresDeBandera() {
+        return "";
+    }
+
+    private String continente() {
+        return "";
+    }
+
+    private String idioma() {
+        return "";
+    }
+
+    @Override
+    public Pista crearPistaEconomica() {
+        return new PistaDeMoneda(this.moneda());
+    }
+
+    @Override
+    public Pista crearPistaHistorica() {
+        return new PistaHistorica(this.hechoHistorico());
+    }
+
+    @Override
+    public Pista crearPistaDeViaje() {
+        SplittableRandom aleatorio = new SplittableRandom();
+        int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
+
+        //33% de probabilidad de que la pista de viaje sea sobre (bandera, continente o idioma)
+        if(n <= 33 ) return new PistaDeContinente(this.continente());
+        if(n <= 66) return new PistaDeIdioma(this.idioma());
+
+        return new PistaDeBandera(this.coloresDeBandera()); //==> 45% de que genere una pista de bandera
+    }
+
 }
