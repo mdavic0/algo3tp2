@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class DificultadMock implements Dificultad {
-    Valor v = new ValorMedio();
+    Valor v = new Comun();
 
     public DificultadMock() {}
     public DificultadMock(Valor v) {

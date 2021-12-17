@@ -14,7 +14,7 @@ public class LectorDeArchivo {
     }
     public List<Artefacto> obtenerArtefactos() {
         List<Artefacto> artefactos = new ArrayList<>();
-        Valor[] valores = {new ValorMedio(), new Valioso(), new MuyValioso()};
+        Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
 
         for(int j = 0; j < 3; j++) {
             Valor actual = valores[j];

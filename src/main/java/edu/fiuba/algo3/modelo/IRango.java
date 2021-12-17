@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.List;
+
 public interface IRango {
     double velocidadKmh();
 
@@ -10,4 +12,6 @@ public interface IRango {
     Valor generarValorDeArtefacto() ;
 
     void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador);
+
+    Artefacto generarArtefacto(List<Artefacto> artefactos);
 }
