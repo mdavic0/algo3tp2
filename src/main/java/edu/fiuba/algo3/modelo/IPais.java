@@ -25,5 +25,9 @@ public interface IPais {
 
     void agregarEdificios(List<IEdificio> generarParaPaisDondeNoEstuvoLadron);
 
-    //Object hechoHistorico();
+    String hechoHistorico();
+
+    String coloresDeBandera();
+
+    String continente();
 }

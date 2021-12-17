@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public class Novato implements IRango {
     double velocidadKmh;
-    Dificultad dificultad;
+    IDificultad IDificultad;
 
     public Novato(){
         this.velocidadKmh = 900;
-        this.dificultad = new Facil();
+        this.IDificultad = new Facil();
     }
 
     @Override
@@ -20,8 +20,8 @@ public class Novato implements IRango {
     }
 
     @Override
-    public Dificultad obtenerDificultadPistas(){
-        return dificultad;
+    public IDificultad obtenerDificultadPistas(){
+        return IDificultad;
     }
 
     @Override

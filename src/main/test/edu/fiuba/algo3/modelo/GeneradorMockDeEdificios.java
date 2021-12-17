@@ -11,7 +11,7 @@ public class GeneradorMockDeEdificios implements IGeneradorDeEdificios {
     }
 
     @Override
-    public void crearEdificiosPara(List<IPais> paises, Robo robo, Dificultad d) throws Exception {
+    public void crearEdificiosPara(List<IPais> paises, Robo robo, IDificultad d) throws Exception {
         
     }
     

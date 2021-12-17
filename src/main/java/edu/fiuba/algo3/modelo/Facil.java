@@ -1,27 +1,22 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
-import edu.fiuba.algo3.modelo.excepciones.PistaException;
+public class Facil implements IDificultad {
 
-public class Facil implements Dificultad {
+    //Las pistas para una Dificultad Facil, daran en todos los casos una Pista de X tipo y una PistaDeLadron
 
     @Override
-    public Pista crearPistaEconomica(IPais pais) {
-        return new PistaDeMoneda(pais.moneda());
+    public IPista crearPistaEconomica(IPais pais, Ladron ladron) {
+        return new PistaCompuesta(new PistaDeMoneda(pais.moneda()), ladron.crearPista());
     }
 
     @Override
-    public Pista crearPistaDeLectura(IPais pais) throws AlgoThiefException {
-        throw new PistaException("No hay pistas fáciles para este tipo de edificio");
+    public IPista crearPistaHistorica(IPais pais, Ladron ladron) {
+        return new PistaCompuesta(new PistaHistorica(pais.hechoHistorico()), ladron.crearPista());
     }
 
     @Override
-    public Pista crearPistaDeViaje(IPais pais) throws AlgoThiefException {
-        throw new PistaException("No hay pistas fáciles para este tipo de edificio");
+    public IPista crearPistaDeViaje(IPais pais, Ladron ladron) {
+        return new PistaCompuesta(new PistaDeBandera(pais.coloresDeBandera()), ladron.crearPista());
     }
 
-    @Override
-    public Pista crearPistaDeLadron(IRobo robo) {
-        return new PistaDeLadron("Tenía un tatuaje");
-    }
 }

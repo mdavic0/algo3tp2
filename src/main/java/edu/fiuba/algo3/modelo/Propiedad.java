@@ -8,14 +8,17 @@ public class Propiedad {
         this.tipo = tipo;
         this.contenido = contenido;
     }
+
     boolean coincidencia(Propiedad otraPropiedad) {
         return 
             otraPropiedad.tipo() == this.tipo 
             && otraPropiedad.contenido() == this.contenido;
-        }
+    }
+
     public String contenido() {
         return contenido;
     }
+
     public String tipo() {
         return tipo;
     }

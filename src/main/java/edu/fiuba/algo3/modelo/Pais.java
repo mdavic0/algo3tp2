@@ -37,7 +37,23 @@ public class Pais implements IPais {
         }
         
     }
-    
+
+    //TODO: PAIS SE INICIALIZA CON SUS CARACTERISTICAS (BANDERA, HECHO HISTORICO, CONTINENTE, ETC)
+    @Override
+    public String hechoHistorico() {
+        return "";
+    }
+
+    @Override
+    public String coloresDeBandera() {
+        return "";
+    }
+
+    @Override
+    public String continente() {
+        return "";
+    }
+
     public Boolean contieneEdificio(IEdificio edificio) {
         return edificios.contains(edificio);
     }

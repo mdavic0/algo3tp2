@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public class Sargento implements IRango {
     double velocidadKmh;
-    Dificultad dificultad;
+    IDificultad IDificultad;
 
     public Sargento(){
         this.velocidadKmh = 1500;
-        this.dificultad = new Dificil();
+        this.IDificultad = new Dificil();
     }
 
     @Override
@@ -20,8 +20,8 @@ public class Sargento implements IRango {
     }
 
     @Override
-    public Dificultad obtenerDificultadPistas(){
-        return dificultad;
+    public IDificultad obtenerDificultadPistas(){
+        return IDificultad;
     }
 
     @Override

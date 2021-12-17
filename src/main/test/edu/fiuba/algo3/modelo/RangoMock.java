@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 
 public class RangoMock implements IRango{
     Valor valor;
-    Dificultad dificultad = new Facil();
+    IDificultad IDificultad = new Facil();
 
     public RangoMock(Valor valor) {
         this.valor = valor;
     }
 
-    public RangoMock(Dificultad dificultad) {
-        this.dificultad = dificultad;
+    public RangoMock(IDificultad IDificultad) {
+        this.IDificultad = IDificultad;
     }
 
     @Override
@@ -22,8 +22,8 @@ public class RangoMock implements IRango{
     }
 
     @Override
-    public Dificultad obtenerDificultadPistas() {
-        return dificultad;
+    public IDificultad obtenerDificultadPistas() {
+        return IDificultad;
     }
 
     @Override

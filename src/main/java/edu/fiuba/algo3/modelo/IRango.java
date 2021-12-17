@@ -5,7 +5,7 @@ import java.util.List;
 public interface IRango {
     double velocidadKmh();
 
-    Dificultad obtenerDificultadPistas();
+    IDificultad obtenerDificultadPistas();
 
     IRango subirRango(int cantidadDeArrestos);
 

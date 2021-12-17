@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public class Investigador implements IRango {
     double velocidadKmh;
-    Dificultad dificultad;
+    IDificultad IDificultad;
 
     public Investigador(){
         this.velocidadKmh = 1300;
-        this.dificultad = new Media();
+        this.IDificultad = new Media();
     }
 
     @Override
@@ -20,8 +20,8 @@ public class Investigador implements IRango {
     }
 
     @Override
-    public Dificultad obtenerDificultadPistas(){
-        return dificultad;
+    public IDificultad obtenerDificultadPistas(){
+        return IDificultad;
     }
 
     @Override

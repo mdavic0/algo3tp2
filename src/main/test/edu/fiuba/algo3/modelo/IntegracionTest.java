@@ -18,10 +18,10 @@ public class IntegracionTest {
         Policia paco = new Policia();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
         List<IPais> paises =  lector.obtenerPaises();
-        Robo robo = gRobo.generarRobo(paco.rango, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
+        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
         assertEquals(robo.viaSinInit.size(), 4);
 
-        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, t, paco.rango);
+        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, paco.rango);
         genEdificios.crearEdificiosPara(paises, robo, paco.rango.obtenerDificultadPistas());
         assertEquals( 3 ,robo.primerPais().edificios().size());
 

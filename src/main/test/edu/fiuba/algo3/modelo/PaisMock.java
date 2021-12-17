@@ -73,6 +73,21 @@ public class PaisMock implements IPais {
         }
     }
 
+    @Override
+    public String hechoHistorico() {
+        return "";
+    }
+
+    @Override
+    public String coloresDeBandera() {
+        return "";
+    }
+
+    @Override
+    public String continente() {
+        return "";
+    }
+
 
     //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra";}
 }

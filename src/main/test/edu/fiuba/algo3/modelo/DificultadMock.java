@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class DificultadMock implements Dificultad {
+public class DificultadMock implements IDificultad {
     Valor v = new Comun();
 
     public DificultadMock() {}
@@ -10,20 +10,19 @@ public class DificultadMock implements Dificultad {
     public Valor generarValorDeArtefacto() {
         return v;
     }
+
     @Override
-    public IPista crearPistaEconomica(IPais pais) {
+    public IPista crearPistaEconomica(IPais pais, Ladron ladron) {
         return new PistaMock("Pista!");
     }
+
     @Override
-    public IPista crearPistaDeLectura(IPais pais) {
+    public IPista crearPistaHistorica(IPais pais, Ladron ladron) {
         return new PistaMock("Pista!");
     }
+
     @Override
-    public IPista crearPistaDeViaje(IPais pais) {
-        return new PistaMock("Pista!");
-    }
-    @Override
-    public IPista crearPistaDeLadron(IRobo robo) {
+    public IPista crearPistaDeViaje(IPais pais, Ladron ladron) {
         return new PistaMock("Pista!");
     }
 }
