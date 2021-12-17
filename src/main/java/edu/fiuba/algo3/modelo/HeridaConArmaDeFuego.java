@@ -1,14 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class HeridaConArmaDeFuego implements IActividad {
-    int duracion;
+public class HeridaConArmaDeFuego extends Actividad {
+
     public HeridaConArmaDeFuego() {
         this.duracion = 4; //4hs cada vez.
     }
 
-
-    @Override
-    public void reportar(ITemporizador temporizador) {
-        temporizador.reportarActividad(this.duracion);
-    }
 }

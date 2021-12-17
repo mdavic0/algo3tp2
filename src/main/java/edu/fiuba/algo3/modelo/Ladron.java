@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ladron {
 
@@ -47,5 +46,32 @@ public class Ladron {
     public String nombre() {
         return nombre;
     }
-    
+
+    public Pista crearPista() {
+        SplittableRandom aleatorio = new SplittableRandom();
+        int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
+
+        //25% de probabilidad de que el contenido de la pista de ladron sea sobre alguna propiedad (Vehiculo, cabello, senia, hobby)
+        if(n <= 25 ) return this.crearPistaDeVehiculo();
+        if(n <= 50) return this.crearPistaDeCabello();
+        if( n <= 75) return this.crearPistaDeSenia();
+
+        return this.crearPistaDeHobby();
+    }
+
+    private Pista crearPistaDeHobby() {
+        return new PistaDeLadron("Dijo que le gustaba ".concat(this.hobby));
+    }
+
+    private Pista crearPistaDeSenia() {
+        return new PistaDeLadron("Tenia un ".concat(this.senia));
+    }
+
+    private Pista crearPistaDeCabello() {
+        return new PistaDeLadron("Su cabello era".concat(this.cabello));
+    }
+
+    private Pista crearPistaDeVehiculo() {
+        return new PistaDeLadron("Llego conduciendo un ".concat(this.vehiculo));
+    }
 }

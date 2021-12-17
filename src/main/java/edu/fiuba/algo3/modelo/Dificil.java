@@ -1,25 +1,21 @@
 package edu.fiuba.algo3.modelo;
 
-public class Dificil implements Dificultad {
+public class Dificil implements IDificultad {
+    //Las pistas para una Dificultad Dificil, daran en todos los casos una Pista de X tipo y en algunos casos una PistaDeLadron
 
     @Override
-    public Pista crearPistaEconomica(IPais pais) {
-        return new PistaDeFuenteDeIngreso("el turismo");
+    public IPista crearPistaEconomica(IPais pais, Ladron ladron) {
+        return pais.crearPistaEconomica();
     }
 
     @Override
-    public Pista crearPistaDeLectura(IPais pais) {
-        return new PistaHistorica("Pista dificil historica");
+    public IPista crearPistaHistorica(IPais pais, Ladron ladron) {
+        return new PistaCompuesta(pais.crearPistaHistorica(), ladron.crearPista());
     }
 
     @Override
-    public Pista crearPistaDeViaje(IPais pais) {
-        return new PistaDeContinente("El continente");
+    public IPista crearPistaDeViaje(IPais pais, Ladron ladron) {
+        return pais.crearPistaDeViaje();
     }
 
-    @Override
-    public Pista crearPistaDeLadron(IRobo robo) {
-        // TODO Auto-generated method stub
-        return new PistaDeLadron("Bien feo ese ladron");
-    }
 }

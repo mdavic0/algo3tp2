@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Viajar implements IActividad {
-    int duracion;
+public class Viajar extends Actividad {
 
     public Viajar(IPais paisOrigen, IPais paisDestino , double velocidadKmh){
         double distancia = calcularDistancia(paisOrigen, paisDestino);
@@ -12,8 +11,4 @@ public class Viajar implements IActividad {
         return paisOrigen.distanciaA(paisDestino);
     }
 
-    @Override
-    public void reportar(ITemporizador temporizador) {
-        temporizador.reportarActividad(this.duracion);
-    }
 }

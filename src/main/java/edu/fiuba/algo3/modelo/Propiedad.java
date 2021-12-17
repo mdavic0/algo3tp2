@@ -8,6 +8,7 @@ public class Propiedad {
         this.tipo = tipo;
         this.contenido = contenido;
     }
+
     boolean coincidencia(Propiedad otraPropiedad) {
         return 
             otraPropiedad.esDeTipo(this.tipo)

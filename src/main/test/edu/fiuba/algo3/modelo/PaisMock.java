@@ -57,14 +57,6 @@ public class PaisMock implements IPais {
         return 0;
     }
 
-
-    //public PaisSinPistas sinPistas() throws Exception {return new PaisSinPistas(nombre, "Euro", 0, 0);}
-
-    @Override
-    public String moneda() {
-        return "Euro";
-    }
-
     @Override
     public void agregarEdificios(List<IEdificio> edificios) {
         for (IEdificio e : edificios) {
@@ -73,6 +65,40 @@ public class PaisMock implements IPais {
         }
     }
 
+    private String moneda() {
+        return "";
+    }
 
-    //public Object hechoHistorico() {return "Este pais fue invadido por Inglaterra";}
+    private String hechoHistorico() {
+        return "";
+    }
+
+    private String coloresDeBandera() {
+        return "";
+    }
+
+    private String continente() {
+        return "";
+    }
+
+    private String idioma() {
+        return "";
+    }
+
+    @Override
+    public Pista crearPistaEconomica() {
+        return new PistaDeLadron("");
+    }
+
+    @Override
+    public Pista crearPistaHistorica() {
+        return new PistaDeLadron("");
+    }
+
+    @Override
+    public Pista crearPistaDeViaje() {
+        return new PistaDeLadron("");
+    }
+
+
 }

@@ -8,7 +8,7 @@ public class ActividadTest {
     @Test
     public void DormirCausaUnIncrementoHorarioDe8hs() throws Exception {
         Temporizador temporizador = new Temporizador(0);
-         IActividad actividad = new Dormir();
+         Actividad actividad = new Dormir();
 
          actividad.reportar(temporizador);
 
@@ -18,7 +18,7 @@ public class ActividadTest {
      @Test
      public void EmitirOrdenDeArrestoCausaUnIncrementoHorarioDe3hs() throws Exception {
          Temporizador temporizador = new Temporizador(0);
-         IActividad actividad = new EmitirOrdenDeArresto();
+         Actividad actividad = new EmitirOrdenDeArresto();
 
          actividad.reportar(temporizador);
 
@@ -29,15 +29,15 @@ public class ActividadTest {
     public void EntrarAEdificioCausaUnIncrementoHorarioDe1hLaPrimeraVez2hsLaSegundaYLuegoSiempre3hs() throws Exception {
         Temporizador temporizador = new Temporizador(0);
 
-        IActividad actividad = new EntrarAEdificio(1);
+        Actividad actividad = new EntrarAEdificio(1);
         actividad.reportar(temporizador);
         assertEquals(1, temporizador.horasTranscurridas());
 
-        IActividad actividad2 = new EntrarAEdificio(2);
+        Actividad actividad2 = new EntrarAEdificio(2);
         actividad2.reportar(temporizador);
         assertEquals(1 + 2, temporizador.horasTranscurridas());
 
-        IActividad actividad3 = new EntrarAEdificio(3);
+        Actividad actividad3 = new EntrarAEdificio(3);
         actividad3.reportar(temporizador);
         assertEquals(1 + 2 + 3, temporizador.horasTranscurridas());
 
@@ -46,7 +46,7 @@ public class ActividadTest {
     @Test
     public void HeridaConArmaDeFuegoCausaUnIncrementoHorarioDe4hs() throws Exception {
         Temporizador temporizador = new Temporizador(0);
-        IActividad actividad = new HeridaConArmaDeFuego();
+        Actividad actividad = new HeridaConArmaDeFuego();
 
         actividad.reportar(temporizador);
 
@@ -57,15 +57,15 @@ public class ActividadTest {
     public void HeridaConCuchilloCausaUnIncrementoHorarioDe2hsLaPrimeraVezY1hsLasProximasVeces() throws Exception {
         Temporizador temporizador = new Temporizador(0);
 
-        IActividad actividad = new HeridaConCuchillo(1);
+        Actividad actividad = new HeridaConCuchillo(1);
         actividad.reportar(temporizador);
         assertEquals(2, temporizador.horasTranscurridas());
 
-        IActividad actividad2 = new HeridaConCuchillo(2);
+        Actividad actividad2 = new HeridaConCuchillo(2);
         actividad2.reportar(temporizador);
         assertEquals(2 + 1, temporizador.horasTranscurridas());
 
-        IActividad actividad3 = new HeridaConCuchillo(3);
+        Actividad actividad3 = new HeridaConCuchillo(3);
         actividad3.reportar(temporizador);
         assertEquals(2 + 1 + 1, temporizador.horasTranscurridas());
     }
@@ -81,7 +81,7 @@ public class ActividadTest {
 
         Temporizador temporizador = new Temporizador(0);
         double velocidadKmh = 1000.0;
-        IActividad actividad = new Viajar(colombia, argentina, velocidadKmh);
+        Actividad actividad = new Viajar(colombia, argentina, velocidadKmh);
         actividad.reportar(temporizador);
 
         assertEquals(distanciaEsperada/velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs

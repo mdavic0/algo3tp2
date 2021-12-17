@@ -1,4 +1,4 @@
-![tp2](https://github.com/mdavic0/algo3tp2/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/mdavic0/algo3tp2/branch/master/graph/badge.svg)](https://app.codecov.io/gh/mdavic0/algo3tp2)
+![tp2](https://github.com/mdavic0/algo3tp2/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/mdavic0/algo3tp2/branch/master/graph/badge.svg?token=D9RY9RTNFA)](https://codecov.io/gh/mdavic0/algo3tp2)
 
 # TP2 Algoritmos 3: Algo-thief
 

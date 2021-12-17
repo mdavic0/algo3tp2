@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class Valioso implements Valor{
+public class Valioso extends Valor{
 
-    @Override
-    public int cantidadDePaises() {
-        return 5;
+    public Valioso() {
+        this.cantidadPaises = 5;
     }
+
 }

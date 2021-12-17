@@ -20,22 +20,22 @@ public class GeneradorDeRoboTest {
         
     }
     @Test
-    public void testCrearRoboDeObjetoValorMedio() throws Exception {
+    public void testCrearRoboDeObjetoValorComun() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new ValorMedio()), 
+                new RangoMock(new Comun()),
                 new LectorDeArchivo().obtenerArtefactos(), 
                 new LectorDeArchivo().obtenerPaises(), 
                 new LectorDeArchivo().obtenerLadrones());
                      
-        assertEquals(ValorMedio.class , robo.artefacto.valor().getClass());
+        assertEquals(Comun.class , robo.artefacto.valor().getClass());
         
     }
     @Test
     public void testCrearRoboDeObjetoMuyValioso() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Sargento(), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new RangoMock(new MuyValioso()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
                 
         assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
@@ -53,7 +53,7 @@ public class GeneradorDeRoboTest {
     public void testObjetoValorMedioImplica4PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new ValorMedio()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new RangoMock(new Comun()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
                     
         assertEquals(4 , robo.viaSinInit.size());
         
@@ -75,10 +75,10 @@ public class GeneradorDeRoboTest {
         paises.add(new PaisMock("Zimbabwe4"));
         paises.add(new PaisMock("República checa4"));
         List<Artefacto> artefactos = new ArrayList<Artefacto>();
-        artefactos.add(new Artefacto("Las pirámides", new ValorMedio()));
+        artefactos.add(new Artefacto("Las pirámides", new Comun()));
         List<Ladron> ladrones = new ArrayList<Ladron>();
         ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita", "Danza"));
-        Robo robo = gRobo.generarRobo(new RangoMock(new ValorMedio()), artefactos, paises, ladrones);
+        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises, ladrones);
         assertEquals(robo.viaSinInit.size(), 4);
         assertTrue(paises.containsAll(robo.viaSinInit));
         
