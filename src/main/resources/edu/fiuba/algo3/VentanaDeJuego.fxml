@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaPais">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -16,7 +16,7 @@
                     <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                             <children>
-                                <Label layoutX="83.0" layoutY="-1.0" text="Nombre del Lugar">
+                                <Label fx:id="nombreLugar" layoutX="83.0" layoutY="-1.0" text="Nombre del Lugar">
                            <font>
                               <Font size="20.0" />
                            </font></Label>
@@ -48,12 +48,12 @@
                         </Label>
                         <Button layoutX="14.0" layoutY="216.0" mnemonicParsing="false" text="Anotar" />
                      </children></AnchorPane>
-                        <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="300.0">
+                        <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>
                                 <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Investigar" />
                         <Button layoutX="80.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Consultar la Interpol" />
                         <Button layoutX="80.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Viajar" />
-                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" prefWidth="140.0" text="Ver posibles destinos" />
+                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="140.0" text="Ver posibles destinos" />
                      </children></AnchorPane>
                     </items>
                 </SplitPane>
