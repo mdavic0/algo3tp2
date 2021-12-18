@@ -14,29 +14,39 @@
             <Image url="@Fondo.jpg" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="90.0">
+      <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="376.0" spacing="80.0">
          <children>
-            <Label fx:id="versionJava">
+            <Label fx:id="tpAlgoThief" text="aaaaaaaaa">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="versionJavaFX">
+            <Label fx:id="versionJava" text="aaaa" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="desarrolladores">
+            <Label fx:id="versionJavaFX" text="aaaaa" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ImageView accessibleRole="BUTTON" fitHeight="34.0" fitWidth="34.0" onMouseClicked="#botonRegresar" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@volver.png" />
-               </image>
-            </ImageView>
+            <Label fx:id="desarrolladores" text="aaaaa" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
+      <ImageView accessibleRole="BUTTON" fitHeight="50.0" fitWidth="100.0" layoutX="355.0" layoutY="536.0" nodeOrientation="INHERIT" onMouseClicked="#botonRegresar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Volver.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="528.0" fitWidth="376.0" layoutX="410.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Carmen-Sandiego-Character-Art.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
