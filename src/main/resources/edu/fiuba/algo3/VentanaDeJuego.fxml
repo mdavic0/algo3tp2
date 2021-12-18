@@ -20,7 +20,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Label>
-                                <Label layoutX="125.0" layoutY="28.0" text="Dia, hora" />
+                                <Label fx:id="diaYHora" layoutX="125.0" layoutY="28.0" text="Dia, hora" />
                             </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="340.0" maxWidth="300.0" minHeight="340.0" minWidth="300.0" prefHeight="340.0" prefWidth="300.0">
@@ -41,7 +41,7 @@
                     <items>
                         <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="300.0">
                      <children>
-                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="266.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
+                        <Label fx:id="descripcionPais" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="266.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
                            <font>
                               <Font size="15.0" />
                            </font>

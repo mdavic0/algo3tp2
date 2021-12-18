@@ -49,7 +49,7 @@ public class ControladorVentanaInicio  implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
         Scene escenaActual = inputJugador.getScene();
         escenaActual.setRoot(fxmlLoader.load());
-        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, robo);
+        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, robo, estado, t);
     }
 
     public void imprimirTextoPolicia (Policia policia){
