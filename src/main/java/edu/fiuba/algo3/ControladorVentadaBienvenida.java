@@ -23,11 +23,8 @@ public class ControladorVentadaBienvenida implements Initializable {
 
     public void botonJugar() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeInicio" + ".fxml"));
-        Parent loaded;
-        
-        loaded = fxmlLoader.load();
         Scene escenaActual = raiz.getScene();
-        escenaActual.setRoot(loaded);
+        escenaActual.setRoot(fxmlLoader.load());
         //((ControladorVentanaInicio)fxmlLoader.getController()).inicializar(???);
     }
 
