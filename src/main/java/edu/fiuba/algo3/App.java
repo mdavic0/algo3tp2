@@ -16,7 +16,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(VentanaDePrueba.class.getResource("VentanaDeCreditos" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(VentanaDePrueba.class.getResource("VentanaDeBienvenida" + ".fxml"));
         stage.setTitle("");
         stage.setScene(new Scene (fxmlLoader.load()));
         stage.setResizable(false);

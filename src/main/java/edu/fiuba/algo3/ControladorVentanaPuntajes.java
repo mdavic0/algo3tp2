@@ -1,8 +1,11 @@
 package edu.fiuba.algo3;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControladorVentanaPuntajes  implements Initializable {
+    @FXML
+    public AnchorPane raiz;
 
     @FXML
     public Label puntajesMasAltos;
@@ -20,8 +25,10 @@ public class ControladorVentanaPuntajes  implements Initializable {
         puntajesMasAltos.setText(this.leerArchivo());
     }
 
-    public void botonRegresar() {
-        System.out.print("Regresar");
+    public void botonRegresar() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeBienvenida" + ".fxml"));
+        Scene escenaActual = raiz.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
     private String leerArchivo(){
