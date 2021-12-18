@@ -32,7 +32,9 @@ public class ControladorVentanaPais{
     @FXML
     public Label descripcionPais;
     @FXML
-    public AnchorPane contenedorDerecha;
+    public SplitPane contenedorDerecha;
+    @FXML
+    public SplitPane raiz;
 
     public void inicializar(Policia policia, Robo robo, EstadoDeJuego estado, Temporizador t) {
         this.policia = policia;
@@ -46,9 +48,21 @@ public class ControladorVentanaPais{
     } 
     
     public void investigar(){
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
+        raiz.getItems().remove(0, raiz.getItems().size());
         try {
-            contenedorDerecha.getChildren().add(fxmlLoader.load());
+            raiz.getItems().add(fxmlLoader.load());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+    
+    public void anotar(){
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
+        try {
+            contenedorDerecha.getItems().add(fxmlLoader.load());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
