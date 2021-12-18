@@ -43,9 +43,13 @@ public class ControladorVentanaInicio  implements Initializable{
     } 
 
     private void abrirVentanaJuego(KeyEvent event, Robo robo, Policia policia) throws IOException {
+        EstadoDeJuego estado = new EstadoDeJuego();
+        Temporizador t = new Temporizador(9);
+        policia.asignarCaso(robo.lugarDeRobo(), estado, t);
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
         Scene escenaActual = inputJugador.getScene();
         escenaActual.setRoot(fxmlLoader.load());
+        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, robo);
     }
 
     public void imprimirTextoPolicia (Policia policia){
