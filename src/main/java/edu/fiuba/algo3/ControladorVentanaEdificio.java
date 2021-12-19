@@ -63,13 +63,14 @@ public class ControladorVentanaEdificio{
     } 
     
     public void regresar(){
+        try {
+
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
         for(Node node : raiz.getItems()){
             node.setVisible(false);
         }
-        try {
             raiz.getItems().add(fxmlLoader.load());
-        } catch (IOException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
@@ -83,7 +84,7 @@ public class ControladorVentanaEdificio{
         try {
             notas = fxmlLoader.load();
             contenedorDerecha.getItems().add(notas);
-        } catch (IOException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
