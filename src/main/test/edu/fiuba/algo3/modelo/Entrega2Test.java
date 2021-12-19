@@ -39,6 +39,12 @@ public class Entrega2Test {
         paises.add(montreal);
         paises.add(mexico);
         paises.add(austria);
+        paises.add(new Pais("Austria", 0, 0));
+        paises.add(new Pais("Austria", 0, 0));
+        paises.add(new Pais("Austria", 0, 0));
+        paises.add(new Pais("Austria", 0, 0));
+        paises.add(new Pais("Austria", 0, 0));
+        paises.add(new Pais("Austria", 0, 0));
 
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
@@ -130,6 +136,9 @@ public class Entrega2Test {
         List<IPais> paises = new ArrayList<IPais>();
         paises.add(peru);
         paises.add(mexico);
+        paises.add(new PaisMock("Venezuela"));
+        paises.add(new PaisMock("Venezuela"));
+        paises.add(new PaisMock("Venezuela"));
         paises.add(new PaisMock("Venezuela"));
 
         Artefacto mascara = new Artefacto("Incan Gold Mask", new MuyValioso());

@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 
 
-public class ControladorVentanaOpcionesEdificios {
+public class ControladorVentanaOpcionesPais {
     @FXML
     public Button opcion1;
     @FXML
@@ -28,22 +28,26 @@ public class ControladorVentanaOpcionesEdificios {
     private Policia paco;
     private List<FXMLLoader> vistasEdificios;
     
-    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasEdificios){
+    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasPaises){
         this.paco = paco;
-        this.vistasEdificios = vistasEdificios;
-        List<IEdificio> edificios = pais.edificios();
+        this.vistasEdificios = vistasPaises;
+        List<IPais> paises = paco.paisActual().obtenerAdyacentes();
+        Button[] botones = {opcion1, opcion2, opcion3};
 
-        atarBotonAEdificio(edificios.get(0), opcion1, vistasEdificios.get(0));
+        for(int i = 0; i < paises.size(); i++){
+            atarBotonAPais(paises.get(i), botones[i], vistasEdificios.get(i));
+        }
+        
     }
 
-    void atarBotonAEdificio(IEdificio edificio, Button boton, FXMLLoader vista){
-        boton.setText(edificio.nombre());
-        boton.setOnAction(a -> entrarA(edificio, vista));
+    void atarBotonAPais(IPais pais, Button boton, FXMLLoader vista){
+        boton.setText(pais.nombre());
+        boton.setOnAction(a -> entrarA(pais, vista));
     }
 
-    void entrarA(IEdificio edificio, FXMLLoader ventanaCargada){
+    void entrarA(IPais pais, FXMLLoader ventanaCargada){
         try {
-            ((ControladorVentanaEdificio)ventanaCargada.getController()).notificarEntrada();
+            ((ControladorVentanaPais)ventanaCargada.getController()).notificarLlegada();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);

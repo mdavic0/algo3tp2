@@ -21,11 +21,13 @@ public interface IPais {
 
     double distanciaA(IPais paisDestino);
 
-    void agregarEdificios(List<IEdificio> generarParaPaisDondeNoEstuvoLadron);
+    void agregarEdificios(List<IEdificio> edificios);
 
     Pista crearPistaEconomica();
 
     Pista crearPistaHistorica();
 
     Pista crearPistaDeViaje();
+
+    List<IPais> obtenerAdyacentes();
 }

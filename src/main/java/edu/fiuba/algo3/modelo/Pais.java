@@ -125,4 +125,9 @@ public class Pais implements IPais {
         return new PistaDeBandera(this.coloresDeBandera()); //==> 45% de que genere una pista de bandera
     }
 
+    @Override
+    public List<IPais> obtenerAdyacentes() {
+        return adyacentes;
+    }
+
 }

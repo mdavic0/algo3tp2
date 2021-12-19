@@ -17,8 +17,8 @@ public class Robo implements IRobo {
     } 
 
     private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws Exception {
-        if (via.size() >= paisesPosibles.size()) 
-            throw new Exception("Necesito más paises incorrectos que correctos para generar el juego!");
+        if (paisesPosibles.size() < 3 * via.size()) 
+            throw new Exception("Necesito el doble de paises incorrectos vs. correctos para generar el robo!");
 
         //TODO conectar paises bidireccionalmente
         IntStream.range(0,via.size()-1).forEach(
@@ -31,10 +31,12 @@ public class Robo implements IRobo {
         IntStream
             .range(0, via.size())
             .forEach(i -> 
-                via.get(i).conectarA(
-                    paisesIncorrectos.get(i % paisesIncorrectos.size())
-                )
-            );
+                {
+                    via.get(i).conectarA(
+                        paisesIncorrectos.get(2*i));
+                    via.get(i).conectarA(
+                        paisesIncorrectos.get(2*i + 1));
+                });
     }
 
     //TODO: implementar rango

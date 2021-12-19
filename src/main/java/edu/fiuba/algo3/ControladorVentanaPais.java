@@ -94,8 +94,37 @@ public class ControladorVentanaPais {
         }
         vistasEdificios.add(ventanaEdificio);
         ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController())
-            .inicializar(policia, policia.paisActual(), fxmlLoader, selfLoader, vistasEdificios);
-        
+            .inicializar(policia, policia.paisActual(), vistasEdificios);
+    }
+
+    public void viajar(){
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesViaje" + ".fxml"));
+        try {
+            raiz.getScene().setRoot(fxmlLoader.load());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+        List<FXMLLoader> vistasPaises = new ArrayList<FXMLLoader>();
+        FXMLLoader ventanaPais = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
+        try {
+            ventanaPais.load();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            ((ControladorVentanaPais) ventanaPais.getController())
+                .inicializar(policia, robo, estado, t, ventanaPais);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        vistasPaises.add(ventanaPais);
+        ((ControladorVentanaOpcionesPais)fxmlLoader.getController())
+            .inicializar(policia, policia.paisActual(), vistasPaises);
     }
     
     public void anotar(){
@@ -108,5 +137,8 @@ public class ControladorVentanaPais {
             e.printStackTrace();
             System.exit(0);
         }
+    }
+
+    public void notificarLlegada() {
     }
 }

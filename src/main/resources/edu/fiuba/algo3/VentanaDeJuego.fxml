@@ -52,7 +52,7 @@
                      <children>
                                 <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#investigar" prefHeight="25.0" prefWidth="140.0" text="Investigar" />
                         <Button layoutX="80.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Consultar la Interpol" />
-                        <Button layoutX="80.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Viajar" />
+                        <Button layoutX="80.0" layoutY="70.0" mnemonicParsing="false" onAction="#viajar" prefHeight="25.0" prefWidth="140.0" text="Viajar" />
                         <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="140.0" text="Ver posibles destinos" />
                      </children></AnchorPane>
                     </items>

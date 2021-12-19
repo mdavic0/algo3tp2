@@ -100,5 +100,10 @@ public class PaisMock implements IPais {
         return new PistaDeLadron("");
     }
 
+    @Override
+    public List<IPais> obtenerAdyacentes() {
+        return adyacentes;
+    }
+
 
 }

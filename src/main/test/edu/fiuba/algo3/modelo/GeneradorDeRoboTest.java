@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -80,6 +81,8 @@ public class GeneradorDeRoboTest {
         ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita", "Danza"));
         Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises, ladrones);
         assertEquals(robo.viaSinInit.size(), 4);
+        assertFalse(robo.lugarDeRobo().obtenerAdyacentes().contains(robo.lugarDeRobo()));
+        assertEquals(3, robo.lugarDeRobo().obtenerAdyacentes().size());
         assertTrue(paises.containsAll(robo.viaSinInit));
         
     }

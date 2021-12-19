@@ -12,7 +12,7 @@ public class RoboTest {
     public void testInicializarRoboConGenerador() throws Exception { 
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 2), 
-            lector.obtenerPaises().subList(0, 3), 
+            lector.obtenerPaises().subList(0, 6), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
         
@@ -20,14 +20,14 @@ public class RoboTest {
             robo.reportarRobo("Detective"));
         
         assertNotEquals(robo.lugarDeRobo(), null);
-        assertEquals(robo.lugarDeRobo().nombre(), "Francia");
+        assertEquals(robo.lugarDeRobo().nombre(), "Francia0");
     }
 
     @Test
     public void testInicializarRoboSinGenerador() throws Exception { 
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 2), 
-            lector.obtenerPaises().subList(0, 3), 
+            lector.obtenerPaises().subList(0, 6), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
         
@@ -40,7 +40,7 @@ public class RoboTest {
     public void crearRoboConGenerador() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 2), 
-            lector.obtenerPaises().subList(0, 3), 
+            lector.obtenerPaises().subList(0, 6), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
@@ -57,7 +57,7 @@ public class RoboTest {
     public void generarPistaParaPais() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 2), 
-            lector.obtenerPaises().subList(0, 3), 
+            lector.obtenerPaises().subList(0, 6), 
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 
@@ -70,7 +70,7 @@ public class RoboTest {
     public void generarPistaParaLadron() throws Exception {
         Robo robo = new Robo(
             lector.obtenerPaises().subList(0, 2), 
-            lector.obtenerPaises().subList(0, 3),  
+            lector.obtenerPaises().subList(0, 6),  
             new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
             lector.obtenerArtefactos().get(0));
 

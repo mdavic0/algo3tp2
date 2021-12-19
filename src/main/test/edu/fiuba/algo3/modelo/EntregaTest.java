@@ -17,6 +17,10 @@ public class EntregaTest {
         paises.add(new Pais("Montreal", 0, 0));
         paises.add(new Pais("Zimbabwe", 0, 0));
         paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
@@ -37,6 +41,9 @@ public class EntregaTest {
         List<IPais> paises = new ArrayList<IPais>();
         paises.add(new Pais("Montreal", 0, 0));
         paises.add(new Pais("Lima", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
         paises.add(new Pais("Otro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
@@ -91,6 +98,10 @@ public class EntregaTest {
         paises.add(new Pais("Montreal", 0, 0));
         paises.add(new Pais("Lima",0,0));
         paises.add(new Pais("Otro",0,0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
+        paises.add(new Pais("Otro", 0, 0));
 
         //TODO: usar robo mock en esta seccion
         Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
