@@ -69,11 +69,7 @@ public class ControladorVentanaPais {
     
     public void investigar(){
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
-        for(Node node : raiz.getItems()){
-            node.setVisible(false);
-        }
         try {
-            //raiz.getItems().add(fxmlLoader.load());
             raiz.getScene().setRoot(fxmlLoader.load());
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -91,7 +87,7 @@ public class ControladorVentanaPais {
         }
         try {
             ((ControladorVentanaEdificio) ventanaEdificio.getController())
-                .inicializar(policia, policia.paisActual().edificios().get(0), robo, estado, t);
+                .inicializar(policia, policia.paisActual().edificios().get(0), robo, estado, t, selfLoader);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

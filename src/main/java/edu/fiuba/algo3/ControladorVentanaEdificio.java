@@ -39,6 +39,7 @@ public class ControladorVentanaEdificio{
 
     Parent notas;
     private IEdificio edificio;
+    private FXMLLoader ventanaARegresar;
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE){
@@ -54,29 +55,26 @@ public class ControladorVentanaEdificio{
         }
     } 
 
-    public void inicializar(Policia policia, IEdificio edificio, IRobo robo, EstadoDeJuego estado, ITemporizador t) throws Exception {
+    public void inicializar(Policia policia, IEdificio edificio, IRobo robo, EstadoDeJuego estado, ITemporizador t, FXMLLoader ventanaARegresar) throws Exception {
         this.policia = policia;
         this.edificio = edificio;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
+        this.ventanaARegresar = ventanaARegresar;
     } 
     
     public void regresar(){
         try {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
-        for(Node node : raiz.getItems()){
-            node.setVisible(false);
-        }
-            raiz.getItems().add(fxmlLoader.load());
+            for(Node node : raiz.getItems()){
+                node.setVisible(false);
+            }
+            raiz.getItems().add(ventanaARegresar.getRoot());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
         }
-        //regresar
-        
     }
     
     public void anotar(){
