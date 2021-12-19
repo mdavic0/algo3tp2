@@ -73,6 +73,10 @@ public class ControladorVentanaInicio  implements Initializable{
         LectorDeArchivo lector = new LectorDeArchivo();
         List<IPais> paises =  lector.obtenerPaises();
         robo = gRobo.generarRobo(policia, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
+
+        //TODO no usar getter de policia
+        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, policia.obtenerRango());
+        genEdificios.crearEdificiosPara(paises, robo);
     } 
 
     @Override

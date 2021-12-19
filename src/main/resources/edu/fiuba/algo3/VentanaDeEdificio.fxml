@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaPais">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaEdificio">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -41,7 +41,7 @@
                     <items>
                         <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" onKeyPressed="#handleOnKeyPressed" prefHeight="255.0" prefWidth="300.0">
                      <children>
-                        <Label fx:id="descripcionPais" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="266.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
+                        <Label fx:id="pista" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="266.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -50,10 +50,7 @@
                      </children></AnchorPane>
                         <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>
-                                <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#investigar" prefHeight="25.0" prefWidth="140.0" text="Investigar" />
-                        <Button layoutX="80.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Consultar la Interpol" />
-                        <Button layoutX="80.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Viajar" />
-                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="140.0" text="Ver posibles destinos" />
+                                <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#regresar" prefHeight="25.0" prefWidth="140.0" text="Regresar" />
                      </children></AnchorPane>
                     </items>
                 </SplitPane>

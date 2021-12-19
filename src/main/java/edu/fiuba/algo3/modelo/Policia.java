@@ -24,6 +24,10 @@ public class Policia implements PropertyChangeListener {
         ordenDeArresto = null;
         cantidadArrestos = 0;
     }
+
+    public IRango obtenerRango(){
+        return rango;
+    }
     public String imprimirRango() {
         return rango.getClass().getName();
     }

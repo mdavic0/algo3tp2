@@ -25,7 +25,7 @@ public class EdificioMock implements IEdificio{
     }
 
     @Override
-    public Object nombre() {
+    public String nombre() {
         return nombre;
     }
     @Override

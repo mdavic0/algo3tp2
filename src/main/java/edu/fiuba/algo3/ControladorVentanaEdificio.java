@@ -20,7 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ControladorVentanaPais {
+public class ControladorVentanaEdificio{
     Policia policia;
     Robo robo;
     private Temporizador t;
@@ -31,13 +31,14 @@ public class ControladorVentanaPais {
     @FXML
     public Label diaYHora;
     @FXML
-    public Label descripcionPais;
+    public Label pista;
     @FXML
     public SplitPane contenedorDerecha;
     @FXML
     public SplitPane raiz;
 
     Parent notas;
+    private Edificio edificio;
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE){
@@ -53,31 +54,31 @@ public class ControladorVentanaPais {
         }
     } 
 
-    public void inicializar(Policia policia, Robo robo, EstadoDeJuego estado, Temporizador t) {
+    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t) throws Exception {
         this.policia = policia;
+        this.edificio = edificio;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
-        nombreLugar.setText(policia.paisActual().nombre());
+        nombreLugar.setText(edificio.nombre());
         diaYHora.setText(t.fechaActual());
         //TODO descripcion de cada pais
-        descripcionPais.setText(policia.paisActual().nombre());
+        pista.setText(policia.cuestionarTestigo());
     } 
     
-    public void investigar(){
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
+    public void regresar(){
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
         for(Node node : raiz.getItems()){
             node.setVisible(false);
         }
         try {
-            //raiz.getItems().add(fxmlLoader.load());
-            scene.setRoot(fxmlLoader.load())
+            raiz.getItems().add(fxmlLoader.load());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
         }
-        ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController()).inicializar(policia, policia.paisActual());
+        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, robo, estado, t);
         
     }
     
