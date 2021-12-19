@@ -22,8 +22,8 @@ import javafx.scene.layout.Pane;
 
 public class ControladorVentanaEdificio{
     Policia policia;
-    Robo robo;
-    private Temporizador t;
+    IRobo robo;
+    private ITemporizador t;
     private EstadoDeJuego estado;
 
     @FXML
@@ -38,7 +38,7 @@ public class ControladorVentanaEdificio{
     public SplitPane raiz;
 
     Parent notas;
-    private Edificio edificio;
+    private IEdificio edificio;
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE){
@@ -54,16 +54,12 @@ public class ControladorVentanaEdificio{
         }
     } 
 
-    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t) throws Exception {
+    public void inicializar(Policia policia, IEdificio edificio, IRobo robo, EstadoDeJuego estado, ITemporizador t) throws Exception {
         this.policia = policia;
         this.edificio = edificio;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
-        nombreLugar.setText(edificio.nombre());
-        diaYHora.setText(t.fechaActual());
-        //TODO descripcion de cada pais
-        pista.setText(policia.cuestionarTestigo());
     } 
     
     public void regresar(){
@@ -78,7 +74,7 @@ public class ControladorVentanaEdificio{
             e.printStackTrace();
             System.exit(0);
         }
-        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, robo, estado, t);
+        //regresar
         
     }
     
@@ -89,6 +85,18 @@ public class ControladorVentanaEdificio{
             contenedorDerecha.getItems().add(notas);
         } catch (IOException e) {
             // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+
+    public void notificarEntrada() {
+        try {
+            nombreLugar.setText(edificio.nombre());
+            diaYHora.setText(t.fechaActual());
+            pista.setText(policia.cuestionarTestigo());
+            policia.entrarA(edificio);
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }

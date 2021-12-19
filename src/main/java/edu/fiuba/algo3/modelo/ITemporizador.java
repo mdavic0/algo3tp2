@@ -6,4 +6,5 @@ public  interface  ITemporizador {
     int horasTranscurridas();
     void reportarActividad(int duracion) ;
     void agregarSuscriptor(PropertyChangeListener suscriptor);
+    String fechaActual();
 }

@@ -24,4 +24,9 @@ public class TemporizadorMock implements ITemporizador{
         
     }
 
+    @Override
+    public String fechaActual() {
+        return "9am";
+    }
+
 }

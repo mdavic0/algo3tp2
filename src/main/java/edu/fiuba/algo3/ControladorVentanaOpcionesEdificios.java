@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Policia;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 
@@ -25,38 +26,38 @@ public class ControladorVentanaOpcionesEdificios {
     public SplitPane raiz;
 
     private Policia paco;
+    private FXMLLoader actual;
+    private FXMLLoader previo;
+    private List<FXMLLoader> vistasEdificios;
     
-    void inicializar(Policia paco, IPais pais){
+    void inicializar(Policia paco, IPais pais, FXMLLoader actual, FXMLLoader previo, List<FXMLLoader> vistasEdificios){
         this.paco = paco;
+        this.actual = actual;
+        this.previo = previo;
+        this.vistasEdificios = vistasEdificios;
         List<IEdificio> edificios = pais.edificios();
 
-        atarBotonAEdificio(edificios.get(0), opcion1);
+        atarBotonAEdificio(edificios.get(0), opcion1, vistasEdificios.get(0));
     }
 
-    void atarBotonAEdificio(IEdificio edificio, Button boton){
+    void atarBotonAEdificio(IEdificio edificio, Button boton, FXMLLoader vista){
         boton.setText(edificio.nombre());
-        boton.setOnAction(a -> entrarA(edificio));
+        boton.setOnAction(a -> entrarA(edificio, vista));
     }
 
-    void entrarA(IEdificio edificio){
+    void entrarA(IEdificio edificio, FXMLLoader ventanaCargada){
         try {
-            paco.entrarA(edificio);
+            ((ControladorVentanaEdificio)ventanaCargada.getController()).notificarEntrada();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
         for(Node node : raiz.getItems()){
             node.setVisible(false);
         }
-        try {
-            raiz.getItems().add(fxmlLoader.load());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.exit(0);
-        }
-        ((ControladorVentanaEdificio)fxmlLoader.getController()).inicializar(paco, edificio, robo, policia.paisActual());
+
+        raiz.getItems().clear();
+        raiz.getItems().add(ventanaCargada.getRoot());
     }
 }
