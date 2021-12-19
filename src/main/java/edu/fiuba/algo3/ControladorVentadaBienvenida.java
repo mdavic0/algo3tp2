@@ -28,16 +28,22 @@ public class ControladorVentadaBienvenida implements Initializable {
         //((ControladorVentanaInicio)fxmlLoader.getController()).inicializar(???);
     }
 
-    public void botonPuntajes(){
-        System.out.println("Puntajes");
+    public void botonPuntajes() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePuntajes" + ".fxml"));
+        Scene escenaActual = raiz.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
-    public void botonAyuda(){
-        System.out.println("Ayuda");
+    public void botonAyuda() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeAyuda" + ".fxml"));
+        Scene escenaActual = raiz.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
-    public void botonCreditos(){
-        System.out.println("Creditos");
+    public void botonCreditos() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeCreditos" + ".fxml"));
+        Scene escenaActual = raiz.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
     public void botonSalir(){
