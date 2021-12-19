@@ -40,6 +40,7 @@ public class ControladorVentanaPais {
 
     Parent notas;
     private FXMLLoader selfLoader;
+    private IPais pais;
     
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE){
@@ -55,16 +56,17 @@ public class ControladorVentanaPais {
         }
     } 
 
-    public void inicializar(Policia policia, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) {
+    public void inicializar(Policia policia, IPais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) {
         this.policia = policia;
+        this.pais = pais;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
         this.selfLoader = self;
-        nombreLugar.setText(policia.paisActual().nombre());
+        nombreLugar.setText(pais.nombre());
         diaYHora.setText(t.fechaActual());
         //TODO descripcion de cada pais
-        descripcionPais.setText(policia.paisActual().nombre());
+        descripcionPais.setText(pais.nombre());
     } 
     
     public void investigar(){
@@ -108,21 +110,18 @@ public class ControladorVentanaPais {
         }
 
         List<FXMLLoader> vistasPaises = new ArrayList<FXMLLoader>();
-        FXMLLoader ventanaPais = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
-        try {
-            ventanaPais.load();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            ((ControladorVentanaPais) ventanaPais.getController())
-                .inicializar(policia, robo, estado, t, ventanaPais);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        vistasPaises.add(ventanaPais);
+        for(int i = 0; i < 3; i++){
+            FXMLLoader ventanaPais = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
+            try {
+                ventanaPais.load();
+                ((ControladorVentanaPais) ventanaPais.getController())
+                    .inicializar(policia, policia.paisActual().obtenerAdyacentes().get(i), robo, estado, t, ventanaPais);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
+            vistasPaises.add(ventanaPais);
+        } 
         ((ControladorVentanaOpcionesPais)fxmlLoader.getController())
             .inicializar(policia, policia.paisActual(), vistasPaises);
     }
@@ -139,6 +138,7 @@ public class ControladorVentanaPais {
         }
     }
 
-    public void notificarLlegada() {
+    public void notificarLlegada() throws Exception {
+        policia.viajarA(pais);
     }
 }

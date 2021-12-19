@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 //TODO: artefactos, etc dependen de la dificultad
@@ -78,5 +79,17 @@ public class RoboTest {
         IPais pais = robo.primerPais();
         assertNotEquals(pais, null);
         assertNotEquals(null, pais);
+    }
+
+    @Test
+    public void generarConexionesEntrePaisesTest() throws Exception {
+        Robo robo = new Robo(
+            lector.obtenerPaises().subList(0, 2), 
+            lector.obtenerPaises().subList(0, 6),  
+            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            lector.obtenerArtefactos().get(0));
+        for(IPais pais : robo.viaSinInit){
+            assertFalse(pais.obtenerAdyacentes().contains(pais));
+        }
     }
 }

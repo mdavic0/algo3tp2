@@ -26,16 +26,16 @@ public class ControladorVentanaOpcionesPais {
     public SplitPane raiz;
 
     private Policia paco;
-    private List<FXMLLoader> vistasEdificios;
+    private List<FXMLLoader> vistas;
     
     void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasPaises){
         this.paco = paco;
-        this.vistasEdificios = vistasPaises;
+        this.vistas = vistasPaises;
         List<IPais> paises = paco.paisActual().obtenerAdyacentes();
         Button[] botones = {opcion1, opcion2, opcion3};
 
         for(int i = 0; i < paises.size(); i++){
-            atarBotonAPais(paises.get(i), botones[i], vistasEdificios.get(i));
+            atarBotonAPais(paises.get(i), botones[i], vistas.get(i));
         }
         
     }
@@ -52,11 +52,6 @@ public class ControladorVentanaOpcionesPais {
             e.printStackTrace();
             System.exit(0);
         }
-
-        for(Node node : raiz.getItems()){
-            node.setVisible(false);
-        }
-
         raiz.getItems().clear();
         raiz.getItems().add(ventanaCargada.getRoot());
     }
