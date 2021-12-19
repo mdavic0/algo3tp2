@@ -66,10 +66,8 @@ public class ControladorVentanaEdificio{
     
     public void regresar(){
         try {
-            for(Node node : raiz.getItems()){
-                node.setVisible(false);
-            }
-            raiz.getItems().add(ventanaARegresar.getRoot());
+            policia.salirDelEdificio();
+            raiz.getScene().setRoot(ventanaARegresar.getRoot());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
