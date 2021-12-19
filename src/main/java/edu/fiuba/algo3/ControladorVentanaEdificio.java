@@ -94,8 +94,8 @@ public class ControladorVentanaEdificio{
         try {
             nombreLugar.setText(edificio.nombre());
             diaYHora.setText(t.fechaActual());
-            pista.setText(policia.cuestionarTestigo());
             policia.entrarA(edificio);
+            pista.setText(policia.cuestionarTestigo());
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
