@@ -52,7 +52,6 @@ public class ControladorVentanaOpcionesPais {
             e.printStackTrace();
             System.exit(0);
         }
-        raiz.getItems().clear();
-        raiz.getItems().add(ventanaCargada.getRoot());
+        raiz.getScene().setRoot(ventanaCargada.getRoot());
     }
 }

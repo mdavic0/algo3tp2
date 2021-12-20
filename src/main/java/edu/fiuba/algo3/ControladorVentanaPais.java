@@ -46,9 +46,6 @@ public class ControladorVentanaPais {
         if (event.getCode() == KeyCode.ESCAPE){
             try {
                 contenedorDerecha.getItems().remove(notas);
-                for(Node node : raiz.getItems()){
-                    node.setVisible(true);
-                }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(0);
@@ -69,31 +66,16 @@ public class ControladorVentanaPais {
         descripcionPais.setText(pais.nombre());
     } 
     
-    public void investigar(){
+    public void investigar() throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
-        try {
-            raiz.getScene().setRoot(fxmlLoader.load());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.exit(0);
-        }
-
+        
+        raiz.getScene().setRoot(fxmlLoader.load());
         List<FXMLLoader> vistasEdificios = new ArrayList<FXMLLoader>();
         FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
-        try {
-            ventanaEdificio.load();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            ((ControladorVentanaEdificio) ventanaEdificio.getController())
-                .inicializar(policia, policia.paisActual().edificios().get(0), robo, estado, t, selfLoader);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        ventanaEdificio.load();
+        ((ControladorVentanaEdificio) ventanaEdificio.getController())
+            .inicializar(policia, policia.paisActual().edificios().get(0), robo, estado, t, selfLoader);
+    
         vistasEdificios.add(ventanaEdificio);
         ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController())
             .inicializar(policia, policia.paisActual(), vistasEdificios);

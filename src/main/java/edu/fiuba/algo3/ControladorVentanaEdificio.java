@@ -45,9 +45,6 @@ public class ControladorVentanaEdificio{
         if (event.getCode() == KeyCode.ESCAPE){
             try {
                 contenedorDerecha.getItems().remove(notas);
-                for(Node node : raiz.getItems()){
-                    node.setVisible(true);
-                }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(0);
@@ -65,6 +62,7 @@ public class ControladorVentanaEdificio{
     } 
     
     public void regresar(){
+        //TODO: bug porque este nodo ya es parte de un arbol de escena al regresar por segunda vez de una investigacion
         try {
             policia.salirDelEdificio();
             raiz.getScene().setRoot(ventanaARegresar.getRoot());

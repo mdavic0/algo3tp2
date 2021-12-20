@@ -49,11 +49,6 @@ public class ControladorVentanaOpcionesEdificios {
             System.exit(0);
         }
 
-        for(Node node : raiz.getItems()){
-            node.setVisible(false);
-        }
-
-        raiz.getItems().clear();
-        raiz.getItems().add(ventanaCargada.getRoot());
+        raiz.getScene().setRoot(ventanaCargada.getRoot());
     }
 }
