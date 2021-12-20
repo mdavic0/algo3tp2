@@ -37,7 +37,6 @@ public class ControladorVentanaOpcionesPais {
         for(int i = 0; i < paises.size(); i++){
             atarBotonAPais(paises.get(i), botones[i], vistas.get(i));
         }
-        
     }
 
     void atarBotonAPais(IPais pais, Button boton, FXMLLoader vista){

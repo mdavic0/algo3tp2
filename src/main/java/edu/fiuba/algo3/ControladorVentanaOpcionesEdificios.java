@@ -32,8 +32,11 @@ public class ControladorVentanaOpcionesEdificios {
         this.paco = paco;
         this.vistasEdificios = vistasEdificios;
         List<IEdificio> edificios = pais.edificios();
+        Button[] botones = {opcion1, opcion2, opcion3};
 
-        atarBotonAEdificio(edificios.get(0), opcion1, vistasEdificios.get(0));
+        for(int i = 0; i < edificios.size(); i++){
+            atarBotonAEdificio(edificios.get(i), botones[i], vistasEdificios.get(i));
+        }
     }
 
     void atarBotonAEdificio(IEdificio edificio, Button boton, FXMLLoader vista){

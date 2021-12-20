@@ -73,10 +73,13 @@ public class ControladorVentanaPais {
         List<FXMLLoader> vistasEdificios = new ArrayList<FXMLLoader>();
         FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
         ventanaEdificio.load();
-        ((ControladorVentanaEdificio) ventanaEdificio.getController())
-            .inicializar(policia, policia.paisActual().edificios().get(0), robo, estado, t, selfLoader);
+        for(int i = 0; i < policia.paisActual().edificios().size();i++){
+            ((ControladorVentanaEdificio) ventanaEdificio.getController())
+                .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader);
+            vistasEdificios.add(ventanaEdificio);
+        }
+        
     
-        vistasEdificios.add(ventanaEdificio);
         ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController())
             .inicializar(policia, policia.paisActual(), vistasEdificios);
     }
