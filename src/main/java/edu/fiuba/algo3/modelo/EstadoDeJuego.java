@@ -36,4 +36,12 @@ public class EstadoDeJuego implements PropertyChangeListener {
     public boolean juegoPerdido(){
         return estado == estadoJuego.PERDIDO;
     }
+
+    public String reportarAlUsuario() {
+        if(estado == estadoJuego.GANADO)
+            return "Felicitaciones! Ganaste!";
+        if(estado == estadoJuego.PERDIDO)
+            return "Perdiste che";
+        return "Juego en progreso";
+    }
 }

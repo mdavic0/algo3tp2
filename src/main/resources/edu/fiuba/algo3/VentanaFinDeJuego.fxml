@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="raiz" fx:id="raiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaFinDeJuego">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Fondo.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="-4.0" layoutY="353.0" prefHeight="250.0" prefWidth="410.0" spacing="60.0">
+         <effect>
+            <Blend />
+         </effect>
+         <children>
+            <Label alignment="CENTER" text="Label" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

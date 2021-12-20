@@ -90,10 +90,20 @@ public class ControladorVentanaEdificio{
             nombreLugar.setText(edificio.nombre());
             diaYHora.setText(t.fechaActual());
             policia.entrarA(edificio);
-            pista.setText(policia.cuestionarTestigo());
+            if(!estado.juegoEnProgreso()) intentarAtraparLadron();
+            else pista.setText(policia.cuestionarTestigo());
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
+    }
+
+    private void intentarAtraparLadron() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("VentanaFinDeJuego.fxml"));
+        //TODO: POR QUE ES NULL???
+        Scene escena = nombreLugar.getScene();
+        Parent nuevaRaiz = fxmlLoader.load();
+        escena.setRoot(nuevaRaiz);
+        ((ControladorVentanaFinDeJuego)fxmlLoader.getController()).inicializar(policia, estado);
     }
 }
