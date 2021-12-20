@@ -20,7 +20,7 @@
             <Blend />
          </effect>
          <children>
-            <Label alignment="CENTER" text="Label" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+            <Label fx:id="texto" alignment="CENTER" text="Label" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                <font>
                   <Font size="48.0" />
                </font>

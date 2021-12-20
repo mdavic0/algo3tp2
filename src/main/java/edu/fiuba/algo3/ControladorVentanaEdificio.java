@@ -62,9 +62,10 @@ public class ControladorVentanaEdificio{
     } 
     
     public void regresar(){
-        //TODO: bug porque este nodo ya es parte de un arbol de escena al regresar por segunda vez de una investigacion
+        //TODO: bug porque recobra pagina pais sin actualizar hora
         try {
             policia.salirDelEdificio();
+            ((ControladorVentanaPais)ventanaARegresar.getController()).actualizarInterfaz();
             raiz.getScene().setRoot(ventanaARegresar.getRoot());
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -100,10 +101,9 @@ public class ControladorVentanaEdificio{
 
     private void intentarAtraparLadron() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("VentanaFinDeJuego.fxml"));
-        //TODO: POR QUE ES NULL???
-        Scene escena = nombreLugar.getScene();
         Parent nuevaRaiz = fxmlLoader.load();
-        escena.setRoot(nuevaRaiz);
+        raiz.getItems().clear();
+        raiz.getItems().add(nuevaRaiz);
         ((ControladorVentanaFinDeJuego)fxmlLoader.getController()).inicializar(policia, estado);
     }
 }

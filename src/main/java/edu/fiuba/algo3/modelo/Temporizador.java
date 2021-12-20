@@ -36,7 +36,7 @@ public class Temporizador implements ITemporizador {
 
         horasTranscurridas += aumento;
 
-        if((horaInicial + horasTranscurridas) > 24) this.actualizarFecha();
+        this.actualizarFecha();
 
         PropertyChangeEvent eventoTiempoTranscurrido = new PropertyChangeEvent(this, 
             "horasTranscurridas", 

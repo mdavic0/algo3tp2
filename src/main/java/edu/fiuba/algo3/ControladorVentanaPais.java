@@ -126,4 +126,8 @@ public class ControladorVentanaPais {
     public void notificarLlegada() throws Exception {
         policia.viajarA(pais);
     }
+
+    public void actualizarInterfaz() {
+        inicializar(policia, pais, robo, estado, t, selfLoader);
+    }
 }
