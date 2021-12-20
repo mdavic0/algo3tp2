@@ -67,12 +67,14 @@ public class ControladorVentanaPais {
     } 
     
     public void investigar() throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpciones" + ".fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificio" + ".fxml"));
         
         raiz.getScene().setRoot(fxmlLoader.load());
         List<FXMLLoader> vistasEdificios = new ArrayList<FXMLLoader>();
+
         for(int i = 0; i < policia.paisActual().edificios().size();i++){
-            FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
+            FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificio.fxml"));
             ventanaEdificio.load();
             ((ControladorVentanaEdificio) ventanaEdificio.getController())
                 .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader);

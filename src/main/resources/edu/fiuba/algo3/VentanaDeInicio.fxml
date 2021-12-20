@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
@@ -7,28 +11,28 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaInicio">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaInicio">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <SplitPane dividerPositions="0.21608040201005024" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
+            <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="73.0" prefWidth="298.0">
                      <children>
-                        <Label layoutX="64.0" layoutY="16.0" text="Cuartel policial">
+                        <Label layoutX="129.0" layoutY="29.0" text="Cuartel policial" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font></Label>
-                        <Label layoutX="105.0" layoutY="53.0" text="Lunes, 9 a.m." />
+                        <Label layoutX="166.0" layoutY="59.0" text="Lunes, 9 a.m." />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="178.0" prefWidth="201.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="352.0">
                      <children>
-                        <TextField fx:id="inputJugador" layoutX="11.0" layoutY="226.0" prefHeight="71.0" prefWidth="273.0" />
-                        <BorderPane layoutX="24.0" layoutY="14.0" prefHeight="212.0" prefWidth="250.0">
-                           <center>
-                              <Label id="textoMaquinaDeEscribir" fx:id="textoMaquinaDeEscribir" alignment="TOP_LEFT" prefHeight="178.0" prefWidth="207.0" text="&lt;TEXTO&gt;" wrapText="true" BorderPane.alignment="CENTER" />
-                           </center>
+                        <TextField fx:id="inputJugador" layoutX="13.0" layoutY="390.0" prefHeight="39.0" prefWidth="369.0" />
+                        <BorderPane layoutX="13.0" layoutY="14.0" prefHeight="328.0" prefWidth="369.0">
+                           <top>
+                              <Label id="textoMaquinaDeEscribir" fx:id="textoMaquinaDeEscribir" alignment="TOP_LEFT" prefHeight="362.0" prefWidth="366.0" text="&lt;TEXTO&gt;" wrapText="true" BorderPane.alignment="CENTER" />
+                           </top>
                         </BorderPane>
                      </children>
                   </AnchorPane>
@@ -37,14 +41,14 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <SplitPane dividerPositions="0.7537688442211056" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
+            <SplitPane dividerPositions="0.675" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="398.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="166.0" prefWidth="398.0">
                      <children>
-                        <Label layoutX="13.0" layoutY="7.0" prefHeight="71.0" prefWidth="273.0" text="Presione cualquier tecla para continuar..." wrapText="true">
+                        <Label layoutX="56.0" layoutY="60.0" prefHeight="71.0" prefWidth="287.0" text="Presione cualquier tecla para continuar..." wrapText="true">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
