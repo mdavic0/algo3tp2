@@ -38,7 +38,7 @@ public class ControladorVentanaOpcionesPais {
             atarBotonAPais(paises.get(i), botones[i], vistas.get(i));
             botones[i].setVisible(true);
         }
-        for(int i = paises.size(); paises.size() < 3; i++){
+        for(int i = paises.size(); i < 3; i++){
             botones[i].setVisible(false);
         }
     }
