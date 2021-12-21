@@ -41,16 +41,21 @@ public class ControladorVentanaPais {
     Parent notas;
     private FXMLLoader selfLoader;
     private IPais pais;
+
+    List<Node> itemsQuitadosAlAnotar;
     
     public void handleOnKeyPressed(KeyEvent event) {
-        if (event.getCode() == KeyCode.ESCAPE){
+        /* if (event.getCode() == KeyCode.ESCAPE){
             try {
                 contenedorDerecha.getItems().remove(notas);
+                for(Node n : itemsQuitadosAlAnotar){
+                    contenedorDerecha.getItems().add(n);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(0);
             }
-        }
+        } */
     } 
 
     public void inicializar(Policia policia, IPais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) {
@@ -114,15 +119,20 @@ public class ControladorVentanaPais {
     }
     
     public void anotar(){
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
+        /* FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
         try {
             notas = fxmlLoader.load();
+            itemsQuitadosAlAnotar = new ArrayList<>();
+            for(Node n : contenedorDerecha.getItems()){
+                itemsQuitadosAlAnotar.add(n);
+            }
+            contenedorDerecha.getItems().clear();
             contenedorDerecha.getItems().add(notas);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
-        }
+        } */
     }
 
     public void notificarLlegada() throws Exception {

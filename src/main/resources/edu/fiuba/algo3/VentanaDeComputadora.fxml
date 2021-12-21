@@ -86,10 +86,8 @@
                      </children></AnchorPane>
                         <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>
-                                <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#investigar" prefHeight="25.0" prefWidth="140.0" text="Investigar" />
-                        <Button layoutX="80.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Consultar la Interpol" />
-                        <Button layoutX="80.0" layoutY="70.0" mnemonicParsing="false" onAction="#viajar" prefHeight="25.0" prefWidth="140.0" text="Viajar" />
-                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="140.0" text="Ver posibles destinos" />
+                        <Button layoutX="79.0" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Regresar" />
+                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" onKeyPressed="#consultarDatos" prefHeight="24.0" prefWidth="140.0" text="Buscar ladrón" />
                      </children></AnchorPane>
                     </items>
                 </SplitPane>
