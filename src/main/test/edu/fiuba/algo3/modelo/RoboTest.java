@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-//TODO: artefactos, etc dependen de la dificultad
 public class RoboTest {
     LectorDeArchivo lector = new LectorDeArchivo();
 

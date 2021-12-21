@@ -39,7 +39,6 @@ public class Robo implements IRobo {
                 });
     }
 
-    //TODO: implementar rango
     @Override
     public String reportarRobo(Object rango) {
         return "Hola, ".concat(rango.toString()).concat(". Hubo un robo de ").concat(artefacto.toString());

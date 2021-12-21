@@ -21,9 +21,7 @@ public class EntregaTest {
         paises.add(new Pais("Otro", 0, 0));
         paises.add(new Pais("Otro", 0, 0));
 
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
-        Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
-        Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
+        RoboMock elRobo = new RoboMock();
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre(), 0, 0);
         Edificio edificio = new Edificio (
@@ -46,12 +44,7 @@ public class EntregaTest {
         paises.add(new Pais("Otro", 0, 0));
         paises.add(new Pais("Otro", 0, 0));
 
-        //TODO: usar robo mock en esta seccion
-
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
-
-        Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
-        Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
+        RoboMock elRobo = new RoboMock();
 
         Pais montreal = new Pais(elRobo.lugarDeRobo().nombre(), 
             0, 0);
@@ -103,10 +96,7 @@ public class EntregaTest {
         paises.add(new Pais("Otro", 0, 0));
         paises.add(new Pais("Otro", 0, 0));
 
-        //TODO: usar robo mock en esta seccion
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Anillo", "Tenis");
-        Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
-        Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
+        RoboMock elRobo = new RoboMock();
 
         Pais montreal = new Pais(
             elRobo.lugarDeRobo().nombre(), 
