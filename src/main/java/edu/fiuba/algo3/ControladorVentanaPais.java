@@ -106,7 +106,7 @@ public class ControladorVentanaPais {
         }
 
         List<FXMLLoader> vistasPaises = new ArrayList<FXMLLoader>();
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < policia.paisActual().obtenerAdyacentes().size(); i++){
             FXMLLoader ventanaPais = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
             try {
                 ventanaPais.load();
