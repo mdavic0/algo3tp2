@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
@@ -34,9 +35,11 @@ public class ControladorVentanaComputadora  {
 
     private Policia policia;
     private Computadora computadora;
+    private FXMLLoader ventanaARegresar;
     
-    public void inicializar(Policia policia) throws Exception {
+    public void inicializar(Policia policia, FXMLLoader ventanaARegresar) throws Exception {
         this.policia = policia;
+        this.ventanaARegresar = ventanaARegresar;
         this.computadora = new Computadora();
     }
 
@@ -49,5 +52,13 @@ public class ControladorVentanaComputadora  {
                 propiedades.add(new Propiedad(tipos[i], inputs[i].getText()));
         }
         computadora.consultarDatos(policia, propiedades);
+    }
+
+
+
+    public void regresar(){
+        Parent nodoARegresar = ventanaARegresar.getRoot();
+        //TODO notificar regreso a la ventanaARegresar
+        raiz.getScene().setRoot(nodoARegresar);
     }
 }

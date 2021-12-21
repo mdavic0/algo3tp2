@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaPais">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaPais">
     <items>
 
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -45,9 +40,9 @@
 
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <SplitPane fx:id="contenedorDerecha" dividerPositions="0.675" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
+                <SplitPane fx:id="contenedorDerecha" dividerPositions="0.6755852842809364" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
-                        <AnchorPane onKeyPressed="#handleOnKeyPressed">
+                        <AnchorPane onKeyPressed="#handleOnKeyPressed" prefWidth="398.0">
                             <children>
                                 <Label fx:id="descripcionPais" alignment="TOP_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="323.0" prefWidth="353.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
                                     <font>
@@ -59,7 +54,7 @@
                               <Font size="16.0" />
                            </font></Button>
                             </children></AnchorPane>
-                        <AnchorPane prefHeight="155.0" prefWidth="400.0">
+                        <AnchorPane prefHeight="155.0" prefWidth="398.0">
                             <children>
                                 <VBox prefHeight="191.0" prefWidth="396.0" spacing="5.0">
                                     <children>
@@ -79,6 +74,11 @@
                                  <font>
                                     <Font size="16.0" />
                                  </font></Button>
+                              <Button mnemonicParsing="false" onAction="#consultar" prefHeight="40.0" prefWidth="250.0" text="Computadora">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
                                     </children>
                                     <padding>
                                         <Insets bottom="10.0" left="75.0" right="75.0" top="10.0" />

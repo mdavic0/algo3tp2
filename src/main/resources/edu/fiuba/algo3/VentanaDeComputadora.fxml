@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaComputadora">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaComputadora">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <SplitPane dividerPositions="0.13316582914572864" onKeyPressed="#handleOnKeyPressed" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
+                <SplitPane dividerPositions="0.13316582914572864" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
                     <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                             <children>
@@ -76,7 +76,7 @@
             <children>
                 <SplitPane fx:id="contenedorDerecha" dividerPositions="0.7537688442211056" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
                     <items>
-                        <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" onKeyPressed="#handleOnKeyPressed" prefHeight="255.0" prefWidth="300.0">
+                        <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="300.0">
                      <children>
                         <Label fx:id="textoInstructivo" layoutX="28.0" layoutY="36.0" prefHeight="184.0" prefWidth="243.0" text="Ingrese las caracteristicas conocidas del ladron. Si no sabe, deje en blanco." textAlignment="CENTER" wrapText="true">
                            <font>
