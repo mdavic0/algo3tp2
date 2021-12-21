@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 import org.json.simple.parser.*;
+
+
 
 public class LectorDeArchivo {
 
@@ -41,7 +41,8 @@ public class LectorDeArchivo {
     private List<Ladron> cargarLadrones() throws IOException, ParseException {
         List<Ladron> ladrones = new ArrayList<>();
 
-        JSONObject parser = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
+        JSONObject parser = (JSONObject) new JSONParser()
+                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
 
         JSONArray dossiers = (JSONArray) parser.get("dossiers");
         dossiers.forEach(entry -> {
