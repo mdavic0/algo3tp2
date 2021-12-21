@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
@@ -20,18 +21,25 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 public class ControladorVentanaComputadora  {
+
     @FXML
-    public TextField campoVehiculo;
+    public ChoiceBox<String> campoVehiculo;
+
     @FXML
-    public TextField campoSexo;
+    public ChoiceBox<String> campoSexo;
+
     @FXML
-    public TextField campoSenia;
+    public ChoiceBox<String> campoSenia;
+
     @FXML
-    public TextField campoHobby;
+    public ChoiceBox<String> campoHobby;
+
     @FXML
-    public TextField campoCabello;
+    public ChoiceBox<String> campoCabello;
+
     @FXML
     public SplitPane raiz;
+
     @FXML
     public Label textoInstructivo;
 
@@ -43,19 +51,40 @@ public class ControladorVentanaComputadora  {
         this.policia = policia;
         this.ventanaARegresar = ventanaARegresar;
         this.computadora = new Computadora();
+
+        campoSexo.getItems().addAll("","M","F");
+        campoSexo.setValue("");
+
+        campoHobby.getItems().addAll("", "Tenis", "Música", "Alpinismo", "Paracaidismo", "Natación", "Croquet");
+        campoHobby.setValue("");
+
+        campoCabello.getItems().addAll("", "Castaño", "Rubio", "Rojo", "Negro");
+        campoCabello.setValue("");
+
+        campoSenia.getItems().addAll("", "Anillo", "Tatuaje", "Cicatriz", "Joyas");
+        campoSenia.setValue("");
+
+        campoVehiculo.getItems().addAll("", "Descapotable", "Limusina", "Deportivo", "Moto");
+        campoVehiculo.setValue("");
+
     }
 
     public void consultarDatos(){
+
+        String respuesta = "";
+
         List<Propiedad> propiedades = new ArrayList<>();
-        TextField[] inputs = {campoVehiculo, campoSexo, campoSenia, campoHobby, campoCabello};
+
         String[] tipos = {"Vehiculo", "Genero", "Senia", "Hobby", "Cabello"};
+        String[] inputs = {campoVehiculo.getValue(), campoSexo.getValue(), campoSenia.getValue(), campoHobby.getValue(), campoCabello.getValue()};
+
         for(int i = 0; i < tipos.length; i++) {
-            if(!inputs[i].getText().equals(""))
-                propiedades.add(new Propiedad(tipos[i], inputs[i].getText()));
+            if(!inputs[i].equals(""))
+                propiedades.add(new Propiedad(tipos[i], inputs[i]));
         }
+
         List<Ladron> matches = policia.consultarDatos(propiedades);
 
-        String respuesta = new String();
         if(matches.size() > 1){
             for(Ladron match : matches){
                 respuesta = respuesta.concat("Match: ").concat(match.nombre()).concat(".\n");
@@ -69,7 +98,6 @@ public class ControladorVentanaComputadora  {
             textoInstructivo.setText("No se encontró match :(");
         }
     }
-
 
 
     public void regresar(){
