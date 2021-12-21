@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //TODO: Faltan mas tests UNITARIOS!
 public class TemporizadorTest {
+    int hora_dormir = 20;
     @Test
     public void testCrearTemporizador() throws Exception { 
         int hora_inicial = 9;
-        Temporizador timer = new Temporizador(hora_inicial); //hora inicial, hora_dormir, hora_limite
+        Temporizador timer = new Temporizador(hora_inicial, hora_dormir); //hora inicial, hora_dormir, hora_limite
         ActividadMock actividad = new ActividadMock(5);
         actividad.reportar(timer);
         assertEquals(timer.horaActual(), hora_inicial + 5);
@@ -18,7 +19,7 @@ public class TemporizadorTest {
     @Test
     public void testEventoQueDuraHastaLas23CausaSueño() throws Exception { 
         int hora_inicial = 9;
-        Temporizador timer = new Temporizador(hora_inicial); //hora inicial, hora_dormir, hora_limite
+        Temporizador timer = new Temporizador(hora_inicial, hora_dormir); //hora inicial, hora_dormir, hora_limite
         ActividadMock actividad = new ActividadMock(14);
         actividad.reportar(timer);
 
@@ -36,7 +37,7 @@ public class TemporizadorTest {
         
 
         int hora_inicial = 9;
-        Temporizador timer = new Temporizador(hora_inicial); //hora inicial, hora_dormir, hora_limite
+        Temporizador timer = new Temporizador(hora_inicial, hora_dormir); //hora inicial, hora_dormir, hora_limite
         //assertEquals( "Activo", timer.estado);
 
         ActividadMock actividad = new ActividadMock(48);
@@ -50,7 +51,7 @@ public class TemporizadorTest {
     public void testTemporizadorDaFechaYHoraCorrecta() throws Exception {
         //Tiempo: El jugador tendrá desde el lunes a las 7 hs hasta el domingo a las 17hs para atrapar al ladrón.
 
-        Temporizador t = new Temporizador(7);
+        Temporizador t = new Temporizador(7, hora_dormir);
 
         assertEquals("Lunes, 7hs", t.fechaActual());
 

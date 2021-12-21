@@ -11,10 +11,12 @@ public class Temporizador implements ITemporizador {
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
     int horasTranscurridas;
     int horaInicial;
+    int horaDormir;
     private String fecha;
 
-    public Temporizador(int horaInicial) {
+    public Temporizador(int horaInicial, int horaDormir) {
         this.horaInicial = horaInicial;
+        this.horaDormir = horaDormir;
         this.horasTranscurridas = 0;
         this.fecha = DiccionarioDeDias.getById(0).dia().concat(", " + horaInicial + "hs");
     }
@@ -31,7 +33,6 @@ public class Temporizador implements ITemporizador {
     }
 
     private void aumentarHoraActual(int aumento){
-        int horaPrevia = horaActual();
         int tiempoTranscurridoPrevio = horasTranscurridas();
 
         horasTranscurridas += aumento;
@@ -47,15 +48,7 @@ public class Temporizador implements ITemporizador {
             suscriptor.propertyChange(eventoTiempoTranscurrido);
         }
 
-        PropertyChangeEvent eventoHora = new PropertyChangeEvent(this,
-                "horaActual",
-                horaPrevia,
-                horaActual());
-
-        for (PropertyChangeListener suscriptor : suscriptores) {
-            suscriptor.propertyChange(eventoHora);
-        }
-
+        if(horaActual() == horaDormir) this.reportarActividad(8);
     }
 
     @Override

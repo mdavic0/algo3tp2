@@ -14,7 +14,7 @@ public class IntegracionTest {
     public void inicializarJuego() throws Exception { 
        
         LectorDeArchivo lector = new LectorDeArchivo();
-        Temporizador t = new Temporizador(9);
+        Temporizador t = new Temporizador(9, 21);
         Policia paco = new Policia();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
         List<IPais> paises =  lector.obtenerPaises();

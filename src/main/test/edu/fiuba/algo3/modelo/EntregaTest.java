@@ -132,7 +132,7 @@ public class EntregaTest {
     @Test
     public void PoliciaEsHeridoConCuchilloYDuerme() throws Exception{
         IPais montreal = new PaisMock("Montreal");
-        Temporizador t = new Temporizador(9);
+        Temporizador t = new Temporizador(9, 20);
         //montreal, t, new EstadoDeJuego())
         Policia undyne = new Policia();
         undyne.asignarCaso(montreal, new EstadoDeJuego(), t);

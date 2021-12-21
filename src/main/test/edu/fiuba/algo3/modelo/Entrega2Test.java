@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega2Test {
 
-    ITemporizador t = new Temporizador(16);
+    ITemporizador t = new Temporizador(16, 20);
 
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {

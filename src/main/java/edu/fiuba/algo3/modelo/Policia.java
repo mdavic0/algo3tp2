@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Policia implements PropertyChangeListener {
+public class Policia {
 
     LugarActual lugarActual;
     //String pista; //idealmente una coleccion
@@ -43,7 +43,6 @@ public class Policia implements PropertyChangeListener {
         heridasPorCuchillo = 0;
         this.temporizador = temporizador;
 
-        temporizador.agregarSuscriptor(this);
         this.agregarSuscriptor(estado);
         temporizador.agregarSuscriptor(estado);
     }
@@ -97,17 +96,6 @@ public class Policia implements PropertyChangeListener {
             return this.ordenDeArresto.puedeArrestarA(ladron);
 
         return false;
-    }
-
-    private void dormir(){
-        temporizador.reportarActividad(8);
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        if(evt.getPropertyName() == "horaActual" 
-            && (int)evt.getNewValue() >= hora_dormir)
-            this.dormir();
     }
 
     public void intentarArrestar(Ladron ladron) {

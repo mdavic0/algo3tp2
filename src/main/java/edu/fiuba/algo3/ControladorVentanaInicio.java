@@ -44,7 +44,7 @@ public class ControladorVentanaInicio  implements Initializable{
 
     private void abrirVentanaJuego(KeyEvent event, Robo robo, Policia policia) throws IOException {
         EstadoDeJuego estado = new EstadoDeJuego();
-        Temporizador t = new Temporizador(9);
+        Temporizador t = new Temporizador(7, 20);
         policia.asignarCaso(robo.lugarDeRobo(), estado, t);
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
         Scene escenaActual = inputJugador.getScene();

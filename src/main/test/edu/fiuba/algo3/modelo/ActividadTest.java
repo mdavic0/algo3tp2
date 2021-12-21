@@ -7,7 +7,7 @@ public class ActividadTest {
 
     @Test
     public void DormirCausaUnIncrementoHorarioDe8hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0);
+        Temporizador temporizador = new Temporizador(0, 20);
          Actividad actividad = new Dormir();
 
          actividad.reportar(temporizador);
@@ -17,7 +17,7 @@ public class ActividadTest {
 
      @Test
      public void EmitirOrdenDeArrestoCausaUnIncrementoHorarioDe3hs() throws Exception {
-         Temporizador temporizador = new Temporizador(0);
+         Temporizador temporizador = new Temporizador(0, 20);
          Actividad actividad = new EmitirOrdenDeArresto();
 
          actividad.reportar(temporizador);
@@ -27,7 +27,7 @@ public class ActividadTest {
 
     @Test
     public void EntrarAEdificioCausaUnIncrementoHorarioDe1hLaPrimeraVez2hsLaSegundaYLuegoSiempre3hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0);
+        Temporizador temporizador = new Temporizador(0, 20);
 
         Actividad actividad = new EntrarAEdificio(1);
         actividad.reportar(temporizador);
@@ -45,7 +45,7 @@ public class ActividadTest {
 
     @Test
     public void HeridaConArmaDeFuegoCausaUnIncrementoHorarioDe4hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0);
+        Temporizador temporizador = new Temporizador(0, 20);
         Actividad actividad = new HeridaConArmaDeFuego();
 
         actividad.reportar(temporizador);
@@ -55,7 +55,7 @@ public class ActividadTest {
 
     @Test
     public void HeridaConCuchilloCausaUnIncrementoHorarioDe2hsLaPrimeraVezY1hsLasProximasVeces() throws Exception {
-        Temporizador temporizador = new Temporizador(0);
+        Temporizador temporizador = new Temporizador(0, 20);
 
         Actividad actividad = new HeridaConCuchillo(1);
         actividad.reportar(temporizador);
@@ -79,7 +79,7 @@ public class ActividadTest {
 
         assertEquals(distanciaEsperada, colombia.distanciaA(argentina), 50); // Distancia aproximada, usando un delta verificamos la precision
 
-        Temporizador temporizador = new Temporizador(0);
+        Temporizador temporizador = new Temporizador(0, 20);
         double velocidadKmh = 1000.0;
         Actividad actividad = new Viajar(colombia, argentina, velocidadKmh);
         actividad.reportar(temporizador);
