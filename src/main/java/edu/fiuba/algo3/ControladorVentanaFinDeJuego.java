@@ -15,14 +15,24 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class ControladorVentanaFinDeJuego {
     @FXML
     public Label texto;
+
+    @FXML
+    public AnchorPane raiz;
     
     public void inicializar(Policia policia, EstadoDeJuego estado){
         texto.setText(estado.reportarAlUsuario());
+    }
+
+    public void botonRegresar() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeBienvenida" + ".fxml"));
+        Scene escenaActual = raiz.getScene();
+        escenaActual.setRoot(fxmlLoader.load());
     }
 
 }

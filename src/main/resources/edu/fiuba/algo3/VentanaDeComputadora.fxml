@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
@@ -11,57 +15,67 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaComputadora">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaComputadora">
     <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <AnchorPane>
             <children>
-                <SplitPane dividerPositions="0.13316582914572864" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
+                <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
                             <children>
-                                <Label layoutX="83.0" layoutY="-1.0" text="Computadora">
+                                <Label layoutX="144.0" layoutY="14.0" text="Computadora">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="System Bold" size="20.0" />
                            </font></Label>
-                                <Label fx:id="diaYHora" layoutX="125.0" layoutY="28.0" text="Dia, hora" />
+                                <Label fx:id="diaYHora" layoutX="181.0" layoutY="44.0" text="Dia, hora" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane maxHeight="340.0" maxWidth="300.0" minHeight="340.0" minWidth="300.0" prefHeight="340.0" prefWidth="300.0">
+                        <AnchorPane>
                      <children>
-                        <ImageView fitHeight="315.0" fitWidth="275.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true">
-                           <image>
-                              <Image url="@../../../../../../Pictures/Saved%20Pictures/paris.jpg" />
-                           </image>
-                        </ImageView>
-                        <VBox layoutX="13.0" layoutY="8.0" prefHeight="315.0" prefWidth="275.0">
+                        <VBox layoutX="13.0" layoutY="8.0" prefHeight="429.0" prefWidth="371.0">
                            <children>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
-                                    <Label prefHeight="16.0" prefWidth="100.0" text="Sexo" />
+                                    <Label prefHeight="16.0" prefWidth="100.0" text="Sexo">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
                                     <TextField fx:id="campoSexo" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
-                                    <Label prefHeight="16.0" prefWidth="100.0" text="Hobby" />
+                                    <Label prefHeight="16.0" prefWidth="100.0" text="Hobby">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
                                     <TextField fx:id="campoHobby" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
-                                    <Label prefHeight="16.0" prefWidth="100.0" text="Cabello" />
+                                    <Label prefHeight="16.0" prefWidth="100.0" text="Cabello">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
                                     <TextField fx:id="campoCabello" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
-                                    <Label prefHeight="16.0" prefWidth="100.0" text="Seña" />
+                                    <Label prefHeight="16.0" prefWidth="100.0" text="Seña">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
                                     <TextField fx:id="campoSenia" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
-                                    <Label prefHeight="16.0" prefWidth="100.0" text="Vehiculo" />
+                                    <Label prefHeight="16.0" prefWidth="100.0" text="Vehiculo">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font></Label>
                                     <TextField fx:id="campoVehiculo" />
                                  </children>
                               </HBox>
@@ -74,11 +88,11 @@
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <SplitPane fx:id="contenedorDerecha" dividerPositions="0.7537688442211056" orientation="VERTICAL" prefHeight="400.0" prefWidth="300.0">
+                <SplitPane fx:id="contenedorDerecha" dividerPositions="0.675" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
-                        <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="300.0">
+                        <AnchorPane>
                      <children>
-                        <Label fx:id="textoInstructivo" layoutX="28.0" layoutY="9.0" prefHeight="232.0" prefWidth="243.0" text="Ingrese las caracteristicas conocidas del ladron. Si no sabe, deje en blanco." textAlignment="CENTER" wrapText="true">
+                        <Label fx:id="textoInstructivo" alignment="TOP_LEFT" layoutX="14.0" layoutY="10.0" prefHeight="429.0" prefWidth="371.0" text="Ingrese las caracteristicas conocidas del ladron. Si no sabe, deje en blanco." wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -86,8 +100,14 @@
                      </children></AnchorPane>
                         <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>
-                        <Button layoutX="79.0" layoutY="69.0" mnemonicParsing="false" onAction="#regresar" prefHeight="25.0" prefWidth="140.0" text="Regresar" />
-                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" onAction="#consultarDatos" onKeyPressed="#consultarDatos" prefHeight="24.0" prefWidth="140.0" text="Buscar ladrón" />
+                        <Button layoutX="25.0" layoutY="84.0" mnemonicParsing="false" onAction="#regresar" prefHeight="40.0" prefWidth="250.0" text="Regresar">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
+                        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#consultarDatos" onKeyPressed="#consultarDatos" prefHeight="40.0" prefWidth="250.0" text="Buscar ladrón">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
                      </children></AnchorPane>
                     </items>
                 </SplitPane>
