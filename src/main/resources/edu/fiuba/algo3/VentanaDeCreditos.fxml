@@ -18,22 +18,22 @@
          <children>
             <Label fx:id="tpAlgoThief" text="aaaaaaaaa">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
             <Label fx:id="versionJava" text="aaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label fx:id="versionJavaFX" text="aaaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label fx:id="desarrolladores" text="aaaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
          </children>
