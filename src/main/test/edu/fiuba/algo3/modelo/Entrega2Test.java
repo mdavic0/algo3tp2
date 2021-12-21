@@ -172,15 +172,11 @@ public class Entrega2Test {
         paco.salirDelEdificio();
 
         //CON ESTAS PISTAS TENEMOS DATOS SUFICIENTES PARA PODER EMITIR UNA ORDEN DE ARRESTO
-
-        Computadora computadora = new Computadora();
-
-        
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Cabello", "Oscuro"));
         propiedades.add(new Propiedad("Genero", "F"));
         propiedades.add(new Propiedad("Hobby", "tenis"));
-        computadora.consultarDatos(paco, propiedades);
+        paco.consultarDatos(propiedades);
 
         //HASTA ACA YA SABEMOS VARIAS PISTAS PARA PODER VIAJAR AL SIGUIENTE PAIS
 

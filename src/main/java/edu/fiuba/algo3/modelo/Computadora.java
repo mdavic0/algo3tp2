@@ -8,7 +8,7 @@ public class Computadora {
 
     ArrayList<Ladron> ladrones;
 
-    public Computadora() throws Exception {
+    public Computadora() {
         ladrones = new ArrayList<Ladron>();
         //TODO: CARGAR CON DATOS DEL JSON
         ladrones.add( new Ladron("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica"));
@@ -18,7 +18,7 @@ public class Computadora {
 
     }
 
-    public List<Ladron> consultarDatos(Policia policia, List<Propiedad> propiedades) {
+    List<Ladron> consultarDatos(Policia policia, List<Propiedad> propiedades) {
 
         List<Ladron> ladronesSospechosos = new ArrayList<Ladron>();
         ladrones.stream().filter(ladron -> ladron.coincideConPropiedades(propiedades)).forEach(ladron -> ladronesSospechosos.add(ladron));

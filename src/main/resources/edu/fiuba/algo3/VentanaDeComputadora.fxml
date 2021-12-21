@@ -38,31 +38,31 @@
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="100.0" text="Sexo" />
-                                    <TextField />
+                                    <TextField fx:id="campoSexo" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="100.0" text="Hobby" />
-                                    <TextField />
+                                    <TextField fx:id="campoHobby" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="100.0" text="Cabello" />
-                                    <TextField />
+                                    <TextField fx:id="campoCabello" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="100.0" text="Seña" />
-                                    <TextField />
+                                    <TextField fx:id="campoSenia" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="54.0" prefWidth="275.0">
                                  <children>
                                     <Label prefHeight="16.0" prefWidth="100.0" text="Vehiculo" />
-                                    <TextField />
+                                    <TextField fx:id="campoVehiculo" />
                                  </children>
                               </HBox>
                            </children>
@@ -78,7 +78,7 @@
                     <items>
                         <AnchorPane maxHeight="255.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="300.0">
                      <children>
-                        <Label fx:id="textoInstructivo" layoutX="28.0" layoutY="36.0" prefHeight="184.0" prefWidth="243.0" text="Ingrese las caracteristicas conocidas del ladron. Si no sabe, deje en blanco." textAlignment="CENTER" wrapText="true">
+                        <Label fx:id="textoInstructivo" layoutX="28.0" layoutY="9.0" prefHeight="232.0" prefWidth="243.0" text="Ingrese las caracteristicas conocidas del ladron. Si no sabe, deje en blanco." textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -86,8 +86,8 @@
                      </children></AnchorPane>
                         <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>
-                        <Button layoutX="79.0" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Regresar" />
-                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" onKeyPressed="#consultarDatos" prefHeight="24.0" prefWidth="140.0" text="Buscar ladrón" />
+                        <Button layoutX="79.0" layoutY="69.0" mnemonicParsing="false" onAction="#regresar" prefHeight="25.0" prefWidth="140.0" text="Regresar" />
+                        <Button layoutX="80.0" layoutY="40.0" mnemonicParsing="false" onAction="#consultarDatos" onKeyPressed="#consultarDatos" prefHeight="24.0" prefWidth="140.0" text="Buscar ladrón" />
                      </children></AnchorPane>
                     </items>
                 </SplitPane>

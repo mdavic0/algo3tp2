@@ -13,7 +13,7 @@ public class Ladron {
     private String hobby;
     private List<Propiedad> propiedades= new ArrayList<Propiedad>();
 
-    public Ladron(String nombre, String genero, String vehiculo, String cabello, String senia, String hobby) throws Exception {
+    public Ladron(String nombre, String genero, String vehiculo, String cabello, String senia, String hobby)  {
 
         this.nombre = nombre;
         this.genero = genero;

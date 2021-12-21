@@ -11,6 +11,7 @@ public class Policia implements PropertyChangeListener {
     //String pista; //idealmente una coleccion
     IRango rango;
     ITemporizador temporizador;
+    Computadora computadora;
     OrdenDeArresto ordenDeArresto;
     int heridasPorCuchillo;
 
@@ -19,6 +20,7 @@ public class Policia implements PropertyChangeListener {
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
     public Policia() {
+        computadora = new Computadora();
         lugarActual = new Inactivo();
         rango = new Novato();
         ordenDeArresto = null;
@@ -122,5 +124,9 @@ public class Policia implements PropertyChangeListener {
     }
     public void reportarIngresoAEdificio(EntrarAEdificio entrarAEdificio) {
         entrarAEdificio.reportar(this.temporizador);
+    }
+
+    public List<Ladron> consultarDatos(List<Propiedad> propiedades) {
+        return computadora.consultarDatos(this, propiedades);
     }
 }

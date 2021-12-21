@@ -32,6 +32,8 @@ public class ControladorVentanaComputadora  {
     public TextField campoCabello;
     @FXML
     public SplitPane raiz;
+    @FXML
+    public Label textoInstructivo;
 
     private Policia policia;
     private Computadora computadora;
@@ -46,12 +48,26 @@ public class ControladorVentanaComputadora  {
     public void consultarDatos(){
         List<Propiedad> propiedades = new ArrayList<>();
         TextField[] inputs = {campoVehiculo, campoSexo, campoSenia, campoHobby, campoCabello};
-        String[] tipos = {"Vehiculo", "Sexo", "Senia", "Hobby", "Cabello"};
+        String[] tipos = {"Vehiculo", "Genero", "Senia", "Hobby", "Cabello"};
         for(int i = 0; i < tipos.length; i++) {
             if(!inputs[i].getText().equals(""))
                 propiedades.add(new Propiedad(tipos[i], inputs[i].getText()));
         }
-        computadora.consultarDatos(policia, propiedades);
+        List<Ladron> matches = policia.consultarDatos(propiedades);
+
+        String respuesta = new String();
+        if(matches.size() > 1){
+            for(Ladron match : matches){
+                respuesta = respuesta.concat("Match: ").concat(match.nombre()).concat(".\n");
+            }
+            textoInstructivo.setText(respuesta);
+        }
+        else if(matches.size() == 1){
+            textoInstructivo.setText("Emitiendo orden de arresto contra ".concat(matches.get(0).nombre()));
+        }
+        else {
+            textoInstructivo.setText("No se encontró match :(");
+        }
     }
 
 
