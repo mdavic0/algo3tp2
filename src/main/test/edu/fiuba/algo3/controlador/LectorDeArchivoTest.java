@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.modelo.Artefacto;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.controlador.LectorDeArchivo;
@@ -18,6 +19,14 @@ public class LectorDeArchivoTest {
         List<Ladron> ladrones = l.obtenerLadrones();
 
         assertEquals(10,  ladrones.size());
+    }
+
+    @Test
+    public void TestLectorLeeArtefactosDeJSON() throws Exception {
+        LectorDeArchivo l = new LectorDeArchivo();
+        List<Artefacto> artefactos = l.obtenerArtefactos();
+
+        assertEquals(28,  artefactos.size());
     }
 
 

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,16 +24,28 @@ public class LectorDeArchivo {
         return paises;
     }
 
-    public List<Artefacto> obtenerArtefactos() {
-        List<Artefacto> artefactos = new ArrayList<>();
-        Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
+    public List<Artefacto> obtenerArtefactos() throws IOException, ParseException {
+        return this.cargarArtefactos();
+    }
 
-        for(int j = 0; j < 3; j++) {
-            Valor actual = valores[j];
-            for(int i = 0; i < 20; i++) {
-                artefactos.add(new Artefacto("La torre eiffel", actual));
-            }
-        }
+    private List<Artefacto> cargarArtefactos() throws IOException, ParseException {
+        List<Artefacto> artefactos = new ArrayList<>();
+
+        JSONObject parser = (JSONObject) new JSONParser()
+                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/tesoros.json"));
+
+        JSONArray tesoros = (JSONArray) parser.get("tesoros");
+        tesoros.forEach(entry -> {
+            JSONObject project = (JSONObject) entry;
+
+            Valor valor;
+            if(project.get("valor").equals("Comun")) valor = new Comun();
+            else if (project.get("valor").equals("Valioso")) valor = new Valioso();
+            else valor = new MuyValioso();
+
+            artefactos.add(new Artefacto((String)project.get("tesoro"), valor));
+        });
+
         return artefactos;
     }
 
