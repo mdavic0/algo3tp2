@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import edu.fiuba.algo3.controlador.LectorDeArchivo;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -10,11 +14,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneradorDeRoboTest {
+
+    List<IPais> paises;
+    List<Artefacto> artefactos;
+    private List<Ladron> ladrones;
+    
+    @BeforeEach
+    public void setUp() throws Exception{
+        paises = new ArrayList<>();
+        for(int i = 0; i < 23; i++)
+            paises.add( new Pais("Francia" + i, 0, 0));
+
+        this.artefactos = new ArrayList<>();
+        Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
+
+        for(int j = 0; j < 3; j++) {
+            Valor actual = valores[j];
+            for(int i = 0; i < 20; i++) {
+                artefactos.add(new Artefacto("La torre eiffel", actual));
+            }
+        }
+
+        ladrones = new ArrayList<>();
+        ladrones.add( new Ladron("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Alonzo", "M", "Deportivo","Rubio", "Anillo","Tenis"));
+        ladrones.add(new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis"));
+    }
+    
     @Test
     public void testCrearRobo() throws Exception {
+        
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Sargento(), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new Sargento(), artefactos, paises, ladrones);
                     
         assertNotEquals(null, robo);
         assertEquals(robo.nombreDeArtefacto(), "La torre eiffel" );
@@ -25,9 +58,9 @@ public class GeneradorDeRoboTest {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
                 new RangoMock(new Comun()),
-                new LectorDeArchivo().obtenerArtefactos(), 
-                new LectorDeArchivo().obtenerPaises(), 
-                new LectorDeArchivo().obtenerLadrones());
+                artefactos, 
+                paises, 
+                ladrones);
                      
         assertEquals(Comun.class , robo.artefacto.valor().getClass());
         
@@ -36,7 +69,7 @@ public class GeneradorDeRoboTest {
     public void testCrearRoboDeObjetoMuyValioso() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new MuyValioso()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new RangoMock(new MuyValioso()), artefactos, paises, ladrones);
                 
         assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
@@ -45,7 +78,7 @@ public class GeneradorDeRoboTest {
     public void testObjetoMuyValiosoImplica7PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new MuyValioso()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new RangoMock(new MuyValioso()), artefactos, paises, ladrones);
                
         assertEquals(7 , robo.viaSinInit.size());
         
@@ -54,7 +87,7 @@ public class GeneradorDeRoboTest {
     public void testObjetoValorMedioImplica4PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new Comun()), new LectorDeArchivo().obtenerArtefactos(), new LectorDeArchivo().obtenerPaises(), new LectorDeArchivo().obtenerLadrones());
+                new RangoMock(new Comun()), artefactos, paises, ladrones);
                     
         assertEquals(4 , robo.viaSinInit.size());
         

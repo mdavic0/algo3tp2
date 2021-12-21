@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.controlador;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import org.json.simple.parser.*;
+
+import edu.fiuba.algo3.modelo.*;
 
 
 

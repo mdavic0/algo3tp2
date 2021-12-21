@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import edu.fiuba.algo3.controlador.LectorDeArchivo;
 import edu.fiuba.algo3.modelo.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ public class ControladorVentanaInicio  implements Initializable{
     private String ultimoInput;
     Policia policia;
     Robo robo;
+    LectorDeArchivo lector;
 
     @FXML
     public Label textoMaquinaDeEscribir;
@@ -70,7 +72,6 @@ public class ControladorVentanaInicio  implements Initializable{
     private void generarRobo() throws Exception{
         ultimoInput = inputJugador.getText();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
-        LectorDeArchivo lector = new LectorDeArchivo();
         List<IPais> paises =  lector.obtenerPaises();
         robo = gRobo.generarRobo(policia, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
 
@@ -85,5 +86,7 @@ public class ControladorVentanaInicio  implements Initializable{
         imprimirTextoPolicia(policia);
         
     }
-
+    public void inicializar(){
+        lector = new LectorDeArchivo();
+    }
 }

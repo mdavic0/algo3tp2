@@ -1,6 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.controlador;
 
 import org.junit.jupiter.api.Test;
+
+import edu.fiuba.algo3.controlador.LectorDeArchivo;
+import edu.fiuba.algo3.modelo.Ladron;
 
 import java.util.ArrayList;
 import java.util.List;

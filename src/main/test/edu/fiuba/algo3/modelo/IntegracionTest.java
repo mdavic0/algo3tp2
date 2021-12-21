@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import edu.fiuba.algo3.controlador.LectorDeArchivo;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,15 +14,33 @@ import java.util.List;
 
 public class IntegracionTest {
     ITemporizador t = new TemporizadorMock();
+    List<IPais> paises;
+    List<Artefacto> artefactos;
+    private List<Ladron> ladrones;
+    
+    @BeforeEach
+    public void setUp() throws Exception{
+        paises = new ArrayList<>();
+        for(int i = 0; i < 23; i++)
+            paises.add( new Pais("Francia" + i, 0, 0));
+
+        this.artefactos = new ArrayList<>();
+        Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
+
+        for(int j = 0; j < 3; j++) {
+            Valor actual = valores[j];
+            for(int i = 0; i < 20; i++) {
+                artefactos.add(new Artefacto("La torre eiffel", actual));
+            }
+        }
+    }
     @Test
     public void inicializarJuego() throws Exception { 
-       
-        LectorDeArchivo lector = new LectorDeArchivo();
         Temporizador t = new Temporizador(9, 21);
         Policia paco = new Policia();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
-        List<IPais> paises =  lector.obtenerPaises();
-        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
+        List<IPais> paises =  this.paises;
+        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises,ladrones);
         assertEquals(robo.viaSinInit.size(), 4);
 
         GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, paco.rango);
