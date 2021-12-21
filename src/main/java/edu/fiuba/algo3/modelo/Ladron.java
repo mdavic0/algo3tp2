@@ -1,22 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Ladron {
 
-    private String nombre;
-    private String genero;
-    private String vehiculo;
-    private String cabello;
-    private String senia;
-    private String hobby;
-    private List<Propiedad> propiedades= new ArrayList<Propiedad>();
+    private final String nombre;
+    private final String vehiculo;
+    private final String cabello;
+    private final String senia;
+    private final String hobby;
+
+    private final List<Propiedad> propiedades= new ArrayList<Propiedad>();
 
     public Ladron(String nombre, String genero, String vehiculo, String cabello, String senia, String hobby)  {
 
         this.nombre = nombre;
-        this.genero = genero;
         this.vehiculo =  vehiculo;
         this.cabello = cabello;
         this.senia = senia;
@@ -64,7 +62,7 @@ public class Ladron {
     }
 
     private Pista crearPistaDeSenia() {
-        return new PistaDeLadron("Tenia un ".concat(this.senia));
+        return new PistaDeLadron(this.senia);
     }
 
     private Pista crearPistaDeCabello() {

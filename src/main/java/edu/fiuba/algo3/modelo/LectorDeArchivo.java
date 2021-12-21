@@ -1,9 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
-//TODO: aun no lee paises. Estan hardcodeados
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
+
 public class LectorDeArchivo {
 
     public List<IPais> obtenerPaises() throws Exception {
@@ -12,6 +20,7 @@ public class LectorDeArchivo {
             paises.add( new Pais("Francia" + i, 0, 0));
         return paises;
     }
+
     public List<Artefacto> obtenerArtefactos() {
         List<Artefacto> artefactos = new ArrayList<>();
         Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
@@ -24,15 +33,24 @@ public class LectorDeArchivo {
         }
         return artefactos;
     }
+
     public List<Ladron> obtenerLadrones() throws Exception{
-        List<Ladron> ladrones = new ArrayList<Ladron>();
-        ladrones.add(new Ladron("Pedro", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
-        ladrones.add(new Ladron("Pedro2", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
-        ladrones.add(new Ladron("Pedro3", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
-        ladrones.add(new Ladron("Pedro4", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
-        ladrones.add(new Ladron("Pedro5", "M", "Scooter", "Rubio", "Anillo", "Tenis"));
-        ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Tatuaje", "Alpinismo"));
+        return this.cargarLadrones();
+    }
+
+    private List<Ladron> cargarLadrones() throws IOException, ParseException {
+        List<Ladron> ladrones = new ArrayList<>();
+
+        JSONObject parser = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
+
+        JSONArray dossiers = (JSONArray) parser.get("dossiers");
+        dossiers.forEach(entry -> {
+            JSONObject project = (JSONObject) entry;
+            ladrones.add(new Ladron((String )project.get("nombre"), (String )project.get("genero"), (String )project.get("vehiculo"), (String )project.get("cabello"), (String )project.get("senia"), (String )project.get("hobby")));
+        });
+
         return ladrones;
     }
+
 
 }

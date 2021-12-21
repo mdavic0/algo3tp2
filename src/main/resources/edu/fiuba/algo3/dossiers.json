@@ -1,0 +1,104 @@
+{
+    "dossiers": [
+        {
+            "nombre": "Carmen Sandiego",
+            "genero": "Femenino",
+            "ocupacion": "Antigua gente del Servicio de Espionaje de Mónaco",
+            "hobby": "Tenis",
+            "cabello": "Castaño",
+            "vehiculo": "Descapotable Packard 1939",
+            "senia": "Jamás se muestra en público sin su collar de rubíes",
+            "otros": "Le encanta la enchilada" 
+        },
+        {
+            "nombre": "Merey LaRoc",
+            "genero": "Femenino",
+            "ocupacion": "Bailarina profesional de aerobic",
+            "hobby": "Alpinismo",
+            "cabello": "Castaño",
+            "vehiculo": "Limusina de lujo",
+            "senia": "Siempre lleva unas joyas muy elegantes",
+            "otros": "Le encanta la comida picante" 
+        },
+        {
+            "nombre": "Dazzle Annie Nonker",
+            "genero": "Femenino",
+            "ocupacion": "Propietaria de un bar de yogurt",
+            "hobby": "Tenis",
+            "cabello": "Rubio",
+            "vehiculo": "Limusina Bugatti",
+            "senia": "Se rumorea que tiene un tatuaje",
+            "otros": "Le encanta comer marisco" 
+        },
+        {
+            "nombre": "Lady Agatha Wayland",
+            "genero": "Femenino",
+            "ocupacion": "Lectora de novelas de misterio",
+            "hobby": "Tenis",
+            "cabello": "Rojizo",
+            "vehiculo": "Deportivo Denghby",
+            "senia": "LLeva un anillo con un diamante del tamaño de una uva",
+            "otros": "Atraviesa los campos en busca de restaurantes mejicanos" 
+        },
+        {
+            "nombre": "Len 'Red' Bulk",
+            "genero": "Masculino",
+            "ocupacion": "Ex-jugador de hockey profesional",
+            "hobby": "Alpinismo",
+            "cabello": "Rojizo",
+            "vehiculo": "Descapotable",
+            "senia": "Tiene una sirena tatuada en el pulgar de la mano derecha",
+            "otros": "Le encanta el marisco" 
+        },
+        {
+            "nombre": "Scar Graynolt",
+            "genero": "Masculino",
+            "ocupacion": "Guitarrista folk",
+            "hobby": "Croquet",
+            "cabello": "Rojizo",
+            "vehiculo": "Limusina de ventanas oscuras",
+            "senia": "Lleva un anillo de oro de cinco quilates",
+            "otros": "Tiene un fiel servidor sherpa de 2'15 metros" 
+        },
+        {
+            "nombre": "Nick Brunch",
+            "genero": "Masculino",
+            "ocupacion": "Ex-detective privado",
+            "hobby": "Alpinismo",
+            "cabello": "Negro",
+            "vehiculo": "Moto Kamikaze-1250",
+            "senia": "Lleva gabardina y sombrero. Ojos marrones y bigote",
+            "otros": "Le apasiona la cocina mejicana; lleva un anillo de Dick Tracy" 
+        },
+        {
+            "nombre": "Fast Eddie B.",
+            "genero": "Masculino",
+            "ocupacion": "Jugador mundial de croquet",
+            "hobby": "Croquet",
+            "cabello": "Negro",
+            "vehiculo": "Descapotable",
+            "senia": "Siempre deja un alfiler de diamantes en la escena del crimen",
+            "otros": "Siempre va impecablemente vestido y peinado; le encanta la comida mejicana" 
+        },
+        {
+            "nombre": "Ihor Ihorovitch",
+            "genero": "Masculino",
+            "ocupacion": "Aspirante al trono zarista",
+            "hobby": "Croquet",
+            "cabello": "Rubio",
+            "vehiculo": "Limusina",
+            "senia": "Tiene un extraño tatuaje ucraniano en el hombro derecho",
+            "otros": "Le encanta comer langosta y ver dibujos animados" 
+        },
+        {
+            "nombre": "Katherine Drib",
+            "genero": "Femenino",
+            "ocupacion": "Piloto de carreras de motociclismo",
+            "hobby": "Alpinismo",
+            "cabello": "Castaño",
+            "vehiculo": "Moto Honda 1000",
+            "senia": "Lleva el tatuaje de un águila en el brazo izquierdo",
+            "otros": "Cocina muy bien el marisco; es una fanatica de la salud y del aerobic" 
+        }
+    ]
+} 
