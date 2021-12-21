@@ -33,6 +33,13 @@ public class IntegracionTest {
                 artefactos.add(new Artefacto("La torre eiffel", actual));
             }
         }
+        
+        ladrones = new ArrayList<>();
+        ladrones.add( new Ladron("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Alonzo", "M", "Deportivo","Rubio", "Anillo","Tenis"));
+        ladrones.add(new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis"));
+   
     }
     @Test
     public void inicializarJuego() throws Exception { 
