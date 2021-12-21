@@ -23,6 +23,11 @@ public class EstadoDeJuego implements PropertyChangeListener {
         else if(evt.getPropertyName() == "FalloArresto") {
             this.estado = estadoJuego.PERDIDO;
         }
+        else if(evt.getPropertyName() == "horasTranscurridas"){
+            if((int)evt.getNewValue() > 154) {
+                this.estado = estadoJuego.PERDIDO;
+            }
+        }
     }
 
     public boolean juegoEnProgreso(){

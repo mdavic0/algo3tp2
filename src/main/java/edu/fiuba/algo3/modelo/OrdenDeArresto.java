@@ -11,7 +11,7 @@ public class OrdenDeArresto {
     }
 
     public boolean puedeArrestarA (Ladron elLadron){
-        return Objects.equals(this.sospechoso.nombre(), elLadron.nombre()); //sacar el .nombre() cuando tengamos los JSON's
+        return Objects.equals(this.sospechoso.nombre(), elLadron.nombre()); //TODO sacar el .nombre() cuando tengamos los JSON's
     }
 
     public Ladron sospechoso(){

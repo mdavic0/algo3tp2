@@ -19,6 +19,7 @@ public class Policia implements PropertyChangeListener {
     int hora_dormir = 20;
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
+
     public Policia() {
         computadora = new Computadora();
         lugarActual = new Inactivo();
@@ -39,10 +40,12 @@ public class Policia implements PropertyChangeListener {
     public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
         lugarActual = new FueraDeEdificio(pais);
         ordenDeArresto = null;
-        temporizador.agregarSuscriptor(this);
-        this.agregarSuscriptor(estado);
         heridasPorCuchillo = 0;
         this.temporizador = temporizador;
+
+        temporizador.agregarSuscriptor(this);
+        this.agregarSuscriptor(estado);
+        temporizador.agregarSuscriptor(estado);
     }
 
     public void salirDelEdificio() throws Exception{
@@ -89,8 +92,10 @@ public class Policia implements PropertyChangeListener {
     }
 
     private boolean puedeArrestar(Ladron ladron) {
+
         if(this.ordenDeArresto != null)
             return this.ordenDeArresto.puedeArrestarA(ladron);
+
         return false;
     }
 
@@ -122,6 +127,7 @@ public class Policia implements PropertyChangeListener {
     public void agregarSuscriptor(PropertyChangeListener suscriptor){
         suscriptores.add(suscriptor);
     }
+
     public void reportarIngresoAEdificio(EntrarAEdificio entrarAEdificio) {
         entrarAEdificio.reportar(this.temporizador);
     }
@@ -129,4 +135,6 @@ public class Policia implements PropertyChangeListener {
     public List<Ladron> consultarDatos(List<Propiedad> propiedades) {
         return computadora.consultarDatos(this, propiedades);
     }
+
+
 }

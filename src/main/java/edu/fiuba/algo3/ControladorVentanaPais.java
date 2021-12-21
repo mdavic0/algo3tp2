@@ -58,7 +58,7 @@ public class ControladorVentanaPais {
         } */
     } 
 
-    public void inicializar(Policia policia, IPais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) {
+    public void inicializar(Policia policia, IPais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
         this.policia = policia;
         this.pais = pais;
         this.robo = robo;
@@ -69,24 +69,28 @@ public class ControladorVentanaPais {
         diaYHora.setText(t.fechaActual());
         //TODO descripcion de cada pais
         descripcionPais.setText(pais.nombre());
+
+        if (estado.juegoPerdido()){
+            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeFinDeJuego" + ".fxml"));
+            raiz.getScene().setRoot(fxmlLoader.load());
+        }
     } 
     
     public void investigar() throws Exception{
 
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificio" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificios" + ".fxml"));
         
         raiz.getScene().setRoot(fxmlLoader.load());
         List<FXMLLoader> vistasEdificios = new ArrayList<FXMLLoader>();
 
         for(int i = 0; i < policia.paisActual().edificios().size();i++){
-            FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificio.fxml"));
+            FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
             ventanaEdificio.load();
             ((ControladorVentanaEdificio) ventanaEdificio.getController())
                 .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader);
             vistasEdificios.add(ventanaEdificio);
         }
-        
-    
+
         ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController())
             .inicializar(policia, policia.paisActual(), vistasEdificios);
     }
@@ -152,7 +156,7 @@ public class ControladorVentanaPais {
         policia.viajarA(pais);
     }
 
-    public void actualizarInterfaz() {
+    public void actualizarInterfaz() throws IOException {
         inicializar(policia, pais, robo, estado, t, selfLoader);
     }
 }

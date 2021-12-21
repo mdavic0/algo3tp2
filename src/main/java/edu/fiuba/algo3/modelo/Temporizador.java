@@ -38,23 +38,24 @@ public class Temporizador implements ITemporizador {
 
         this.actualizarFecha();
 
-        PropertyChangeEvent eventoTiempoTranscurrido = new PropertyChangeEvent(this, 
-            "horasTranscurridas", 
-            tiempoTranscurridoPrevio,
-            horasTranscurridas());
+        PropertyChangeEvent eventoTiempoTranscurrido = new PropertyChangeEvent(this,
+                "horasTranscurridas",
+                tiempoTranscurridoPrevio,
+                horasTranscurridas());
 
-        for(PropertyChangeListener suscriptor : suscriptores){
+        for (PropertyChangeListener suscriptor : suscriptores) {
             suscriptor.propertyChange(eventoTiempoTranscurrido);
         }
 
-        PropertyChangeEvent eventoHora = new PropertyChangeEvent(this, 
-            "horaActual", 
-            horaPrevia,
-            horaActual());
-          
-        for(PropertyChangeListener suscriptor : suscriptores){
+        PropertyChangeEvent eventoHora = new PropertyChangeEvent(this,
+                "horaActual",
+                horaPrevia,
+                horaActual());
+
+        for (PropertyChangeListener suscriptor : suscriptores) {
             suscriptor.propertyChange(eventoHora);
         }
+
     }
 
     @Override
