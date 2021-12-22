@@ -160,4 +160,17 @@ public class ControladorVentanaPais {
     public void actualizarInterfaz() throws IOException {
         inicializar(policia, pais, robo, estado, t, selfLoader);
     }
+
+    public void mostrarLadrones() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeLadrones" + ".fxml"));
+
+        try {
+            Parent padre = fxmlLoader.load();
+            raiz.getScene().setRoot(padre);
+            ((ControladorVentanaDeLadrones)fxmlLoader.getController()).inicializar(selfLoader);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
 }

@@ -1,18 +1,19 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.modelo.IPais;
+import edu.fiuba.algo3.modelo.Policia;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControladorVentanaDeLadrones implements Initializable {
+public class ControladorVentanaDeLadrones {
     @FXML
     public AnchorPane raiz;
 
@@ -46,8 +47,11 @@ public class ControladorVentanaDeLadrones implements Initializable {
     @FXML
     public Label ladron10;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private FXMLLoader ventanaARegresar;
+
+    public void inicializar(FXMLLoader ventanaARegresar) {
+        this.ventanaARegresar = ventanaARegresar;
+
         ladron1.setText("nombre: \"Carmen Sandiego\".\n" +
                 "genero: Femenino\".\n" +
                 "ocupacion: \"Antigua gente del Servicio de Espionaje de Mónaco\".\n" +
@@ -140,6 +144,7 @@ public class ControladorVentanaDeLadrones implements Initializable {
     }
 
     public void botonRegresar() throws IOException {
-       System.out.println("Regresar");
+        Parent nodoARegresar = ventanaARegresar.getRoot();
+        raiz.getScene().setRoot(nodoARegresar);
     }
 }
