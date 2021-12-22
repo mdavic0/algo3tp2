@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.controlador;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 
 
-public class ControladorVentanaOpcionesPais {
+public class ControladorVentanaOpcionesEdificios {
     @FXML
     public Button opcion1;
     @FXML
@@ -26,35 +26,32 @@ public class ControladorVentanaOpcionesPais {
     public SplitPane raiz;
 
     private Policia paco;
-    private List<FXMLLoader> vistas;
+    private List<FXMLLoader> vistasEdificios;
     
-    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasPaises){
+    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasEdificios){
         this.paco = paco;
-        this.vistas = vistasPaises;
-        List<IPais> paises = paco.paisActual().obtenerAdyacentes();
+        this.vistasEdificios = vistasEdificios;
+        List<IEdificio> edificios = pais.edificios();
         Button[] botones = {opcion1, opcion2, opcion3};
 
-        for(int i = 0; i < paises.size(); i++){
-            atarBotonAPais(paises.get(i), botones[i], vistas.get(i));
-            botones[i].setVisible(true);
-        }
-        for(int i = paises.size(); i < 3; i++){
-            botones[i].setVisible(false);
+        for(int i = 0; i < edificios.size(); i++){
+            atarBotonAEdificio(edificios.get(i), botones[i], vistasEdificios.get(i));
         }
     }
 
-    void atarBotonAPais(IPais pais, Button boton, FXMLLoader vista){
-        boton.setText(pais.nombre());
-        boton.setOnAction(a -> entrarA(pais, vista));
+    void atarBotonAEdificio(IEdificio edificio, Button boton, FXMLLoader vista){
+        boton.setText(edificio.nombre());
+        boton.setOnAction(a -> entrarA(edificio, vista));
     }
 
-    void entrarA(IPais pais, FXMLLoader ventanaCargada){
+    void entrarA(IEdificio edificio, FXMLLoader ventanaCargada){
         try {
-            ((ControladorVentanaPais)ventanaCargada.getController()).notificarLlegada();
+            ((ControladorVentanaEdificio)ventanaCargada.getController()).notificarEntrada();
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
+
         raiz.getScene().setRoot(ventanaCargada.getRoot());
     }
 }

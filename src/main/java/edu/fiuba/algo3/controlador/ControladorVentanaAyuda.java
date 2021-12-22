@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.controlador;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

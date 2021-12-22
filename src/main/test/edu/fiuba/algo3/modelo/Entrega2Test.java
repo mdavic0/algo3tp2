@@ -146,7 +146,10 @@ public class Entrega2Test {
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia();
-        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(),t, new ComputadoraMock());
+
+        List<Ladron> ladrones = new ArrayList<>();
+        ladrones.add(carmen);
+        paco.asignarCaso(elRobo.lugarDeRobo(), estado,t, new Computadora(ladrones));
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.
@@ -195,8 +198,9 @@ public class Entrega2Test {
         assertTrue(estado.juegoEnProgreso());
 
         paco.entrarA(aeropuerto);
-        assertTrue(estado.juegoGanado());
         assertFalse(estado.juegoEnProgreso());
+        assertTrue(estado.juegoGanado());
+        
     }
 
 }
