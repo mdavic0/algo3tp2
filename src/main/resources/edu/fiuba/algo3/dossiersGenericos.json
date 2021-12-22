@@ -1,0 +1,104 @@
+{
+    "dossiers": [
+        {
+            "nombre": "Carmen Sandiego",
+            "genero": "Femenino",
+            "ocupacion": "Espía",
+            "hobby": "Tenis",
+            "cabello": "Castaño",
+            "vehiculo": "Descapotable",
+            "senia": "Joyas",
+            "otros": "Comida mexicana" 
+        },
+        {
+            "nombre": "Merey LaRoc",
+            "genero": "Femenino",
+            "ocupacion": "Bailarina",
+            "hobby": "Alpinismo",
+            "cabello": "Castaño",
+            "vehiculo": "Limusina",
+            "senia": "Siempre lleva unas joyas muy elegantes",
+            "otros": "Comida picante" 
+        },
+        {
+            "nombre": "Dazzle Annie Nonker",
+            "genero": "Femenino",
+            "ocupacion": "Propietaria de bar de yogurt",
+            "hobby": "Tenis",
+            "cabello": "Rubio",
+            "vehiculo": "Limusina",
+            "senia": "Tatuaje",
+            "otros": "Seafood" 
+        },
+        {
+            "nombre": "Lady Agatha Wayland",
+            "genero": "Femenino",
+            "ocupacion": "Lector",
+            "hobby": "Tenis",
+            "cabello": "Rojizo",
+            "vehiculo": "Deportivo",
+            "senia": "Anillo",
+            "otros": "Comida mexicana" 
+        },
+        {
+            "nombre": "Len 'Red' Bulk",
+            "genero": "Masculino",
+            "ocupacion": "Ex-jugador de hockey profesional",
+            "hobby": "Alpinismo",
+            "cabello": "Rojizo",
+            "vehiculo": "Descapotable",
+            "senia": "Tatuaje",
+            "otros": "Seafood" 
+        },
+        {
+            "nombre": "Scar Graynolt",
+            "genero": "Masculino",
+            "ocupacion": "Guitarrista",
+            "hobby": "Croquet",
+            "cabello": "Rojizo",
+            "vehiculo": "Limusina",
+            "senia": "Anillo",
+            "otros": "Servidor" 
+        },
+        {
+            "nombre": "Nick Brunch",
+            "genero": "Masculino",
+            "ocupacion": "Ex-detective privado",
+            "hobby": "Alpinismo",
+            "cabello": "Negro",
+            "vehiculo": "Moto",
+            "senia": "Sombrero;Anillo",
+            "otros": "Comida mexicana;Anillo" 
+        },
+        {
+            "nombre": "Fast Eddie B.",
+            "genero": "Masculino",
+            "ocupacion": "Jugador mundial de croquet",
+            "hobby": "Croquet",
+            "cabello": "Negro",
+            "vehiculo": "Descapotable",
+            "senia": "Joyas",
+            "otros": "Bien visto;Comida mexicana" 
+        },
+        {
+            "nombre": "Ihor Ihorovitch",
+            "genero": "Masculino",
+            "ocupacion": "Aspirante al trono zarista",
+            "hobby": "Croquet",
+            "cabello": "Rubio",
+            "vehiculo": "Limusina",
+            "senia": "Tatuaje",
+            "otros": "Seafood;Dibujos animados" 
+        },
+        {
+            "nombre": "Katherine Drib",
+            "genero": "Femenino",
+            "ocupacion": "Piloto de carreras de motociclismo",
+            "hobby": "Alpinismo",
+            "cabello": "Castaño",
+            "vehiculo": "Moto",
+            "senia": "Tatuaje",
+            "otros": "Seafood;Aficionada de la salud" 
+        }
+    ]
+} 

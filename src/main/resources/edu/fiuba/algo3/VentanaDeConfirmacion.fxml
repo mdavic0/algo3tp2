@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="91.0" maxWidth="300.0" minHeight="61.0" minWidth="196.0" prefHeight="91.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Controlador">
+<AnchorPane maxHeight="91.0" maxWidth="300.0" minHeight="61.0" minWidth="196.0" prefHeight="91.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.Controlador">
    <children>
       <Button layoutX="40.0" layoutY="33.0" maxHeight="21.0" minHeight="20.0" minWidth="50.0" mnemonicParsing="false" onAction="#botonSi" prefHeight="21.0" text="Si">
          <font>

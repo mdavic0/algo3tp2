@@ -19,13 +19,20 @@ public class Ladron {
         this.cabello = cabello;
         this.senia = senia;
         this.hobby = hobby;
+        Map<String, String> caracteristicas = new HashMap<>();
+        caracteristicas.put("Genero", genero);
+        caracteristicas.put("Vehiculo", vehiculo);
+        caracteristicas.put("Cabello", cabello);
+        caracteristicas.put("Senia", senia);
+        caracteristicas.put("Hobby", hobby);
 
-        //TODO unico lugar que liste todas las propiedades
-        propiedades.add(new Propiedad("Genero", genero));
-        propiedades.add(new Propiedad("Vehiculo", vehiculo));
-        propiedades.add(new Propiedad("Cabello", cabello));
-        propiedades.add(new Propiedad("Senia", senia));
-        propiedades.add(new Propiedad("Hobby", hobby));
+        caracteristicas.keySet().forEach(k -> {
+            String[] subpropiedades= caracteristicas.get(k).split(";");
+            for(String s : subpropiedades){
+                propiedades.add(new Propiedad(k, s));
+            }
+        }
+        );
 
     }
     

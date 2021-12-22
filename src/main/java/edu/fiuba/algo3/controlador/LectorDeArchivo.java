@@ -78,7 +78,7 @@ public class LectorDeArchivo {
         List<Ladron> ladrones = new ArrayList<>();
 
         JSONObject parser = (JSONObject) new JSONParser()
-                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
+                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiersGenericos.json"));
 
         JSONArray dossiers = (JSONArray) parser.get("dossiers");
         dossiers.forEach(entry -> {

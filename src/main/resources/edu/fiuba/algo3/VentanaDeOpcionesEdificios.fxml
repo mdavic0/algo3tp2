@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.75" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.ControladorVentanaOpcionesEdificios">
+<SplitPane fx:id="raiz" dividerPositions="0.75" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaOpcionesEdificios">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>

@@ -56,10 +56,10 @@ public class ControladorVentanaComputadora  {
         campoHobby.getItems().addAll("", "Tenis", "Música", "Alpinismo", "Paracaidismo", "Natación", "Croquet");
         campoHobby.setValue("");
 
-        campoCabello.getItems().addAll("", "Castaño", "Rubio", "Rojo", "Negro");
+        campoCabello.getItems().addAll("", "Castaño", "Rubio", "Rojizo", "Negro");
         campoCabello.setValue("");
 
-        campoSenia.getItems().addAll("", "anillo", "Tatuaje", "Cicatriz", "Joyas");
+        campoSenia.getItems().addAll("", "Anillo", "Tatuaje", "Cicatriz", "Joyas");
         campoSenia.setValue("");
 
         campoVehiculo.getItems().addAll("", "Descapotable", "Limusina", "Deportivo", "Moto");
