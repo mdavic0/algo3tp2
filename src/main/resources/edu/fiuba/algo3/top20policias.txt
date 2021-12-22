@@ -1,0 +1,4 @@
+Franco, Investigador, 15
+Santiago, Investigador, 10
+Maria, Detective, 6
+Mauricio, Novato, 5

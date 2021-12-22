@@ -18,14 +18,14 @@
             <Image url="@Volver.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="505.0" fitWidth="406.0" layoutX="380.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="419.0" fitWidth="376.0" layoutX="410.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Carmen-Sandiego-Character-Art.png" />
          </image>
       </ImageView>
-      <Label fx:id="comoJugar" alignment="TOP_LEFT" layoutX="14.0" layoutY="30.0" prefHeight="539.0" prefWidth="359.0" text="aaaaaaaaaaa" wrapText="true">
+      <Label fx:id="comoJugar" alignment="TOP_LEFT" layoutX="7.0" layoutY="9.0" prefHeight="581.0" prefWidth="376.0" text="aaaaaaaaaaa" wrapText="true">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
    </children>

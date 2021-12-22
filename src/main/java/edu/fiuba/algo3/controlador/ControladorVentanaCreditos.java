@@ -19,20 +19,31 @@ public class ControladorVentanaCreditos implements Initializable {
     public Label tpAlgoThief;
 
     @FXML
+    public Label desarrolladores;
+
+    @FXML
+    public Label descripcion;
+
+    @FXML
     public Label versionJava;
 
     @FXML
     public Label versionJavaFX;
 
-    @FXML
-    public Label desarrolladores;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tpAlgoThief.setText("TP2 Algoritmos 3: Algo-thief");
-        versionJava.setText("Version de Java:\n\t- " + System.getProperty("java.version"));
-        versionJavaFX.setText("Version de JavaFX:\n\t- " + System.getProperty("javafx.version"));
+        tpAlgoThief.setText("TP2 Algoritmos 3: \n- \"Algo-thief\"");
         desarrolladores.setText("Desarrolladores:\n- Mauricio Davico\n" + "- María Fernanda Pont Tovar\n" + "- Franco Pomi");
+        descripcion.setText("Genero: - Educativo\n\n" +
+                            "Año: - 2021\n\n" +
+                            "Controles: - Teclado/Ratón\n\n" +
+                            "Idioma: - Español\n\n"
+        );
+        versionJava.setText("Version de Java: - " + System.getProperty("java.version"));
+        versionJavaFX.setText("Version de JavaFX: - " + System.getProperty("javafx.version"));
+
 
     }
 
