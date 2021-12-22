@@ -32,9 +32,7 @@ public class ControladorVentanaCreditos implements Initializable {
         tpAlgoThief.setText("TP2 Algoritmos 3: Algo-thief");
         versionJava.setText("Version de Java:\n\t- " + System.getProperty("java.version"));
         versionJavaFX.setText("Version de JavaFX:\n\t- " + System.getProperty("javafx.version"));
-        desarrolladores.setText("Desarrolladores:\n\n- Mauricio Davico\n" +
-                "- María Fernanda Pont Tovar\n" +
-                "- Franco Pomi");
+        desarrolladores.setText("Desarrolladores:\n- Mauricio Davico\n" + "- María Fernanda Pont Tovar\n" + "- Franco Pomi");
 
     }
 
