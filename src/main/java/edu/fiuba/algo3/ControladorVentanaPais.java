@@ -154,6 +154,7 @@ public class ControladorVentanaPais {
 
     public void notificarLlegada() throws Exception {
         policia.viajarA(pais);
+        actualizarInterfaz();
     }
 
     public void actualizarInterfaz() throws IOException {
