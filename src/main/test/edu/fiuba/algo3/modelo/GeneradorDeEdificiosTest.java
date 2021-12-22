@@ -7,7 +7,7 @@ public class GeneradorDeEdificiosTest {
 
     @Test
     public void testEdificioCreaPistasSegunDificultadFacilObtenidaDelRango() throws Exception {
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
 
         IDificultad dificultad = new Facil();
         IPista pista = dificultad.crearPistaHistorica(
@@ -17,7 +17,7 @@ public class GeneradorDeEdificiosTest {
 
     @Test
     public void testEdificioCreaPistasSegunDificultadMediaObtenidaDelRango() throws Exception {
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
 
         IDificultad dificultad = new Media();
         IPista pista = dificultad.crearPistaHistorica(

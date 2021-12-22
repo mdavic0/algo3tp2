@@ -36,10 +36,10 @@ public class GeneradorDeRoboTest {
         }
 
         ladrones = new ArrayList<>();
-        ladrones.add( new Ladron("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica"));
-        ladrones.add( new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica"));
-        ladrones.add( new Ladron("Alonzo", "M", "Deportivo","Rubio", "Anillo","Tenis"));
-        ladrones.add(new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis"));
+        ladrones.add( new Ladron("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Roberta Rigoberta", "Femenino", "Motocicleta","Negro", "Cicatriz","Musica"));
+        ladrones.add( new Ladron("Alonzo", "Masculino", "Deportivo","Rubio", "Anillo","Tenis"));
+        ladrones.add(new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis"));
     }
     
     @Test
@@ -111,7 +111,7 @@ public class GeneradorDeRoboTest {
         List<Artefacto> artefactos = new ArrayList<Artefacto>();
         artefactos.add(new Artefacto("Las pirámides", new Comun()));
         List<Ladron> ladrones = new ArrayList<Ladron>();
-        ladrones.add(new Ladron("Carmen", "F", "Moto", "Marrón", "Bien bonita", "Danza"));
+        ladrones.add(new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Bien bonita", "Danza"));
         Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises, ladrones);
         assertEquals(robo.viaSinInit.size(), 4);
         assertFalse(robo.lugarDeRobo().obtenerAdyacentes().contains(robo.lugarDeRobo()));

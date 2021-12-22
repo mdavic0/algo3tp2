@@ -50,7 +50,7 @@ public class ControladorVentanaComputadora  {
         this.policia = policia;
         this.ventanaARegresar = ventanaARegresar;
 
-        campoSexo.getItems().addAll("","M","F");
+        campoSexo.getItems().addAll("","Masculino","Femenino");
         campoSexo.setValue("");
 
         campoHobby.getItems().addAll("", "Tenis", "Música", "Alpinismo", "Paracaidismo", "Natación", "Croquet");
@@ -59,7 +59,7 @@ public class ControladorVentanaComputadora  {
         campoCabello.getItems().addAll("", "Castaño", "Rubio", "Rojo", "Negro");
         campoCabello.setValue("");
 
-        campoSenia.getItems().addAll("", "Anillo", "Tatuaje", "Cicatriz", "Joyas");
+        campoSenia.getItems().addAll("", "anillo", "Tatuaje", "Cicatriz", "Joyas");
         campoSenia.setValue("");
 
         campoVehiculo.getItems().addAll("", "Descapotable", "Limusina", "Deportivo", "Moto");

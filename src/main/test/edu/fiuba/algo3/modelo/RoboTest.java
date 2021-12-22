@@ -36,7 +36,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
         
         assertEquals("Hola, Detective. Hubo un robo de La torre eiffel", 
@@ -51,7 +51,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
         
         robo.reportarRobo("Detective");
@@ -64,7 +64,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
 
         IPais lugarRobo = robo.lugarDeRobo();
@@ -81,7 +81,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6), 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
 
         // hack para obtener pais valido
@@ -94,7 +94,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6),  
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
 
         // hack para obtener pais valido
@@ -108,7 +108,7 @@ public class RoboTest {
         Robo robo = new Robo(
             paises.subList(0, 2), 
             paises.subList(0, 6),  
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
         for(IPais pais : robo.viaSinInit){
             assertFalse(pais.obtenerAdyacentes().contains(pais));

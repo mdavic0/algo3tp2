@@ -11,7 +11,7 @@ public class GeneradorMockDeRobo implements IGeneradorDeRobo {
         return new Robo(
             paisesPosibles.subList(0, 3), 
             paisesPosibles, 
-            new Ladron("Carmen", "F", "Moto", "Marrón", "Anillo", "Tenis"),
+            new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
     }
 

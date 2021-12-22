@@ -23,8 +23,8 @@ public class ComputadoraTest {
 
         int tamanioEsperado = 2;
 
-        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
+        Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron roberta = new Ladron("Roberta Rigoberta", "Femenino", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Computadora computadora = new Computadora(Arrays.asList(juan, roberta));
 
@@ -48,7 +48,7 @@ public class ComputadoraTest {
 
         IPais colombia = new PaisMock("Colombia");
 
-        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
         Computadora computadora = new Computadora(Arrays.asList(juan));
         paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), computadora);
@@ -56,7 +56,7 @@ public class ComputadoraTest {
 
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
-        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Genero", "Masculino"));
         propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
         propiedades.add(new Propiedad("Cabello", "Negro"));
 
@@ -75,14 +75,14 @@ public class ComputadoraTest {
 
         IPais colombia = new PaisMock("Colombia");
 
-        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
         paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
 
         Computadora computadora = new Computadora(Arrays.asList(juan));
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
-        propiedades.add(new Propiedad("Genero", "M"));
+        propiedades.add(new Propiedad("Genero", "Masculino"));
         propiedades.add(new Propiedad("Vehiculo", "Deportivo"));
         propiedades.add(new Propiedad("Cabello", "Negro"));
 
@@ -99,8 +99,8 @@ public class ComputadoraTest {
 
         int tamanioEsperado = 2;
 
-        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
+        Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron roberta = new Ladron("Roberta Rigoberta", "Femenino", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Policia paco = new Policia();
 

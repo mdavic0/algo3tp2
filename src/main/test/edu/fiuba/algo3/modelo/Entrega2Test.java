@@ -47,7 +47,7 @@ public class Entrega2Test {
         paises.add(new Pais("Austria", 0, 0));
         paises.add(new Pais("Austria", 0, 0));
 
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
         Artefacto arte = new Artefacto("La pantera rosa", new Valioso());
         Robo elRobo = new Robo(paises.subList(0,2), paises, carmen, arte);
 
@@ -71,8 +71,8 @@ public class Entrega2Test {
 
         IPais colombia = new PaisMock("Colombia");
 
-        Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
-        Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
+        Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
+        Ladron roberta = new Ladron("Roberta Rigoberta", "Femenino", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Policia paco = new Policia();
         Computadora compu = new Computadora(Arrays.asList(juan, roberta));
@@ -94,7 +94,7 @@ public class Entrega2Test {
     @Test
     public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
         IPais colombia = new PaisMock("Colombia");
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
         IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
         colombia.agregarEdificios(e);
@@ -123,7 +123,7 @@ public class Entrega2Test {
         Pais peru = new Pais("Peru",0, 0);
         peru.agregarEdificios(banco, museo, puerto);
 
-        Ladron carmen = new Ladron("Carmen Sandiego", "F", "Moto", "Oscuro", "Bien bonita", "tenis");
+        Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
 
         Pais mexico = new Pais("Mexico", 0, 0);
         IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
@@ -177,7 +177,7 @@ public class Entrega2Test {
         //CON ESTAS PISTAS TENEMOS DATOS SUFICIENTES PARA PODER EMITIR UNA ORDEN DE ARRESTO
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Cabello", "Oscuro"));
-        propiedades.add(new Propiedad("Genero", "F"));
+        propiedades.add(new Propiedad("Genero", "Femenino"));
         propiedades.add(new Propiedad("Hobby", "tenis"));
         paco.consultarDatos(propiedades);
 
