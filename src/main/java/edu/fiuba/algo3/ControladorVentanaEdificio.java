@@ -104,6 +104,6 @@ public class ControladorVentanaEdificio{
         Parent nuevaRaiz = fxmlLoader.load();
         raiz.getItems().clear();
         raiz.getItems().add(nuevaRaiz);
-        ((ControladorVentanaFinDeJuego)fxmlLoader.getController()).inicializar(policia, estado);
+        ((ControladorVentanaFinDeJuego)fxmlLoader.getController()).inicializar(policia, estado, robo);
     }
 }

@@ -42,11 +42,11 @@ public class EstadoDeJuego implements PropertyChangeListener {
         return estado == estadoJuego.PERDIDO;
     }
 
-    public String reportarAlUsuario() {
+    public String reportarAlUsuario(Ladron ladron) {
         if(estado == estadoJuego.GANADO)
-            return "Felicitaciones! Ganaste!";
+            return "Felicitaciones! El ladrón "+ladron.nombre()+" ha sido detenido.";
         if(estado == estadoJuego.PERDIDO)
-            return "Perdiste che";
-        return "Juego en progreso";
+            return "Oh no! El ladrón "+ladron.nombre()+" se escapó.";
+        return "Juego en progreso.";
     }
 }

@@ -83,10 +83,10 @@ public class ControladorVentanaInicio  implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         policia = new Policia();
+        lector = new LectorDeArchivo();
         imprimirTextoPolicia(policia);
         
     }
     public void inicializar(){
-        lector = new LectorDeArchivo();
     }
 }

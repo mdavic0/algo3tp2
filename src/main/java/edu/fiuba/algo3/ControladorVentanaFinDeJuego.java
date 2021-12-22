@@ -21,12 +21,13 @@ import javafx.scene.layout.Pane;
 public class ControladorVentanaFinDeJuego {
     @FXML
     public Label texto;
-
     @FXML
     public AnchorPane raiz;
+
+    Policia policia;
     
-    public void inicializar(Policia policia, EstadoDeJuego estado){
-        texto.setText(estado.reportarAlUsuario());
+    public void inicializar(Policia policia, EstadoDeJuego estado, IRobo robo){
+        texto.setText(estado.reportarAlUsuario(robo.obtenerLadron()));
     }
 
     public void botonRegresar() throws IOException {
