@@ -80,7 +80,12 @@ public class LectorDeArchivo {
         JSONObject parser = (JSONObject) new JSONParser()
                 .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiersGenericos.json"));
 
+        JSONObject parserDetalle = (JSONObject) new JSONParser()
+                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
+
         JSONArray dossiers = (JSONArray) parser.get("dossiers");
+        JSONArray dossiersGenericos = (JSONArray) parserDetalle.get("dossiersGenericos");
+        
         dossiers.forEach(entry -> {
             JSONObject project = (JSONObject) entry;
             ladrones.add(new Ladron((String )project.get("nombre"), (String )project.get("genero"), (String )project.get("vehiculo"), (String )project.get("cabello"), (String )project.get("senia"), (String )project.get("hobby")));

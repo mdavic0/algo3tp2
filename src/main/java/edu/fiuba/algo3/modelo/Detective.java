@@ -15,11 +15,6 @@ public class Detective implements IRango {
     }
 
     @Override
-    public double velocidadKmh() {
-        return velocidadKmh;
-    }
-
-    @Override
     public IDificultad obtenerDificultadPistas(){
         return IDificultad;
     }

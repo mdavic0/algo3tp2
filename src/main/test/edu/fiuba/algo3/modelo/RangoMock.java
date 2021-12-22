@@ -17,11 +17,6 @@ public class RangoMock implements IRango{
     }
 
     @Override
-    public double velocidadKmh() {
-        return 100;
-    }
-
-    @Override
     public IDificultad obtenerDificultadPistas() {
         return IDificultad;
     }
