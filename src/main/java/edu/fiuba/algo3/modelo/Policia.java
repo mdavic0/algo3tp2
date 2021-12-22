@@ -11,7 +11,7 @@ public class Policia {
     //String pista; //idealmente una coleccion
     IRango rango;
     ITemporizador temporizador;
-    Computadora computadora;
+    IComputadora computadora;
     OrdenDeArresto ordenDeArresto;
     int heridasPorCuchillo;
 
@@ -21,7 +21,6 @@ public class Policia {
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
 
     public Policia() {
-        computadora = new Computadora();
         lugarActual = new Inactivo();
         rango = new Novato();
         ordenDeArresto = null;
@@ -37,7 +36,8 @@ public class Policia {
     /*
     Ubicar al policia en el juego tras generar el robo
     */
-    public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador){
+    public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador, IComputadora computadora){
+        this.computadora = computadora;
         lugarActual = new FueraDeEdificio(pais);
         ordenDeArresto = null;
         heridasPorCuchillo = 0;

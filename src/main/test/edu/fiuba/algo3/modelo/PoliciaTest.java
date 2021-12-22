@@ -15,7 +15,7 @@ public class PoliciaTest {
         colombia.agregarEdificios(banco);
 
         Policia paco = new Policia();
-        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
         assertThrows(Exception.class, () -> paco.cuestionarTestigo());
         paco.entrarA(banco);
         assertEquals("YO NO VI NADA!",paco.cuestionarTestigo());
@@ -23,7 +23,6 @@ public class PoliciaTest {
 
     @Test
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
-        IPais colombia = new PaisMock("Colombia");
         IEdificio e =  new EdificioMock("La ferreteria");
         Policia paco = new Policia();
         
@@ -38,7 +37,7 @@ public class PoliciaTest {
         colombia.agregarEdificios(e);
 
         Policia paco = new Policia();
-        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
         paco.entrarA(e);
         
         assertThrows(Exception.class, () -> paco.entrarA(new EdificioMock("Migraciones")));
@@ -51,7 +50,7 @@ public class PoliciaTest {
         montreal.conectarA(mexico);
 
         Policia paco = new Policia();
-        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock());
+        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
 
         assertThrows(Exception.class, () -> paco.viajarA(new PaisMock("China")));
     }
@@ -62,7 +61,7 @@ public class PoliciaTest {
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
         Policia paco = new Policia();
-        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock());
+        paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
 
         assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);

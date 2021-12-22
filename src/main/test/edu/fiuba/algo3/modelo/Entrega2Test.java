@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +16,7 @@ public class Entrega2Test {
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
         IPais montreal = new PaisMock("Montreal");
         Policia undyne = new Policia();
-        undyne.asignarCaso(montreal, new EstadoDeJuego(),t);
+        undyne.asignarCaso(montreal, new EstadoDeJuego(),t, new ComputadoraMock());
 
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.
@@ -52,7 +53,7 @@ public class Entrega2Test {
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia();
-        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(), t);
+        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(), t, new ComputadoraMock());
 
         //Se verifica la promocion de rango
         assertEquals(Novato.class, paco.rango.getClass());
@@ -74,9 +75,8 @@ public class Entrega2Test {
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Policia paco = new Policia();
-        paco.asignarCaso(colombia, new EstadoDeJuego(), t);
-
-        Computadora compu = new Computadora();
+        Computadora compu = new Computadora(Arrays.asList(juan, roberta));
+        paco.asignarCaso(colombia, new EstadoDeJuego(), t, compu);
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Cabello", "Negro"));
@@ -101,7 +101,7 @@ public class Entrega2Test {
 
         EstadoDeJuego estado = new EstadoDeJuego();
         Policia paco = new Policia();
-        paco.asignarCaso(colombia,estado,t);
+        paco.asignarCaso(colombia,estado,t, new ComputadoraMock());
 
         assertTrue(estado.juegoEnProgreso());
 
@@ -146,7 +146,7 @@ public class Entrega2Test {
 
         //Toma caso de un robo se representa como que el Policia respawnea en el pais en el que ocurre el robo
         Policia paco = new Policia();
-        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(),t);
+        paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(),t, new ComputadoraMock());
 
         //El estado de juego se debe suscribir al Policia para ser notificado
         //de una victoria o pérdida.

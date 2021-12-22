@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -25,7 +26,7 @@ public class ComputadoraTest {
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
-        Computadora computadora = new Computadora();
+        Computadora computadora = new Computadora(Arrays.asList(juan, roberta));
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Cabello", "Negro"));
@@ -49,9 +50,9 @@ public class ComputadoraTest {
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
-        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
+        Computadora computadora = new Computadora(Arrays.asList(juan));
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), computadora);
 
-        Computadora computadora = new Computadora();
 
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
@@ -76,9 +77,9 @@ public class ComputadoraTest {
 
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
-        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock());
+        paco.asignarCaso(colombia, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
 
-        Computadora computadora = new Computadora();
+        Computadora computadora = new Computadora(Arrays.asList(juan));
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Genero", "M"));
@@ -98,14 +99,12 @@ public class ComputadoraTest {
 
         int tamanioEsperado = 2;
 
-        IPais colombia = new PaisMock("Colombia");
-
         Ladron juan = new Ladron ("Juan", "M", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "F", "Motocicleta","Negro", "Cicatriz","Musica");
 
         Policia paco = new Policia();
 
-        Computadora computadora = new Computadora();
+        Computadora computadora = new Computadora(Arrays.asList(juan, roberta));
 
         List<Propiedad> propiedades = new ArrayList<Propiedad>();
         propiedades.add(new Propiedad("Cabello", "Negro"));

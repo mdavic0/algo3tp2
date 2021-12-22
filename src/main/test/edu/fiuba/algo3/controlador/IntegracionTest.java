@@ -42,6 +42,6 @@ public class IntegracionTest {
 
 
         EstadoDeJuego estado = new EstadoDeJuego();
-        paco.asignarCaso(robo.primerPais(),estado,t);
+        paco.asignarCaso(robo.primerPais(),estado,t, new ComputadoraMock());
     }
 }

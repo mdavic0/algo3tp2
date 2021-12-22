@@ -29,7 +29,7 @@ public class EntregaTest {
                 new EstuvoEnEdificio(new PistaDeMoneda("Euro")));
         montreal.agregarEdificios(edificio);
         Policia roberta = new Policia();
-        roberta.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock());
+        roberta.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock(), new ComputadoraMock());
         roberta.entrarA(edificio);
         assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
     }
@@ -60,7 +60,7 @@ public class EntregaTest {
         montreal.agregarEdificios(banco, biblio);
 
         Policia roberta = new Policia();
-        roberta.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock());
+        roberta.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock(), new ComputadoraMock());
 
         roberta.entrarA(banco);
 
@@ -77,7 +77,7 @@ public class EntregaTest {
         IPais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
         Policia paco = new Policia();
-        paco.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock());
+        paco.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock(), new ComputadoraMock());
 
         assertEquals(montreal.nombre(), paco.paisActual().nombre());
         paco.viajarA(mexico);
@@ -114,7 +114,7 @@ public class EntregaTest {
 
         //montreal, t, new EstadoDeJuego()
         Policia roberta = new Policia();
-        roberta.asignarCaso(montreal, new EstadoDeJuego(), t);
+        roberta.asignarCaso(montreal, new EstadoDeJuego(), t, new ComputadoraMock());
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
@@ -135,7 +135,7 @@ public class EntregaTest {
         Temporizador t = new Temporizador(9, 20);
         //montreal, t, new EstadoDeJuego())
         Policia undyne = new Policia();
-        undyne.asignarCaso(montreal, new EstadoDeJuego(), t);
+        undyne.asignarCaso(montreal, new EstadoDeJuego(), t, new ComputadoraMock());
         assertEquals(t.horasTranscurridas(), 0);
         undyne.recibirHeridaConCuchillo();
         assertEquals(t.horasTranscurridas(), 2); //Herida con un cuchillo:2 hs la primera vez, 1 hs las próximas veces.

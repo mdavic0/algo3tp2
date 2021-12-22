@@ -44,13 +44,11 @@ public class ControladorVentanaComputadora  {
     public Label textoInstructivo;
 
     private Policia policia;
-    private Computadora computadora;
     private FXMLLoader ventanaARegresar;
     
     public void inicializar(Policia policia, FXMLLoader ventanaARegresar) throws Exception {
         this.policia = policia;
         this.ventanaARegresar = ventanaARegresar;
-        this.computadora = new Computadora();
 
         campoSexo.getItems().addAll("","M","F");
         campoSexo.setValue("");
