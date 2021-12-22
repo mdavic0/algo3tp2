@@ -6,4 +6,8 @@ public class PistaDeLadron extends Pista {
         this.contenido = contenido;
     }
 
+    @Override
+    String darFormato(String contenido) {
+        return null;
+    }
 }

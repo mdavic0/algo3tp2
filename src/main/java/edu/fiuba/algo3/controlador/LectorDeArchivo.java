@@ -17,10 +17,31 @@ import edu.fiuba.algo3.modelo.*;
 
 public class LectorDeArchivo {
 
-    public List<IPais> obtenerPaises() throws Exception {
+    public List<IPais> obtenerPaises() throws IOException, ParseException {
+        return this.cargarPaises();
+    }
+
+    private List<IPais> cargarPaises() throws IOException, ParseException {
         List<IPais> paises = new ArrayList<>();
-        for(int i = 0; i < 23; i++)
-            paises.add( new Pais("Francia" + i, 0, 0));
+
+        JSONObject parser = (JSONObject) new JSONParser()
+                .parse(new FileReader("src/main/resources/edu/fiuba/algo3/ciudadesSinTerminar.json"));
+
+        JSONArray ciudades = (JSONArray) parser.get("ciudades");
+        ciudades.forEach(entry -> {
+            JSONObject project = (JSONObject) entry;
+
+            String lat = project.get("latitud").toString();
+            String lon = project.get("longitud").toString();
+
+            double latitud = Double.parseDouble(lat);
+            double longitud = Double.parseDouble(lon);
+
+            paises.add(new Pais(project.get("ciudad").toString(), (String)project.get("colorBandera"), (String)project.get("moneda"), (String)project.get("geografia"), (String)project.get("caracteristicas"),
+                    (String)project.get("industrias"), (String)project.get("animales"), (String)project.get("etnias"), (String)project.get("idiomas"), (String)project.get("arte"), (String)project.get("religion"), (String)project.get("representante"),
+                    (String)project.get("otros"), (String)project.get("descripcion"), latitud, longitud));
+        });
+
         return paises;
     }
 

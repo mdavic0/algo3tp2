@@ -4,13 +4,51 @@ import java.util.ArrayList;
 import java.util.SplittableRandom;
 
 public class Pais implements IPais { 
-    String nombre;
-    List<IPais> adyacentes;
-    List<IEdificio> edificios;
+    String nombre; //Nombre de la ciudad
+    String coloresDeBandera;
+    String moneda;
+    String geografia;
+    String caracteristicas;
+    String industrias;
+    String animales;
+    String etnias;
+    String idiomas;
+    String arte;
+    String religion;
+    String representante;
+    String datoCurioso;
+    String descripcion;
+
     double latitud;
     double longitud;
 
-    public Pais(String nombre, double latitud, double longitud) throws Exception{
+    List<IPais> adyacentes;
+    List<IEdificio> edificios;
+
+    public Pais(String nombre, String coloresDeBandera, String moneda, String geografia, String caracteristicas,
+                String industrias, String animales, String etnias, String idiomas, String arte, String religion,
+                String representante, String datoCurioso, String descripcion, double latitud, double longitud) {
+        this.nombre = nombre;
+        this.coloresDeBandera = coloresDeBandera;
+        this.moneda = moneda;
+        this.geografia = geografia;
+        this.caracteristicas = caracteristicas;
+        this.industrias = industrias;
+        this.animales = animales;
+        this.etnias = etnias;
+        this.idiomas = idiomas;
+        this.arte = arte;
+        this.religion = religion;
+        this.representante = representante;
+        this.datoCurioso = datoCurioso;
+        this.descripcion = descripcion;
+        this.adyacentes = new ArrayList<IPais>();
+        this.edificios = new ArrayList<IEdificio>();
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
+
+    public Pais(String nombre, double latitud, double longitud) {
         this.nombre = nombre;
         this.adyacentes = new ArrayList<IPais>();
         this.edificios = new ArrayList<IEdificio>();
@@ -76,41 +114,34 @@ public class Pais implements IPais {
         double a = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
                 * Math.cos(Math.toRadians( this.latitud)) * Math.cos(Math.toRadians(paisDestino.obtenerLatitud()));
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double dist = radioTerrestre * c;
 
-        return dist;
-    }
-
-    //TODO: PAIS SE INICIALIZA CON SUS CARACTERISTICAS (BANDERA, HECHO HISTORICO, CONTINENTE, MONEDA, ETC...) {SE LEE DE LOS JSON}
-
-    private String moneda() {
-        return "";
-    }
-
-    private String hechoHistorico() {
-        return "";
-    }
-
-    private String coloresDeBandera() {
-        return "";
-    }
-
-    private String continente() {
-        return "";
-    }
-
-    private String idioma() {
-        return "";
+        return radioTerrestre * c;
     }
 
     @Override
     public Pista crearPistaEconomica() {
-        return new PistaDeMoneda(this.moneda());
+        SplittableRandom aleatorio = new SplittableRandom();
+        int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
+
+        //33% de probabilidad de que la pista economica sea sobre
+        if(n < 33) return new PistaDeIndustria(this.industrias);
+        if(n < 66) return new PistaDeRepresentante(this.representante);
+
+        return new PistaDeMoneda(this.moneda); //==>33 % de que genere una pista de moneda
     }
 
     @Override
     public Pista crearPistaHistorica() {
-        return new PistaHistorica(this.hechoHistorico());
+        SplittableRandom aleatorio = new SplittableRandom();
+        int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
+
+        //20% de probabilidad de que la pista historica sea sobre
+        if(n < 20) return new PistaDeArte(this.arte);
+        if(n < 40) return new PistaGeografica(this.geografia);
+        if(n < 60) return new PistaDeEtnia(this.etnias);
+        if(n < 80) return new PistaDeFauna(this.animales);
+
+        return new PistaDeReligion(this.religion); //==>20 % de que genere una pista de religion
     }
 
     @Override
@@ -118,11 +149,13 @@ public class Pais implements IPais {
         SplittableRandom aleatorio = new SplittableRandom();
         int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
 
-        //33% de probabilidad de que la pista de viaje sea sobre (bandera, continente o idioma)
-        if(n <= 33 ) return new PistaDeContinente(this.continente());
-        if(n <= 66) return new PistaDeIdioma(this.idioma());
+        //20% de probabilidad de que la pista de viaje sea sobre
+        if(n < 20 ) return new PistaGeografica(this.geografia);
+        if(n < 40) return new PistaDeIdioma(this.idiomas);
+        if(n < 60) return new PistaDeDatoCurioso(this.datoCurioso);
+        if(n < 80) return new PistaDeRepresentante(this.representante);
 
-        return new PistaDeBandera(this.coloresDeBandera()); //==> 45% de que genere una pista de bandera
+        return new PistaDeBandera(this.coloresDeBandera); //==>20 % de que genere una pista de bandera
     }
 
     @Override
