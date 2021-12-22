@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Robo implements IRobo {
     List<IPais> viaSinInit;
@@ -102,5 +101,9 @@ public class Robo implements IRobo {
 
     public Object ubicacionDelLadron() {
         return viaSinInit.get(viaSinInit.size() - 1);
+    }
+
+    public List<IPais> viaSinInit() {
+        return this.viaSinInit;
     }
 }
