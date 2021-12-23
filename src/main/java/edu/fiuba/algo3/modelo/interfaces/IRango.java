@@ -15,4 +15,5 @@ public interface IRango {
     void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador);
 
     Artefacto generarArtefacto(List<Artefacto> artefactos);
+
 }

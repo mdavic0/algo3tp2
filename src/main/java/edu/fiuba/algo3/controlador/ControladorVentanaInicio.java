@@ -57,14 +57,14 @@ public class ControladorVentanaInicio  implements Initializable{
         } catch (Exception e) {
             throw new IOException("Fracaso leyendo el JSON de ladrones");
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
         Scene escenaActual = inputJugador.getScene();
         escenaActual.setRoot(fxmlLoader.load());
         ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, policia.paisActual(), robo, estado, t, fxmlLoader);
     }
 
     public void imprimirTextoPolicia (Policia policia){
-        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es" + policia.imprimirRango() + ". Ingresá tu nombre!");
+        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es " + policia.imprimirRango() + ". Ingresá tu nombre...");
     }
 
     public void recibeInputJugador() throws Exception{
@@ -74,7 +74,7 @@ public class ControladorVentanaInicio  implements Initializable{
         textoMaquinaDeEscribir.setText(huboUnRobo());
     } 
     private String huboUnRobo() {
-        String texto = "Hubo un robo en" + robo.lugarDeRobo().nombre() + ".";
+        String texto = "Hubo un robo en " + robo.lugarDeRobo().nombre() + ".";
         return texto;
     }
 

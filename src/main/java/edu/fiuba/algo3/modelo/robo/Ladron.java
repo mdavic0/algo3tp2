@@ -21,7 +21,9 @@ public class Ladron {
         this.cabello = cabello;
         this.senia = senia;
         this.hobby = hobby;
+
         Map<String, String> caracteristicas = new HashMap<>();
+
         caracteristicas.put("Genero", genero);
         caracteristicas.put("Vehiculo", vehiculo);
         caracteristicas.put("Cabello", cabello);

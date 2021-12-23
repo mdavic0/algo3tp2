@@ -7,6 +7,6 @@ public class PistaDeCabello extends Pista{
 
     @Override
     String darFormato(String cabello) {
-        return "Su cabello era".concat(cabello);
+        return "Su cabello era ".concat(cabello);
     }
 }

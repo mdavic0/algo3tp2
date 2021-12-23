@@ -21,11 +21,12 @@
                     <items>
                         <AnchorPane>
                             <children>
-                                <Label fx:id="nombreLugar" layoutX="119.0" layoutY="29.0" text="Nombre del Lugar">
+                                <Label fx:id="diaYHora" layoutX="175.0" layoutY="51.0" text="Dia, hora" />
+                                <Label fx:id="nombreLugar" alignment="CENTER" contentDisplay="CENTER" layoutX="160.0" layoutY="29.0" text="Nombre" textAlignment="CENTER">
                            <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                                <Label fx:id="diaYHora" layoutX="175.0" layoutY="50.0" text="Dia, hora" />
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
                             </children>
                         </AnchorPane>
                         <AnchorPane>

@@ -75,9 +75,7 @@ public class Robo implements IRobo {
     }
 
     @Override
-    public IPais lugarDeRobo() {
-        return viaSinInit.get(0);
-    }
+    public IPais lugarDeRobo() {return viaSinInit.get(0);}
 
     @Override
     public String nombreDeArtefacto() {

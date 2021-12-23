@@ -46,7 +46,7 @@ public class Policia {
         return rango;
     }
     public String imprimirRango() {
-        return rango.getClass().getName();
+        return rango.getClass().getSimpleName();
     }
     /*
     Ubicar al policia en el juego tras generar el robo

@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.pistas.*;
 
 public class Pais implements IPais { 
+
     String nombre; //Nombre de la ciudad
     String coloresDeBandera;
     String moneda;
@@ -32,6 +33,7 @@ public class Pais implements IPais {
     public Pais(String nombre, String coloresDeBandera, String moneda, String geografia, String caracteristicas,
                 String industrias, String animales, String etnias, String idiomas, String arte, String religion,
                 String representante, String datoCurioso, String descripcion, double latitud, double longitud) {
+
         this.nombre = nombre;
         this.coloresDeBandera = coloresDeBandera;
         this.moneda = moneda;

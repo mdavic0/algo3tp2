@@ -17,6 +17,7 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 
 public class Detective implements IRango {
+
     double velocidadKmh;
     IDificultad IDificultad;
 
@@ -67,5 +68,6 @@ public class Detective implements IRango {
         Collections.shuffle(candidatos);
         return candidatos.get(0);
     }
+
 
 }

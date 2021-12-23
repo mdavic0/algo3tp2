@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 
 public class RangoMock implements IRango{
+
     Valor valor;
     IDificultad IDificultad = new Facil();
 
