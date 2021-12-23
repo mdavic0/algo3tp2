@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import edu.fiuba.algo3.modelo.GeneradorDeEdificios;
-import edu.fiuba.algo3.modelo.IEdificio;
-import edu.fiuba.algo3.modelo.IPais;
 import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

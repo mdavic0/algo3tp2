@@ -3,6 +3,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.SplittableRandom;
 
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 public class Pais implements IPais { 
     String nombre; //Nombre de la ciudad
     String coloresDeBandera;

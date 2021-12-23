@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 public class Artefacto {
     String nombre;
     Valor valor;

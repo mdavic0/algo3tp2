@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
+
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 import java.util.ArrayList;
 
 public class PaisMock implements IPais { 

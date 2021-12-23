@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 public class Viajar extends Actividad {
 
     public Viajar(IPais paisOrigen, IPais paisDestino , double velocidadKmh){

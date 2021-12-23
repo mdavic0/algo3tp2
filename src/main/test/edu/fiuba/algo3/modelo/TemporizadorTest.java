@@ -26,9 +26,9 @@ public class TemporizadorTest {
         //actividad termina a las 23:00 
         assertEquals(23, 9 + 14); 
 
-        //Temporizador por sí solo no ocasiona sueño,
-        assertEquals(14, timer.horasTranscurridas());
-        assertEquals(((9 + 14) % 24), timer.horaActual()); 
+        //Temporizador por sí solo ocasiona sueño por feedback del corrector
+        assertEquals(14 + 8, timer.horasTranscurridas());
+        assertEquals(((9 + 14 + 8) % 24), timer.horaActual()); 
     }
 
     @Test

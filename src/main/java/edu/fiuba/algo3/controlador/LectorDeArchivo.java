@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
 
 
 

@@ -4,6 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import edu.fiuba.algo3.modelo.interfaces.IDificultad;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRango;
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 public class RangoMock implements IRango{
     Valor valor;
     IDificultad IDificultad = new Facil();

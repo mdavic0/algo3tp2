@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IPista;
+import edu.fiuba.algo3.modelo.interfaces.IRelacionConLadron;
 
 public class Edificio implements IEdificio{
 

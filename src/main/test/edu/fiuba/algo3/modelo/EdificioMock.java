@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 public class EdificioMock implements IEdificio{
     IPais pais;
     String pista;

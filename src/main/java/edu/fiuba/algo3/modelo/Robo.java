@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRobo;
+
 public class Robo implements IRobo {
     List<IPais> viaSinInit;
     Artefacto artefacto;

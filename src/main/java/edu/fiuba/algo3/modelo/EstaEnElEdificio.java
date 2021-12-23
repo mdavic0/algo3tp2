@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo;
 import java.util.SplittableRandom;
 
+import edu.fiuba.algo3.modelo.interfaces.IPista;
+import edu.fiuba.algo3.modelo.interfaces.IRelacionConLadron;
+
 public class EstaEnElEdificio implements IRelacionConLadron {
     Ladron ladron;
 

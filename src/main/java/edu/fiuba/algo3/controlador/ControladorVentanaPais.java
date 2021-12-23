@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

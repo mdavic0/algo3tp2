@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.modelo.IPais;
 import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

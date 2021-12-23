@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.interfaces;
 
+import edu.fiuba.algo3.modelo.Policia;
 
 public interface IRelacionConLadron {
     void herirConCuchillo(Policia policia);

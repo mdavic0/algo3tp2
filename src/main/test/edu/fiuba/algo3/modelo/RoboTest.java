@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+
 import java.util.List;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;

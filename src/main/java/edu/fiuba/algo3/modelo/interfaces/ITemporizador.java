@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.interfaces;
 import java.beans.PropertyChangeListener;
 
 public  interface  ITemporizador {

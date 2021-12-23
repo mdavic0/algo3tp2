@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRobo;
+
 public class RoboMock implements IRobo{
 
     @Override

@@ -5,6 +5,12 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.interfaces.IComputadora;
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRango;
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 public class Policia {
 
     LugarActual lugarActual;
