@@ -17,6 +17,8 @@ public interface IPais {
 
     String nombre();
 
+    String descripcion();
+
     double obtenerLatitud();
 
     double obtenerLongitud();

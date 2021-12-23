@@ -59,6 +59,10 @@ public class Pais implements IPais {
         this.longitud = longitud;
     }
 
+    public String descripcion(){
+        return descripcion.toString();
+    }
+
     public List<IEdificio> edificios() {
         return edificios;
     }

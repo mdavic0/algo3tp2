@@ -69,7 +69,7 @@ public class ControladorVentanaPais {
         nombreLugar.setText(pais.nombre());
         diaYHora.setText(t.fechaActual());
         //TODO descripcion de cada pais
-        descripcionPais.setText(pais.nombre());
+        descripcionPais.setText(pais.descripcion());
 
         if (estado.juegoPerdido()){
             FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeFinDeJuego" + ".fxml"));

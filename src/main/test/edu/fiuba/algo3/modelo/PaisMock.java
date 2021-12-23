@@ -109,5 +109,11 @@ public class PaisMock implements IPais {
         return adyacentes;
     }
 
+    @Override
+    public String descripcion() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 
 }
