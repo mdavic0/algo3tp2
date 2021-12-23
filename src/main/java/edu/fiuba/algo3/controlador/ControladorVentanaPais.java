@@ -130,22 +130,19 @@ public class ControladorVentanaPais {
             System.exit(0);
         }
     }
-    
-    public void anotar(){
-        /* FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
+
+    public void anotar() {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeNotas" + ".fxml"));
+
         try {
-            notas = fxmlLoader.load();
-            itemsQuitadosAlAnotar = new ArrayList<>();
-            for(Node n : contenedorDerecha.getItems()){
-                itemsQuitadosAlAnotar.add(n);
-            }
-            contenedorDerecha.getItems().clear();
-            contenedorDerecha.getItems().add(notas);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+            Parent padre = fxmlLoader.load();
+            raiz.getScene().setRoot(padre);
+            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(selfLoader);
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
-        } */
+        }
     }
 
     public void notificarLlegada() throws Exception {
