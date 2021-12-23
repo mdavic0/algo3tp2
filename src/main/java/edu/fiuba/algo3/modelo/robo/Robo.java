@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
+import edu.fiuba.algo3.modelo.excepciones.CantidadDePaisesException;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.IRobo;
 
@@ -27,7 +28,7 @@ public class Robo implements IRobo {
 
     private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws Exception {
         if (paisesPosibles.size() < 3 * via.size()) 
-            throw new Exception("Necesito el doble de paises incorrectos vs. correctos para generar el robo!");
+            throw new CantidadDePaisesException("Necesito el doble de paises incorrectos vs. correctos para generar el robo!");
 
         IntStream.range(0,via.size()-1).forEach(
             i -> {
