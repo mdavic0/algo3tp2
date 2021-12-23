@@ -50,7 +50,5 @@ public class ControladorVentadaBienvenida {
     public void inicializar(Policia policia) {
         this.policia = policia;
     }
-
-
 }
 

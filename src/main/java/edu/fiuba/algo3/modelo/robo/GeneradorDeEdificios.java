@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.robo;
 import java.util.List;
-
+import java.util.SplittableRandom;
 import edu.fiuba.algo3.modelo.interfaces.IDificultad;
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;
 import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeEdificios;
@@ -42,9 +42,26 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
 
     private List<IEdificio> generarParaPaisDondeEstuvoLadron(IPais paisActual, IPais paisSiguiente) {
         List<IEdificio> edificios = new ArrayList<IEdificio>();
-        edificios.add(new Edificio("Banco", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaEconomica(paisSiguiente, robo.obtenerLadron()))));
-        edificios.add(new Edificio("Aeropuerto", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaDeViaje(paisSiguiente, robo.obtenerLadron()))));
-        edificios.add(new Edificio("Museo", paisActual, new EstuvoEnEdificio(this.dificultad.crearPistaHistorica(paisSiguiente, robo.obtenerLadron()))));
+
+        SplittableRandom aleatorio = new SplittableRandom();
+        int n =aleatorio.nextInt(1, 101);
+        if(n < 50){
+            edificios.add(new Edificio("Banco", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaEconomica(paisSiguiente, robo.obtenerLadron()))));
+            edificios.add(new Edificio("Aeropuerto", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaDeViaje(paisSiguiente, robo.obtenerLadron()))));
+            edificios.add(new Edificio("Museo", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaHistorica(paisSiguiente, robo.obtenerLadron()))));
+        }
+        else{
+            edificios.add(new Edificio("Banco", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaEconomica(paisSiguiente, robo.obtenerLadron()))));
+            edificios.add(new Edificio("Puerto", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaDeViaje(paisSiguiente, robo.obtenerLadron()))));
+            edificios.add(new Edificio("Migraciones", paisActual, new EstuvoEnEdificio(
+                this.dificultad.crearPistaHistorica(paisSiguiente, robo.obtenerLadron()))));
+        }
+        
         return edificios;
     }
 
