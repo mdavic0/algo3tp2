@@ -71,7 +71,20 @@ public class ControladorVentanaPais {
             raiz.getScene().setRoot(fxmlLoader.load());
         }
     } 
-    
+
+    public void verPosiblesDestinos() {
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePosiblesDestinos" + ".fxml"));
+
+        try {
+            Parent padre = fxmlLoader.load();
+            raiz.getScene().setRoot(padre);
+            ((ControladorVentanaPosiblesDestinos)fxmlLoader.getController()).inicializar(selfLoader, policia);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+
     public void investigar() throws Exception{
 
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeOpcionesEdificios" + ".fxml"));
