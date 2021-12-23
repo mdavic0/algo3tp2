@@ -99,10 +99,13 @@ public class Policia {
     }
 
     public void intentarArrestar(Ladron ladron) {
-        if(this.puedeArrestar(ladron))
+        if(this.puedeArrestar(ladron)){
+            arrestarLadron();
             notificarSuscriptores(
                 new PropertyChangeEvent(this, "Arresto", cantidadArrestos, ++cantidadArrestos));
-        else notificarSuscriptores(
+        
+        }
+            else notificarSuscriptores(
             new PropertyChangeEvent(this, "FalloArresto", cantidadArrestos, cantidadArrestos));
     }
 
