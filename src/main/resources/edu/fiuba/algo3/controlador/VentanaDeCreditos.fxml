@@ -14,26 +14,31 @@
             <Image url="@Fondo.jpg" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="376.0" spacing="80.0">
+      <VBox layoutX="7.0" layoutY="14.0" prefHeight="572.0" prefWidth="390.0" spacing="25.0">
          <children>
-            <Label fx:id="tpAlgoThief" text="aaaaaaaaa">
+            <Label fx:id="tpAlgoThief" alignment="TOP_LEFT" prefHeight="77.0" prefWidth="389.0" text="aaaaaaaaa">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="versionJava" text="aaaa" wrapText="true">
+            <Label fx:id="desarrolladores" alignment="TOP_LEFT" prefHeight="99.0" prefWidth="390.0" text="aaaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="versionJavaFX" text="aaaaa" wrapText="true">
+            <Label fx:id="descripcion" alignment="TOP_LEFT" prefHeight="180.0" prefWidth="395.0" text="aaaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="desarrolladores" text="aaaaa" wrapText="true">
+            <Label fx:id="versionJava" alignment="TOP_LEFT" text="aaaa" wrapText="true">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="versionJavaFX" alignment="TOP_LEFT" text="aaaaa" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>
