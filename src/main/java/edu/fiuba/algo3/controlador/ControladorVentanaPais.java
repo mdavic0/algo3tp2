@@ -101,7 +101,7 @@ public class ControladorVentanaPais {
         }
 
         ((ControladorVentanaOpcionesEdificios)fxmlLoader.getController())
-            .inicializar(policia, policia.paisActual(), vistasEdificios);
+            .inicializar(policia, policia.paisActual(), vistasEdificios, selfLoader);
     }
 
     public void viajar(){

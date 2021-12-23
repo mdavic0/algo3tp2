@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import java.io.IOException;
 import java.util.List;
 
 import edu.fiuba.algo3.modelo.policia.Policia;
@@ -7,26 +8,33 @@ import edu.fiuba.algo3.modelo.interfaces.IEdificio;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 
 
 public class ControladorVentanaOpcionesEdificios {
     @FXML
     public Button opcion1;
+
     @FXML
     public Button opcion2;
+
     @FXML
     public Button opcion3;
+
     @FXML
-    public SplitPane raiz;
+    public AnchorPane raiz;
 
     private Policia paco;
     private List<FXMLLoader> vistasEdificios;
-    
-    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasEdificios){
+    private FXMLLoader ventanaARegresar;
+
+    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasEdificios, FXMLLoader ventanaARegresar){
         this.paco = paco;
         this.vistasEdificios = vistasEdificios;
+        this.ventanaARegresar = ventanaARegresar;
         List<IEdificio> edificios = pais.edificios();
         Button[] botones = {opcion1, opcion2, opcion3};
 
@@ -50,4 +58,10 @@ public class ControladorVentanaOpcionesEdificios {
 
         raiz.getScene().setRoot(ventanaCargada.getRoot());
     }
+
+    public void botonRegresar() throws IOException {
+        Parent nodoARegresar = ventanaARegresar.getRoot();
+        raiz.getScene().setRoot(nodoARegresar);
+    }
+
 }

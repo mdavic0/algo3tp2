@@ -31,6 +31,7 @@ public class ControladorVentanaOpcionesPais {
         this.paco = paco;
         this.vistas = vistasPaises;
         this.ventanaARegresar = ventanaARegresar;
+
         List<IPais> paises = paco.paisActual().obtenerAdyacentes();
         Button[] botones = {opcion1, opcion2, opcion3};
 
