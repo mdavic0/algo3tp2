@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="raiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaDeLadrones">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="50.0" layoutY="134.0" pannable="true" prefHeight="400.0" prefWidth="700.0" vbarPolicy="ALWAYS">
+         <content>
+            <VBox prefHeight="3000.0" prefWidth="700.0" spacing="30.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="218.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron1" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron2" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron3" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron4" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron5" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron6" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron7" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron8" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron9" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@anonimus.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ladron10" alignment="TOP_LEFT" prefHeight="270.0" prefWidth="480.0" text="Label" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ImageView accessibleRole="BUTTON" fitHeight="50.0" fitWidth="100.0" layoutX="365.0" layoutY="546.0" nodeOrientation="INHERIT" onMouseClicked="#botonRegresar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Volver.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="145.0" fitWidth="207.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wanted.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="310.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@interpol.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
