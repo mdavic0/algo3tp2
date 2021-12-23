@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.IRobo;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.robo.Ladron;
 
 public class RoboMock implements IRobo{
 

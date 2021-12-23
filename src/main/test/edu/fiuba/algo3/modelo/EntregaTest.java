@@ -1,5 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
+import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstuvoEnEdificio;
+import edu.fiuba.algo3.modelo.pistas.PistaDeMoneda;
+import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.interfaces.IPais;

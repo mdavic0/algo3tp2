@@ -5,6 +5,9 @@ import java.util.List;
 import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeRobo;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.IRango;
+import edu.fiuba.algo3.modelo.robo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Robo;
+import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 
 public class GeneradorMockDeRobo implements IGeneradorDeRobo {
 

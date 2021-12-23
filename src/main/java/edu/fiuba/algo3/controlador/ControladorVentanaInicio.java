@@ -7,6 +7,12 @@ import java.util.ResourceBundle;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
+import edu.fiuba.algo3.modelo.robo.Robo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

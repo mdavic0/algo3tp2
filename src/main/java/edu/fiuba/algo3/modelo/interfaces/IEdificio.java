@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.interfaces;
 
-import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.policia.Policia;
 
 public interface IEdificio {
     public String obtenerTestimonio();

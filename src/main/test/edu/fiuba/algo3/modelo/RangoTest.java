@@ -1,5 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.rangos.Detective;
+import edu.fiuba.algo3.modelo.rangos.Investigador;
+import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.rangos.Sargento;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +26,7 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/900.0, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
@@ -39,7 +45,7 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/1100.0, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
@@ -58,7 +64,7 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/1300.0, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
@@ -76,7 +82,7 @@ public class RangoTest {
         Temporizador temporizador = new Temporizador(0,20);
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/1500.0 , temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 

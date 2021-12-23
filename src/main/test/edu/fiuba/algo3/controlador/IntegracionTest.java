@@ -4,15 +4,21 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
+import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
+import edu.fiuba.algo3.modelo.robo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Robo;
+import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
+import edu.fiuba.algo3.modelo.robo.artefacto.valor.Comun;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import edu.fiuba.algo3.controlador.LectorDeArchivo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
