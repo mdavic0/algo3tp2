@@ -41,7 +41,7 @@ public class EntregaTest {
         Policia roberta = new Policia();
         roberta.asignarCaso(montreal, new EstadoDeJuego(),  new TemporizadorMock(), new ComputadoraMock());
         roberta.entrarA(edificio);
-        assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
+        assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro. ");
     }
 
     @Test
@@ -74,10 +74,10 @@ public class EntregaTest {
 
         roberta.entrarA(banco);
 
-        assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
+        assertEquals("Quería cambiar su dinero por Euro. ",roberta.cuestionarTestigo());
         roberta.salirDelEdificio();
         roberta.entrarA(biblio);
-        assertEquals("Quería cambiar su dinero por Euro.",roberta.cuestionarTestigo());
+        assertEquals("Quería cambiar su dinero por Euro. ",roberta.cuestionarTestigo());
     }
     
     //Nota: test redundante en PoliciaTest. Puesto aqui por conveniencia
@@ -127,13 +127,13 @@ public class EntregaTest {
         roberta.asignarCaso(montreal, new EstadoDeJuego(), t, new ComputadoraMock());
         for(int i = 0; i < 3; i++){
             roberta.entrarA(banco);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro.");
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro. ");
             roberta.salirDelEdificio();
         }
 
         for(int i = 0; i < 55; i++){
             roberta.entrarA(biblio);
-            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dolares.");
+            assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Dolares. ");
             roberta.salirDelEdificio();
         }
     }

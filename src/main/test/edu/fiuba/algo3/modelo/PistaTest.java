@@ -22,7 +22,7 @@ public class PistaTest {
     public void PistaDeLecturaDaPistaDeLectura() throws Exception {
         IPista pista = new PistaDeMoneda("reales");
 
-        assertEquals("Quería cambiar su dinero por reales.", pista.contenido());
+        assertEquals("Quería cambiar su dinero por reales. ", pista.contenido());
     }
 
 
