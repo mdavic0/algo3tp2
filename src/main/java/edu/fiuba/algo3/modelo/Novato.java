@@ -13,12 +13,7 @@ public class Novato implements IRango {
         this.velocidadKmh = 900;
         this.IDificultad = new Facil();
     }
-
-    @Override
-    public double velocidadKmh() {
-        return velocidadKmh;
-    }
-
+    
     @Override
     public IDificultad obtenerDificultadPistas(){
         return IDificultad;

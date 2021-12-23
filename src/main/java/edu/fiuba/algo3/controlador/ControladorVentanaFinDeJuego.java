@@ -27,6 +27,7 @@ public class ControladorVentanaFinDeJuego {
     Policia policia;
     
     public void inicializar(Policia policia, EstadoDeJuego estado, IRobo robo){
+        this.policia = policia;
         texto.setText(estado.reportarAlUsuario(robo.obtenerLadron()));
     }
 
@@ -34,6 +35,7 @@ public class ControladorVentanaFinDeJuego {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeBienvenida" + ".fxml"));
         Scene escenaActual = raiz.getScene();
         escenaActual.setRoot(fxmlLoader.load());
+        ((ControladorVentadaBienvenida)fxmlLoader.getController()).inicializar(policia);
     }
 
 }

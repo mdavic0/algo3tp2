@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RangoTest {
     @Test
     public void NovatoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
-        IRango rango = new Novato();
+        Novato rango = new Novato();
 
         Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
         Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
@@ -20,13 +20,13 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
     @Test
     public void DetectiveReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
-        IRango rango = new Detective();
+        Detective rango = new Detective();
 
         Pais colombia = new Pais("Colombia", 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
         Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
@@ -39,13 +39,13 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
     @Test
     public void InvestigadorReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
-        IRango rango = new Investigador();
+        Investigador rango = new Investigador();
 
         Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
         Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
@@ -58,13 +58,13 @@ public class RangoTest {
 
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 
     @Test
     public void SargentoReportaUnViajeCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPaisSuVelocidadKmh() throws Exception {
-        IRango rango = new Sargento();
+        Sargento rango = new Sargento();
 
         Pais colombia = new Pais("Colombia",   4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
         Pais argentina = new Pais("Colombia",    -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
@@ -76,7 +76,7 @@ public class RangoTest {
         Temporizador temporizador = new Temporizador(0,20);
         rango.reportarViaje(colombia, argentina, temporizador);
 
-        assertEquals(distanciaEsperada/rango.velocidadKmh(), temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
+        assertEquals(distanciaEsperada/rango.velocidadKmh, temporizador.horasTranscurridas(),1); //Duracion aproximada, usando delta de 1hs
 
     }
 

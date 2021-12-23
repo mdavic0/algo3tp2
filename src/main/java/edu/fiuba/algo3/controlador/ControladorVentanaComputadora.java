@@ -59,7 +59,7 @@ public class ControladorVentanaComputadora  {
         campoCabello.getItems().addAll("", "Castaño", "Rubio", "Rojizo", "Negro");
         campoCabello.setValue("");
 
-        campoSenia.getItems().addAll("", "Anillo", "Tatuaje", "Cicatriz", "Joyas");
+        campoSenia.getItems().addAll("", "Anillo", "Tatuaje", "Cicatriz", "Joyas", "Sombrero");
         campoSenia.setValue("");
 
         campoVehiculo.getItems().addAll("", "Descapotable", "Limusina", "Deportivo", "Moto");
