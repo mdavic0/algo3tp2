@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 
 public class Temporizador implements ITemporizador {
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
@@ -48,7 +50,7 @@ public class Temporizador implements ITemporizador {
             suscriptor.propertyChange(eventoTiempoTranscurrido);
         }
 
-        if(horaActual() == horaDormir) this.reportarActividad(8);
+        if(horaActual() >= horaDormir) this.reportarActividad(8);
     }
 
     @Override

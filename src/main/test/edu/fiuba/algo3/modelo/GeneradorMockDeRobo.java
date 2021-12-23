@@ -2,6 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeRobo;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRango;
+
 public class GeneradorMockDeRobo implements IGeneradorDeRobo {
 
     @Override

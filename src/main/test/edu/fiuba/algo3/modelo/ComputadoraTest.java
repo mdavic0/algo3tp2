@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

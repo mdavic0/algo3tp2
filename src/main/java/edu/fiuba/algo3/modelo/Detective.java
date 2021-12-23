@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.SplittableRandom;
 import java.util.stream.Collectors;
 
+import edu.fiuba.algo3.modelo.interfaces.IDificultad;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRango;
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 public class Detective implements IRango {
     double velocidadKmh;
     IDificultad IDificultad;

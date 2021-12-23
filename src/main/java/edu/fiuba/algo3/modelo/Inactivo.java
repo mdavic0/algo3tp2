@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
 import edu.fiuba.algo3.modelo.excepciones.PoliciaNoInicializadoException;
+import edu.fiuba.algo3.modelo.interfaces.IEdificio;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
 
 public class Inactivo extends LugarActual{
 

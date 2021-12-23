@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import java.beans.PropertyChangeListener;
 
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
 public class TemporizadorMock implements ITemporizador{
 
     @Override

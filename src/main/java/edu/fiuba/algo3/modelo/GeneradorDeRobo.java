@@ -1,6 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.List;
+
+import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeRobo;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IRango;
+
 import java.util.Collections;
 
 public class GeneradorDeRobo implements IGeneradorDeRobo {

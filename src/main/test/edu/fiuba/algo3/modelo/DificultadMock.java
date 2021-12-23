@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.interfaces.IDificultad;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IPista;
+
 public class DificultadMock implements IDificultad {
     Valor v = new Comun();
 

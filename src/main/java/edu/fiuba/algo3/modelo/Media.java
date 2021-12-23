@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.interfaces.IDificultad;
+import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.interfaces.IPista;
+
 public class Media implements IDificultad {
 
     //Las pistas para una Dificultad Media, daran en todos los casos una Pista de X tipo y en algunos casos una PistaDeLadron
