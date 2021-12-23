@@ -8,15 +8,20 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
+import edu.fiuba.algo3.modelo.Policia;
+
 public class ControladorVentadaBienvenida {
     @FXML
     public AnchorPane raiz;
+
+    private Policia policia;
 
     public void botonJugar() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeInicio" + ".fxml"));
         Scene escenaActual = raiz.getScene();
         escenaActual.setRoot(fxmlLoader.load());
-        //((ControladorVentanaInicio)fxmlLoader.getController()).inicializar(???);
+        ControladorVentanaInicio controlador = ((ControladorVentanaInicio)fxmlLoader.getController());
+        if(policia != null) controlador.inicializar(policia);
     }
 
     public void botonPuntajes() throws IOException {
@@ -39,6 +44,11 @@ public class ControladorVentadaBienvenida {
 
     public void botonSalir(){
         Platform.exit();
+    }
+
+    // inicialziacion con policia es opcional, por default asume policia novato.
+    public void inicializar(Policia policia) {
+        this.policia = policia;
     }
 
 

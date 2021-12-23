@@ -15,7 +15,6 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 
 public class ControladorVentanaInicio  implements Initializable{
     private String ultimoInput;
@@ -90,6 +89,10 @@ public class ControladorVentanaInicio  implements Initializable{
         imprimirTextoPolicia(policia);
         
     }
-    public void inicializar(){
+
+    //opcional si hay policia de una partida anterior
+    public void inicializar(Policia policia){
+        this.policia = policia;
+        imprimirTextoPolicia(policia);
     }
 }
