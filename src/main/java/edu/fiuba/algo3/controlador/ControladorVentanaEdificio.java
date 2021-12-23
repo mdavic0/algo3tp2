@@ -70,7 +70,7 @@ public class ControladorVentanaEdificio{
     }
     
     public void anotar(){
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
+       /* FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
         try {
             notas = fxmlLoader.load();
             contenedorDerecha.getItems().add(notas);
@@ -78,7 +78,7 @@ public class ControladorVentanaEdificio{
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.exit(0);
-        }
+        }*/
     }
 
     public void notificarEntrada() {
