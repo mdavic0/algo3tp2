@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
-import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.policia.rangos.Novato;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
 import edu.fiuba.algo3.modelo.robo.Ladron;

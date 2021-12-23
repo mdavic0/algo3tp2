@@ -11,7 +11,7 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.controlador;
     exports edu.fiuba.algo3.modelo.pistas;
     exports edu.fiuba.algo3.modelo.actividades;
-    exports edu.fiuba.algo3.modelo.rangos;
+    exports edu.fiuba.algo3.modelo.policia.rangos;
     exports edu.fiuba.algo3.modelo.dificultad;
     exports edu.fiuba.algo3.modelo.policia;
     exports edu.fiuba.algo3.modelo.policia.elementosDeTrabajo;

@@ -19,9 +19,10 @@ import edu.fiuba.algo3.modelo.pais.lugarActual.FueraDeEdificio;
 import edu.fiuba.algo3.modelo.pais.lugarActual.Inactivo;
 import edu.fiuba.algo3.modelo.pais.lugarActual.LugarActual;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.OrdenDeArresto;
-import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.policia.rangos.Novato;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
+import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 
 public class Policia {
 
@@ -45,12 +46,14 @@ public class Policia {
     public IRango obtenerRango(){
         return rango;
     }
+
     public String imprimirRango() {
         return rango.getClass().getSimpleName();
     }
     /*
     Ubicar al policia en el juego tras generar el robo
     */
+
     public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador, IComputadora computadora){
         this.computadora = computadora;
         lugarActual = new FueraDeEdificio(pais);
@@ -141,5 +144,9 @@ public class Policia {
         return computadora.consultarDatos(this, propiedades);
     }
 
+
+    public Artefacto generarArtefacto(List<Artefacto> artefactos) {
+        return this.rango.generarArtefacto(artefactos);
+    }
 
 }

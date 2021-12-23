@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.robo;
 import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.PaisMock;
 import edu.fiuba.algo3.modelo.RangoMock;
-import edu.fiuba.algo3.modelo.rangos.Sargento;
+import edu.fiuba.algo3.modelo.policia.rangos.Sargento;
 import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Comun;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.MuyValioso;

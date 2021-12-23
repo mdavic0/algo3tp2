@@ -7,9 +7,9 @@ import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstaEnElEdificioDe
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
-import edu.fiuba.algo3.modelo.rangos.Detective;
-import edu.fiuba.algo3.modelo.rangos.Investigador;
-import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.policia.rangos.Detective;
+import edu.fiuba.algo3.modelo.policia.rangos.Investigador;
+import edu.fiuba.algo3.modelo.policia.rangos.Novato;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
 import edu.fiuba.algo3.modelo.robo.Robo;
