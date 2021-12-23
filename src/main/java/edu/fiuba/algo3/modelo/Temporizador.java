@@ -48,7 +48,7 @@ public class Temporizador implements ITemporizador {
             suscriptor.propertyChange(eventoTiempoTranscurrido);
         }
 
-        if(horaActual() == horaDormir) this.reportarActividad(8);
+        if(horaActual() >= horaDormir) this.reportarActividad(8);
     }
 
     @Override
