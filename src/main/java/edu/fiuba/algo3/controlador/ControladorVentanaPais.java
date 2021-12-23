@@ -115,7 +115,7 @@ public class ControladorVentanaPais {
             vistasPaises.add(ventanaPais);
         } 
         ((ControladorVentanaOpcionesPais)fxmlLoader.getController())
-            .inicializar(policia, policia.paisActual(), vistasPaises);
+            .inicializar(policia, policia.paisActual(), vistasPaises, selfLoader);
     }
 
     public void consultar(){
