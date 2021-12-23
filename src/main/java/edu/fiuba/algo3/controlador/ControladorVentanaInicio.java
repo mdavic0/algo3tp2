@@ -64,7 +64,13 @@ public class ControladorVentanaInicio  implements Initializable{
     }
 
     public void imprimirTextoPolicia (Policia policia){
-        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es " + policia.imprimirRango() + ". Ingresá tu nombre...");
+        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es " 
+            + policia.imprimirRango() + ". Ingresá tu nombre...");
+    }
+
+    private void imprimirTextoPoliciaPreexistente(Policia policia2) {
+        textoMaquinaDeEscribir.setText("Hola de nuevo policia. Tu rango es " 
+            + policia.imprimirRango() + ". Ingresá tu nombre...");
     }
 
     public void recibeInputJugador() throws Exception{
@@ -100,6 +106,6 @@ public class ControladorVentanaInicio  implements Initializable{
     //opcional si hay policia de una partida anterior
     public void inicializar(Policia policia){
         this.policia = policia;
-        imprimirTextoPolicia(policia);
+        imprimirTextoPoliciaPreexistente(policia);
     }
 }
