@@ -7,6 +7,6 @@ public class PistaDeIdioma extends Pista {
 
     @Override
     String darFormato(String idioma) {
-        return "Se dirigia a un pais en el que hablan ".concat(idioma).concat(".");
+        return "Se dirigia a un pais en el que hablan ".concat(idioma).concat(". ");
     }
 }

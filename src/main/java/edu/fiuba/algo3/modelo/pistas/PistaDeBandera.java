@@ -7,6 +7,6 @@ public class PistaDeBandera extends Pista {
 
     @Override
     String darFormato(String coloresDeBandera) {
-        return "Se dirigia a un pais cuya bandera es de color ".concat(coloresDeBandera).concat(".");
+        return "Se dirigia a un pais cuya bandera es de color ".concat(coloresDeBandera).concat(". ");
     }
 }

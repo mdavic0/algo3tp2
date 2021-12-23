@@ -8,6 +8,6 @@ public class PistaGeografica extends Pista {
 
     @Override
     String darFormato(String geografia) {
-        return "Se dirigia a un pais que se caracteriza geograficamente por tener ".concat(geografia).concat(".");
+        return "Se dirigia a un pais que se caracteriza geograficamente por tener ".concat(geografia).concat(". ");
     }
 }

@@ -7,6 +7,6 @@ public class PistaDeEtnia extends Pista{
 
     @Override
     String darFormato(String etnia) {
-        return "Se dirigia a un pais reconocido por tener etnias como ".concat(etnia).concat(".");
+        return "Se dirigia a un pais reconocido por tener etnias como ".concat(etnia).concat(". ");
     }
 }

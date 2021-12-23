@@ -6,6 +6,6 @@ public class PistaDeDatoCurioso extends Pista{
     }
     @Override
     String darFormato(String datoCurioso) {
-        return "El pais al que se dirigia es conocido por ".concat(datoCurioso).concat(".");
+        return "El pais al que se dirigia es conocido por ".concat(datoCurioso).concat(". ");
     }
 }
