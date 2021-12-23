@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.interfaces;
 import java.util.List;
 
-import edu.fiuba.algo3.modelo.Pista;
+import edu.fiuba.algo3.modelo.pistas.Pista;
 
 public interface IPais { 
 

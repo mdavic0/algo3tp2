@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.modelo.Artefacto;
+import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.controlador.LectorDeArchivo;
-import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Ladron;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

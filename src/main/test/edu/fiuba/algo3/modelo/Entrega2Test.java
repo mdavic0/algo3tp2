@@ -1,5 +1,21 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
+import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstaEnElEdificio;
+import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstaEnElEdificioDeAlLado;
+import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.rangos.Detective;
+import edu.fiuba.algo3.modelo.rangos.Investigador;
+import edu.fiuba.algo3.modelo.rangos.Novato;
+import edu.fiuba.algo3.modelo.robo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Propiedad;
+import edu.fiuba.algo3.modelo.robo.Robo;
+import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
+import edu.fiuba.algo3.modelo.robo.artefacto.valor.MuyValioso;
+import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;
@@ -60,9 +76,9 @@ public class Entrega2Test {
         paco.asignarCaso(elRobo.lugarDeRobo(), new EstadoDeJuego(), t, new ComputadoraMock());
 
         //Se verifica la promocion de rango
-        assertEquals(Novato.class, paco.rango.getClass());
+        assertEquals(Novato.class, paco.obtenerRango().getClass());
         for(int i = 0; i < 10; i++){ paco.arrestarLadron(); }
-        assertEquals(Investigador.class, paco.rango.getClass());
+        assertEquals(Investigador.class, paco.obtenerRango().getClass());
 
         //Viaja de Montreal a Mexico
         paco.viajarA(mexico);
@@ -92,8 +108,7 @@ public class Entrega2Test {
         assertEquals(tamanioEsperado, ladronesObtenidos.size());
         assertEquals(juan.nombre(), ladronesObtenidos.get(0).nombre());
         assertEquals(roberta.nombre(), ladronesObtenidos.get(1).nombre());
-        assertNull(paco.ordenDeArresto); // Como hay 2 sospechosos NO se emite la orden de arresto
-    }
+        }
 
     @Test
     public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
@@ -161,9 +176,9 @@ public class Entrega2Test {
         paco.agregarSuscriptor(estado);
 
         //Un Policia hace 6 Arrestos.  ==> RECIBE PROMOCION de Novato a Detective.
-        assertEquals(Novato.class, paco.rango.getClass());
+        assertEquals(Novato.class, paco.obtenerRango().getClass());
         for(int i = 0; i < 6; i++){ paco.arrestarLadron(); }
-        assertEquals(Detective.class, paco.rango.getClass());
+        assertEquals(Detective.class, paco.obtenerRango().getClass());
 
         //Realiza la investigación
         paco.entrarA(museo);

@@ -7,6 +7,12 @@ import java.util.ResourceBundle;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
+import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
+import edu.fiuba.algo3.modelo.robo.Robo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,14 +57,14 @@ public class ControladorVentanaInicio  implements Initializable{
         } catch (Exception e) {
             throw new IOException("Fracaso leyendo el JSON de ladrones");
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego" + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
         Scene escenaActual = inputJugador.getScene();
         escenaActual.setRoot(fxmlLoader.load());
         ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, policia.paisActual(), robo, estado, t, fxmlLoader);
     }
 
     public void imprimirTextoPolicia (Policia policia){
-        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es" + policia.imprimirRango() + ". Ingresá tu nombre!");
+        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es " + policia.imprimirRango() + ". Ingresá tu nombre...");
     }
 
     public void recibeInputJugador() throws Exception{
@@ -68,7 +74,7 @@ public class ControladorVentanaInicio  implements Initializable{
         textoMaquinaDeEscribir.setText(huboUnRobo());
     } 
     private String huboUnRobo() {
-        String texto = "Hubo un robo en" + robo.lugarDeRobo().nombre() + ".";
+        String texto = "Hubo un robo en " + robo.lugarDeRobo().nombre() + ".";
         return texto;
     }
 

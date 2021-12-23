@@ -1,9 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
-public class ActividadMock extends Actividad {
+
+import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+
+public class ActividadMock {
+    int duracion;
 
     public ActividadMock(int duracion){
         this.duracion = duracion;
+    }
+
+    public void reportar(ITemporizador temporizador) {
+        temporizador.reportarActividad(this.duracion);
     }
 
 }

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.policia.Policia;
 
 public class EdificioMock implements IEdificio{
     IPais pais;

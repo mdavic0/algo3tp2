@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.policia.Policia;
 
 public class ControladorVentadaBienvenida {
     @FXML

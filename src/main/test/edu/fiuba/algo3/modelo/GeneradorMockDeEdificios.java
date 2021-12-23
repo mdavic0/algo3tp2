@@ -5,6 +5,7 @@ import java.util.List;
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;
 import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeEdificios;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.robo.Robo;
 
 import java.util.Arrays;
 

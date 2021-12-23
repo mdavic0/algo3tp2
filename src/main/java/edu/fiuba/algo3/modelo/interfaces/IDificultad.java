@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.interfaces;
 
-import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Ladron;
 
 public interface IDificultad {
 

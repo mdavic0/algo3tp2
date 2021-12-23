@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
+import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.NoEstuvoEnEdificio;
+import edu.fiuba.algo3.modelo.policia.Policia;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;
@@ -21,7 +24,7 @@ public class EdificioTest {
         Policia paco = new Policia(); //Argentina, new Temporizador(0)
         paco.asignarCaso(Argentina, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
 
-        IEdificio aeropuerto = new Edificio ("aeropuerto", Argentina, new NoEstuvoEnEdificio());
+        IEdificio aeropuerto = new Edificio("aeropuerto", Argentina, new NoEstuvoEnEdificio());
 
         Argentina.agregarEdificios(aeropuerto);
 
