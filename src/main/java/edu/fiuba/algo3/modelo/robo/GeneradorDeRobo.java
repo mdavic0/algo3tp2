@@ -32,7 +32,7 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
 
     public Robo generarRobo(Policia policia, List<Artefacto> artefactos, List<IPais> paisesPosibles,
                             List<Ladron>ladrones) {
-            Artefacto artefacto = policia.obtenerRango().generarArtefacto(artefactos);
+            Artefacto artefacto = policia.generarArtefacto(artefactos);
             List<IPais> via = artefacto.generarViaDeEscape(paisesPosibles, this);
             Ladron ladron = generarLadron(ladrones);
             //TODO usar algothief exception

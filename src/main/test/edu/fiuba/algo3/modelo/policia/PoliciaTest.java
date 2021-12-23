@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo.policia;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.policia.Policia;
-import edu.fiuba.algo3.modelo.rangos.Detective;
-import edu.fiuba.algo3.modelo.rangos.Investigador;
-import edu.fiuba.algo3.modelo.rangos.Novato;
-import edu.fiuba.algo3.modelo.rangos.Sargento;
+import edu.fiuba.algo3.modelo.policia.rangos.Detective;
+import edu.fiuba.algo3.modelo.policia.rangos.Investigador;
+import edu.fiuba.algo3.modelo.policia.rangos.Novato;
+import edu.fiuba.algo3.modelo.policia.rangos.Sargento;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.interfaces.IEdificio;

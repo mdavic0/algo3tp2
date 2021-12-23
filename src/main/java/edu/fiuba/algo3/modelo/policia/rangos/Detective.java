@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.rangos;
+package edu.fiuba.algo3.modelo.policia.rangos;
 
 import java.util.Collections;
 import java.util.List;
