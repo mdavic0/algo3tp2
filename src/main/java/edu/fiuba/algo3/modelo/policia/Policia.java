@@ -106,7 +106,6 @@ public class Policia {
     }
 
     private boolean puedeArrestar(Ladron ladron) {
-
         if(this.ordenDeArresto != null)
             return this.ordenDeArresto.puedeArrestarA(ladron);
 
@@ -114,9 +113,12 @@ public class Policia {
     }
 
     public void intentarArrestar(Ladron ladron) {
-        if(this.puedeArrestar(ladron))
+        if(this.puedeArrestar(ladron)){
+            arrestarLadron();
             notificarSuscriptores(
-                new PropertyChangeEvent(this, "Arresto", cantidadArrestos, ++cantidadArrestos));
+                new PropertyChangeEvent(this, "Arresto", cantidadArrestos, cantidadArrestos + 1));
+        }
+            
         else notificarSuscriptores(
             new PropertyChangeEvent(this, "FalloArresto", cantidadArrestos, cantidadArrestos));
     }
