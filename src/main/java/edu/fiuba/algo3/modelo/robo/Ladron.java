@@ -6,11 +6,11 @@ import java.util.*;
 
 public class Ladron {
 
-    private final String nombre;
-    private final String vehiculo;
-    private final String cabello;
-    private final String senia;
-    private final String hobby;
+    private String nombre;
+    private String vehiculo;
+    private String cabello;
+    private String senia;
+    private String hobby;
 
     private final List<Propiedad> propiedades= new ArrayList<Propiedad>();
 
@@ -51,6 +51,12 @@ public class Ladron {
             .count() > 0;
     }
 
+    public void definirComoImprimir(String vehiculo, String cabello, String senia, String hobby){
+        this.vehiculo = vehiculo;
+        this.cabello = cabello;
+        this.senia = senia;
+        this.hobby = hobby;
+    }
 
     public String nombre() {
         return nombre;

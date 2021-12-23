@@ -89,13 +89,28 @@ public class LectorDeArchivo {
         JSONObject parserDetalle = (JSONObject) new JSONParser()
                 .parse(new FileReader("src/main/resources/edu/fiuba/algo3/dossiers.json"));
 
-        JSONArray dossiers = (JSONArray) parser.get("dossiers");
-        JSONArray dossiersGenericos = (JSONArray) parserDetalle.get("dossiersGenericos");
+        JSONArray dossiers = (JSONArray) parserDetalle.get("dossiers");
+        JSONArray dossiersGenericos = (JSONArray) parser.get("dossiers");
         
-        dossiers.forEach(entry -> {
-            JSONObject project = (JSONObject) entry;
-            ladrones.add(new Ladron((String )project.get("nombre"), (String )project.get("genero"), (String )project.get("vehiculo"), (String )project.get("cabello"), (String )project.get("senia"), (String )project.get("hobby")));
-        });
+        for(int i = 0; i < dossiers.size(); i++){
+            JSONObject gen = (JSONObject)dossiersGenericos.get(i);
+            JSONObject detalle = (JSONObject)dossiers.get(i);
+            Ladron ladron = new Ladron(
+                (String )gen.get("nombre"), 
+                (String )gen.get("genero"), 
+                (String )gen.get("vehiculo"), 
+                (String )gen.get("cabello"), 
+                (String )gen.get("senia"), 
+                (String )gen.get("hobby"));
+            
+            ladron.definirComoImprimir(
+                (String) detalle.get("vehiculo"), 
+                (String) detalle.get("cabello"),
+                (String) detalle.get("senia"), 
+                (String) detalle.get("hobby"));
+
+            ladrones.add(ladron);
+        }
 
         return ladrones;
     }
