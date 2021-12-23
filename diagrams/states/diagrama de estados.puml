@@ -1,0 +1,166 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam state {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title Diagrama de estados de Rango
+
+scale 350 width
+[*] --> Novato : subirRango(int cantidadDeArrestos)
+
+state Novato {
+    Novato --> Novato : cantidadDeArrestos < 5
+    Novato --> Detective : cantidadDeArrestos = 5
+}
+
+state Detective {
+    Detective --> Detective : cantidadDeArrestos < 10
+    Detective --> Investigador : cantidadDeArrestos = 10
+}
+
+state Investigador{
+     Investigador -->  Investigador : antidadDeArrestos < 10
+    Investigador --> Sargento : cantidadDeArrestos = 20
+}
+
+state Sargento{
+    Sargento --> Sargento : cantidadDeArrestos > 20
+}
+
+@enduml
+
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam state {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title Diagrama de estado de Lugar Actual del Policia 
+
+scale 350 width
+[*] --> LugarActual : entrarA(Edificio)
+
+
+state PoliciaNoInicializadoException {
+}
+
+state AccionInvalidaException {
+}
+
+
+state LugarActual {
+EnEdificio : ya estoy en un edificio  
+FueraDeEdificio : entro con exito 
+Inactivo : no estoy en servicio    
+}
+
+EnEdificio --> AccionInvalidaException
+Inactivo --> PoliciaNoInicializadoException
+
+AccionInvalidaException --> [*]
+PoliciaNoInicializadoException --> [*]
+}
+@enduml
+
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam state {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title Diagrama de estado de Lugar Actual del Policia 
+
+scale 350 width
+[*] --> LugarActual : salirDelEdificio()
+
+
+state PoliciaNoInicializadoException {
+}
+
+state AccionInvalidaException {
+}
+
+
+state LugarActual {
+EnEdificio : salgo con exito
+FueraDeEdificio :  ya estoy afuera del edificio 
+Inactivo : no estoy en servicio    
+}
+
+FueraDeEdificio --> AccionInvalidaException
+Inactivo --> PoliciaNoInicializadoException
+
+AccionInvalidaException --> [*]
+PoliciaNoInicializadoException --> [*]
+}
+@enduml
+
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam state {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title Diagrama de estado de Lugar Actual del Policia 
+
+scale 350 width
+[*] --> LugarActual : viajarA(Pais)
+
+
+state PoliciaNoInicializadoException {
+}
+
+state AccionInvalidaException {
+}
+
+
+state LugarActual {
+EnEdificio : no puedo viajar desde adentro de un edificio
+FueraDeEdificio : viajo con exito
+Inactivo : no estoy en servicio    
+}
+
+EnEdificio --> AccionInvalidaException
+Inactivo --> PoliciaNoInicializadoException
+
+AccionInvalidaException --> [*]
+PoliciaNoInicializadoException --> [*]
+}
+@enduml
