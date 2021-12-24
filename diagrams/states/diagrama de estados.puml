@@ -48,6 +48,7 @@ skinparam SequenceLifeLineBorderColor DarkBlue
 skinparam SequenceLoopBackgroundColor DarkBlue
 
 skinparam state {
+    EndColor Red
     ArrowColor DarkBlue
     BackgroundColor LightBlue
     BorderColor DarkBlue
@@ -64,4 +65,10 @@ FueraDeEdificio --> EnEdificio : entrarA(Edificio)
 EnEdificio --> FueraDeEdificio : salirDelEdificio()
 
 }
+
+FueraDeEdificio --> [*] : salirDelEdificio()
+EnEdificio --> [*] : entrarA(Edificio)
+Inactivo --> [*] : salirDelEdificio()
+Inactivo --> [*] : entrarA(Edificio)
+
 @enduml
