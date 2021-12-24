@@ -6,7 +6,7 @@ public class PistaDeIndustria extends Pista{
     }
 
     @Override
-    String darFormato(String industrias) {
+    public String darFormato(String industrias) {
         return "Se dirigia a un pais destacado por la produccion de ".concat(industrias).concat(". ");
     }
 }

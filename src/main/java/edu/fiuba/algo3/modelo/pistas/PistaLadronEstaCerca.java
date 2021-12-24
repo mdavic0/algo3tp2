@@ -7,7 +7,7 @@ public class PistaLadronEstaCerca extends Pista {
     }
 
     @Override
-    String darFormato(String contenido) {
+    public String darFormato(String contenido) {
         return "Cuidado, la persona que buscas esta MUY cerca!!";
     }
 }

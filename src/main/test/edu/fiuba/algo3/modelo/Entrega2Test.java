@@ -18,10 +18,6 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.MuyValioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,11 +26,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega2Test {
 
-    ITemporizador t = new Temporizador(16, 20);
+    Temporizador t = new Temporizador(16, 20);
 
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
-        IPais montreal = new PaisMock("Montreal");
+        Pais montreal = new PaisMock("Montreal");
         Policia undyne = new Policia();
         undyne.asignarCaso(montreal, new EstadoDeJuego(),t, new ComputadoraMock());
 
@@ -56,7 +52,7 @@ public class Entrega2Test {
         Pais austria = new Pais("Austria", 0, 0);
         montreal.conectarA(mexico); // TODO: esto deberia hacerse automagicamente cuando se crea la ruta del ladron
 
-        List<IPais> paises = new ArrayList<IPais>();
+        List<Pais> paises = new ArrayList<Pais>();
         paises.add(montreal);
         paises.add(mexico);
         paises.add(austria);
@@ -89,7 +85,7 @@ public class Entrega2Test {
     public void CargarEnLaComputadoraLosDatosRecopiladosYBuscarSospechosos() throws Exception {
         int tamanioEsperado = 2;
 
-        IPais colombia = new PaisMock("Colombia");
+        Pais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
         Ladron roberta = new Ladron("Roberta Rigoberta", "Femenino", "Motocicleta","Negro", "Cicatriz","Musica");
@@ -112,9 +108,9 @@ public class Entrega2Test {
 
     @Test
     public void IntentaAtraparAlSospechosoSinLaOrdenDeArrestoEmitida() throws Exception {
-        IPais colombia = new PaisMock("Colombia");
+        Pais colombia = new PaisMock("Colombia");
         Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
-        IEdificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
+        Edificio e =  new Edificio("El Bar", colombia, new EstaEnElEdificio(carmen));
 
         colombia.agregarEdificios(e);
 
@@ -145,14 +141,14 @@ public class Entrega2Test {
         Ladron carmen = new Ladron("Carmen Sandiego", "Femenino", "Moto", "Oscuro", "Bien bonita", "tenis");
 
         Pais mexico = new Pais("Mexico", 0, 0);
-        IEdificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
-        IEdificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
-        IEdificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
+        Edificio biblioteca = new Edificio("Biblioteca", mexico, new EstaEnElEdificioDeAlLado());
+        Edificio  bolsa = new Edificio("Bolsa", mexico, new EstaEnElEdificioDeAlLado());
+        Edificio aeropuerto = new Edificio("Aeropuerto", mexico, new EstaEnElEdificio(carmen));
         mexico.agregarEdificios(biblioteca, bolsa, aeropuerto);
 
         peru.conectarA(mexico);
 
-        List<IPais> paises = new ArrayList<IPais>();
+        List<Pais> paises = new ArrayList<Pais>();
         paises.add(peru);
         paises.add(mexico);
         paises.add(new PaisMock("Venezuela"));

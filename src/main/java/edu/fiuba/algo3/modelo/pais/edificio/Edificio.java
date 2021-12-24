@@ -1,23 +1,22 @@
 package edu.fiuba.algo3.modelo.pais.edificio;
 
 import edu.fiuba.algo3.modelo.actividades.EntrarAEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IPista;
 import edu.fiuba.algo3.modelo.interfaces.IRelacionConLadron;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pistas.Pista;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
-public class Edificio implements IEdificio{
+public class Edificio {
 
     int cantidadDeVisitas = 0;
-    IPais pais;
+    Pais pais;
     String nombre;
-    IPista pista;
+    Pista pista;
     IRelacionConLadron relacionConLadron;
 
     public Edificio(
             String nombre,
-            IPais pais,
+            Pais pais,
             IRelacionConLadron relacionConLadron) {
         this.pais = pais;
         this.nombre = nombre;
@@ -29,7 +28,7 @@ public class Edificio implements IEdificio{
         return pista.contenido();
     }
 
-    public IPais obtenerPais() {
+    public Pais obtenerPais() {
         return this.pais;
     }
 
@@ -41,7 +40,6 @@ public class Edificio implements IEdificio{
         return nombre;
     }
 
-    @Override
     public void entrar(Policia policia) {
         this.relacionConLadron.entrar(policia);
 
@@ -51,8 +49,7 @@ public class Edificio implements IEdificio{
 
     }
 
-    @Override
-    public void asignarPais(IPais pais) {
+    public void asignarPais(Pais pais) {
         this.pais = pais;
     }
 }

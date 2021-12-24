@@ -6,7 +6,7 @@ public class PistaDeMoneda extends Pista {
     }
 
     @Override
-    String darFormato(String moneda) {
+    public String darFormato(String moneda) {
         return "Quería cambiar su dinero por ".concat(moneda).concat(". ");
     }
 }

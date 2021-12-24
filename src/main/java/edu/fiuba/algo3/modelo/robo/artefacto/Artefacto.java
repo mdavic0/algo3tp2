@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.robo.artefacto;
 
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
 
 public class Artefacto {
     String nombre;
@@ -23,7 +23,7 @@ public class Artefacto {
         return valor;
     }
 
-    public List<IPais> generarViaDeEscape(List<IPais> paisesPosibles, GeneradorDeRobo generadorDeRobo) {
+    public List<Pais> generarViaDeEscape(List<Pais> paisesPosibles, GeneradorDeRobo generadorDeRobo) {
         return this.valor.generarViaDeEscape(paisesPosibles, generadorDeRobo);
     }
 }

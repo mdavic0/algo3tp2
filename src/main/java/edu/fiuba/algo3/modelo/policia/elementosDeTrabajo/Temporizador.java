@@ -4,10 +4,8 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
-
-public class Temporizador implements ITemporizador {
+public class Temporizador {
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
     int horasTranscurridas;
     int horaInicial;
@@ -21,13 +19,10 @@ public class Temporizador implements ITemporizador {
         this.fecha = DiccionarioDeDias.getById(0).dia().concat(", " + horaInicial + "hs");
     }
 
-
-    @Override
     public int horaActual(){
         return (horaInicial + horasTranscurridas) % 24;
     }
 
-    @Override
     public int horasTranscurridas(){
         return horasTranscurridas;
     }
@@ -51,12 +46,10 @@ public class Temporizador implements ITemporizador {
         if(horaActual() >= horaDormir) this.reportarActividad(8);
     }
 
-    @Override
     public void reportarActividad(int duracion) {
         aumentarHoraActual(duracion);
     }
 
-    @Override
     public void agregarSuscriptor(PropertyChangeListener suscriptor){
         suscriptores.add(suscriptor);
     }

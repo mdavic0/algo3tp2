@@ -6,7 +6,7 @@ public class PistaDeReligion extends Pista{
     }
 
     @Override
-    String darFormato(String religion) {
+    public String darFormato(String religion) {
         return "En el pais al que se dirigia se practica el ".concat(religion).concat(". ");
     }
 }

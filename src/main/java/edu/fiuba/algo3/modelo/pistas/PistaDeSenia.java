@@ -6,7 +6,7 @@ public class PistaDeSenia extends Pista{
     }
 
     @Override
-    String darFormato(String senia) {
+    public String darFormato(String senia) {
         return "La persona de la que me hablas tenia ".concat(senia).concat(". ");
     }
 }

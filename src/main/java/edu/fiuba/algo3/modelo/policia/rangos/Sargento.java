@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.policia.rangos;
 
 import java.util.SplittableRandom;
 import edu.fiuba.algo3.modelo.dificultad.Dificil;
-import edu.fiuba.algo3.modelo.interfaces.IRango;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.MuyValioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
@@ -16,7 +15,7 @@ public class Sargento extends Rango {
     }
 
     @Override
-    public IRango subirRango(int cantidadDeArrestos) {
+    public Rango subirRango(int cantidadDeArrestos) {
         return this;
     }
 

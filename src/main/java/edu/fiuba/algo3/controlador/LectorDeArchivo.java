@@ -17,18 +17,15 @@ import org.json.simple.JSONObject;
 
 import org.json.simple.parser.*;
 
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-
-
 
 public class LectorDeArchivo {
 
-    public List<IPais> obtenerPaises() throws IOException, ParseException {
+    public List<Pais> obtenerPaises() throws IOException, ParseException {
         return this.cargarPaises();
     }
 
-    private List<IPais> cargarPaises() throws IOException, ParseException {
-        List<IPais> paises = new ArrayList<>();
+    private List<Pais> cargarPaises() throws IOException, ParseException {
+        List<Pais> paises = new ArrayList<>();
 
         JSONObject parser = (JSONObject) new JSONParser()
                 .parse(new FileReader("src/main/resources/edu/fiuba/algo3/ciudadesSinTerminar.json"));

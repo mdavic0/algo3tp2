@@ -2,14 +2,14 @@ package edu.fiuba.algo3.modelo.pais.lugarActual;
 
 import edu.fiuba.algo3.modelo.excepciones.AccionInvalidaException;
 import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
 public class EnEdificio extends LugarActual {
-    IEdificio edificio;
+    Edificio edificio;
 
-    public EnEdificio(IEdificio unEdificio) {
+    public EnEdificio(Edificio unEdificio) {
         this.edificio = unEdificio;
     }
 
@@ -19,11 +19,11 @@ public class EnEdificio extends LugarActual {
     }
 
     @Override
-    public LugarActual entrarA(IEdificio banco, Policia policia) throws AlgoThiefException {
+    public LugarActual entrarA(Edificio banco, Policia policia) throws AlgoThiefException {
         throw new AccionInvalidaException("No se puede entrar de un edificio a otro!");
     }
 
-    public EnEdificio viajarA(IPais pais) throws AlgoThiefException {
+    public EnEdificio viajarA(Pais pais) throws AlgoThiefException {
         throw new AccionInvalidaException("No puedo viajar estando adentro de un edificio!");
     }
 
@@ -33,7 +33,7 @@ public class EnEdificio extends LugarActual {
     }
 
     @Override
-    public IPais obtenerPais() {
+    public Pais obtenerPais() {
         return edificio.obtenerPais();
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
@@ -86,7 +86,7 @@ public class ControladorVentanaInicio  implements Initializable{
     private void generarRobo() throws Exception{
         ultimoInput = inputJugador.getText();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
-        List<IPais> paises =  lector.obtenerPaises();
+        List<Pais> paises =  lector.obtenerPaises();
         robo = gRobo.generarRobo(policia, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
     } 
 

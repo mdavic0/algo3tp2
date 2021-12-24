@@ -9,8 +9,6 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-
 import java.util.List;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RoboTest {
-    List<IPais> paises;
+    List<Pais> paises;
     List<Artefacto> artefactos;
     
     @BeforeEach
@@ -76,7 +74,7 @@ public class RoboTest {
             new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
 
-        IPais lugarRobo = robo.lugarDeRobo();
+        Pais lugarRobo = robo.lugarDeRobo();
         String artefacto = robo.nombreDeArtefacto();
         Ladron ladron = robo.obtenerLadron();
 
@@ -94,7 +92,7 @@ public class RoboTest {
             artefactos.get(0));
 
         // hack para obtener pais valido
-        IPais paisActual = robo.primerPais();
+        Pais paisActual = robo.primerPais();
         assertNotEquals(null, paisActual);
     }
 
@@ -107,7 +105,7 @@ public class RoboTest {
             artefactos.get(0));
 
         // hack para obtener pais valido
-        IPais pais = robo.primerPais();
+        Pais pais = robo.primerPais();
         assertNotEquals(pais, null);
         assertNotEquals(null, pais);
     }
@@ -119,7 +117,7 @@ public class RoboTest {
             paises.subList(0, 6),  
             new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Anillo", "Tenis"),
             artefactos.get(0));
-        for(IPais pais : robo.viaSinInit){
+        for(Pais pais : robo.viaSinInit){
             assertFalse(pais.obtenerAdyacentes().contains(pais));
         }
     }

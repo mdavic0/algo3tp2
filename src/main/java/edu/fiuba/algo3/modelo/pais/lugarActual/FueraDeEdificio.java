@@ -2,19 +2,19 @@ package edu.fiuba.algo3.modelo.pais.lugarActual;
 
 import edu.fiuba.algo3.modelo.excepciones.AccionInvalidaException;
 import edu.fiuba.algo3.modelo.excepciones.AlgoThiefException;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
 public class FueraDeEdificio extends LugarActual {
 
-    IPais pais;
+    Pais pais;
 
-    public FueraDeEdificio(IPais pais) {// Pais pais
+    public FueraDeEdificio(Pais pais) {// Pais pais
         this.pais = pais;
     }
 
-    public LugarActual entrarA(IEdificio unEdificio, Policia policia) throws AlgoThiefException {
+    public LugarActual entrarA(Edificio unEdificio, Policia policia) throws AlgoThiefException {
         if(!pais.contieneEdificio(unEdificio))
             throw new AccionInvalidaException("Ese edificio no existe.");
         unEdificio.entrar(policia);
@@ -27,7 +27,7 @@ public class FueraDeEdificio extends LugarActual {
     }
 
     @Override
-    public FueraDeEdificio viajarA(IPais pais) throws AlgoThiefException {
+    public FueraDeEdificio viajarA(Pais pais) throws AlgoThiefException {
         if(this.pais.sePuedeViajarA(pais)) return new FueraDeEdificio(pais);
 
         throw new AccionInvalidaException("No puedo viajar a ese pais!");
@@ -39,7 +39,7 @@ public class FueraDeEdificio extends LugarActual {
     }
 
     @Override
-    public IPais obtenerPais() {
+    public Pais obtenerPais() {
         return this.pais;
     }
 

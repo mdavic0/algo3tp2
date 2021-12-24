@@ -5,7 +5,7 @@ public class PistaDeDatoCurioso extends Pista{
         this.contenido = this.darFormato(datoCurioso);
     }
     @Override
-    String darFormato(String datoCurioso) {
+    public String darFormato(String datoCurioso) {
         return "El pais al que se dirigia es conocido por ".concat(datoCurioso).concat(". ");
     }
 }

@@ -12,8 +12,6 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -24,7 +22,7 @@ import java.util.List;
 
 public class GeneradorDeRoboTest {
 
-    List<IPais> paises;
+    List<Pais> paises;
     List<Artefacto> artefactos;
     private List<Ladron> ladrones;
     
@@ -32,7 +30,9 @@ public class GeneradorDeRoboTest {
     public void setUp() throws Exception{
         paises = new ArrayList<>();
         for(int i = 0; i < 23; i++)
-            paises.add( new Pais("Francia" + i, 0, 0));
+            paises.add( new Pais("", "", "", "", "",
+                    "", "", "", "", "", "", "",
+                    "", "", 0, 0));
 
         this.artefactos = new ArrayList<>();
         Valor[] valores = {new Comun(), new Valioso(), new MuyValioso()};
@@ -104,7 +104,7 @@ public class GeneradorDeRoboTest {
     @Test
     public void testGenerarPaisesParaUnRobo() throws Exception {
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
-        List<IPais> paises = new ArrayList<IPais>();
+        List<Pais> paises = new ArrayList<Pais>();
         paises.add(new PaisMock("Noruega"));
         paises.add(new PaisMock("Zimbabwe"));
         paises.add(new PaisMock("República checa"));

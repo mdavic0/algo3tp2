@@ -3,14 +3,13 @@ package edu.fiuba.algo3.controlador;
 import java.io.IOException;
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.policia.Policia;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -31,11 +30,11 @@ public class ControladorVentanaOpcionesEdificios {
     private List<FXMLLoader> vistasEdificios;
     private FXMLLoader ventanaARegresar;
 
-    void inicializar(Policia paco, IPais pais, List<FXMLLoader> vistasEdificios, FXMLLoader ventanaARegresar){
+    void inicializar(Policia paco, Pais pais, List<FXMLLoader> vistasEdificios, FXMLLoader ventanaARegresar){
         this.paco = paco;
         this.vistasEdificios = vistasEdificios;
         this.ventanaARegresar = ventanaARegresar;
-        List<IEdificio> edificios = pais.edificios();
+        List<Edificio> edificios = pais.edificios();
         Button[] botones = {opcion1, opcion2, opcion3};
 
         for(int i = 0; i < edificios.size(); i++){
@@ -43,12 +42,12 @@ public class ControladorVentanaOpcionesEdificios {
         }
     }
 
-    void atarBotonAEdificio(IEdificio edificio, Button boton, FXMLLoader vista){
+    void atarBotonAEdificio(Edificio edificio, Button boton, FXMLLoader vista){
         boton.setText(edificio.nombre());
         boton.setOnAction(a -> entrarA(edificio, vista));
     }
 
-    void entrarA(IEdificio edificio, FXMLLoader ventanaCargada){
+    void entrarA(Edificio edificio, FXMLLoader ventanaCargada){
         try {
             ((ControladorVentanaEdificio)ventanaCargada.getController()).notificarEntrada();
         } catch (Exception e) {

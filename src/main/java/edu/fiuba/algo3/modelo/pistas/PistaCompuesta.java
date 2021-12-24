@@ -7,7 +7,7 @@ public class PistaCompuesta extends Pista{
     }
 
     @Override
-    String darFormato(String contenido) {
+    public String darFormato(String contenido) {
         return contenido;
     }
 }

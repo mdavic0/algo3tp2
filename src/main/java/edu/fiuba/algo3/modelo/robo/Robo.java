@@ -4,29 +4,28 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 import edu.fiuba.algo3.modelo.excepciones.CantidadDePaisesException;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IRobo;
 
-public class Robo implements IRobo {
-    List<IPais> viaSinInit;
+public class Robo {
+    List<Pais> viaSinInit;
     Artefacto artefacto;
     Ladron ladron;
 
-    public Robo(List<IPais> via, List<IPais> paisesPosibles, Ladron ladron, Artefacto artefacto) throws CantidadDePaisesException {
+    public Robo(List<Pais> via, List<Pais> paisesPosibles, Ladron ladron, Artefacto artefacto) throws CantidadDePaisesException {
         viaSinInit = via;
         this.ladron = ladron;
         this.artefacto = artefacto;
         this.generarConexionesEntrePaises(via, paisesPosibles);
     } 
 
-    void conectarBidireccionalmente(IPais pais1, IPais pais2){
+    void conectarBidireccionalmente(Pais pais1, Pais pais2){
         pais1.conectarA(pais2);
         pais2.conectarA(pais1);
     }
 
-    private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws CantidadDePaisesException {
+    private void generarConexionesEntrePaises(List<Pais> via, List<Pais> paisesPosibles) throws CantidadDePaisesException {
         if (paisesPosibles.size() < 3 * via.size()) 
             throw new CantidadDePaisesException("Necesito el doble de paises incorrectos vs. correctos para generar el robo!");
 
@@ -36,13 +35,13 @@ public class Robo implements IRobo {
             }
         );
 
-        List<IPais> paisesIncorrectos = paisesPosibles.stream()
+        List<Pais> paisesIncorrectos = paisesPosibles.stream()
             .filter(p -> !via.contains(p))
             .collect(Collectors.toList());
 
-        List<IPais> paisesConectadosAVia = new ArrayList<>();
+        List<Pais> paisesConectadosAVia = new ArrayList<>();
         paisesConectadosAVia.addAll(paisesIncorrectos.subList(0, 2*via.size()));
-        List<IPais> paisesNoConectados = new ArrayList<>();
+        List<Pais> paisesNoConectados = new ArrayList<>();
         paisesNoConectados.addAll(paisesIncorrectos.subList(2*via.size(),paisesIncorrectos.size()));
 
         IntStream
@@ -70,34 +69,26 @@ public class Robo implements IRobo {
             }); */
     }
 
-    @Override
     public String reportarRobo(Object rango) {
         return "Hola, ".concat(rango.toString()).concat(". Hubo un robo de ").concat(artefacto.nombre());
     }
 
-    @Override
-    public IPais lugarDeRobo() {return viaSinInit.get(0);}
+    public Pais lugarDeRobo() {return viaSinInit.get(0);}
 
-    @Override
     public String nombreDeArtefacto() {
         return artefacto.nombre();
     }
 
-    @Override
     public Ladron obtenerLadron() {
         return ladron;
     }
-
-    @Override
-    public IPais primerPais() {
+    public Pais primerPais() {
         return viaSinInit.get(0);
     }
-    
-    @Override
-    public IPais paisDespuesDe(IPais paisDelTestigo) {
-        IPais pedido = viaSinInit
+    public Pais paisDespuesDe(Pais paisDelTestigo) {
+        Pais pedido = viaSinInit
             .stream()
-            .filter(p -> paisDelTestigo==p).findFirst().get();
+            .filter(p -> paisDelTestigo == p).findFirst().get();
        
         return viaSinInit.get(viaSinInit.indexOf(pedido) + 1);
     }
@@ -106,7 +97,7 @@ public class Robo implements IRobo {
         return viaSinInit.get(viaSinInit.size() - 1);
     }
 
-    public List<IPais> viaSinInit() {
+    public List<Pais> viaSinInit() {
         return this.viaSinInit;
     }
 }

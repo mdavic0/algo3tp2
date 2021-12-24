@@ -1,27 +1,26 @@
 package edu.fiuba.algo3.modelo.policia;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import edu.fiuba.algo3.modelo.policia.rangos.Detective;
 import edu.fiuba.algo3.modelo.policia.rangos.Investigador;
 import edu.fiuba.algo3.modelo.policia.rangos.Novato;
 import edu.fiuba.algo3.modelo.policia.rangos.Sargento;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class PoliciaTest {
-    ITemporizador t = new TemporizadorMock();
+    Temporizador t = new TemporizadorMock();
     @Test
     public void testCuestionarTestigo() throws Exception {
 
-        IPais colombia = new PaisMock("Colombia");
-        IEdificio banco = new EdificioMock("El banco");
+        Pais colombia = new PaisMock("Colombia");
+        Edificio banco = new EdificioMock("El banco");
         colombia.agregarEdificios(banco);
 
         Policia paco = new Policia();
@@ -33,7 +32,7 @@ public class PoliciaTest {
 
     @Test
     public void entrarAEdificioQueNoEstaEnPaisCausaExcepcion() throws Exception {
-        IEdificio e =  new EdificioMock("La ferreteria");
+        Edificio e =  new EdificioMock("La ferreteria");
         Policia paco = new Policia();
         
         assertThrows(Exception.class, () -> paco.entrarA(e));
@@ -41,8 +40,8 @@ public class PoliciaTest {
 
     @Test
     public void entrarAEdificio() throws Exception {
-        IPais colombia = new PaisMock("Colombia");
-        IEdificio e =  new EdificioMock("La ferretería" );
+        Pais colombia = new PaisMock("Colombia");
+        Edificio e =  new EdificioMock("La ferretería" );
 
         colombia.agregarEdificios(e);
 
@@ -55,8 +54,8 @@ public class PoliciaTest {
 
     @Test
     public void viajarAUnPaisNoAccesibleCausaExcepcion() throws Exception {
-        IPais montreal = new PaisMock("Montreal");
-        IPais mexico = new PaisMock("México");
+        Pais montreal = new PaisMock("Montreal");
+        Pais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
 
         Policia paco = new Policia();
@@ -67,8 +66,8 @@ public class PoliciaTest {
 
     @Test
     public void viajaDeMontrealAMéxico() throws Exception{
-        IPais montreal = new PaisMock("Montreal");
-        IPais mexico = new PaisMock("México");
+        Pais montreal = new PaisMock("Montreal");
+        Pais mexico = new PaisMock("México");
         montreal.conectarA(mexico);
         Policia paco = new Policia();
         paco.asignarCaso(montreal, new EstadoDeJuego(), new TemporizadorMock(), new ComputadoraMock());
@@ -80,7 +79,7 @@ public class PoliciaTest {
 
     @Test
     public void policiaHaceNArrestosYSubeDeRango() throws Exception{
-        IPais colombia = new PaisMock("Colombia");
+        Pais colombia = new PaisMock("Colombia");
         Policia paco = new Policia();
 
         assertEquals(Novato.class, paco.obtenerRango().getClass());
