@@ -17,16 +17,18 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 
 public class Novato extends Rango {
-
+    private static int VELOCIDAD = 900;
+    private static int CANTIDAD_MINIMA_ARRESTOS = 5;
+    private static int probabilidadComun = 80;
     public Novato(){
-        this.velocidadKmh = 900;
+        this.velocidadKmh = VELOCIDAD;
         this.IDificultad = new Facil();
     }
 
 
     @Override
     public IRango subirRango(int cantidadDeArrestos) {
-        if(cantidadDeArrestos %5 == 0){
+        if(cantidadDeArrestos %CANTIDAD_MINIMA_ARRESTOS == 0){
             return new Detective();
         }
         return this;
@@ -36,7 +38,7 @@ public class Novato extends Rango {
     @Override
     public Valor generarValorDeArtefacto() {
         SplittableRandom aleatorio = new SplittableRandom();
-        if(aleatorio.nextInt(1, 101) <= 80) //probabilidad 80% de que genere un valor Comun
+        if(aleatorio.nextInt(1, 101) <= probabilidadComun) //probabilidad 80% de que genere un valor Comun
             return new Comun();
         return new Valioso(); // ==> 20% de que genere un valor Valioso
     }
