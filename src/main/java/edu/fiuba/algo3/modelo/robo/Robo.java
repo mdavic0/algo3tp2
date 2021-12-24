@@ -14,7 +14,7 @@ public class Robo implements IRobo {
     Artefacto artefacto;
     Ladron ladron;
 
-    public Robo(List<IPais> via, List<IPais> paisesPosibles, Ladron ladron, Artefacto artefacto) throws Exception {
+    public Robo(List<IPais> via, List<IPais> paisesPosibles, Ladron ladron, Artefacto artefacto) throws CantidadDePaisesException {
         viaSinInit = via;
         this.ladron = ladron;
         this.artefacto = artefacto;
@@ -26,7 +26,7 @@ public class Robo implements IRobo {
         pais2.conectarA(pais1);
     }
 
-    private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws Exception {
+    private void generarConexionesEntrePaises(List<IPais> via, List<IPais> paisesPosibles) throws CantidadDePaisesException {
         if (paisesPosibles.size() < 3 * via.size()) 
             throw new CantidadDePaisesException("Necesito el doble de paises incorrectos vs. correctos para generar el robo!");
 

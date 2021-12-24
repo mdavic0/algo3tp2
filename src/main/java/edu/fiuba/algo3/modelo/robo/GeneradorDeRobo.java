@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.robo;
 
 import java.util.List;
 
+import edu.fiuba.algo3.modelo.excepciones.CantidadDePaisesException;
 import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeRobo;
 import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.IRango;
@@ -17,7 +18,10 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
         Artefacto artefacto = rango.generarArtefacto(artefactos);
         List<IPais> via = artefacto.generarViaDeEscape(paisesPosibles, this);
         Ladron ladron = generarLadron(ladrones);
-        return new Robo(via, paisesPosibles, ladron, artefacto);
+        Robo robo = new Robo(via, paisesPosibles, ladron, artefacto);
+        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, rango);
+        genEdificios.crearEdificiosPara(paisesPosibles, robo);
+        return robo;
     }
 
     private Ladron generarLadron(List<Ladron> ladrones) {
@@ -31,16 +35,16 @@ public class GeneradorDeRobo implements IGeneradorDeRobo {
     }
 
     public Robo generarRobo(Policia policia, List<Artefacto> artefactos, List<IPais> paisesPosibles,
-                            List<Ladron>ladrones) {
-            Artefacto artefacto = policia.generarArtefacto(artefactos);
-            List<IPais> via = artefacto.generarViaDeEscape(paisesPosibles, this);
-            Ladron ladron = generarLadron(ladrones);
-            //TODO usar algothief exception
-            try {
-                return new Robo(via, paisesPosibles, ladron, artefacto);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+                            List<Ladron>ladrones) throws CantidadDePaisesException {
+        Artefacto artefacto = policia.generarArtefacto(artefactos);
+        List<IPais> via = artefacto.generarViaDeEscape(paisesPosibles, this);
+        Ladron ladron = generarLadron(ladrones);
+        //TODO usar algothief exception
+        Robo robo = new Robo(via, paisesPosibles, ladron, artefacto);
+            
+        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, policia.obtenerRango());
+        genEdificios.crearEdificiosPara(paisesPosibles, robo);
+
+        return robo;
     }
 }

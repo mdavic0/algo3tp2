@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
-import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
 import edu.fiuba.algo3.modelo.robo.Robo;
 import javafx.fxml.FXML;
@@ -89,10 +88,6 @@ public class ControladorVentanaInicio  implements Initializable{
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
         List<IPais> paises =  lector.obtenerPaises();
         robo = gRobo.generarRobo(policia, lector.obtenerArtefactos(), paises, lector.obtenerLadrones());
-
-        //TODO no usar getter de policia
-        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, policia.obtenerRango());
-        genEdificios.crearEdificiosPara(paises, robo);
     } 
 
     @Override

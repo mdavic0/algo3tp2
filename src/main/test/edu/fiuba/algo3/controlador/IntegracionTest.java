@@ -44,9 +44,6 @@ public class IntegracionTest {
         List<IPais> paises =  this.paises;
         Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises,ladrones);
         assertEquals(4, robo.viaSinInit().size());
-
-        GeneradorDeEdificios genEdificios = new GeneradorDeEdificios(robo, new Novato());
-        genEdificios.crearEdificiosPara(paises, robo);
         assertEquals( 3 ,robo.primerPais().edificios().size());
 
 

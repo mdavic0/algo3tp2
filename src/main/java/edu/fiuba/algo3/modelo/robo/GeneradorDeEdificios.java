@@ -33,9 +33,9 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
                     p.agregarEdificios(this.generarParaPaisDondeEstaLadron(p));
                 }
                 else {
-                    //OBS: ACA EN REALIDAD HAY QUE PASARLE EL PAIS AL QUE VA EL LADRON
-                    // YA QUE SE AGREGAN EDIFICIOS AL PAIS P, PERO LAS PISTAS SON SOBRE EL PAIS (P + 1)
-                    p.agregarEdificios(this.generarParaPaisDondeEstuvoLadron(p, robo.viaSinInit.get(robo.viaSinInit.indexOf(p) + 1)));
+                    p.agregarEdificios(this.generarParaPaisDondeEstuvoLadron(
+                        p, 
+                        robo.viaSinInit.get(robo.viaSinInit.indexOf(p) + 1)));
                 }
         };
     }
