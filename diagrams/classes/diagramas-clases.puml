@@ -1,0 +1,126 @@
+@startuml
+
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam class {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title  Diagrama de clase de tipos de Pista
+
+abstract class Pista {
+    -contenido : String
+
+    +contenido() : String 
+
+    -{abstract} darFormato(contenido :String): String
+}
+
+note left of PistaDeArte::darFormato 
+darFormato(arte: String) {
+    ^ "Estaba feliz porque se dirigia a conocer ".concat(arte).concat(". ");
+}
+end note
+class PistaDeArte {
+    + PistaDeArte(arte: String)
+    - darFormato(arte :String): String
+}
+class PistaDeBandera {
+    + PistaDeBandera(coloresDeBandera: String)
+    - darFormato(coloresDeBandera :String): String
+}
+class PistaDeCabello {
+    + PistaDeCabello(cabello: String)
+    - darFormato(cabello :String): String
+}
+class PistaDeMoneda {
+    + PistaDeMoneda(moneda: String)
+    - darFormato(moneda :String): String
+}
+class PistaDeReligion {
+    + PistaDeReligion(religion: String)
+    - darFormato(religion :String): String
+}
+class PistaDeHobby {
+    + PistaDeHobby(hobby: String)
+    - darFormato(hobby :String): String
+}
+
+Pista <|--left PistaDeArte
+Pista <|--right PistaDeBandera
+Pista <|-- PistaDeCabello
+Pista <|-- PistaDeMoneda
+Pista <|-- PistaDeReligion
+Pista <|-- PistaDeHobby
+
+
+@enduml
+
+@startuml
+
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam class {
+    ArrowColor DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title  Diagrama de clase de Rangos del Policia
+
+abstract class Rango {
+    -velocidadKmh :double
+
+    - {abstract}  generarValorDeArtefacto(): Valor
+    + reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador): void
+    + {abstract} IRango subirRango(int cantidadDeArrestos);
+    + generarArtefacto(List<Artefacto> artefactos): Artefacto
+}
+
+class Novato{
+    - {abstract}  generarValorDeArtefacto(): Valor}
+    + {abstract} IRango subirRango(int cantidadDeArrestos);
+}
+
+class Detective {
+    - {abstract}  generarValorDeArtefacto(): Valor}
+    + {abstract} IRango subirRango(int cantidadDeArrestos);
+}
+
+class Investigador{
+    - {abstract}  generarValorDeArtefacto(): Valor}
+    + {abstract} IRango subirRango(int cantidadDeArrestos);
+}
+
+class Sargento{
+    - {abstract}  generarValorDeArtefacto(): Valor}
+    + {abstract} IRango subirRango(int cantidadDeArrestos);
+}
+
+interface IDificultad{
+    +crearPistaEconomica(IPais pais, Ladron ladron) : IPista
+    +crearPistaHistorica(IPais pais, Ladron ladron) : IPista
+    +crearPistaDeViaje(IPais pais, Ladron ladron) : IPista
+}
+
+Rango <|-- Novato
+Rango <|-- Detective
+Rango <|-- Investigador
+Rango <|-- Sargento
+IDificultad <--left Rango
+IDificultad <|.. Facil
+IDificultad <|.. Media
+IDificultad <|.. Dificil
+@enduml

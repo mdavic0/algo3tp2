@@ -16,19 +16,11 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.MuyValioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 
-public class Sargento implements IRango {
-
-    double velocidadKmh;
-    IDificultad IDificultad;
+public class Sargento extends Rango {
 
     public Sargento(){
         this.velocidadKmh = 1500;
         this.IDificultad = new Dificil();
-    }
-
-    @Override
-    public IDificultad obtenerDificultadPistas(){
-        return IDificultad;
     }
 
     @Override
@@ -42,28 +34,6 @@ public class Sargento implements IRango {
         if(aleatorio.nextInt(1, 101) <= 90) //probabilidad 90% de que genere un valor MuyValioso
             return new MuyValioso();
         return new Valioso(); // ==> 10% de que genere un valor Valioso
-    }
-
-    @Override
-    public void reportarViaje(IPais paisActual, IPais paisDestino, ITemporizador temporizador) {
-        Viajar actividad = new Viajar(paisActual, paisDestino, this.velocidadKmh);
-        actividad.reportar(temporizador);
-    }
-
-    @Override
-    public Artefacto generarArtefacto(List<Artefacto> artefactos) {
-        Valor v = this.generarValorDeArtefacto(); // se genera con una cuestion probabilistica que depende del rango.
-
-        List<Artefacto> candidatos =  artefactos
-                .stream()
-                //obtener artefacto del valor requerido
-                .filter(artef ->
-                        artef.valor().getClass() == v.getClass()
-                )
-                .collect(Collectors.toList());
-
-        Collections.shuffle(candidatos);
-        return candidatos.get(0);
     }
 
 }
