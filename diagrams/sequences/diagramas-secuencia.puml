@@ -1,0 +1,64 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor White
+skinparam RoundCorner 10
+skinparam Shadowing true
+skinparam ArrowColor DarkBlue
+skinparam SequenceLifeLineBorderColor DarkBlue
+skinparam SequenceLoopBackgroundColor DarkBlue
+
+skinparam actor {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+skinparam participant {
+    Bound DarkBlue
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+title Caso de uso: PoliciaSufreUnaHeridaDeCuchilloYDuerme
+
+actor "user:Actor" as Actor
+
+create "Montreal:Pais" as pais
+Actor -> pais : << create >>
+
+create "e:EstadoDeJuego" as estado
+Actor -> estado : << create >>
+
+create "t:Temporizador" as temp
+Actor -> temp : << create >> Temporizador(18, 20)
+
+create "c:Computadora" as compu
+Actor -> compu : << create >>
+
+create "paco:Policia" as policia
+Actor -> policia : << create >> Policia()
+
+Actor -> policia : asignarCaso(Montreal, e, t, c)
+Actor -> policia : recibirHeridaConCuchillo()
+policia --> policia : this.heridasPorCuchillo++
+note right of policia
+heridasPorCuchillo = 1
+end note
+
+create "unaActividad:HeridaConCuchillo" as actividad
+policia -> actividad: << create >> HeridaConCuchillo(1)
+
+policia -> actividad : reportar(t)
+actividad -> temp : reportarActividad(2)
+temp --> temp : aumentarHoraActual(2)
+
+note right of temp
+if(horaActual() >= horaDormir) this.reportarActividad(8);
+end note
+note right of temp
+(20 >= 20) ==> duerme
+end note
+
+temp --> temp : reportarActividad(8)
+temp --> temp : aumentarHoraActual(8)
+
+@enduml
