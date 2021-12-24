@@ -10,7 +10,9 @@ public class ActividadTest {
 
     @Test
     public void DormirCausaUnIncrementoHorarioDe8hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0, 20);
+        int horaInicial = 0;
+        int horaDormir = 20;
+        Temporizador temporizador = new Temporizador(horaInicial, horaDormir);
          Actividad actividad = new Dormir();
 
          actividad.reportar(temporizador);
@@ -20,7 +22,9 @@ public class ActividadTest {
 
      @Test
      public void EmitirOrdenDeArrestoCausaUnIncrementoHorarioDe3hs() throws Exception {
-         Temporizador temporizador = new Temporizador(0, 20);
+        int horaInicial = 0;
+        int horaDormir = 20;
+         Temporizador temporizador = new Temporizador(horaInicial, horaDormir);
          Actividad actividad = new EmitirOrdenDeArresto();
 
          actividad.reportar(temporizador);
@@ -30,7 +34,9 @@ public class ActividadTest {
 
     @Test
     public void EntrarAEdificioCausaUnIncrementoHorarioDe1hLaPrimeraVez2hsLaSegundaYLuegoSiempre3hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0, 20);
+        int horaInicial = 0;
+        int horaDormir = 20;
+        Temporizador temporizador = new Temporizador(horaInicial, horaDormir);
 
         Actividad actividad = new EntrarAEdificio(1);
         actividad.reportar(temporizador);
@@ -48,17 +54,22 @@ public class ActividadTest {
 
     @Test
     public void HeridaConArmaDeFuegoCausaUnIncrementoHorarioDe4hs() throws Exception {
-        Temporizador temporizador = new Temporizador(0, 20);
+        int horaInicial = 0;
+        int horaDormir = 20;
+        int duracionHeridaArma = 4;
+        Temporizador temporizador = new Temporizador(horaInicial, horaDormir);
         Actividad actividad = new HeridaConArmaDeFuego();
 
         actividad.reportar(temporizador);
 
-        assertEquals(4, temporizador.horasTranscurridas());
+        assertEquals(duracionHeridaArma, temporizador.horasTranscurridas());
     }
 
     @Test
     public void HeridaConCuchilloCausaUnIncrementoHorarioDe2hsLaPrimeraVezY1hsLasProximasVeces() throws Exception {
-        Temporizador temporizador = new Temporizador(0, 20);
+        int horaInicial = 0;
+        int horaDormir = 20;
+        Temporizador temporizador = new Temporizador(horaInicial, horaDormir);
 
         Actividad actividad = new HeridaConCuchillo(1);
         actividad.reportar(temporizador);
@@ -76,7 +87,7 @@ public class ActividadTest {
     @Test
     public void ViajarCausaUnIncrementoHorarioQueDependeDeLaDistanciaDeUnPaisAOtroPais() throws Exception {
         Pais colombia = new Pais("Colombia", 4.570868, -74.297333); //https://www.geodatos.net/coordenadas/colombia
-        Pais argentina = new Pais("Colombia", -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
+        Pais argentina = new Pais("Argentina", -38.416097, -63.616672); // https://www.geodatos.net/coordenadas/argentina
 
         double distanciaEsperada = 4905; //https://www.entfernungsrechner.net/es/distance/country/co/country/ar
 
