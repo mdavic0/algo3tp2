@@ -16,15 +16,15 @@ import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.NoEstuvoEnEdificio
 import java.util.ArrayList;
 
 public class GeneradorDeEdificios implements IGeneradorDeEdificios{
-    private final IRobo robo;
     private final IDificultad dificultad;
+    private Robo robo;
 
-    public GeneradorDeEdificios(IRobo robo, IRango rango) {
-        this.robo = robo;
+    public GeneradorDeEdificios(IRango rango) {
         this.dificultad = rango.obtenerDificultadPistas();
     }
 
     public void crearEdificiosPara(List<IPais> paises, Robo robo) {
+        this.robo = robo;
         for(IPais p : paises){
                 if(!robo.viaSinInit.contains(p)) {
                     p.agregarEdificios(this.generarParaPaisDondeNoEstuvoLadron(p));

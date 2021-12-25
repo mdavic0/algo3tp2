@@ -38,10 +38,11 @@ public class TemporizadorTest {
         
 
         int hora_inicial = 9;
+        int duracionActividad = 48;
         Temporizador timer = new Temporizador(hora_inicial, hora_dormir); //hora inicial, hora_dormir, hora_limite
         //assertEquals( "Activo", timer.estado);
 
-        ActividadMock actividad = new ActividadMock(48);
+        ActividadMock actividad = new ActividadMock(duracionActividad);
         actividad.reportar(timer);
 
         //Hack hasta implementar el sistema de eventos
@@ -50,18 +51,24 @@ public class TemporizadorTest {
 
     @Test
     public void testTemporizadorDaFechaYHoraCorrecta() throws Exception {
-        //Tiempo: El jugador tendrá desde el lunes a las 7 hs hasta el domingo a las 17hs para atrapar al ladrón.
+        //Tiempo: El jugador tendrá desde el lunes a las 7 hs 
+        //hasta el domingo a las 17hs para atrapar al ladrón.
 
-        Temporizador t = new Temporizador(7, hora_dormir);
+        int horaInicio = 7;
+        int duracionActividad1 = 24;
+        int duracionActividad2 = 48;
+        int duracionActividad3 = 17;
+
+        Temporizador t = new Temporizador(horaInicio, hora_dormir);
 
         assertEquals("Lunes, 7hs", t.fechaActual());
 
-        ActividadMock actividad = new ActividadMock(24);
+        ActividadMock actividad = new ActividadMock(duracionActividad1);
         actividad.reportar(t);
 
         assertEquals("Martes, 7hs", t.fechaActual());
 
-        ActividadMock actividad1 = new ActividadMock(48);
+        ActividadMock actividad1 = new ActividadMock(duracionActividad2);
         actividad1.reportar(t);
         assertEquals("Jueves, 7hs", t.fechaActual());
 
@@ -70,7 +77,7 @@ public class TemporizadorTest {
         actividad1.reportar(t);
         assertEquals("Domingo, 7hs", t.fechaActual());
 
-        ActividadMock actividad3 = new ActividadMock(17);
+        ActividadMock actividad3 = new ActividadMock(duracionActividad3);
         actividad3.reportar(t);
         assertEquals("Lunes, 0hs", t.fechaActual());
 

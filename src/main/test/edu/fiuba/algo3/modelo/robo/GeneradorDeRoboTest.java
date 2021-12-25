@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.robo;
 
 import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.GeneradorMockDeEdificios;
 import edu.fiuba.algo3.modelo.PaisMock;
 import edu.fiuba.algo3.modelo.RangoMock;
 import edu.fiuba.algo3.modelo.policia.rangos.Sargento;
@@ -56,7 +57,7 @@ public class GeneradorDeRoboTest {
         
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new Sargento(), artefactos, paises, ladrones);
+                new Sargento(), artefactos, paises, ladrones, new GeneradorMockDeEdificios());
                     
         assertNotEquals(null, robo);
         assertEquals(robo.nombreDeArtefacto(), "La torre eiffel" );
@@ -69,7 +70,7 @@ public class GeneradorDeRoboTest {
                 new RangoMock(new Comun()),
                 artefactos, 
                 paises, 
-                ladrones);
+                ladrones,new GeneradorMockDeEdificios());
                      
         assertEquals(Comun.class , robo.artefacto.valor().getClass());
         
@@ -78,7 +79,7 @@ public class GeneradorDeRoboTest {
     public void testCrearRoboDeObjetoMuyValioso() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new MuyValioso()), artefactos, paises, ladrones);
+                new RangoMock(new MuyValioso()), artefactos, paises, ladrones,new GeneradorMockDeEdificios());
                 
         assertEquals(MuyValioso.class , robo.artefacto.valor().getClass());
         
@@ -87,7 +88,7 @@ public class GeneradorDeRoboTest {
     public void testObjetoMuyValiosoImplica7PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new MuyValioso()), artefactos, paises, ladrones);
+                new RangoMock(new MuyValioso()), artefactos, paises, ladrones,new GeneradorMockDeEdificios());
                
         assertEquals(7 , robo.viaSinInit.size());
         
@@ -96,7 +97,7 @@ public class GeneradorDeRoboTest {
     public void testObjetoValorMedioImplica4PaisesDeViaje() throws Exception {
         GeneradorDeRobo gen = new GeneradorDeRobo();
         Robo robo = gen.generarRobo(
-                new RangoMock(new Comun()), artefactos, paises, ladrones);
+                new RangoMock(new Comun()), artefactos, paises, ladrones,new GeneradorMockDeEdificios());
                     
         assertEquals(4 , robo.viaSinInit.size());
         
@@ -121,7 +122,7 @@ public class GeneradorDeRoboTest {
         artefactos.add(new Artefacto("Las pirámides", new Comun()));
         List<Ladron> ladrones = new ArrayList<Ladron>();
         ladrones.add(new Ladron("Carmen", "Femenino", "Moto", "Marrón", "Bien bonita", "Danza"));
-        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises, ladrones);
+        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises, ladrones,new GeneradorMockDeEdificios());
         assertEquals(robo.viaSinInit.size(), 4);
         assertFalse(robo.lugarDeRobo().obtenerAdyacentes().contains(robo.lugarDeRobo()));
         assertEquals(3, robo.lugarDeRobo().obtenerAdyacentes().size());

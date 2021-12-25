@@ -29,8 +29,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega2Test {
-
-    ITemporizador t = new Temporizador(16, 20);
+    int horaInicial = 16;
+    int horaDormir = 20;
+    int duracionSueño = 8;
+    ITemporizador t = new Temporizador(horaInicial, horaDormir);
 
     @Test
     public void PoliciaSufreUnaHeridaDeCuchilloYDuerme() throws Exception {
@@ -45,7 +47,7 @@ public class Entrega2Test {
         assertEquals(t.horasTranscurridas(), 3);
 
         undyne.recibirHeridaConCuchillo();
-        assertEquals(4 + 8, t.horasTranscurridas());
+        assertEquals(4 + duracionSueño, t.horasTranscurridas());
     }
 
 

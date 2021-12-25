@@ -23,7 +23,7 @@ public class Artefacto {
         return valor;
     }
 
-    public List<IPais> generarViaDeEscape(List<IPais> paisesPosibles, GeneradorDeRobo generadorDeRobo) {
-        return this.valor.generarViaDeEscape(paisesPosibles, generadorDeRobo);
+    public List<IPais> generarViaDeEscape(List<IPais> paisesPosibles) {
+        return this.valor.generarViaDeEscape(paisesPosibles);
     }
 }

@@ -125,7 +125,9 @@ public class EntregaTest {
         //montreal, t, new EstadoDeJuego()
         Policia roberta = new Policia();
         roberta.asignarCaso(montreal, new EstadoDeJuego(), t, new ComputadoraMock());
-        for(int i = 0; i < 3; i++){
+
+        int cantidadDeEdificios = 3;
+        for(int i = 0; i < cantidadDeEdificios; i++){
             roberta.entrarA(banco);
             assertEquals(roberta.cuestionarTestigo(), "Quería cambiar su dinero por Euro. ");
             roberta.salirDelEdificio();
@@ -155,6 +157,8 @@ public class EntregaTest {
         for(int i = 0; i < 10; i++)
             undyne.recibirHeridaConCuchillo();
 
-        assertEquals(t.horasTranscurridas(), 12 + 8);
+        int duracionSueño = 8;
+        int duracionCuchillada = 12;
+        assertEquals(t.horasTranscurridas(), duracionCuchillada + duracionSueño);
     }
 }

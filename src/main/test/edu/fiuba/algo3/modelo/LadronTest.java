@@ -12,6 +12,17 @@ import java.util.List;
 //mover tests en policia test sobre paises acá
 public class LadronTest {
     @Test
+    public void leerPropiedades() throws Exception {
+        Ladron l = new Ladron("Pedro", "Masculino", "Moto", "Rojizo", "Tatuaje", "Alpinismo");
+        List<Propiedad> propiedades = new ArrayList<Propiedad>();
+        propiedades.add(new Propiedad("hobby", "Alpinismo"));
+        assertFalse(l.coincideConPropiedades(propiedades));
+        
+        propiedades.clear();
+        propiedades.add(new Propiedad("Hobby", "Alpinismo"));
+        assertTrue(l.coincideConPropiedades(propiedades));
+    }
+    @Test
     public void leerMultiplesPropiedades() throws Exception {
         Ladron l = new Ladron("Pedro", "Masculino", "Moto", "Rojizo", "Senia1;Senia2", "Diversion1;Diversion2");
         List<Propiedad> propiedades = new ArrayList<Propiedad>();

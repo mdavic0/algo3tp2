@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.interfaces.IPais;
 import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
 import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.PoliciaMock;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import edu.fiuba.algo3.modelo.policia.rangos.Novato;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
@@ -42,8 +43,8 @@ public class IntegracionTest {
         Policia paco = new Policia();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
         List<IPais> paises =  this.paises;
-        Robo robo = gRobo.generarRobo(new RangoMock(new Comun()), artefactos, paises,ladrones);
-        assertEquals(4, robo.viaSinInit().size());
+        Robo robo = gRobo.generarRobo(new PoliciaMock(), artefactos, paises,ladrones);
+        assertTrue(4 <= robo.viaSinInit().size() && 5 >= robo.viaSinInit().size());
         assertEquals( 3 ,robo.primerPais().edificios().size());
 
 
