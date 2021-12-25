@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
 
 public class Detective extends Rango {
-    private static int CANTIDAD_MINIMA_ARRESTOS = 5;
+    private static int CANTIDAD_MINIMA_ARRESTOS = 10;
     public Detective(){
         this.velocidadKmh = 1100;
         this.IDificultad = new Facil();
@@ -15,7 +15,7 @@ public class Detective extends Rango {
 
     @Override
     public Rango subirRango(int cantidadDeArrestos) {
-        if(cantidadDeArrestos >= 2 * CANTIDAD_MINIMA_ARRESTOS){
+        if(cantidadDeArrestos >= CANTIDAD_MINIMA_ARRESTOS){
             return new Investigador();
         }
         return this;
