@@ -15,7 +15,7 @@ public class Detective extends Rango {
 
     @Override
     public Rango subirRango(int cantidadDeArrestos) {
-        if(cantidadDeArrestos %CANTIDAD_MINIMA_ARRESTOS== 0){
+        if(cantidadDeArrestos >= 2 * CANTIDAD_MINIMA_ARRESTOS){
             return new Investigador();
         }
         return this;

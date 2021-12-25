@@ -19,7 +19,7 @@ public class Novato extends Rango {
 
     @Override
     public Rango subirRango(int cantidadDeArrestos) {
-        if(cantidadDeArrestos %CANTIDAD_MINIMA_ARRESTOS == 0){
+        if(cantidadDeArrestos >= CANTIDAD_MINIMA_ARRESTOS){
             return new Detective();
         }
         return this;
