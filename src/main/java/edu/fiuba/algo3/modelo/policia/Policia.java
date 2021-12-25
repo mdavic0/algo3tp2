@@ -33,14 +33,30 @@ public class Policia {
     OrdenDeArresto ordenDeArresto;
     int heridasPorCuchillo;
     int cantidadArrestos;
+    private String nombre;
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
+
+    public Policia(String nombre) {
+        lugarActual = new Inactivo();
+        rango = new Novato();
+        ordenDeArresto = null;
+        cantidadArrestos = 0;
+        this.nombre = nombre;
+    }
+
 
     public Policia() {
         lugarActual = new Inactivo();
         rango = new Novato();
         ordenDeArresto = null;
         cantidadArrestos = 0;
+        this.nombre = "Jugador";
+    }
+
+
+    public String nombre(){
+        return nombre;
     }
 
     public Rango obtenerRango(){

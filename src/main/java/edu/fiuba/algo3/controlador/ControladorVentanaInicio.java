@@ -38,8 +38,11 @@ public class ControladorVentanaInicio  implements Initializable{
     public void handleOnKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER){
             try {
-                if(robo == null)
-                    recibeInputJugador();
+                if(policia == null)
+                    crearNuevoPolicia();
+                if (robo == null){
+                    reportarRobo();
+                }
                 else abrirVentanaJuego(event, robo, policia);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -62,24 +65,28 @@ public class ControladorVentanaInicio  implements Initializable{
         ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, policia.paisActual(), robo, estado, t, fxmlLoader);
     }
 
-    public void imprimirTextoPolicia (Policia policia){
-        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es " 
-            + policia.imprimirRango() + ". Ingresá tu nombre...");
+    public void imprimirTextoParaPoliciaNuevo (Policia policia){
+        textoMaquinaDeEscribir.setText("Hola policia. Tu rango es Novato. Ingresá tu nombre...");
     }
 
-    private void imprimirTextoPoliciaPreexistente(Policia policia2) {
-        textoMaquinaDeEscribir.setText("Hola de nuevo policia. Tu rango es " 
-            + policia.imprimirRango() + ". Ingresá tu nombre...");
+    private void imprimirTextoPoliciaPreexistente(Policia policia) {
+        textoMaquinaDeEscribir.setText("Hola de nuevo, " + policia.nombre() + ". Tu rango es " 
+            + policia.imprimirRango() + ". Presione ENTER.");
     }
 
-    public void recibeInputJugador() throws Exception{
+    public void crearNuevoPolicia() throws Exception{
         ultimoInput = inputJugador.getText();
+        if(ultimoInput != "") policia = new Policia(ultimoInput);
+        else policia = new Policia();
+    } 
+
+    private void reportarRobo() throws Exception{
         generarRobo();
         inputJugador.setText("");
-        textoMaquinaDeEscribir.setText(huboUnRobo());
-    } 
-    private String huboUnRobo() {
-        String texto = "Hubo un robo en " + robo.lugarDeRobo().nombre() + ".";
+        textoMaquinaDeEscribir.setText(huboUnRobo(policia.nombre()));
+    }
+    private String huboUnRobo(String nombre) {
+        String texto = "Hola, "+nombre+". Hubo un robo en " + robo.lugarDeRobo().nombre() + ".";
         return texto;
     }
 
@@ -92,9 +99,8 @@ public class ControladorVentanaInicio  implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        policia = new Policia();
         lector = new LectorDeArchivo();
-        imprimirTextoPolicia(policia);
+        imprimirTextoParaPoliciaNuevo(policia);
         
     }
 

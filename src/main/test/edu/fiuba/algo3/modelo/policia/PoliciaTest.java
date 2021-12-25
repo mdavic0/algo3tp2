@@ -79,7 +79,6 @@ public class PoliciaTest {
 
     @Test
     public void policiaHaceNArrestosYSubeDeRango() throws Exception{
-        Pais colombia = new PaisMock("Colombia");
         Policia paco = new Policia();
 
         assertEquals(Novato.class, paco.obtenerRango().getClass());
@@ -91,6 +90,21 @@ public class PoliciaTest {
 
         for(int i = 0; i < 10; i++){ paco.arrestarLadron(); }
         assertEquals(Sargento.class, paco.obtenerRango().getClass());
+
+    }
+
+    @Test
+    public void policiaTieneNombrePorDefault() throws Exception{
+        Policia paco = new Policia();
+
+        assertEquals(paco.nombre(), "Jugador");
+    }
+
+    @Test
+    public void nombrarPolicia() throws Exception{
+        Policia paco = new Policia("Roberto");
+
+        assertEquals(paco.nombre(), "Roberto");
 
     }
 }
