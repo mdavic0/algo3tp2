@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaEdificio">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaEdificio">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <SplitPane dividerPositions="0.15" onKeyPressed="#handleOnKeyPressed" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
+                <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
                         <AnchorPane>
                             <children>
@@ -40,17 +40,13 @@
             <children>
                 <SplitPane fx:id="contenedorDerecha" dividerPositions="0.725" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" onKeyPressed="#handleOnKeyPressed">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" >
                      <children>
                         <Label fx:id="pista" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="266.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button focusTraversable="false" layoutX="23.0" layoutY="374.0" mnemonicParsing="false" onAction="#anotar" prefHeight="40.0" prefWidth="80.0" text="Anotar">
-                           <font>
-                              <Font size="16.0" />
-                           </font></Button>
                      </children></AnchorPane>
                         <AnchorPane maxHeight="155.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="210.0">
                      <children>

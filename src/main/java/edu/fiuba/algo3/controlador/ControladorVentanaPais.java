@@ -33,26 +33,12 @@ public class ControladorVentanaPais {
     public SplitPane contenedorDerecha;
     @FXML
     public SplitPane raiz;
-
-    Parent notas;
+    
     private FXMLLoader selfLoader;
     private Pais pais;
 
     List<Node> itemsQuitadosAlAnotar;
     
-    public void handleOnKeyPressed(KeyEvent event) {
-        /* if (event.getCode() == KeyCode.ESCAPE){
-            try {
-                contenedorDerecha.getItems().remove(notas);
-                for(Node n : itemsQuitadosAlAnotar){
-                    contenedorDerecha.getItems().add(n);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.exit(0);
-            }
-        } */
-    } 
 
     public void inicializar(Policia policia, Pais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
         this.policia = policia;
@@ -143,23 +129,7 @@ public class ControladorVentanaPais {
             System.exit(0);
         }
     }
-    
-    public void anotar(){
-        /* FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
-        try {
-            notas = fxmlLoader.load();
-            itemsQuitadosAlAnotar = new ArrayList<>();
-            for(Node n : contenedorDerecha.getItems()){
-                itemsQuitadosAlAnotar.add(n);
-            }
-            contenedorDerecha.getItems().clear();
-            contenedorDerecha.getItems().add(notas);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.exit(0);
-        } */
-    }
+
 
     public void notificarLlegada() throws Exception {
         policia.viajarA(pais);

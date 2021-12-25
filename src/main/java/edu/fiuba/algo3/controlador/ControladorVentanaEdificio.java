@@ -36,17 +36,7 @@ public class ControladorVentanaEdificio{
     Parent notas;
 
     private FXMLLoader ventanaARegresar;
-    
-    public void handleOnKeyPressed(KeyEvent event) {
-        if (event.getCode() == KeyCode.ESCAPE){
-            try {
-                contenedorDerecha.getItems().remove(notas);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.exit(0);
-            }
-        }
-    } 
+
 
     public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar) throws Exception {
         this.policia = policia;
@@ -68,18 +58,6 @@ public class ControladorVentanaEdificio{
             e.printStackTrace();
             System.exit(0);
         }
-    }
-    
-    public void anotar(){
-       /* FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDePistas" + ".fxml"));
-        try {
-            notas = fxmlLoader.load();
-            contenedorDerecha.getItems().add(notas);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.exit(0);
-        }*/
     }
 
     public void notificarEntrada() {

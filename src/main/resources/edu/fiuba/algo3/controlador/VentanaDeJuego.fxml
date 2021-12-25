@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaPais">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaPais">
     <items>
 
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <SplitPane dividerPositions="0.15" onKeyPressed="#handleOnKeyPressed" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
+                <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
 
                         <AnchorPane prefHeight="184.0" prefWidth="398.0">
@@ -51,7 +51,7 @@
             <children>
                 <SplitPane fx:id="contenedorDerecha" dividerPositions="0.6755852842809364" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
                     <items>
-                        <AnchorPane onKeyPressed="#handleOnKeyPressed" prefWidth="398.0">
+                        <AnchorPane  prefWidth="398.0">
                             <children>
                                 <Label fx:id="descripcionPais" alignment="TOP_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="323.0" prefWidth="353.0" text="Aca es donde van a ir escritas las pistas asi es como se verian con mas renglones de texto escrito" wrapText="true">
                                     <font>
@@ -60,11 +60,6 @@
                                 </Label>
                         <HBox alignment="CENTER" layoutX="19.0" layoutY="343.0" prefHeight="39.0" prefWidth="360.0" spacing="50.0">
                            <children>
-                                      <Button focusTraversable="false" mnemonicParsing="false" onAction="#anotar" prefHeight="40.0" prefWidth="100.0" text="Anotar">
-                                          <font>
-                                              <Font size="16.0" />
-                                          </font>
-                              </Button>
                               <Button focusTraversable="false" mnemonicParsing="false" onAction="#mostrarLadrones" prefHeight="40.0" prefWidth="100.0" text="Ladrones">
                                  <font>
                                     <Font size="16.0" />
