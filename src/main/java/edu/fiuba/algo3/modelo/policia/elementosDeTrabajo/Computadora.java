@@ -5,11 +5,10 @@ import java.util.List;
 
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
-import edu.fiuba.algo3.modelo.interfaces.IComputadora;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
 
-public class Computadora implements IComputadora {
+public class Computadora {
 
     List<Ladron> ladrones;
 

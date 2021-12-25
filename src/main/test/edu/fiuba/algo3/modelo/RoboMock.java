@@ -1,11 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IRobo;
+import edu.fiuba.algo3.modelo.excepciones.CantidadDePaisesException;
 import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.robo.Ladron;
+import edu.fiuba.algo3.modelo.robo.Robo;
 
-public class RoboMock implements IRobo{
+import java.util.ArrayList;
+
+public class RoboMock extends Robo {
+    public RoboMock() throws CantidadDePaisesException {
+        super(new ArrayList<Pais>(), new ArrayList<Pais>(), null, null);
+    }
 
     @Override
     public String reportarRobo(Object rango) {
@@ -13,7 +18,7 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public Pais lugarDeRobo() throws Exception {
+    public Pais lugarDeRobo()  {
         return new Pais("Chile", 0, 0);
     }
 
@@ -33,7 +38,7 @@ public class RoboMock implements IRobo{
     }
 
     @Override
-    public Pais paisDespuesDe(IPais paisDelTestigo) throws Exception{
+    public Pais paisDespuesDe(Pais paisDelTestigo) {
         return new Pais("PaisMock", 0, 0);
     }
 

@@ -3,11 +3,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.SplittableRandom;
 
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.pistas.*;
 
-public class Pais implements IPais { 
+public class Pais {
 
     String nombre; //Nombre de la ciudad
     String coloresDeBandera;
@@ -27,8 +26,8 @@ public class Pais implements IPais {
     double latitud;
     double longitud;
 
-    List<IPais> adyacentes;
-    List<IEdificio> edificios;
+    List<Pais> adyacentes;
+    List<Edificio> edificios;
 
     public Pais(String nombre, String coloresDeBandera, String moneda, String geografia, String caracteristicas,
                 String industrias, String animales, String etnias, String idiomas, String arte, String religion,
@@ -48,16 +47,16 @@ public class Pais implements IPais {
         this.representante = representante;
         this.datoCurioso = datoCurioso;
         this.descripcion = descripcion;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
+        this.adyacentes = new ArrayList<Pais>();
+        this.edificios = new ArrayList<Edificio>();
         this.latitud = latitud;
         this.longitud = longitud;
     }
 
     public Pais(String nombre, double latitud, double longitud) {
         this.nombre = nombre;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
+        this.adyacentes = new ArrayList<Pais>();
+        this.edificios = new ArrayList<Edificio>();
         this.latitud = latitud;
         this.longitud = longitud;
     }
@@ -66,56 +65,51 @@ public class Pais implements IPais {
         return descripcion.toString();
     }
 
-    public List<IEdificio> edificios() {
+    public List<Edificio> edificios() {
         return edificios;
     }
 
-    @Override
-    public void agregarEdificios(IEdificio... edificios) {
-        for (IEdificio e : edificios) {
+    public void agregarEdificios(Edificio... edificios) {
+        for (Edificio e : edificios) {
             this.edificios.add(e);
             e.asignarPais(this);
         }
     }
 
-    @Override
-    public void agregarEdificios(List<IEdificio> edificios) {
-        for (IEdificio e : edificios) {
+    public void agregarEdificios(List<Edificio> edificios) {
+        for (Edificio e : edificios) {
             this.edificios.add(e);
             e.asignarPais(this);
         }
         
     }
 
-    public Boolean contieneEdificio(IEdificio edificio) {
+    public Boolean contieneEdificio(Edificio edificio) {
         return edificios.contains(edificio);
     }
 
-    public void conectarA(IPais otro) {
+    public void conectarA(Pais otro) {
         adyacentes.add(otro);
     }
 
-    public boolean sePuedeViajarA(IPais pais) {
+    public boolean sePuedeViajarA(Pais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
 
 
-    @Override
     public String nombre() {
         return this.nombre;
     }
 
-    @Override
     public double obtenerLatitud() {
         return this.latitud;
     }
 
-    @Override
     public double obtenerLongitud() {
         return this.longitud;
     }
 
-    public double distanciaA(IPais paisDestino) { // luego se puede cambiar por alguna libreria especifica (GeoCalc)
+    public double distanciaA(Pais paisDestino) { // luego se puede cambiar por alguna libreria especifica (GeoCalc)
         double radioTerrestre = 6372.7954;
         double dLat = Math.toRadians(paisDestino.obtenerLatitud() - this.latitud);
         double dLon = Math.toRadians(paisDestino.obtenerLongitud() - this.longitud);
@@ -128,7 +122,6 @@ public class Pais implements IPais {
         return radioTerrestre * c;
     }
 
-    @Override
     public Pista crearPistaEconomica() {
         SplittableRandom aleatorio = new SplittableRandom();
         int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
@@ -140,7 +133,6 @@ public class Pais implements IPais {
         return new PistaDeMoneda(this.moneda); //==>33 % de que genere una pista de moneda
     }
 
-    @Override
     public Pista crearPistaHistorica() {
         SplittableRandom aleatorio = new SplittableRandom();
         int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
@@ -154,7 +146,6 @@ public class Pais implements IPais {
         return new PistaDeReligion(this.religion); //==>20 % de que genere una pista de religion
     }
 
-    @Override
     public Pista crearPistaDeViaje() {
         SplittableRandom aleatorio = new SplittableRandom();
         int n = aleatorio.nextInt(1, 101); //crea numero entre 1 y 101
@@ -168,8 +159,7 @@ public class Pais implements IPais {
         return new PistaDeBandera(this.coloresDeBandera); //==>20 % de que genere una pista de bandera
     }
 
-    @Override
-    public List<IPais> obtenerAdyacentes() {
+    public List<Pais> obtenerAdyacentes() {
         return adyacentes;
     }
 

@@ -1,17 +1,8 @@
 package edu.fiuba.algo3.modelo.policia.rangos;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.SplittableRandom;
-import java.util.stream.Collectors;
 
-import edu.fiuba.algo3.modelo.actividades.Viajar;
 import edu.fiuba.algo3.modelo.dificultad.Facil;
-import edu.fiuba.algo3.modelo.interfaces.IDificultad;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IRango;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
-import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Comun;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valioso;
 import edu.fiuba.algo3.modelo.robo.artefacto.valor.Valor;
@@ -27,7 +18,7 @@ public class Novato extends Rango {
 
 
     @Override
-    public IRango subirRango(int cantidadDeArrestos) {
+    public Rango subirRango(int cantidadDeArrestos) {
         if(cantidadDeArrestos %CANTIDAD_MINIMA_ARRESTOS == 0){
             return new Detective();
         }

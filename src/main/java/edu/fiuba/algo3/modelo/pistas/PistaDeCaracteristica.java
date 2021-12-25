@@ -7,7 +7,7 @@ public class PistaDeCaracteristica extends Pista {
     }
 
     @Override
-    String darFormato(String caracteristica) {
+    public String darFormato(String caracteristica) {
         return "Se dirigia a un pais reconocido por tener ".concat(caracteristica).concat(". ");
     }
 }

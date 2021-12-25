@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import edu.fiuba.algo3.modelo.robo.Robo;
@@ -36,7 +36,7 @@ public class ControladorVentanaPais {
 
     Parent notas;
     private FXMLLoader selfLoader;
-    private IPais pais;
+    private Pais pais;
 
     List<Node> itemsQuitadosAlAnotar;
     
@@ -54,7 +54,7 @@ public class ControladorVentanaPais {
         } */
     } 
 
-    public void inicializar(Policia policia, IPais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
+    public void inicializar(Policia policia, Pais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
         this.policia = policia;
         this.pais = pais;
         this.robo = robo;

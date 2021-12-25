@@ -6,7 +6,7 @@ public class PistaDeHobby extends Pista{
     }
 
     @Override
-    String darFormato(String hobby) {
+    public String darFormato(String hobby) {
         return "Dijo que le gustaba practicar ".concat(hobby).concat(". ");
     }
 }

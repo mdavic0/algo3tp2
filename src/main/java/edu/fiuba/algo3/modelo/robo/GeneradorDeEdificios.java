@@ -2,30 +2,27 @@ package edu.fiuba.algo3.modelo.robo;
 import java.util.List;
 import java.util.SplittableRandom;
 import edu.fiuba.algo3.modelo.interfaces.IDificultad;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IGeneradorDeEdificios;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IRango;
-import edu.fiuba.algo3.modelo.interfaces.IRobo;
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstaEnElEdificio;
 import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstaEnElEdificioDeAlLado;
 import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.EstuvoEnEdificio;
 import edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron.NoEstuvoEnEdificio;
+import edu.fiuba.algo3.modelo.policia.rangos.Rango;
 
 import java.util.ArrayList;
 
-public class GeneradorDeEdificios implements IGeneradorDeEdificios{
-    private final IDificultad dificultad;
+public class GeneradorDeEdificios{
+    private IDificultad dificultad;
     private Robo robo;
 
-    public GeneradorDeEdificios(IRango rango) {
+    public GeneradorDeEdificios(Rango rango) {
         this.dificultad = rango.obtenerDificultadPistas();
     }
 
-    public void crearEdificiosPara(List<IPais> paises, Robo robo) {
+    public void crearEdificiosPara(List<Pais> paises, Robo robo) {
         this.robo = robo;
-        for(IPais p : paises){
+        for(Pais p : paises){
                 if(!robo.viaSinInit.contains(p)) {
                     p.agregarEdificios(this.generarParaPaisDondeNoEstuvoLadron(p));
                 }
@@ -40,8 +37,8 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
         };
     }
 
-    private List<IEdificio> generarParaPaisDondeEstuvoLadron(IPais paisActual, IPais paisSiguiente) {
-        List<IEdificio> edificios = new ArrayList<IEdificio>();
+    private List<Edificio> generarParaPaisDondeEstuvoLadron(Pais paisActual, Pais paisSiguiente) {
+        List<Edificio> edificios = new ArrayList<Edificio>();
 
         SplittableRandom aleatorio = new SplittableRandom();
         int n =aleatorio.nextInt(1, 101);
@@ -65,16 +62,16 @@ public class GeneradorDeEdificios implements IGeneradorDeEdificios{
         return edificios;
     }
 
-    private List<IEdificio> generarParaPaisDondeEstaLadron(IPais pais) {
-        List<IEdificio> edificios = new ArrayList<IEdificio>();
+    private List<Edificio> generarParaPaisDondeEstaLadron(Pais pais) {
+        List<Edificio> edificios = new ArrayList<Edificio>();
         edificios.add(new Edificio("Banco", pais, new EstaEnElEdificioDeAlLado()));
         edificios.add(new Edificio("Aeropuerto", pais, new EstaEnElEdificioDeAlLado()));
         edificios.add(new Edificio("Biblioteca", pais, new EstaEnElEdificio(robo.obtenerLadron())));
         return edificios;
     }
 
-    private List<IEdificio> generarParaPaisDondeNoEstuvoLadron(IPais pais) {
-        List<IEdificio> edificios = new ArrayList<IEdificio>();
+    private List<Edificio> generarParaPaisDondeNoEstuvoLadron(Pais pais) {
+        List<Edificio> edificios = new ArrayList<Edificio>();
         edificios.add(new Edificio("Banco", pais, new NoEstuvoEnEdificio()));
         edificios.add(new Edificio("Aeropuerto", pais, new NoEstuvoEnEdificio()));
         edificios.add(new Edificio("Biblioteca", pais, new NoEstuvoEnEdificio()));

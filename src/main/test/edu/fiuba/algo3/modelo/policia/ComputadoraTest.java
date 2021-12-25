@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.policia;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
 import org.junit.jupiter.api.Test;
-
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ComputadoraTest {
 
-    ITemporizador t = new TemporizadorMock();
+    Temporizador t = new TemporizadorMock();
     Policia paco = new Policia();
 
     public ComputadoraTest() throws Exception {
@@ -52,7 +51,7 @@ public class ComputadoraTest {
 
         int tamanioEsperado = 1;
 
-        IPais colombia = new PaisMock("Colombia");
+        Pais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();
@@ -79,7 +78,7 @@ public class ComputadoraTest {
 
         int tamanioEsperado = 1;
 
-        IPais colombia = new PaisMock("Colombia");
+        Pais colombia = new PaisMock("Colombia");
 
         Ladron juan = new Ladron ("Juan", "Masculino", "Deportivo", "Negro", "Cicatriz","Musica");
         Policia paco = new Policia();

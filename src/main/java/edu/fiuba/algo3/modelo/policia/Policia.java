@@ -10,16 +10,16 @@ import edu.fiuba.algo3.modelo.actividades.EmitirOrdenDeArresto;
 import edu.fiuba.algo3.modelo.actividades.EntrarAEdificio;
 import edu.fiuba.algo3.modelo.actividades.HeridaConArmaDeFuego;
 import edu.fiuba.algo3.modelo.actividades.HeridaConCuchillo;
-import edu.fiuba.algo3.modelo.interfaces.IComputadora;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.IRango;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.pais.lugarActual.FueraDeEdificio;
 import edu.fiuba.algo3.modelo.pais.lugarActual.Inactivo;
 import edu.fiuba.algo3.modelo.pais.lugarActual.LugarActual;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Computadora;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.OrdenDeArresto;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
 import edu.fiuba.algo3.modelo.policia.rangos.Novato;
+import edu.fiuba.algo3.modelo.policia.rangos.Rango;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
 import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
@@ -27,9 +27,9 @@ import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
 public class Policia {
 
     LugarActual lugarActual;
-    IRango rango;
-    ITemporizador temporizador;
-    IComputadora computadora;
+    Rango rango;
+    Temporizador temporizador;
+    Computadora computadora;
     OrdenDeArresto ordenDeArresto;
     int heridasPorCuchillo;
     int cantidadArrestos;
@@ -43,7 +43,7 @@ public class Policia {
         cantidadArrestos = 0;
     }
 
-    public IRango obtenerRango(){
+    public Rango obtenerRango(){
         return rango;
     }
 
@@ -54,7 +54,7 @@ public class Policia {
     Ubicar al policia en el juego tras generar el robo
     */
 
-    public void asignarCaso(IPais pais, EstadoDeJuego estado, ITemporizador temporizador, IComputadora computadora){
+    public void asignarCaso(Pais pais, EstadoDeJuego estado, Temporizador temporizador, Computadora computadora){
         this.computadora = computadora;
         lugarActual = new FueraDeEdificio(pais);
         ordenDeArresto = null;
@@ -69,7 +69,7 @@ public class Policia {
         this.lugarActual = this.lugarActual.salirDelEdificio();
     }
 
-    public void entrarA(IEdificio edificio) throws Exception{
+    public void entrarA(Edificio edificio) throws Exception{
         this.lugarActual = this.lugarActual.entrarA(edificio, this);
     }
 
@@ -77,12 +77,12 @@ public class Policia {
         return this.lugarActual.cuestionarTestigo();
     }
 
-    public void viajarA(IPais paisDestino) throws Exception {
+    public void viajarA(Pais paisDestino) throws Exception {
         lugarActual = this.lugarActual.viajarA(paisDestino);
         this.rango.reportarViaje(this.paisActual(), paisDestino, this.temporizador);
     }
 
-    public IPais paisActual() {
+    public Pais paisActual() {
         return this.lugarActual.obtenerPais();
     }
 

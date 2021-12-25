@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +26,7 @@ public class ControladorVentanaPosiblesDestinos {
     void inicializar(FXMLLoader ventanaARegresar, Policia policia){
         this.ventanaARegresar = ventanaARegresar;
 
-        List<IPais> paises = policia.paisActual().obtenerAdyacentes();
+        List<Pais> paises = policia.paisActual().obtenerAdyacentes();
         Button[] botones = {opcion1, opcion2, opcion3};
 
         for(int i = 0; i < paises.size(); i++){
@@ -38,7 +38,7 @@ public class ControladorVentanaPosiblesDestinos {
         }
     }
 
-    void atarBotonAPais(IPais pais, Button boton){
+    void atarBotonAPais(Pais pais, Button boton){
         boton.setText(pais.nombre());
     }
 

@@ -5,7 +5,7 @@ public class PistaDeRepresentante extends Pista{
         this.contenido = this.darFormato(representante);
     }
     @Override
-    String darFormato(String representante) {
+    public String darFormato(String representante) {
         return "Se dirigia a un pais cuyo sistema representativo esta encabezado por un ".concat(representante).concat(". ");
     }
 }

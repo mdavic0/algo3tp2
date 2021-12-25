@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.interfaces;
 
+import edu.fiuba.algo3.modelo.pistas.Pista;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
 public interface IRelacionConLadron {
@@ -9,5 +10,5 @@ public interface IRelacionConLadron {
 
     void entrar(Policia policia);
 
-    IPista crearPista();
+    Pista crearPista();
 }

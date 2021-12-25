@@ -6,7 +6,7 @@ public class PistaDeArte extends Pista{
     }
 
     @Override
-    String darFormato(String arte) {
+    public String darFormato(String arte) {
         return "Estaba feliz porque se dirigia a conocer ".concat(arte).concat(". ");
     }
 }

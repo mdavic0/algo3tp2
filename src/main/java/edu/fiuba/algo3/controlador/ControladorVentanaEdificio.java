@@ -3,10 +3,10 @@ package edu.fiuba.algo3.controlador;
 import java.io.IOException;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IRobo;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+import edu.fiuba.algo3.modelo.robo.Robo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,8 +17,9 @@ import javafx.scene.input.KeyEvent;
 
 public class ControladorVentanaEdificio{
     Policia policia;
-    IRobo robo;
-    private ITemporizador t;
+    Robo robo;
+    private Edificio edificio;
+    private Temporizador t;
     private EstadoDeJuego estado;
 
     @FXML
@@ -33,7 +34,7 @@ public class ControladorVentanaEdificio{
     public SplitPane raiz;
 
     Parent notas;
-    private IEdificio edificio;
+
     private FXMLLoader ventanaARegresar;
     
     public void handleOnKeyPressed(KeyEvent event) {
@@ -47,7 +48,7 @@ public class ControladorVentanaEdificio{
         }
     } 
 
-    public void inicializar(Policia policia, IEdificio edificio, IRobo robo, EstadoDeJuego estado, ITemporizador t, FXMLLoader ventanaARegresar) throws Exception {
+    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar) throws Exception {
         this.policia = policia;
         this.edificio = edificio;
         this.robo = robo;

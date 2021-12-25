@@ -7,7 +7,7 @@ public class PistaNoEstuvoEnEdificio extends Pista {
     }
 
     @Override
-    String darFormato(String contenido) {
+    public String darFormato(String contenido) {
         return "Lo siento, no he visto a nadie parecido por esta zona...";
     }
 }

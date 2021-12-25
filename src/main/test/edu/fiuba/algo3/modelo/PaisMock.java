@@ -1,45 +1,46 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
 
-import edu.fiuba.algo3.modelo.interfaces.IEdificio;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
+import edu.fiuba.algo3.modelo.pais.edificio.Edificio;
 import edu.fiuba.algo3.modelo.pistas.Pista;
 import edu.fiuba.algo3.modelo.pistas.PistaDeLadron;
 
 import java.util.ArrayList;
 
-public class PaisMock implements IPais { 
+public class PaisMock extends Pais {
     String nombre;
-    List<IPais> adyacentes;
-    List<IEdificio> edificios;
+    List<Pais> adyacentes;
+    List<Edificio> edificios;
 
     public PaisMock(String nombre) throws Exception{
+        super(nombre, 0,0);
         this.nombre = nombre;
-        this.adyacentes = new ArrayList<IPais>();
-        this.edificios = new ArrayList<IEdificio>();
+        this.adyacentes = new ArrayList<Pais>();
+        this.edificios = new ArrayList<Edificio>();
     }
 
-    public List<IEdificio> edificios() {
+    public List<Edificio> edificios() {
         return edificios;
     }
 
     @Override
-    public void agregarEdificios(IEdificio... edificio) {
-        for (IEdificio e : edificio) {
+    public void agregarEdificios(Edificio... edificio) {
+        for (Edificio e : edificio) {
             edificios.add(e);
             e.asignarPais(this);
         }
     }
     
-    public Boolean contieneEdificio(IEdificio edificio) {
+    public Boolean contieneEdificio(Edificio edificio) {
         return edificios.contains(edificio);
     }
 
-    public void conectarA(IPais otro) {
+    public void conectarA(Pais otro) {
         adyacentes.add(otro);
     }
 
-    public boolean sePuedeViajarA(IPais pais) {
+    public boolean sePuedeViajarA(Pais pais) {
         return this.adyacentes.contains(pais); // asume que solo hay una instancia de cada pais
     }
 
@@ -59,36 +60,16 @@ public class PaisMock implements IPais {
     }
 
     @Override
-    public double distanciaA(IPais paisDestino) {
+    public double distanciaA(Pais paisDestino) {
         return 0;
     }
 
     @Override
-    public void agregarEdificios(List<IEdificio> edificios) {
-        for (IEdificio e : edificios) {
+    public void agregarEdificios(List<Edificio> edificios) {
+        /*for (Edificio e : edificios) {
             edificios.add(e);
             e.asignarPais(this);
-        }
-    }
-
-    private String moneda() {
-        return "";
-    }
-
-    private String hechoHistorico() {
-        return "";
-    }
-
-    private String coloresDeBandera() {
-        return "";
-    }
-
-    private String continente() {
-        return "";
-    }
-
-    private String idioma() {
-        return "";
+        }*/
     }
 
     @Override
@@ -107,7 +88,7 @@ public class PaisMock implements IPais {
     }
 
     @Override
-    public List<IPais> obtenerAdyacentes() {
+    public List<Pais> obtenerAdyacentes() {
         return adyacentes;
     }
 

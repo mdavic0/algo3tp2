@@ -1,16 +1,15 @@
 package edu.fiuba.algo3.modelo.actividades;
 
-import edu.fiuba.algo3.modelo.actividades.Actividad;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
+import edu.fiuba.algo3.modelo.pais.Pais;
 
 public class Viajar extends Actividad {
 
-    public Viajar(IPais paisOrigen, IPais paisDestino , double velocidadKmh){
+    public Viajar(Pais paisOrigen, Pais paisDestino , double velocidadKmh){
         double distancia = calcularDistancia(paisOrigen, paisDestino);
         this.duracion = (int) (distancia / velocidadKmh);
     }
 
-    private double calcularDistancia(IPais paisOrigen, IPais paisDestino) {
+    private double calcularDistancia(Pais paisOrigen, Pais paisDestino) {
         return paisOrigen.distanciaA(paisDestino);
     }
 

@@ -1,14 +1,11 @@
 package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.interfaces.IPais;
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
 
+import edu.fiuba.algo3.modelo.pais.Pais;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.PoliciaMock;
 import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
-import edu.fiuba.algo3.modelo.policia.rangos.Novato;
-import edu.fiuba.algo3.modelo.robo.GeneradorDeEdificios;
 import edu.fiuba.algo3.modelo.robo.GeneradorDeRobo;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Robo;
@@ -24,8 +21,8 @@ import java.util.List;
 
 
 public class IntegracionTest {
-    ITemporizador t = new TemporizadorMock();
-    List<IPais> paises;
+    Temporizador t = new TemporizadorMock();
+    List<Pais> paises;
     List<Artefacto> artefactos;
     List<Ladron> ladrones;
     LectorDeArchivo l = new LectorDeArchivo();
@@ -42,9 +39,10 @@ public class IntegracionTest {
         Temporizador t = new Temporizador(9, 21);
         Policia paco = new Policia();
         GeneradorDeRobo gRobo = new GeneradorDeRobo();
-        List<IPais> paises =  this.paises;
+        List<Pais> paises =  this.paises;
         Robo robo = gRobo.generarRobo(new PoliciaMock(), artefactos, paises,ladrones);
         assertTrue(4 <= robo.viaSinInit().size() && 5 >= robo.viaSinInit().size());
+        assertEquals(4, robo.viaSinInit().size());
         assertEquals( 3 ,robo.primerPais().edificios().size());
 
 

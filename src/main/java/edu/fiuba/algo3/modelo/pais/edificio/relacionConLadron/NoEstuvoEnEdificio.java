@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo.pais.edificio.relacionConLadron;
 
 import java.util.SplittableRandom;
 
-import edu.fiuba.algo3.modelo.interfaces.IPista;
 import edu.fiuba.algo3.modelo.interfaces.IRelacionConLadron;
+import edu.fiuba.algo3.modelo.pistas.Pista;
 import edu.fiuba.algo3.modelo.pistas.PistaNoEstuvoEnEdificio;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
@@ -29,7 +29,7 @@ public class NoEstuvoEnEdificio implements IRelacionConLadron {
     }
 
     @Override
-    public IPista crearPista() {
+    public Pista crearPista() {
         return new PistaNoEstuvoEnEdificio();
     }
 }

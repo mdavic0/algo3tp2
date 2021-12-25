@@ -3,8 +3,8 @@ package edu.fiuba.algo3.controlador;
 import java.io.IOException;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.interfaces.IRobo;
 import edu.fiuba.algo3.modelo.policia.Policia;
+import edu.fiuba.algo3.modelo.robo.Robo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,7 +19,7 @@ public class ControladorVentanaFinDeJuego {
 
     Policia policia;
     
-    public void inicializar(Policia policia, EstadoDeJuego estado, IRobo robo){
+    public void inicializar(Policia policia, EstadoDeJuego estado, Robo robo){
         this.policia = policia;
         texto.setText(estado.reportarAlUsuario(robo.obtenerLadron()));
     }

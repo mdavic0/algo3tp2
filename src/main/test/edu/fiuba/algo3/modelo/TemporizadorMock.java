@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.policia.elementosDeTrabajo.Temporizador;
+
 import java.beans.PropertyChangeListener;
 
-import edu.fiuba.algo3.modelo.interfaces.ITemporizador;
+public class TemporizadorMock extends Temporizador {
 
-public class TemporizadorMock implements ITemporizador{
-
+    public TemporizadorMock() {
+        super(0,0);
+    }
     @Override
     public int horaActual() {
         return 0;

@@ -6,7 +6,7 @@ public class PistaDeVehiculo extends Pista{
     }
 
     @Override
-    String darFormato(String vehiculo) {
+    public String darFormato(String vehiculo) {
         return "Llego conduciendo ".concat(vehiculo).concat(". ");
     }
 }
