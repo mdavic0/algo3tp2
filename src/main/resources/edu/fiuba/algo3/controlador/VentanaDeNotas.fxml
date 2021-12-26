@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -38,7 +39,10 @@
 
                   <AnchorPane prefHeight="378.0" prefWidth="300.0">
                      <children>
-                        <ImageView fitHeight="450.0" fitWidth="375.0" layoutX="12.0" layoutY="28.0" pickOnBounds="true" />
+                        <ImageView fitHeight="450.0" fitWidth="375.0" layoutX="12.0" layoutY="28.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@pais.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
 

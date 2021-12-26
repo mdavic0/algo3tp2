@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaInicio">
+<SplitPane fx:id="raiz" dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.ControladorVentanaInicio">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -43,7 +41,14 @@
          <children>
             <SplitPane dividerPositions="0.675" orientation="VERTICAL" prefHeight="600.0" prefWidth="400.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="398.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="398.0">
+                     <children>
+                        <ImageView fitHeight="370.0" fitWidth="516.0" layoutX="-57.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interpol.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="166.0" prefWidth="398.0">
                      <children>
                         <Label layoutX="56.0" layoutY="60.0" prefHeight="71.0" prefWidth="287.0" text="Presione cualquier tecla para continuar..." wrapText="true">

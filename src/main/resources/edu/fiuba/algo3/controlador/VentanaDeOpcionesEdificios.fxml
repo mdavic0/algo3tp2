@@ -65,6 +65,9 @@
             <Image url="@Volver.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="283.0" fitWidth="691.0" layoutX="54.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="62.0" fitWidth="441.0" layoutX="248.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@edificios.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>
