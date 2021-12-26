@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.TextFlow;
 
 public class ControladorVentanaPais {
     Policia policia;
@@ -37,8 +38,7 @@ public class ControladorVentanaPais {
     private FXMLLoader selfLoader;
     private Pais pais;
 
-    List<Node> itemsQuitadosAlAnotar;
-    
+    public TextFlow contenedorDeNotas;
 
     public void inicializar(Policia policia, Pais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
         this.policia = policia;
@@ -47,9 +47,9 @@ public class ControladorVentanaPais {
         this.estado = estado;
         this.t = t;
         this.selfLoader = self;
+        this.contenedorDeNotas = new TextFlow();
         nombreLugar.setText(pais.nombre());
         diaYHora.setText(t.fechaActual());
-        //TODO descripcion de cada pais
         descripcionPais.setText(pais.descripcion());
 
         if (estado.juegoPerdido()){
@@ -82,7 +82,7 @@ public class ControladorVentanaPais {
             FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
             ventanaEdificio.load();
             ((ControladorVentanaEdificio) ventanaEdificio.getController())
-                .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader, ventanaEdificio);
+                .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader, ventanaEdificio, contenedorDeNotas);
             vistasEdificios.add(ventanaEdificio);
         }
 
@@ -136,7 +136,7 @@ public class ControladorVentanaPais {
         try {
             Parent padre = fxmlLoader.load();
             raiz.getScene().setRoot(padre);
-            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, selfLoader);
+            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, selfLoader, contenedorDeNotas);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);

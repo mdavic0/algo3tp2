@@ -21,7 +21,7 @@ public class ControladorVentanaNotas {
 
     @FXML
     public TextFlow contenedorDeNotas;
-
+    private TextFlow notas;
     @FXML
     public TextArea cosasParaAnotar;
 
@@ -29,16 +29,14 @@ public class ControladorVentanaNotas {
     public SplitPane raiz;
 
     private FXMLLoader ventanaARegresar;
-    private Policia paco;
 
-    public void inicializar (Policia paco, Temporizador t, FXMLLoader ventanaARegresar){
+    public void inicializar (Policia paco, Temporizador t, FXMLLoader ventanaARegresar, TextFlow notas){
 
         this.ventanaARegresar = ventanaARegresar;
-        this.paco = paco;
         this.nombreLugar.setText(paco.paisActual().nombre());
         this.diaYHora.setText(t.fechaActual());
-
-        contenedorDeNotas.getChildren().addAll((paco.notas).getChildren());
+        this.notas = notas;
+        this.contenedorDeNotas.getChildren().addAll(notas.getChildren());
     }
 
     public void anotar (){
@@ -47,8 +45,8 @@ public class ControladorVentanaNotas {
         cosasParaAnotar.clear();
     }
 
-    public void botonDeRegreso () throws IOException {
-        paco.actualizarNotas(contenedorDeNotas);
+    public void botonDeRegreso () {
+        notas.getChildren().addAll(contenedorDeNotas.getChildren());
         raiz.getScene().setRoot(ventanaARegresar.getRoot());
     }
 

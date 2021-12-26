@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.TextFlow;
 
 public class ControladorVentanaEdificio{
     Policia policia;
@@ -35,9 +36,9 @@ public class ControladorVentanaEdificio{
 
     private FXMLLoader ventanaARegresar;
     private FXMLLoader ventanaEdificio;
+    public TextFlow contenedorDeNotas;
 
-
-    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar, FXMLLoader ventanaEdificio) throws Exception {
+    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar, FXMLLoader ventanaEdificio, TextFlow contenedorDeNotas) throws Exception {
         this.policia = policia;
         this.edificio = edificio;
         this.robo = robo;
@@ -45,6 +46,7 @@ public class ControladorVentanaEdificio{
         this.t = t;
         this.ventanaEdificio = ventanaEdificio;
         this.ventanaARegresar = ventanaARegresar;
+        this.contenedorDeNotas = contenedorDeNotas;
     } 
     
     public void regresar(){
@@ -89,7 +91,7 @@ public class ControladorVentanaEdificio{
         try {
             Parent padre = fxmlLoader.load();
             raiz.getScene().setRoot(padre);
-            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, ventanaEdificio);
+            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, ventanaEdificio, contenedorDeNotas);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);

@@ -23,7 +23,6 @@ import edu.fiuba.algo3.modelo.policia.rangos.Rango;
 import edu.fiuba.algo3.modelo.robo.Ladron;
 import edu.fiuba.algo3.modelo.robo.Propiedad;
 import edu.fiuba.algo3.modelo.robo.artefacto.Artefacto;
-import javafx.scene.text.TextFlow;
 
 public class Policia {
 
@@ -35,16 +34,13 @@ public class Policia {
 
     int heridasPorCuchillo;
     int cantidadArrestos;
-    private String nombre;
-
-    public TextFlow notas;
+    private final String nombre;
     
     List<PropertyChangeListener> suscriptores = new ArrayList<PropertyChangeListener>();
 
     public Policia(String nombre) {
         lugarActual = new Inactivo();
         rango = new Novato();
-        notas = new TextFlow();
         ordenDeArresto = null;
         cantidadArrestos = 0;
         this.nombre = nombre;
@@ -54,7 +50,6 @@ public class Policia {
     public Policia() {
         lugarActual = new Inactivo();
         rango = new Novato();
-        notas = new TextFlow();
         ordenDeArresto = null;
         cantidadArrestos = 0;
         this.nombre = "Jugador";
@@ -72,10 +67,10 @@ public class Policia {
     public String imprimirRango() {
         return rango.getClass().getSimpleName();
     }
+
     /*
     Ubicar al policia en el juego tras generar el robo
     */
-
     public void asignarCaso(Pais pais, EstadoDeJuego estado, Temporizador temporizador, Computadora computadora){
         this.computadora = computadora;
         lugarActual = new FueraDeEdificio(pais);
@@ -171,7 +166,4 @@ public class Policia {
         return this.rango.generarArtefacto(artefactos);
     }
 
-    public void actualizarNotas(TextFlow nuevoTexto){
-        this.notas.getChildren().addAll(nuevoTexto.getChildren());
-    }
 }
