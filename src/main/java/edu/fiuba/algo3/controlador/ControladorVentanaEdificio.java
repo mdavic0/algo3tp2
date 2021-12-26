@@ -33,17 +33,17 @@ public class ControladorVentanaEdificio{
     @FXML
     public SplitPane raiz;
 
-    Parent notas;
-
     private FXMLLoader ventanaARegresar;
+    private FXMLLoader ventanaEdificio;
 
 
-    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar) throws Exception {
+    public void inicializar(Policia policia, Edificio edificio, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader ventanaARegresar, FXMLLoader ventanaEdificio) throws Exception {
         this.policia = policia;
         this.edificio = edificio;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
+        this.ventanaEdificio = ventanaEdificio;
         this.ventanaARegresar = ventanaARegresar;
     } 
     
@@ -73,6 +73,7 @@ public class ControladorVentanaEdificio{
         }
     }
 
+
     private void intentarAtraparLadron() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("VentanaFinDeJuego.fxml"));
         Parent nuevaRaiz = fxmlLoader.load();
@@ -80,4 +81,20 @@ public class ControladorVentanaEdificio{
         raiz.getItems().add(nuevaRaiz);
         ((ControladorVentanaFinDeJuego)fxmlLoader.getController()).inicializar(policia, estado, robo);
     }
+
+
+    public void anotar(){
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeNotas" + ".fxml"));
+
+        try {
+            Parent padre = fxmlLoader.load();
+            raiz.getScene().setRoot(padre);
+            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, ventanaEdificio);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+    }
+
 }

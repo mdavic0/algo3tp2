@@ -82,7 +82,7 @@ public class ControladorVentanaPais {
             FXMLLoader ventanaEdificio = new FXMLLoader(this.getClass().getResource("VentanaDeEdificio.fxml"));
             ventanaEdificio.load();
             ((ControladorVentanaEdificio) ventanaEdificio.getController())
-                .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader);
+                .inicializar(policia, policia.paisActual().edificios().get(i), robo, estado, t, selfLoader, ventanaEdificio);
             vistasEdificios.add(ventanaEdificio);
         }
 
@@ -130,6 +130,18 @@ public class ControladorVentanaPais {
         }
     }
 
+    public void anotar() {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeNotas" + ".fxml"));
+        try {
+            Parent padre = fxmlLoader.load();
+            raiz.getScene().setRoot(padre);
+            ((ControladorVentanaNotas)fxmlLoader.getController()).inicializar(policia, t, selfLoader);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
 
     public void notificarLlegada() throws Exception {
         policia.viajarA(pais);
