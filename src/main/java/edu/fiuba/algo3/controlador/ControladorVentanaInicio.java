@@ -21,6 +21,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.TextFlow;
 
 public class ControladorVentanaInicio  implements Initializable{
     private String ultimoInput;
@@ -62,7 +63,7 @@ public class ControladorVentanaInicio  implements Initializable{
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("VentanaDeJuego.fxml"));
         Scene escenaActual = inputJugador.getScene();
         escenaActual.setRoot(fxmlLoader.load());
-        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, policia.paisActual(), robo, estado, t, fxmlLoader);
+        ((ControladorVentanaPais)fxmlLoader.getController()).inicializar(policia, policia.paisActual(), robo, estado, t, fxmlLoader, new TextFlow());
     }
 
     public void imprimirTextoParaPoliciaNuevo (Policia policia){

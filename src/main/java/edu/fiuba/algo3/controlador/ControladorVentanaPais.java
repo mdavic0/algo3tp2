@@ -40,14 +40,14 @@ public class ControladorVentanaPais {
 
     public TextFlow contenedorDeNotas;
 
-    public void inicializar(Policia policia, Pais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self) throws IOException {
+    public void inicializar(Policia policia, Pais pais, Robo robo, EstadoDeJuego estado, Temporizador t, FXMLLoader self, TextFlow notas) throws IOException {
         this.policia = policia;
         this.pais = pais;
         this.robo = robo;
         this.estado = estado;
         this.t = t;
         this.selfLoader = self;
-        this.contenedorDeNotas = new TextFlow();
+        this.contenedorDeNotas = notas;
         nombreLugar.setText(pais.nombre());
         diaYHora.setText(t.fechaActual());
         descripcionPais.setText(pais.descripcion());
@@ -106,7 +106,7 @@ public class ControladorVentanaPais {
             try {
                 ventanaPais.load();
                 ((ControladorVentanaPais) ventanaPais.getController())
-                    .inicializar(policia, policia.paisActual().obtenerAdyacentes().get(i), robo, estado, t, ventanaPais);
+                    .inicializar(policia, policia.paisActual().obtenerAdyacentes().get(i), robo, estado, t, ventanaPais, contenedorDeNotas);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.exit(0);
@@ -149,7 +149,7 @@ public class ControladorVentanaPais {
     }
 
     public void actualizarInterfaz() throws IOException {
-        inicializar(policia, pais, robo, estado, t, selfLoader);
+        inicializar(policia, pais, robo, estado, t, selfLoader, contenedorDeNotas);
     }
 
     public void mostrarLadrones() throws Exception {
